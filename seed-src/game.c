@@ -51,7 +51,6 @@ STATUS game_set_object_location(Game* game, Id id);
 
 STATUS game_create(Game* game) {
   int i;
-  
   for (i = 0; i < MAX_SPACES; i++) {
     game->spaces[i] = NULL;
   }
@@ -139,12 +138,10 @@ STATUS game_set_player_location(Game* game, Id id) {
   }
 
   game->player_location = id;
-
+  return OK;
 }
 
 STATUS game_set_object_location(Game* game, Id id) {
-  
-  int i = 0;
 
   if (id == NO_ID) {
     return ERROR;
