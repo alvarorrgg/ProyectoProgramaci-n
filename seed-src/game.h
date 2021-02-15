@@ -1,6 +1,5 @@
 /** 
- * @brief It defines the game interface
- * for each command
+ * @brief Archivo cabecera de game.c contiene la estructura de datos game en la que se almacenan algunas caracteristicas del juego y algunas de las funciones publicas del programa.
  * 
  * @file game.h
  * @author Profesores PPROG

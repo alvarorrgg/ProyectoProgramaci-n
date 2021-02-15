@@ -1,59 +1,32 @@
+/** 
+ * @brief Implemente el inicio de juego y obtiene los valores iniciales de data.dat
+ * 
+ * @file game_reader.c
+ * @author Profesores PPROG
+ * @version 1.0 
+ * @date 13-01-2015 
+ * @copyright GNU Public License
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "game.h"
 #include "game_reader.h"
 
-
-
-STATUS game_add_space(Game* game, Space* space) {
-  int i = 0;
-
-  if (space == NULL) {
-    return ERROR;
-  }
-
-  while ( (i < MAX_SPACES) && (game->spaces[i] != NULL)){
-    i++;
-  }
-
-  if (i >= MAX_SPACES) {
-    return ERROR;
-  }
-
-  game->spaces[i] = space;
-
-  return OK;
-}
-
-
-Id game_get_space_id_at(Game* game, int position) {
-
-  if (position < 0 || position >= MAX_SPACES) {
-    return NO_ID;
-  }
-
-  return space_get_id(game->spaces[position]);
-}
-
-
-Space* game_get_space(Game* game, Id id){
-  int i = 0;
-
-  if (id == NO_ID) {
-    return NULL;
-  }
-    
-  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++) {
-    if (id == space_get_id(game->spaces[i])){
-      return game->spaces[i];
-    }
-  }
-    
-  return NULL;
-}
-
-
-STATUS game_load_spaces(Game* game, char* filename) {
+/**
+ * @brief Cargar espacios
+ *
+ * game_reader_load_spaces 
+ *
+ * @date 
+ * @author
+ *
+ * @param game el juego 
+ * @param nombre del archivo
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS game_reader_load_spaces(Game* game, char* filename) {
   FILE* file = NULL;
   char line[WORD_SIZE] = "";
   char name[WORD_SIZE] = "";
