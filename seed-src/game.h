@@ -15,11 +15,17 @@
 #include "command.h"
 #include "space.h"
 
+/**
+ * @brief La estructura game
+ *
+ * Almacena información del juego a tiempo real
+ */
+
 typedef struct _Game{
-  Id player_location;
-  Id object_location;
-  Space* spaces[MAX_SPACES + 1];
-  T_Command last_cmd;
+  Id player_location;		/*!< Localización del jugador*/
+  Id object_location;		/*!< Localización del objeto*/
+  Space* spaces[MAX_SPACES + 1];		/*!< */
+  T_Command last_cmd;		/*!< comando que se recibe del jugador*/
 } Game;
 
 STATUS game_create(Game* game);
