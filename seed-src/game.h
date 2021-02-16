@@ -5,7 +5,7 @@
  * @author Profesores PPROG
  * @version 1.0 
  * @date 13-01-2015 
- * @copyright GNU Public License
+ * @copyright GNU Licencia Pública
  */
 
 #ifndef GAME_H
@@ -23,7 +23,7 @@
 typedef struct _Game{
   Id player_location;		/*!< Localización del jugador*/
   Id object_location;		/*!< Localización del objeto*/
-  Space* spaces[MAX_SPACES + 1];		/*!< */
+  Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/
   T_Command last_cmd;		/*!< comando que se recibe del jugador*/
 } Game;
 

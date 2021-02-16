@@ -1,11 +1,11 @@
 /**
- * @brief It implements the command interpreter
+ * @brief Implementa el intérprete de comandos
  *
  * @file command.h
  * @author Profesores PPROG
  * @version 2.0
  * @date 13-01-2020
- * @copyright GNU Public License
+ * @copyright GNU Licencia Pública
  */
 
 #ifndef COMMAND_H
@@ -14,16 +14,26 @@
 #define N_CMDT 2
 #define N_CMD 5
 
+/**
+ * @brief Tipos de comandos
+ *
+ * Se declaran dos variables referentes al tipo de comando
+ */
 typedef enum enum_CmdType {
-  CMDS,
-  CMDL} T_CmdType;
+  CMDS,		/*!< Comando ... */
+  CMDL} T_CmdType;	/*!< Comando ... */
 
+/**
+ * @brief Comandos
+ *
+ * Da valores numéricos siguiendo un orden a las variables de la estructura
+ */
 typedef enum enum_Command {
-  NO_CMD = -1,
-  UNKNOWN,
-  EXIT,
-  NEXT,
-  BACK} T_Command;
+  NO_CMD = -1,		/*!< NO_CMD = -1*/
+  UNKNOWN,		/*!< UNKNOWN = 0*/
+  EXIT,		/*!< EXIT = 1*/
+  NEXT,		/*!< NEXT = 2*/
+  BACK} T_Command;	/*!< BACK = 3*/
 
 T_Command get_user_input();
 

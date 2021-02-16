@@ -1,11 +1,11 @@
 /** 
- * @brief It defines a space
+ * @brief Define un espacio
  * 
  * @file space.h
  * @author Profesores PPROG
  * @version 1.0 
  * @date 13-01-2015
- * @copyright GNU Public License
+ * @copyright GNU Licencia Pública
  */
 
 #ifndef SPACE_H
@@ -13,6 +13,11 @@
 
 #include "types.h"
 
+/**
+ * @brief Define un espacio
+ * 
+ * Estructura de espacio
+ */
 typedef struct _Space Space;
 
 #define MAX_SPACES 100
