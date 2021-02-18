@@ -1,3 +1,13 @@
+/** 
+ * @brief Archivo cabecera de la función object.h, en el se define la estructura de datos Object y sus funciones.
+ * 
+ * @file object.h
+ * @author R1
+ * @version 1.0 
+ * @date 18-02-2021 
+ * @copyright GNU Public License
+ */
+
 #ifndef OBJECT_H
 #define OBJECT_H
 
