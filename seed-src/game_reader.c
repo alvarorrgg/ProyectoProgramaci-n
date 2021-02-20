@@ -1,10 +1,10 @@
 /** 
- * @brief Implemente el inicio de juego y obtiene los valores iniciales de data.dat
+ * @brief Implementa el inicio de juego y obtiene los valores iniciales de data.dat
  * 
  * @file game_reader.c
- * @author Profesores PPROG
+ * @author R1
  * @version 1.0 
- * @date 13-01-2015 
+ * @date 18-02-2021  
  * @copyright GNU Public License
  */
 
@@ -22,9 +22,9 @@
  * @date 
  * @author
  *
- * @param game el juego 
- * @param nombre del archivo
- * @return OK para saber que se ha ejecutado la función correctamente
+ * @param recibe un puntero de tipo Game que es una estructura definida en "game.h" 
+ * @param nombre del archivo de donde se van a obtener los valores en este caso data.dat.
+ * @return devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. 
  */
 STATUS game_reader_load_spaces(Game* game, char* filename) {
   FILE* file = NULL;
