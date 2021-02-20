@@ -1,5 +1,5 @@
 /**
- * @brief It defines the game loop
+ * @brief Define el ciclo del juego
  *
  * @file game_loop.c
  * @author Profesores PPROG
@@ -16,6 +16,19 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
 void game_loop_run(Game game, Graphic_engine *gengine);
 void game_loop_cleanup(Game game, Graphic_engine *gengine);
 
+/**
+ *
+ * @brief función principal
+ *
+ * main es la función con la que comienza el programa
+ *
+ * @date
+ * @author
+ *
+ * @param argc cantidad de argumentos necesarios para que el programa funcione
+ * @param argv 
+ * @return 0 si la función se realiza correctamente
+ */
 int main(int argc, char *argv[]) {
   Game game;
   Graphic_engine *gengine;
@@ -33,6 +46,20 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+/**
+ *
+ * @brief función que inicializa el juego
+ *
+ * game_loop_init inicializa el juego llamando a las funciones que crean la parte principal del juego
+ *
+ * @date
+ * @author
+ *
+ * @param game juego que se crea
+ * @param gengine motor que se crea
+ * @param file_name nombre del fichero donde se cra el juego
+ * @return 0 si la función se realiza correctamente
+ */
 int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name){
   if (game_create_from_file(game, file_name) == ERROR) {
     fprintf(stderr, "Error while initializing game.\n");
@@ -48,6 +75,18 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name){
   return 0;
 }
 
+/**
+ *
+ * @brief función que hace que el juego corra
+ *
+ * game_loop_run continúa el juego una vez creado
+ *
+ * @date
+ * @author
+ *
+ * @param game juego que continúa
+ * @param gengine motor que se utiliza en el juego
+ */
 void game_loop_run(Game game, Graphic_engine *gengine){
   T_Command command = NO_CMD;
 
@@ -58,6 +97,18 @@ void game_loop_run(Game game, Graphic_engine *gengine){
   }
 }
 
+/**
+ *
+ * @brief función que finaliza el juego
+ *
+ * game_loop_cleanup finaliza el juego
+ *
+ * @date
+ * @author
+ *
+ * @param game juego que se destruye
+ * @param gengine motor que se destruye
+ */
 void game_loop_cleanup(Game game, Graphic_engine *gengine){
   game_destroy(&game);
   graphic_engine_destroy(gengine);

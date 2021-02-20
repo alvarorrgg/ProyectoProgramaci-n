@@ -16,38 +16,68 @@
 
 #define ACCESS(d, x, y) (d + ((y) * COLUMNS) + (x))
 
+/**
+ * @brief Dimensiones del área
+ *
+ *  Almacena las dimensiones del área de juego
+ */
 struct _Area{
-  int x, y, width, height;
-  char *cursor;
+  int x, y, width, height;	/*!< x del cursor, y del cursor, anchura, altura */
+  char *cursor;		/*!< Posición del cursor */
 };
 
 char *__data;
 
-/****************************/
-/*     Private functions    */
-/****************************/
+/*******************************/
+/*      Funciones privadas     */
+/*******************************/
 int  screen_area_cursor_is_out_of_bounds(Area* area);
 void screen_area_scroll_up(Area* area);
 void screen_utils_replaces_special_chars(char* str);
 
-/****************************/
-/* Functions implementation */
-/****************************/
+/*******************************/
+/* Implementación de funciones */
+/*******************************/
+
+/**
+ * @brief Inicia la pantalla
+ *
+ * screen_init muestra por la terminal la pantalla de juego
+ *
+ * @date
+ * @author
+ */
 void screen_init(){
-  screen_destroy(); /* Dispose if previously initialized */
+  screen_destroy(); /* Desechar si se inicializó previamente */
   __data = (char *) malloc(sizeof(char) * TOTAL_DATA);
 
   if (__data){
-    memset(__data, (int) BG_CHAR, TOTAL_DATA); /*Fill the background*/
-    *(__data + TOTAL_DATA - 1) = '\0';         /*NULL-terminated string*/
+    memset(__data, (int) BG_CHAR, TOTAL_DATA); /*Llenar el fondo*/
+    *(__data + TOTAL_DATA - 1) = '\0';         /*NULL-cadena terminada*/
   }
 }
 
+/**
+ * @brief Desecha la pantalla
+ *
+ * screen_destroy desecha la terminal que haya en pantalla
+ *
+ * @date
+ * @author
+ */
 void screen_destroy(){
   if (__data)
     free(__data);
 }
 
+/**
+ * @brief Inicia la pantalla
+ *
+ * screen_paint muestra por la terminal la pantalla de juego
+ *
+ * @date
+ * @author
+ */
 void screen_paint(){
   char *src = NULL;
   char dest[COLUMNS + 1];
@@ -56,10 +86,10 @@ void screen_paint(){
   memset(dest, 0, COLUMNS + 1);
 
   if (__data){
-    /* puts(__data); */ /*Dump data directly to the terminal*/
-    /*It works fine if the terminal window has the right size*/
+    /* pone(__data); */ /*Vuelca datos directamente a la terminal*/
+    /*Funciona bien si la ventana de la terminal tiene el tamaño correto*/
 
-    puts("\033[2J"); /*Clear the terminal*/
+    puts("\033[2J"); /*Vacia la terminal*/
     for (src=__data; src < (__data + TOTAL_DATA - 1); src+=COLUMNS){
       memcpy(dest, src, COLUMNS);
       /* printf("%s\n", dest); */
@@ -75,6 +105,16 @@ void screen_paint(){
   }
 }
 
+/**
+ * @brief Área de pantalla inicializada
+ *
+ * screen_area_init muestra por pantalla la pantalla del comienzo
+ * 
+ * @param x x del cursor
+ * @param y y del cursor
+ * @param width la anchura de la pantalla
+ * @param height la altura de la pantalla
+ */
 Area* screen_area_init(int x, int y, int width, int height){
   int i = 0;
   Area* area = NULL;
@@ -89,11 +129,25 @@ Area* screen_area_init(int x, int y, int width, int height){
   return area;
 }
 
+/**
+ * @brief Área de pantalla destruida
+ *
+ * screen_area_destroy destruye la pantalla mostrada por la terminal
+ * 
+ * @param área de la pantalla que se va a destruir
+ */
 void screen_area_destroy(Area* area){
   if(area)
     free(area);
 }
 
+/**
+ * @brief Área que se limpia
+ *
+ * screen_area_init despeja la pantalla que hay en la terminal
+ * 
+ * @param área de la pantalla que se va a despejar
+ */
 void screen_area_clear(Area* area){
   int i = 0;
 
@@ -105,11 +159,25 @@ void screen_area_clear(Area* area){
   }
 }
 
+/**
+ * @brief Se resetea el cursor
+ *
+ * screen_area_reset_cursor resetea el cursor en pantalla
+ * 
+ * @param área donde se resetea el cursor
+ */
 void screen_area_reset_cursor(Area* area){
   if (area)
     area->cursor = ACCESS(__data, area->x, area->y);
 }
 
+/**
+ * @brief Se resetea el cursor
+ *
+ * screen_area_puts no la entiendo ;)
+ * 
+ * @param área donde se resetea el cursor
+ */
 void screen_area_puts(Area* area, char *str){
   int len = 0;
   char *ptr = NULL;
@@ -127,12 +195,27 @@ void screen_area_puts(Area* area, char *str){
   }
 }
 
+/**
+ * @brief El cursor está fuera de los límites
+ *
+ * screen_area_cursor_is_out_of_bounds comprueba si el cursor está fuera de los límites de la pantalla
+ * 
+ * @param área donde está el cursor
+ * @return la posición del cursor
+ */
 int screen_area_cursor_is_out_of_bounds(Area* area){
   return area->cursor > ACCESS(__data,
 			       area->x + area->width,
 			       area->y + area->height - 1);
 }
 
+/**
+ * @brief a pantalla se desplaza hacia arriba
+ *
+ * screen_area_scroll_up desplaza la pantalla hacia arriba para que pueda salir la siguiente
+ * 
+ * @param área que se desplaza
+ */
 void screen_area_scroll_up(Area* area){
   for(area->cursor = ACCESS(__data, area->x, area->y);
       area->cursor < ACCESS(__data, area->x + area->width, area->y + area->height - 2);
@@ -141,10 +224,17 @@ void screen_area_scroll_up(Area* area){
   }
 }
 
+/**
+ * @brief reemplaza los caracteres especiales por otros
+ *
+ * screen_utils_replaces_special_chars sirve para reemplazar los caracteres no permitidos por otros
+ * 
+ * @param str carácter que se va a reemplazar
+ */
 void screen_utils_replaces_special_chars(char* str){
   char *pch = NULL;
 
-  /* Replaces acutes and tilde with '??' */
+  /* Reemplaza acentos y tildes con '??' */
   while ((pch = strpbrk (str, "ÁÉÍÓÚÑáéíóúñ")))
     memcpy(pch, "??", 2);
 }

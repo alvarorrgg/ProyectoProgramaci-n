@@ -4,16 +4,32 @@
 #include "types.h"
 #include "space.h"
 
+/**
+ * @brief Estructura space
+ *
+ * contiene las variables del espacio
+ */
 struct _Space {
-  Id id;
-  char name[WORD_SIZE + 1];
-  Id north;
-  Id south;
-  Id east;
-  Id west;
-  BOOL object;
+  Id id;		/*!< coordenadas */
+  char name[WORD_SIZE + 1];	/*!< nombre del espacio */
+  Id north;		/*!< coordenada norte */
+  Id south;		/*!< coordenada sur */
+  Id east;		/*!< coordenada este */
+  Id west;		/*!< coordenada oeste */
+  BOOL object;		/*!< objeto (TRUE o FALSE) */
 };
 
+/**
+ * @brief crea un nuevo espacio
+ *
+ * space_create crea un nuevo espacio inicializando las coordenadas a -1
+ * 
+ * @date
+ * @author
+ *
+ * @param id
+ * @return newspace le espacio que se crea
+ */
 Space* space_create(Id id) {
 
   Space *newSpace = NULL;
@@ -40,6 +56,17 @@ Space* space_create(Id id) {
   return newSpace;
 }
 
+/**
+ * @brief destruye un espacio
+ *
+ * space_destroy destruye un espacio creado previamente
+ * 
+ * @date
+ * @author
+ *
+ * @param space el espacio que se destruye
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
 STATUS space_destroy(Space* space) {
   if (!space) {
     return ERROR;
@@ -51,6 +78,18 @@ STATUS space_destroy(Space* space) {
   return OK;
 }
 
+/**
+ * @brief da nombre a un espacio
+ *
+ * space_set_name da nombre a un espacio
+ * 
+ * @date
+ * @author
+ *
+ * @param space el espacio al que se le pone el nombre
+ * @param name el nombre que se le da
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
 STATUS space_set_name(Space* space, char* name) {
   if (!space || !name) {
     return ERROR;

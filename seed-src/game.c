@@ -17,18 +17,21 @@
 #define N_CALLBACK 4
 
 /**
-   Define the function type for the callbacks
-*/
+ * Define el tipo de funciones para las devoluciones de llamada
+ */
 typedef void (*callback_fn)(Game* game);
 
 /**
-   List of callbacks for each command in the game 
-*/
+ * Lista de devoluciones de llamada por cada comando en el juego 
+ */
 void game_callback_unknown(Game* game);
 void game_callback_exit(Game* game);
 void game_callback_next(Game* game);
 void game_callback_back(Game* game);
 
+/**
+ * Array que guarda los comandos
+ */
 static callback_fn game_callback_fn_list[N_CALLBACK]={
   game_callback_unknown,
   game_callback_exit,
@@ -123,7 +126,7 @@ STATUS game_destroy(Game* game) {
 /**
  * @brief Añade un nuevo espacio al juego
  *
- * game_add_space Empieza comprobando si el segundo parametro es NULL, luego mediante un bucle determina cual es la primera casilla con valor NULL para añadir un espacio en ella. También comprueba que no se haya sobrepasado el limite de casillas
+ * game_add_space Comprueba si el segundo parametro es NULL, luego mediante un bucle determina cual es la primera casilla con valor NULL para añadir un espacio en ella. También comprueba que no se haya sobrepasado el limite de casillas
  *
  * @date 
  * @author
@@ -204,7 +207,7 @@ Space* game_get_space(Game* game, Id id){
 /**
  * @brief Establece la posición del jugador
  *
- * game_set_player_location comienza comprobando si el segundo parametro es -1
+ * game_set_player_location Comienza comprobando si el segundo parametro es -1
  *
  * @date 
  * @author
@@ -227,7 +230,7 @@ STATUS game_set_player_location(Game* game, Id id) {
 /**
  * @brief Establece la posición del objeto
  *
- * game_set_objet_location comienza comprobando si el segundo parametro es -1
+ * game_set_objet_location Comprueba si el segundo parametro es -1
  *
  * @date 
  * @author
@@ -281,13 +284,13 @@ Id game_get_object_location(Game* game) {
 /**
  * @brief Actualiza el juego
  *
- * game_update averigua la posición del jugador
+ * game_update el juego se actualiza en dependencia del comando introducido
  *
  * @date 
  * @author
  *
  * @param game el juego que se actualiza
- * @param cmd 
+ * @param cmd comando introducido
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_update(Game* game, T_Command cmd) {

@@ -1,5 +1,5 @@
 /**
- * @brief It defines a screen
+ * @brief Define una pantalla
  *
  * @file screen.h
  * @author Profesores PPROG
@@ -13,6 +13,11 @@
 
 #define SCREEN_MAX_STR 80
 
+/**
+ * @brief Define un área
+ * 
+ * Estructura de área
+ */
 typedef struct _Area Area;
 
 void  screen_init();

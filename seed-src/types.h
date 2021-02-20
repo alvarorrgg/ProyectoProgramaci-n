@@ -5,7 +5,7 @@
  * @author Profesores PPROG
  * @version 1.0
  * @date 13-01-2015
- * @copyright GNU Licencia Pública
+ * @copyright GNU Public License
  */
 
 #ifndef TYPES_H

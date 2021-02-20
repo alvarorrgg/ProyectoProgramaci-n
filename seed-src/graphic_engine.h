@@ -5,7 +5,7 @@
  * @author Profesores PPROG
  * @version 2.0
  * @date 07-02-2021
- * @copyright GNU Licencia Pública
+ * @copyright GNU Public License
  */
 
 #ifndef __GRAPHIC_ENGINE__

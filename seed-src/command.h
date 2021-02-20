@@ -5,7 +5,7 @@
  * @author Profesores PPROG
  * @version 2.0
  * @date 13-01-2020
- * @copyright GNU Licencia Pública
+ * @copyright GNU Public License
  */
 
 #ifndef COMMAND_H
