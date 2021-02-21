@@ -1,5 +1,5 @@
 /** 
- * @brief It implements the command interpreter
+ * @brief Implementa el intérprete de comandos
  * 
  * @file command.c
  * @author Profesores PPROG
@@ -14,20 +14,38 @@
 
 #define CMD_LENGHT 30
 
-	char *cmd_to_str[N_CMD]
-[N_CMDT] = {{"",
-	"No command"}, {"",
-	"Unknown"},
-{"e","Exit"}, {"n",
-			"Next"}, {"b","Back"}};
+char *cmd_to_str[N_CMD][N_CMDT] = {
+  {"", "No command"}, 
+  {"", "Unknown"}, 
+  {"e","Exit"}, 
+  {"n", "Next"}, 
+  {"b","Back"}};
 
+/**
+ * @brief obtiene la entrada del usuario
+ *
+ * get_user_imput sirve para saber que comando a introducido el usuario
+ *
+ * @date 13-01-2020
+ * @author Profesores PPROG
+ *
+ * @return cmd el comando introducido por el jugador
+ */
 T_Command get_user_input(){
-T_Command cmd = NO_CMD;char 
-					input[CMD_LENGHT] = "";int i= 
-		UNKNOWN - NO_CMD + 1;
-if (scanf("%s", 
-input) > 0)	{cmd = UNKNOWN;while(cmd == 
-	UNKNOWN && i < N_CMD){if (!strcasecmp(
-input, cmd_to_str[i]			[CMDS])|| !
-	strcasecmp(input, cmd_to_str[i][CMDL])){
-cmd = i + NO_CMD;}else{i++;}}}return cmd;}
+  T_Command cmd = NO_CMD;
+  char input[CMD_LENGHT] = "";
+  int i= UNKNOWN - NO_CMD + 1;
+	
+  if (scanf("%s",  input) > 0){
+    cmd = UNKNOWN;
+    while(cmd == UNKNOWN && i < N_CMD){
+      if (!strcasecmp( input, cmd_to_str[i][CMDS]) || !strcasecmp(input, cmd_to_str[i][CMDL])){
+        cmd = i + NO_CMD;
+      }
+      else{
+        i++;
+      }
+    }
+  }
+  return cmd;
+}

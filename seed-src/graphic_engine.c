@@ -4,10 +4,29 @@
 #include "graphic_engine.h"
 #include "command.h"
 
+/**
+ * @brief carácteristicas del motor gráfico
+ *
+ * Contiene la información necesaria del motor gráfico
+ */
 struct _Graphic_engine{
-  Area *map, *descript, *banner, *help, *feedback;
+  Area *map,		/*!< el mapa */
+  Area *descript,	/*!< la descripción */
+  Area *banner,	/*!< el banner */
+  Area *help,		/*!< la ayuda */
+  Area *feedback;	/*!< los comentarios */
 };
 
+/**
+ * @brief crea el motor gráfico
+ *
+ * graphic_engine_create crea un motor gráfico de 0
+ *
+ * @date
+ * @author Profesores PPROG 
+ *
+ * @return ge el motor gráfico
+ */
 Graphic_engine *graphic_engine_create(){
   static Graphic_engine *ge = NULL;
 
@@ -28,6 +47,16 @@ Graphic_engine *graphic_engine_create(){
   return ge;
 }
 
+/**
+ * @brief destruye el motor gráfico
+ *
+ * graphic_engine_destroy destruye un motor gráfico
+ *
+ * @date
+ * @author Profesores PPROG 
+ *
+ * @param ge el motor gráfico que se va a destruir
+ */
 void graphic_engine_destroy(Graphic_engine *ge){
   if (!ge)
     return;
@@ -42,6 +71,17 @@ void graphic_engine_destroy(Graphic_engine *ge){
   free(ge);
 }
 
+/**
+ * @brief imprime por pantalla el juego a partir del motor gráfico
+ *
+ * graphic_engine_paint_game muestra por pantalla el juego creado
+ *
+ * @date
+ * @author Profesores PPROG 
+ *
+ * @param ge el motor gráfico que se utiliza
+ * @param game el juego que se muestra por pantalla
+ */
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game){
   Id id_act = NO_ID, id_back = NO_ID, id_next = NO_ID, obj_loc = NO_ID;
   Space* space_act = NULL;
@@ -51,7 +91,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game){
   extern char *cmd_to_str[N_CMD][N_CMDT];
 
 
-  /* Paint the in the map area */
+  /* Pintar en el área del mapa */
   screen_area_clear(ge->map);
   if ((id_act = game_get_player_location(game)) != NO_ID){
     space_act = game_get_space(game, id_act);
@@ -107,29 +147,29 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game){
     }
   }
 
-  /* Paint in the description area */
+  /* Pinta en el área de la despcripción */
   screen_area_clear(ge->descript);
   if ((obj_loc = game_get_object_location(game)) != NO_ID){
     sprintf(str, "  Object location:%d", (int)obj_loc);
     screen_area_puts(ge->descript, str);
   }
 
-  /* Paint in the banner area */
+  /* Pinta en el área del banner */
   screen_area_puts(ge->banner, " The game of the Goose ");
 
-  /* Paint in the help area */
+  /* Pinta en el área de ayuda */
   screen_area_clear(ge->help);
   sprintf(str, " The commands you can use are:");
   screen_area_puts(ge->help, str);
   sprintf(str, "     next or n, back or b, exit or e");
   screen_area_puts(ge->help, str);
 
-  /* Paint in the feedback area */
+  /* Pinta en el área de comentarios */
   last_cmd = game_get_last_command(game);
   sprintf(str, " %s (%s)", cmd_to_str[last_cmd-NO_CMD][CMDL], cmd_to_str[last_cmd-NO_CMD][CMDS]);
   screen_area_puts(ge->feedback, str);
 
-  /* Dump to the terminal */
+  /* Volcarlo en la terminal */
   screen_paint();
   printf("prompt:> ");
 }
