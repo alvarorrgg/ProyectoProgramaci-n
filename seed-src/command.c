@@ -14,12 +14,7 @@
 
 #define CMD_LENGHT 30
 /*brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
-char *cmd_to_str[N_CMD][N_CMDT] = {
-  {"", "No command"}, 
-  {"", "Unknown"}, 
-  {"e","Exit"}, 
-  {"n", "Next"}, 
-  {"b","Back"}};
+char *cmd_to_str[N_CMD][N_CMDT] = {{"", "No command"}, {"", "Unknown"}, {"e","Exit"},{"n","Next"}, {"b","Back"}};
 
 T_Command get_user_input(){
   T_Command cmd = NO_CMD;

@@ -17,8 +17,7 @@ struct _Graphic_engine{
 Graphic_engine *graphic_engine_create(){
   static Graphic_engine *ge = NULL;
 
-  if (ge)
-    return ge;
+  if (ge) return ge;
 
   screen_init();
   ge = (Graphic_engine *) malloc(sizeof(Graphic_engine));
@@ -36,8 +35,7 @@ Graphic_engine *graphic_engine_create(){
 
 
 void graphic_engine_destroy(Graphic_engine *ge){
-  if (!ge)
-    return;
+  if (!ge)return;
 
   screen_area_destroy(ge->map);
   screen_area_destroy(ge->descript);
@@ -65,10 +63,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game){
     id_back = space_get_north(space_act);
     id_next = space_get_south(space_act);
 
-    if (game_get_object_location(game) == id_back)
-      obj='*';
-    else
-      obj=' ';
+    if (game_get_object_location(game) == id_back) obj='*';
+    
+    else obj=' ';
 
     if (id_back != NO_ID) {
       sprintf(str, "  |         %2d|",(int) id_back);
@@ -81,10 +78,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game){
       screen_area_puts(ge->map, str);
     }
 
-    if (game_get_object_location(game) == id_act)
-      obj='*';
-    else
-      obj=' ';
+    if (game_get_object_location(game) == id_act) obj='*';
+    
+    else obj=' ';
 
     if (id_act != NO_ID) {
       sprintf(str, "  +-----------+");
@@ -97,10 +93,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game){
       screen_area_puts(ge->map, str);
     }
 
-    if (game_get_object_location(game) == id_next)
-      obj='*';
-    else
-      obj=' ';
+    if (game_get_object_location(game) == id_next) obj='*';
+    
+    else obj=' ';
 
     if (id_next != NO_ID) {
       sprintf(str, "        v");

@@ -24,14 +24,10 @@ STATUS game_reader_load_spaces(Game* game, char* filename) {
   Space* space = NULL;
   STATUS status = OK;
   
-  if (!filename) {
-    return ERROR;
-  }
-  
+  if (!filename) return ERROR;
+      
   file = fopen(filename, "r");
-  if (file == NULL) {
-    return ERROR;
-  }
+  if (file == NULL) return ERROR;
   
   while (fgets(line, WORD_SIZE, file)) {
     if (strncmp("#s:", line, 3) == 0) {
@@ -61,10 +57,7 @@ STATUS game_reader_load_spaces(Game* game, char* filename) {
       }
     }
   }
-  
-  if (ferror(file)) {
-    status = ERROR;
-  }
+  if (ferror(file)) status = ERROR;
   
   fclose(file);
   

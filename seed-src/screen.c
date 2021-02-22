@@ -22,17 +22,49 @@
  *  Almacena las dimensiones del área de juego
  */
 struct _Area{
-  int x, y, width, height;	/*!< x del cursor, y del cursor, anchura, altura */
+  int x;
+  int y;
+  int width;
+  int height;	/*!< x del cursor, y del cursor, anchura, altura */
   char *cursor;		/*!< Posición del cursor */
 };
 
 char *__data;
-
-/*******************************/
-/*      Funciones privadas     */
-/*******************************/
+/**
+ * @brief El cursor está fuera de los límites
+ *
+ * screen_area_cursor_is_out_of_bounds comprueba si el cursor está fuera de los límites de la pantalla
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param área donde está el cursor
+ * @return la posición del cursor
+ */
 int  screen_area_cursor_is_out_of_bounds(Area* area);
+
+/**
+ * @brief a pantalla se desplaza hacia arriba
+ *
+ * screen_area_scroll_up desplaza la pantalla hacia arriba para que pueda salir la siguiente
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param área que se desplaza
+ */
 void screen_area_scroll_up(Area* area);
+
+/**
+ * @brief reemplaza los caracteres especiales por otros
+ *
+ * screen_utils_replaces_special_chars sirve para reemplazar los caracteres no permitidos por otros
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param str carácter que se va a reemplazar
+ */
 void screen_utils_replaces_special_chars(char* str);
 
 /*******************************/
@@ -52,8 +84,7 @@ void screen_init(){
 
 
 void screen_destroy(){
-  if (__data)
-    free(__data);
+  if (__data) free(__data);
 }
 
 
@@ -92,8 +123,7 @@ Area* screen_area_init(int x, int y, int width, int height){
   if ( (area  = (Area*) malloc (sizeof(struct _Area))) ){
     *area = (struct _Area) {x, y, width, height, ACCESS(__data, x, y)};
 
-    for (i=0; i < area->height; i++)
-      memset(ACCESS(area->cursor, 0, i), (int) FG_CHAR, (size_t) area->width);
+    for (i=0; i < area->height; i++) memset(ACCESS(area->cursor, 0, i), (int) FG_CHAR, (size_t) area->width);
   }
 
   return area;
@@ -101,8 +131,7 @@ Area* screen_area_init(int x, int y, int width, int height){
 
 
 void screen_area_destroy(Area* area){
-  if(area)
-    free(area);
+  if(area) free(area);
 }
 
 void screen_area_clear(Area* area){
@@ -111,22 +140,19 @@ void screen_area_clear(Area* area){
   if (area){
     screen_area_reset_cursor(area);
 
-    for (i=0; i < area->height; i++)
-      memset(ACCESS(area->cursor, 0, i), (int) FG_CHAR, (size_t) area->width);
+    for (i=0; i < area->height; i++) memset(ACCESS(area->cursor, 0, i), (int) FG_CHAR, (size_t) area->width);
   }
 }
 
 void screen_area_reset_cursor(Area* area){
-  if (area)
-    area->cursor = ACCESS(__data, area->x, area->y);
+  if (area) area->cursor = ACCESS(__data, area->x, area->y);
 }
 
 void screen_area_puts(Area* area, char *str){
   int len = 0;
   char *ptr = NULL;
 
-  if (screen_area_cursor_is_out_of_bounds(area))
-    screen_area_scroll_up(area);
+  if (screen_area_cursor_is_out_of_bounds(area)) screen_area_scroll_up(area);
 
   screen_utils_replaces_special_chars(str);
 
@@ -138,55 +164,22 @@ void screen_area_puts(Area* area, char *str){
   }
 }
 
-/**
- * @brief El cursor está fuera de los límites
- *
- * screen_area_cursor_is_out_of_bounds comprueba si el cursor está fuera de los límites de la pantalla
- *
- * @date 18-02-2021
- * @author Profesores PProg
- *
- * @param área donde está el cursor
- * @return la posición del cursor
- */
+
 int screen_area_cursor_is_out_of_bounds(Area* area){
-  return area->cursor > ACCESS(__data,
-			       area->x + area->width,
-			       area->y + area->height - 1);
+  return area->cursor > ACCESS(__data,area->x + area->width,area->y + area->height - 1);
 }
 
-/**
- * @brief a pantalla se desplaza hacia arriba
- *
- * screen_area_scroll_up desplaza la pantalla hacia arriba para que pueda salir la siguiente
- *
- * @date 18-02-2021
- * @author Profesores PProg
- *
- * @param área que se desplaza
- */
 void screen_area_scroll_up(Area* area){
   for(area->cursor = ACCESS(__data, area->x, area->y);
-      area->cursor < ACCESS(__data, area->x + area->width, area->y + area->height - 2);
+  area->cursor < ACCESS(__data, area->x + area->width, area->y + area->height - 2);
       area->cursor += COLUMNS){
     memcpy(area->cursor, area->cursor+COLUMNS, area->width);
   }
 }
 
-/**
- * @brief reemplaza los caracteres especiales por otros
- *
- * screen_utils_replaces_special_chars sirve para reemplazar los caracteres no permitidos por otros
- *
- * @date 18-02-2021
- * @author Profesores PProg
- *
- * @param str carácter que se va a reemplazar
- */
 void screen_utils_replaces_special_chars(char* str){
   char *pch = NULL;
 
   /* Reemplaza acentos y tildes con '??' */
-  while ((pch = strpbrk (str, "ÁÉÍÓÚÑáéíóúñ")))
-    memcpy(pch, "??", 2);
+  while ((pch = strpbrk (str, "ÁÉÍÓÚÑáéíóúñ"))) memcpy(pch, "??", 2);
 }

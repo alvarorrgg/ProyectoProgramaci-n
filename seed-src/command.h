@@ -21,7 +21,8 @@
  */
 typedef enum enum_CmdType {
   CMDS,		/*!< Comando ... */
-  CMDL} T_CmdType;	/*!< Comando ... */
+  CMDL,
+  } T_CmdType;	/*!< Comando ... */
 
 /**
  * @brief Comandos
@@ -33,7 +34,8 @@ typedef enum enum_Command {
   UNKNOWN,		/*!< UNKNOWN = 0*/
   EXIT,		/*!< EXIT = 1*/
   NEXT,		/*!< NEXT = 2*/
-  BACK} T_Command;	/*!< BACK = 3*/
+  BACK,
+  } T_Command;	/*!< BACK = 3*/
 /**
  * @brief obtiene la entrada del usuario
  *
