@@ -14,5 +14,17 @@
 /**
 	Definición de funciones públicas.
 */
+/**
+ * @brief Cargar espacios
+ *
+ * game_reader_load_spaces 
+ *
+ * @date 18-02-2021 
+ * @author R1
+ *
+ * @param recibe un puntero de tipo Game que es una estructura definida en "game.h" 
+ * @param nombre del archivo de donde se van a obtener los valores en este caso data.dat.
+ * @return devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. 
+ */
 STATUS game_reader_load_spaces(Game* game, char* filename);
 #endif

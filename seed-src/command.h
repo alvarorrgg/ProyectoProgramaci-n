@@ -34,7 +34,16 @@ typedef enum enum_Command {
   EXIT,		/*!< EXIT = 1*/
   NEXT,		/*!< NEXT = 2*/
   BACK} T_Command;	/*!< BACK = 3*/
-
+/**
+ * @brief obtiene la entrada del usuario
+ *
+ * get_user_imput sirve para saber que comando a introducido el usuario
+ *
+ * @date 13-01-2020
+ * @author Profesores PPROG
+ *
+ * @return cmd el comando introducido por el jugador
+ */
 T_Command get_user_input();
 
 #endif

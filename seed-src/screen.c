@@ -39,14 +39,7 @@ void screen_utils_replaces_special_chars(char* str);
 /* Implementación de funciones */
 /*******************************/
 
-/**
- * @brief Inicia la pantalla
- *
- * screen_init muestra por la terminal la pantalla de juego
- *
- * @date
- * @author
- */
+
 void screen_init(){
   screen_destroy(); /* Desechar si se inicializó previamente */
   __data = (char *) malloc(sizeof(char) * TOTAL_DATA);
@@ -57,27 +50,13 @@ void screen_init(){
   }
 }
 
-/**
- * @brief Desecha la pantalla
- *
- * screen_destroy desecha la terminal que haya en pantalla
- *
- * @date
- * @author
- */
+
 void screen_destroy(){
   if (__data)
     free(__data);
 }
 
-/**
- * @brief Inicia la pantalla
- *
- * screen_paint muestra por la terminal la pantalla de juego
- *
- * @date
- * @author
- */
+
 void screen_paint(){
   char *src = NULL;
   char dest[COLUMNS + 1];
@@ -105,16 +84,7 @@ void screen_paint(){
   }
 }
 
-/**
- * @brief Área de pantalla inicializada
- *
- * screen_area_init muestra por pantalla la pantalla del comienzo
- * 
- * @param x x del cursor
- * @param y y del cursor
- * @param width la anchura de la pantalla
- * @param height la altura de la pantalla
- */
+
 Area* screen_area_init(int x, int y, int width, int height){
   int i = 0;
   Area* area = NULL;
@@ -129,25 +99,12 @@ Area* screen_area_init(int x, int y, int width, int height){
   return area;
 }
 
-/**
- * @brief Área de pantalla destruida
- *
- * screen_area_destroy destruye la pantalla mostrada por la terminal
- * 
- * @param área de la pantalla que se va a destruir
- */
+
 void screen_area_destroy(Area* area){
   if(area)
     free(area);
 }
 
-/**
- * @brief Área que se limpia
- *
- * screen_area_init despeja la pantalla que hay en la terminal
- * 
- * @param área de la pantalla que se va a despejar
- */
 void screen_area_clear(Area* area){
   int i = 0;
 
@@ -159,25 +116,11 @@ void screen_area_clear(Area* area){
   }
 }
 
-/**
- * @brief Se resetea el cursor
- *
- * screen_area_reset_cursor resetea el cursor en pantalla
- * 
- * @param área donde se resetea el cursor
- */
 void screen_area_reset_cursor(Area* area){
   if (area)
     area->cursor = ACCESS(__data, area->x, area->y);
 }
 
-/**
- * @brief Se resetea el cursor
- *
- * screen_area_puts no la entiendo ;)
- * 
- * @param área donde se resetea el cursor
- */
 void screen_area_puts(Area* area, char *str){
   int len = 0;
   char *ptr = NULL;
@@ -199,7 +142,10 @@ void screen_area_puts(Area* area, char *str){
  * @brief El cursor está fuera de los límites
  *
  * screen_area_cursor_is_out_of_bounds comprueba si el cursor está fuera de los límites de la pantalla
- * 
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
  * @param área donde está el cursor
  * @return la posición del cursor
  */
@@ -213,7 +159,10 @@ int screen_area_cursor_is_out_of_bounds(Area* area){
  * @brief a pantalla se desplaza hacia arriba
  *
  * screen_area_scroll_up desplaza la pantalla hacia arriba para que pueda salir la siguiente
- * 
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
  * @param área que se desplaza
  */
 void screen_area_scroll_up(Area* area){
@@ -228,7 +177,10 @@ void screen_area_scroll_up(Area* area){
  * @brief reemplaza los caracteres especiales por otros
  *
  * screen_utils_replaces_special_chars sirve para reemplazar los caracteres no permitidos por otros
- * 
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
  * @param str carácter que se va a reemplazar
  */
 void screen_utils_replaces_special_chars(char* str){

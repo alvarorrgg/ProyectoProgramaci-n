@@ -27,15 +27,145 @@ typedef struct _Game{
   T_Command last_cmd;		/*!< comando que se recibe del jugador*/
 } Game;
 
+/**
+ * @brief Crea el juego
+ *
+ * game_create Crea el juego declarando todos los espacios del tablero a NULL e inicializa la posición del jugador y del objeto a -1, al igual que el comando introducido por el jugador
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego que se va a crear
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
 STATUS game_create(Game* game);
+/**
+ * @brief Crea el juego en un fichero
+ *
+ * game_create_from_file Primero se comprueba si se crea o no el juego y si se ejecuta correctamente la funcion game_reader_load_spaces y establece la posición del jugador y del objeto a 0
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego que se ha a creado
+ * @param filename el nombre del fichero
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
 STATUS game_create_from_file(Game* game, char* filename);
+
+/**
+ * @brief Destruye el fichero
+ *
+ * game_destroy comienza con un bucle para establecer a NULL todas las casillas del juego que no lo estén
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego que se va a "vaciar"
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+ STATUS game_destroy(Game* game);
+ 
+/**
+ * @brief Actualiza el juego
+ *
+ * game_update el juego se actualiza en dependencia del comando introducido
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego que se actualiza
+ * @param cmd comando introducido
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
 STATUS game_update(Game* game, T_Command cmd);
-STATUS game_destroy(Game* game);
+/**
+ * @brief Termina el juego
+ *
+ * game_is_over se encarga de poner fin al juego
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego que finaliza
+ * @return FALSE para saber que se ha ejecutado la función correctamente 
+ */
 BOOL   game_is_over(Game* game);
+
+/**
+ * @brief Escribe por pantalla los datos de la partida
+ *
+ * game_print_data se encarga de poner pon pantalla los datos de la partida
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego del cual se escriben los datos
+ */
 void   game_print_data(Game* game);
+/**
+ * @brief Identifica un espacio del juego
+ *
+ * game_get_space Comprueba si el segundo parametro es menor a 0 o mayor o igual al espacio máximo, en el caso de que se cumpla una de estas dos cosas la función retorna -1
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego del que se va a identificar el espacio
+ * @param position la posición del espacio
+ * @return la función space_get_id con la posición position del juego
+ */
 Space* game_get_space(Game* game, Id id);
+/**
+ * @brief Determina la posición del jugador
+ *
+ * game_get_player_location averigua la posición del jugador
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego donde se determian la posición del jugador
+ * @return la posición del jugador
+ */
 Id     game_get_player_location(Game* game);
+/**
+ * @brief Determina la posición del objeto
+ *
+ * game_get_objet_location averigua la posición del objeto
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego donde se determian la posición del objeto
+ * @return la posición del objeto
+ */
 Id     game_get_object_location(Game* game);
+
+/**
+ * @brief Encuentra el último comando introducido
+ *
+ * game_get_last_command averigua el último comando introducido
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego del que se quiere averiguar el último comando introducido
+ * @param cmd 
+ * @return el último comando introducido
+ */
 T_Command game_get_last_command(Game* game);
+
+/**
+ * @brief Añade un nuevo espacio al juego
+ *
+ * game_add_space Comprueba si el segundo parametro es NULL, luego mediante un bucle determina cual es la primera casilla con valor NULL para añadir un espacio en ella. También comprueba que no se haya sobrepasado el limite de casillas
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego al que se va a añadir un espacio
+ * @param space el espacio que se va a añadir
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
 STATUS game_add_space(Game* game, Space* space);
 #endif

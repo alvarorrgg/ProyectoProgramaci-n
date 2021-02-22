@@ -13,7 +13,7 @@
 #include "command.h"
 
 #define CMD_LENGHT 30
-
+/*brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
 char *cmd_to_str[N_CMD][N_CMDT] = {
   {"", "No command"}, 
   {"", "Unknown"}, 
@@ -21,16 +21,6 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
   {"n", "Next"}, 
   {"b","Back"}};
 
-/**
- * @brief obtiene la entrada del usuario
- *
- * get_user_imput sirve para saber que comando a introducido el usuario
- *
- * @date 13-01-2020
- * @author Profesores PPROG
- *
- * @return cmd el comando introducido por el jugador
- */
 T_Command get_user_input(){
   T_Command cmd = NO_CMD;
   char input[CMD_LENGHT] = "";

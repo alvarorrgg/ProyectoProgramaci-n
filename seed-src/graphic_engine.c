@@ -4,29 +4,16 @@
 #include "graphic_engine.h"
 #include "command.h"
 
-/**
- * @brief carácteristicas del motor gráfico
- *
- * Contiene la información necesaria del motor gráfico
- */
+
 struct _Graphic_engine{
-  Area *map,		/*!< el mapa */
-  Area *descript,	/*!< la descripción */
-  Area *banner,	/*!< el banner */
-  Area *help,		/*!< la ayuda */
+  Area *map;		/*!< el mapa */
+  Area *descript;	/*!< la descripción */
+  Area *banner;	/*!< el banner */
+  Area *help;		/*!< la ayuda */
   Area *feedback;	/*!< los comentarios */
 };
 
-/**
- * @brief crea el motor gráfico
- *
- * graphic_engine_create crea un motor gráfico de 0
- *
- * @date
- * @author Profesores PPROG 
- *
- * @return ge el motor gráfico
- */
+
 Graphic_engine *graphic_engine_create(){
   static Graphic_engine *ge = NULL;
 
@@ -47,16 +34,7 @@ Graphic_engine *graphic_engine_create(){
   return ge;
 }
 
-/**
- * @brief destruye el motor gráfico
- *
- * graphic_engine_destroy destruye un motor gráfico
- *
- * @date
- * @author Profesores PPROG 
- *
- * @param ge el motor gráfico que se va a destruir
- */
+
 void graphic_engine_destroy(Graphic_engine *ge){
   if (!ge)
     return;
@@ -71,17 +49,6 @@ void graphic_engine_destroy(Graphic_engine *ge){
   free(ge);
 }
 
-/**
- * @brief imprime por pantalla el juego a partir del motor gráfico
- *
- * graphic_engine_paint_game muestra por pantalla el juego creado
- *
- * @date
- * @author Profesores PPROG 
- *
- * @param ge el motor gráfico que se utiliza
- * @param game el juego que se muestra por pantalla
- */
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game){
   Id id_act = NO_ID, id_back = NO_ID, id_next = NO_ID, obj_loc = NO_ID;
   Space* space_act = NULL;
