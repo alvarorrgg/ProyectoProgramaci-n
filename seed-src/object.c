@@ -15,8 +15,8 @@
 #include "object.h"
 
 struct _Object {
-  Id id;
-  char name[WORD_SIZE + 1];
+  Id id;			/** !< id del objeto*/
+  char name[WORD_SIZE + 1];	/**!< nombre del objeto*/
 };
 
 Object* object_create(Id id) {
@@ -67,9 +67,11 @@ const char * object_get_name(Object* object) {
 
 STATUS object_print(Object* object) {
   if (!object) return ERROR;
-  
-
   fprintf(stdout, "--> Object (Id: %ld; Name: %s)\n", object->id, object->name);
+  
+    if (object->id != NO_ID) fprintf(stdout, "---> Exite el objeto\n");
+     else fprintf(stdout, "---> No hay objeto\n");
+  
   return OK;
 }
 

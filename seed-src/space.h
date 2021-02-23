@@ -206,7 +206,7 @@ Id space_get_west(Space* space);
  * @param value el valor que se le otorga
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS space_set_object(Space* space, BOOL value);
+STATUS space_set_object(Space* space, Id value);
 /**
  * @brief obtiene el objeto "TRUE o FALSE"
  *

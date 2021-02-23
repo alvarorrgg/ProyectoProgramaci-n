@@ -16,7 +16,7 @@ struct _Space {
   Id south;		/*!< coordenada sur */
   Id east;		/*!< coordenada este */
   Id west;		/*!< coordenada oeste */
-  BOOL object;		/*!< objeto (TRUE o FALSE) */
+  Id object;		/*!< id del objeto */
 };
 
 Space* space_create(Id id) {
@@ -35,7 +35,7 @@ Space* space_create(Id id) {
   newSpace->south = NO_ID;
   newSpace->east = NO_ID;
   newSpace->west = NO_ID;
-  newSpace->object = FALSE;
+  newSpace->object = NO_ID;
 
   return newSpace;
 }
@@ -88,8 +88,8 @@ STATUS space_set_west(Space* space, Id id) {
   return OK;
 }
 
-STATUS space_set_object(Space* space, BOOL value) {
-  if (!space) return ERROR;
+STATUS space_set_object(Space* space, Id value) {
+  if (!space || value == NO_ID) return ERROR;
   
   space->object = value;
   return OK;

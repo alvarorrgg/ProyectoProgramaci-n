@@ -11,6 +11,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "player.h"
+#include "object.h"
 #include "command.h"
 #include "space.h"
 
@@ -21,10 +23,10 @@
  */
 
 typedef struct _Game{
-  Id player_location;		/*!< Localización del jugador*/
-  Id object_location;		/*!< Localización del objeto*/
+  Player *player;			/*!<Modulo player*/
+  Object *object;			/*!<Modulo object*/
   Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/
-  T_Command last_cmd;		/*!< comando que se recibe del jugador*/
+  T_Command last_cmd;			/*!< comando que se recibe del jugador*/
 } Game;
 
 /**

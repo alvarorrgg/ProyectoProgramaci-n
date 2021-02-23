@@ -148,5 +148,5 @@ Id player_get_location(Player* player);
  * @param player el jugador que se trabaja
  * @return player->object el valor del objeto
  */
-BOOL player_get_object(Player* player);
+Id player_get_object(Player* player);
 #endif
