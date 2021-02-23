@@ -44,7 +44,7 @@ typedef enum enum_Command {
  * @date 13-01-2020
  * @author Profesores PPROG
  *
- * @return cmd el comando introducido por el jugador
+ * @return T_Command, el comando introducido por el usuario.
  */
 T_Command get_user_input();
 

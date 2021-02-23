@@ -2,8 +2,8 @@
 
 #makefile de juego OCA
 
-ocaEXE: command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o
-	gcc -o ocaEXE command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o
+ocaEXE: command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o
+	gcc -o ocaEXE command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o
 
 command.o: command.c command.h
 	gcc -Wall -c command.c
@@ -25,7 +25,13 @@ space.o: space.c types.h space.h
 
 game_reader.o: game_reader.c game_reader.h game.h
 	gcc -Wall -c game_reader.c
-	
+
+player.o: player.c player.h types.h
+	gcc -Wall -c player.c
+
+object.o: object.c object.h types.h
+	gcc -Wall -c object.c
+
 clean: 
 	@echo "Limpiando"
 	rm -rf *.o ocaEXE

@@ -61,8 +61,8 @@ void game_loop_cleanup(Game game, Graphic_engine *gengine);
  *
  * main es la función con la que comienza el programa
  *
- * @date
- * @author
+ * @date 18-02-2021
+ * @author Profesores PPROG
  *
  * @param argc cantidad de argumentos necesarios para que el programa funcione
  * @param argv 
