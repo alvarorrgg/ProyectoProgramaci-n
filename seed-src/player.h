@@ -98,131 +98,52 @@ STATUS player_set_name(Player* player, char* name);
  const char* player_get_name(Player* player);
 
 /**
- * @brief establece la coordenada norte del jugador
- *
- * player_set_north fija la coordenada norte del jugador
- * 
- * @date 18-02-2021
- * @author Profesores PPROG
- *
- * @param player el jugador que se trabaja
- * @param id marca una localización.
- * @return OK para saber que se ha ejecutado la función correctamente
- */
-STATUS player_set_north(Player* player, Id id);
-
-/**
- * @brief obtiene la coordenada norte del jugador
- *
- * player_get_north consigue la coordenada norte del jugador
- * 
- * @date 18-02-2021
- * @author Profesores PPROG
- *
- * @param player el jugador que se trabaja
- * @return player->north la coordenada norte del espacio
- */
-Id player_get_north(Player* player);
-
-/**
- * @brief establece la coordenada sur del jugador
- *
- * player_set_south fija la coordenada sur del jugador
- * 
- * @date 18-02-2021
- * @author Profesores PPROG
- *
- * @param player el jugador que se trabaja
- * @param id marca una localización.
- * @return OK para saber que se ha ejecutado la función correctamente
- */
-STATUS player_set_south(Player* player, Id id);
-
-/**
- * @brief obtiene la coordenada sur del jugador
- *
- * player_get_south consigue la coordenada sur del jugador
- * 
- * @date 18-02-2021
- * @author Profesores PPROG
- *
- * @param player el jugador que se trabaja
- * @return player->south la coordenada sur del espacio
- */
-Id player_get_south(Player* player);
-
-/**
- * @brief establece la coordenada este del jugador
- *
- * player_set_east fija la coordenada este del jugador
- * 
- * @date 18-02-2021
- * @author Profesores PPROG
- *
- * @param player el jugador que se trabaja
- * @param id marca una localización.
- * @return OK para saber que se ha ejecutado la función correctamente
- */
-STATUS player_set_east(Player* player, Id id);
-/**
- * @brief obtiene la coordenada este del jugador
- *
- * player_get_east consigue la coordenada este del jugador
- * 
- * @date 18-02-2021
- * @author Profesores PPROG
- *
- * @param player el jugador que se trabaja
- * @return player->east la coordenada este del espacio
- */
-Id player_get_east(Player* player);
-
-/**
- * @brief establece la coordenada oeste del jugador
- *
- * player_set_west fija la coordenada oeste del jugador
- * 
- * @date 18-02-2021
- * @author Profesores PPROG
- *
- * @param player el jugador que se trabaja
- * @param id marca una localización.
- * @return OK para saber que se ha ejecutado la función correctamente
- */
-STATUS player_set_west(Player* player, Id id);
-/**
- * @brief obtiene la coordenada oeste del jugador
- *
- * player_get_west consigue la coordenada oeste del jugador
- * 
- * @date 18-02-2021
- * @author Profesores PPROG
- *
- * @param player el jugador que se trabaja
- * @return player->west la coordenada oeste del espacio
- */
-Id player_get_west(Player* player);
-
-/**
  * @brief establece el objeto a TRUE o FALSE
  *
  * player_set_object establece el valor de object a TRUE o a FALSE
  * 
- * @date 18-02-2021
- * @author Profesores PPROG
+ * @date 22-02-2021
+ * @author R2
  *
  * @param player el jugador que se trabaja
  * @param value el valor que se le otorga
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS player_set_object(Player* player, BOOL value);
+
+/**
+ * @brief establece la posición del jugador
+ *
+ * player_set_location establece la posición del jugador al id
+ * 
+ * @date 22-02-2021
+ * @author R2
+ *
+ * @param player el jugador que se trabaja
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS player_set_location(Player* player, Id id);
+
+/**
+ * @brief obtiene la localización del jugador
+ *
+ * player_get_location consigue la localización del jugador
+ * 
+ * @date 23-02-2021
+ * @author R2
+ *
+ * @param player el espacio que se trabaja
+ * @return player->location la localización del jugador
+ */
+Id player_get_location(Player* player);
+
 /**
  * @brief obtiene el objeto "TRUE o FALSE"
  *
  * player_get_object obtiene el valor de object a TRUE o a FALSE
  * 
- * @date 18-02-2021
- * @author Profesores PPROG
+ * @date 22-02-2021
+ * @author R2
  *
  * @param player el jugador que se trabaja
  * @return player->object el valor del objeto

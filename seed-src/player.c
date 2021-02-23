@@ -12,10 +12,7 @@
 struct _Player {
   Id id;		/*!< coordenadas */
   char name[WORD_SIZE + 1];	/*!< nombre del jugador */
-  Id north;		/*!< coordenada norte */
-  Id south;		/*!< coordenada sur */
-  Id east;		/*!< coordenada este */
-  Id west;		/*!< coordenada oeste */
+  Id location;		/*!< localización del jugador */
   BOOL object;		/*!< objeto (TRUE o FALSE) */
 };
 
@@ -31,10 +28,7 @@ Player* player_create(Id id) {
   
   newPlayer->id = id;
   newPlayer->name[0] = '\0';
-  newPlayer->north = NO_ID;
-  newPlayer->south = NO_ID;
-  newPlayer->east = NO_ID;
-  newPlayer->west = NO_ID;
+  newPlayer->location = NO_ID;
   newPlayer->object = FALSE;
 
   return newPlayer;
@@ -56,37 +50,6 @@ STATUS player_set_name(Player* player, char* name) {
   return OK;
 }
 
-STATUS player_set_north(Player* player, Id id) {
-  if (!player || id == NO_ID) return ERROR;
-  
-  player->north = id;
-  
-  return OK;
-}
-
-STATUS player_set_south(Player* player, Id id) {
-  if (!player || id == NO_ID) return ERROR;
-  
-  player->south = id;
-  
-  return OK;
-}
-
-STATUS player_set_east(Player* player, Id id) {
-  if (!player || id == NO_ID) return ERROR;
-  
-  player->east = id;
-  
-  return OK;
-}
-
-STATUS player_set_west(Player* player, Id id) {
-  if (!player || id == NO_ID) return ERROR;
-  
-  player->west = id;
-  
-  return OK;
-}
 
 STATUS player_set_object(Player* player, BOOL value) {
   if (!player) return ERROR;
@@ -108,32 +71,6 @@ Id player_get_id(Player* player) {
   return player->id;
 }
 
-Id player_get_north(Player* player) {
-  if (!player) return NO_ID;
-  
-  return player->north;
-}
-
-Id player_get_south(Player* player) {
-  if (!player) return NO_ID;
-  
-  return player->south;
-}
-
-
-Id player_get_east(Player* player) {
-  if (!player) return NO_ID;
-  
-  return player->east;
-}
-
-
-Id player_get_west(Player* player) {
-  if (!player) return NO_ID;
-  
-  return player->west;
-}
-
 
 BOOL player_get_object(Player* player) {
   if (!player) return FALSE;
@@ -141,6 +78,19 @@ BOOL player_get_object(Player* player) {
   return player->object;
 }
 
+STATUS player_set_location(Player* player, Id id) {
+  if (!player || id == NO_ID) return ERROR;
+  
+  player->location = id;
+  
+  return OK;
+}
+
+Id player_get_location(Player* player) {
+  if (!player) return NO_ID;
+  
+  return player->location;
+}
 
 STATUS player_print(Player* player) {
   Id idaux = NO_ID;
@@ -148,27 +98,9 @@ STATUS player_print(Player* player) {
   if (!player) return ERROR;
   
   fprintf(stdout, "--> Player (Id: %ld; Name: %s)\n", player->id, player->name);
-  idaux = player_get_north(player);
-  if (NO_ID != idaux) fprintf(stdout, "---> North link: %ld.\n", idaux);
   
-   else fprintf(stdout, "---> No north link.\n");
-  
-
-  idaux = player_get_south(player);
-  if (NO_ID != idaux) fprintf(stdout, "---> South link: %ld.\n", idaux);
-  
-  else fprintf(stdout, "---> No south link.\n");
-  
-
-  idaux = player_get_east(player);
-  if (NO_ID != idaux) fprintf(stdout, "---> East link: %ld.\n", idaux);
-   else fprintf(stdout, "---> No east link.\n");
-  
-
-  idaux = player_get_west(player);
-  if (NO_ID != idaux) fprintf(stdout, "---> West link: %ld.\n", idaux);
-  
-   else fprintf(stdout, "---> No west link.\n");
+  if (player_get_localitation(player)) fprintf(stdout, "---> Player location. \n");
+  else  fprintf(stdout, "---> No player location.\n");
 
   if (player_get_object(player)) fprintf(stdout, "---> Object in player.\n");
   else  fprintf(stdout, "---> No object in player.\n");
