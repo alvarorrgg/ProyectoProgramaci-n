@@ -89,7 +89,7 @@ STATUS space_set_west(Space* space, Id id) {
 }
 
 STATUS space_set_object(Space* space, Id value) {
-  if (!space || value == NO_ID) return ERROR;
+  if (!space) return ERROR;
   
   space->object = value;
   return OK;
