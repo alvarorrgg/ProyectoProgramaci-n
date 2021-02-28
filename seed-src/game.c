@@ -252,12 +252,10 @@ STATUS game_set_player_location(Game* game, Id id) {
 }
 
 STATUS game_set_object_location(Game* game, Id id) {  
-  if(id == NO_ID || game==NULL) return ERROR;
- 
-  for (int i=0; game->spaces[i] != NULL; i++){
-    if (space_get_id(game->spaces[i]) == id) return space_set_object(game->spaces[i], object_get_id(game->object));
+ if (id == NO_ID) {
+    return ERROR;
   }
-  return ERROR;
+return object_set_id(game->object, id);
 }
 
 
@@ -268,11 +266,7 @@ if(game==NULL) return NO_ID;
 
 
 Id game_get_object_location(Game* game) {
-  if(game==NULL) return NO_ID;
-  for (int i=0; game->spaces[i] != NULL || i<MAX_SPACES; i++){
-    if (space_get_object(game->spaces[i] ) == object_get_id(game->object))return space_get_id(game->spaces[i]); 	
-  }
-  return NO_ID;
+    return object_get_id(game->object);
 }
 
 STATUS game_update(Game* game, T_Command cmd) {

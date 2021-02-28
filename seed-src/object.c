@@ -52,10 +52,14 @@ Id object_get_id(Object* object) {
 
 STATUS object_set_name(Object* object, char* name) {
   if (!object || !name) return ERROR;
-  
-
   if (!strcpy(object->name, name)) return ERROR;
   
+  return OK;
+}
+
+STATUS object_set_id(Object* object, Id id) {
+  if (!object) return ERROR;
+  object->id=id;
   return OK;
 }
 

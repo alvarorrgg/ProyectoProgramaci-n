@@ -73,7 +73,7 @@ Id player_get_object(Player* player) {
 STATUS player_set_object(Player* player, Id value) {
   if (!player || value == NO_ID) return ERROR;
   
-  player->object= value;
+  object_set_id(player->object,value);
   return OK;
 }
 

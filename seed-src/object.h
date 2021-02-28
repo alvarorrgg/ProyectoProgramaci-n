@@ -72,6 +72,19 @@ Id object_get_id(Object* object);
  */
 STATUS object_set_name(Object* object, char* name);
 /**
+ * @brief cambiar la posición de un objeto
+ *
+ * object_set_id sirve para cambiar la posición de un objeto
+ *
+ * @date 18-02-2021
+ * @author R1
+ *
+ * @param recibe un puntero a la estructura de datos objeto
+ * @param recibe el nuevo lugar del objeto
+ * @return devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
+ */
+ STATUS object_set_id(Object* object, Id id);
+/**
  * @brief Escribe los atributos del objeto
  *
  * object_print sirve para escribir los atributos de el objeto como su id o su nombre.
@@ -82,7 +95,9 @@ STATUS object_set_name(Object* object, char* name);
  * @param recibe un puntero a la estructura de datos objeto
  * @return devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
  */
+
  STATUS object_print(Object* object);
+
 
 /**
  * @brief Obtiene el nombre del objeto
