@@ -17,7 +17,7 @@
 /**
  * @brief Cargar espacios
  *
- * game_reader_load_spaces 
+ * game_reader_load_spaces carga los espacios del fichero leido según una estructura determinada.
  *
  * @date 18-02-2021 
  * @author R1

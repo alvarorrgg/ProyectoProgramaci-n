@@ -33,7 +33,7 @@ typedef void (*callback_fn)(Game* game);
  * @date 18-02-2021
  * @author Profesores PProg
  *
- * @param game el juego que en el que se avanza, retrocede o se abandona
+ * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
 void game_callback_unknown(Game* game);
 /**
@@ -48,7 +48,7 @@ void game_callback_unknown(Game* game);
  * @date 18-02-2021
  * @author Profesores PProg
  *
- * @param game el juego que en el que se avanza, retrocede o se abandona
+ * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
 void game_callback_exit(Game* game);
 /**
@@ -63,7 +63,7 @@ void game_callback_exit(Game* game);
  * @date 18-02-2021
  * @author Profesores PProg
  *
- * @param game el juego que en el que se avanza, retrocede o se abandona
+ * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
 void game_callback_next(Game* game);
 /**
@@ -78,7 +78,7 @@ void game_callback_next(Game* game);
  * @date 18-02-2021
  * @author Profesores PProg
  *
- * @param game el juego que en el que se avanza, retrocede o se abandona
+ * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
 void game_callback_back(Game* game);
 
@@ -89,12 +89,12 @@ void game_callback_back(Game* game);
 /**
  * @brief Acción del jugador
  *
- * game_callback_take si se introduce b o back se retrocede a la casilla anterior.
+ * game_callback_take si se esta encima de un objeto y se pulsa t o take se recoge el objeto
  *
  * @date 28-02-2021
  * @author R2
  *
- * @param game el juego que en el que se avanza, retrocede o se abandona
+ * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
 void game_callback_take(Game* game);
 
@@ -105,12 +105,12 @@ void game_callback_take(Game* game);
 /**
  * @brief Acción del jugador
  *
- * game_callback_drop si se introduce b o back se retrocede a la casilla anterior.
+ * game_callback_drop si se tiene un objeto, y se introduce d o drop, se deja caer el objeto.
  *
  * @date 28-02-2021
  * @author R2
  *
- * @param game el juego que en el que se avanza, retrocede o se abandona
+ * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
 void game_callback_drop(Game* game);
 
@@ -179,7 +179,7 @@ STATUS game_set_object_location(Game* game, Id id);
 STATUS game_create(Game* game) {
   int i;  
   for (i = 0; i < MAX_SPACES; i++) {
-    game->spaces[i] = NULL;
+    game->spaces[i] = NULL; /*Se inicializan todos los espacios con un valor NULL*/
   }
   game->player = player_create(1);
   game->object = object_create(1);
@@ -192,10 +192,10 @@ STATUS game_create_from_file(Game* game, char* filename) {
 
   if (game_create(game) == ERROR) return ERROR;
 
-  if (game_reader_load_spaces(game, filename) == ERROR) return ERROR;
+  if (game_reader_load_spaces(game, filename) == ERROR) return ERROR;/*Se leen los espacios del fichero data.dat*/
 
-  game_set_player_location(game, game_get_space_id_at(game, 0));
-  game_set_object_location(game, game_get_space_id_at(game, 0));
+  game_set_player_location(game, game_get_space_id_at(game, 0));/*Se inicializa el jugador en el primer espacio*/
+  game_set_object_location(game, game_get_space_id_at(game, 0));/*Se inicializa el objeto en el primer espacio*/
 
   return OK;
 }
@@ -204,11 +204,11 @@ STATUS game_destroy(Game* game) {
   int i = 0;
 
   for (i = 0; (i < MAX_SPACES) && (game->spaces[i] != NULL); i++) {
-    space_destroy(game->spaces[i]);
+    space_destroy(game->spaces[i]);/*Se destruyen todos los espacios uno a uno*/
   }
       
-  player_destroy(game->player);
-  object_destroy(game->object);
+  player_destroy(game->player);/*Se destruye el jugador*/
+  object_destroy(game->object);/*Se destruye el objeto*/
     
   return OK;
 }
@@ -251,12 +251,17 @@ STATUS game_set_player_location(Game* game, Id id) {
   return player_set_location(game->player, id);
 }
 
-STATUS game_set_object_location(Game* game, Id id) {  
- if (id == NO_ID) {
-    return ERROR;
-  }
-return object_set_id(game->object, id);
+STATUS game_set_object_location(Game* game, Id id) {/*Explicación código: Primero verifica que el id dado es valido y mediante un bucle while recorre los espacios del juego hasta encontrar el que coincide con el id dado, una vez se encuentra, se devuelve la funcion space_set_object con la que se coloca el objeto en la posición correcta.*/
+  int k=0;
+  if(id == NO_ID || game==NULL) return ERROR;
+  while(game->spaces[k] != NULL){
+   if (space_get_id(game->spaces[k]) == id) return space_set_object(game->spaces[k], object_get_id(game->object));/*Se le atribuye al espacio determinado el objeto*/
+    k++;
+  }  
+  return ERROR;
 }
+
+
 
 
 Id game_get_player_location(Game* game) {
@@ -264,9 +269,14 @@ if(game==NULL) return NO_ID;
   return player_get_location(game->player);
 }
 
-
-Id game_get_object_location(Game* game) {
-    return object_get_id(game->object);
+Id game_get_object_location(Game* game) {/*Explicación código: muy parecida a game_set_object_location salvo por que el bucle recorre espacios hasta que encuentra uno en el que los valores dados por space_get_object y object_get_id sean iguales, es decir, hasta que se encuentra un objeto. Una vez se encuentra, se devuelve el id del objeto.*/
+  int k=0;
+  if(game==NULL) return NO_ID;
+  while(game->spaces[k] != NULL){
+  	if (space_get_object(game->spaces[k] ) == object_get_id(game->object))return space_get_id(game->spaces[k]);/*Se detecta la posición del objeto y se devuelve como return*/
+  	k++;
+  	} 
+  return NO_ID;
 }
 
 STATUS game_update(Game* game, T_Command cmd) {
@@ -346,42 +356,37 @@ void game_callback_back(Game* game) {
   }
 }
 
-void game_callback_take(Game* game) {
-  int i;
-  Id ob_lc;
-  Id pl_lc;
-  
-  pl_lc = game_get_player_location(game);
-  
-  for (i=0; game->spaces[i]!=NULL; i++){
-    if (space_get_id(game->spaces[i])==pl_lc){
-      ob_lc = space_get_object(game->spaces[i]);
-      
-      if (ob_lc == NO_ID) return;
-      
-      player_set_object(game->player, ob_lc);
-      space_set_object(game->spaces[i], NO_ID);
-      break;
+void game_callback_take(Game* game) {/*Explicación código: Se verifica que el objeto y el jugador estan en el mismo espacio en caso de estarlo, se recoge el objeto y el player pasa a poseerlo para poder dejarlo en un futuro caso. */
+  int k=0;
+  while(game->spaces[k]!=NULL){/*Se recorren todos los espacios del juego*/
+      if (space_get_id(game->spaces[k])==game_get_player_location(game) ){/*Cuando se encuentra al jugador*/
+        if (space_get_object(game->spaces[k]) == NO_ID) return;/*En caso de que en el espacio del jugador no este el objeto*/
+      else{/*En caso de que si*/
+        player_set_object(game->player, space_get_object(game->spaces[k]));/*Se le da el objeto al jugador*/
+        space_set_object(game->spaces[k], NO_ID);/*Se quita el objeto del espacio determinado*/
+        break;/*Se sale del bucle*/
+        }
     }
+    k++;
   }
 }
 
-void game_callback_drop(Game* game) {
-  int i;
-  Id pl_lc;
-  
-  if (player_get_object(game->player)==NO_ID) return;
-  
-  pl_lc=game_get_player_location(game);
-  
-  for (i=0; game->spaces[i] != NULL; i++){
-    if (space_get_id(game->spaces[i]) == pl_lc){
-      space_set_object(game->spaces[i], object_get_id(game->object));
-      player_set_object(game->player,NO_ID);
-      break;
+void game_callback_drop(Game* game){/*Explicación código: Se verifica que el player tiene el objeto y en caso de tenerlo, se deja caer en el espacio en el que se encuentra el player.*/
+  int k=0;
+  if(player_get_object(game->player) == NO_ID) return;/*Se verifica que player tiene el objeto*/
+  while (game->spaces[k] != NULL){/*Se recorre todos los espacios hasta encontrar en el que se encuentra el jugador*/
+    if (space_get_id(game->spaces[k]) ==  game_get_player_location(game)){/*Una vez se encuentra la posición del jugador*/
+        space_set_object(game->spaces[k], object_get_id(game->object));/*Se coloca el objeto en el espacio*/
+        player_set_object(game->player, NO_ID);/*Se le quita el objeto al jugador*/
+        break;/*Se sale del bucle*/
     }
+          k++;
+      }
+
   }
-}
+  
+
+
 
 
 

@@ -103,7 +103,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name){
 void game_loop_run(Game game, Graphic_engine *gengine){
   T_Command command = NO_CMD;
 
-  while ((command != EXIT) && !game_is_over(&game)) {
+  while ((command != EXIT) && !game_is_over(&game)) {/*Mientras que el comando sea distinto de EXIT o no se cumpla game_is_over, se pintará la pantalla cada vez que se ejecute game_update*/
     graphic_engine_paint_game(gengine, &game);
     command = get_user_input();
     game_update(&game, command);

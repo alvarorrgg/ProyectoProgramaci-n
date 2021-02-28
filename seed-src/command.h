@@ -21,7 +21,7 @@
  */
 typedef enum enum_CmdType {
   CMDS,		/*!< Comando ... */
-  CMDL,
+  CMDL
   } T_CmdType;	/*!< Comando ... */
 
 /**

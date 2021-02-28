@@ -1,36 +1,52 @@
-
-
 #makefile de juego OCA
-
+FLAGS=-ansi -pedantic
 ocaEXE: command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o
-	gcc -o ocaEXE command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o
+	gcc -o ocaEXE $(FLAGS) command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o
 
 command.o: command.c command.h
-	gcc -Wall -c command.c
+	@echo "######################"
+	@echo "Creando $@"
+	gcc -Wall -c $(FLAGS) command.c
 
 game.o: game.c game.h game_reader.h
-	gcc -Wall -c game.c
+	@echo "######################"
+	@echo "Creando $@"	
+	gcc -Wall -c $(FLAGS) game.c
         
 game_loop.o: game_loop.c graphic_engine.h
-	gcc -Wall -c game_loop.c
+	@echo "######################"
+	@echo "Creando $@"
+	gcc -Wall -c $(FLAGS) game_loop.c
         
 graphic_engine.o: graphic_engine.c screen.h graphic_engine.h command.h
-	gcc -Wall -c graphic_engine.c
+	@echo "######################"
+	@echo "Creando $@"
+	gcc -Wall -c $(FLAGS) graphic_engine.c
 
 screen.o: screen.c screen.h
-	gcc -Wall -c screen.c
+	@echo "######################"
+	@echo "Creando $@"
+	gcc -Wall -c $(FLAGS) screen.c
 
 space.o: space.c types.h space.h
-	gcc -Wall -c space.c
+	@echo "######################"
+	@echo "Creando $@"
+	gcc -Wall -c $(FLAGS) space.c
 
 game_reader.o: game_reader.c game_reader.h game.h
-	gcc -Wall -c game_reader.c
+	@echo "######################"
+	@echo "Creando $@"
+	gcc -Wall -c $(FLAGS) game_reader.c
 
 player.o: player.c player.h types.h
-	gcc -Wall -c player.c
+	@echo "######################"
+	@echo "Creando $@"
+	gcc -Wall -c $(FLAGS) player.c
 
 object.o: object.c object.h types.h
-	gcc -Wall -c object.c
+	@echo "######################"
+	@echo "Creando $@"
+	gcc -Wall -c $(FLAGS) object.c
 
 clean: 
 	@echo "Limpiando"
