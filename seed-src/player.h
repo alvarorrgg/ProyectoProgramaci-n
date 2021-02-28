@@ -109,7 +109,7 @@ STATUS player_set_name(Player* player, char* name);
  * @param value el valor que se le otorga
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS player_set_object(Player* player, BOOL value);
+STATUS player_set_object(Player* player, Id value);
 
 /**
  * @brief establece la posición del jugador

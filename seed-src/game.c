@@ -14,7 +14,7 @@
 #include <string.h>
 #include "game.h"
 #include "game_reader.h"
-#define N_CALLBACK 4
+#define N_CALLBACK 6
 
 /**
  * Define el tipo de funciones para las devoluciones de llamada
@@ -83,6 +83,40 @@ void game_callback_next(Game* game);
 void game_callback_back(Game* game);
 
 /**
+ * Lista de devoluciones de llamada por cada comando en el juego 
+ */
+ 
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_take si se introduce b o back se retrocede a la casilla anterior.
+ *
+ * @date 28-02-2021
+ * @author R2
+ *
+ * @param game el juego que en el que se avanza, retrocede o se abandona
+ */
+void game_callback_take(Game* game);
+
+/**
+ * Lista de devoluciones de llamada por cada comando en el juego 
+ */
+ 
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_drop si se introduce b o back se retrocede a la casilla anterior.
+ *
+ * @date 28-02-2021
+ * @author R2
+ *
+ * @param game el juego que en el que se avanza, retrocede o se abandona
+ */
+void game_callback_drop(Game* game);
+
+
+
+/**
  * Array que guarda los comandos
  */
 static callback_fn game_callback_fn_list[N_CALLBACK]={
@@ -90,6 +124,8 @@ static callback_fn game_callback_fn_list[N_CALLBACK]={
   game_callback_exit,
   game_callback_next,
   game_callback_back,
+  game_callback_take,
+  game_callback_drop,
   };
 
 /**
@@ -315,5 +351,43 @@ void game_callback_back(Game* game) {
     }
   }
 }
+
+void game_callback_take(Game* game) {
+  int i;
+  Id ob_lc;
+  Id pl_lc;
+  
+  pl_lc = game_get_player_location(game);
+  
+  for (i=0; game->spaces[i]!=NULL; i++){
+    if (space_get_id(game->spaces[i])==pl_lc){
+      ob_lc = space_get_object(game->spaces[i]);
+      
+      if (ob_lc == NO_ID) return;
+      
+      player_set_object(game->player, ob_lc);
+      space_set_object(game->spaces[i], NO_ID);
+      break;
+    }
+  }
+}
+
+void game_callback_drop(Game* game) {
+  int i;
+  Id pl_lc;
+  
+  if (player_get_object(game->player)==NO_ID) return;
+  
+  pl_lc=game_get_player_location(game);
+  
+  for (i=0; game->spaces[i] != NULL; i++){
+    if (space_get_id(game->spaces[i]) == pl_lc){
+      space_set_object(game->spaces[i], object_get_id(game->object));
+      player_set_object(game->player,NO_ID);
+      break;
+    }
+  }
+}
+
 
 

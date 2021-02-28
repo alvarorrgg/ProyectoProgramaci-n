@@ -70,6 +70,13 @@ Id player_get_object(Player* player) {
   return object_get_id(player->object);;
 }
 
+STATUS player_set_object(Player* player, Id value) {
+  if (!player || value == NO_ID) return ERROR;
+  
+  player->object= value;
+  return OK;
+}
+
 STATUS player_set_location(Player* player, Id id) {
   if (!player || id == NO_ID) return ERROR;
   

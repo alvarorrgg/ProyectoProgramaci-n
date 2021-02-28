@@ -12,7 +12,7 @@
 #define COMMAND_H
 
 #define N_CMDT 2
-#define N_CMD 5
+#define N_CMD 7
 
 /**
  * @brief Tipos de comandos
@@ -34,8 +34,10 @@ typedef enum enum_Command {
   UNKNOWN,		/*!< UNKNOWN = 0*/
   EXIT,		/*!< EXIT = 1*/
   NEXT,		/*!< NEXT = 2*/
-  BACK,
-  } T_Command;	/*!< BACK = 3*/
+  BACK,		/*!< BACK = 3*/
+  TAKE,		/*!< TAKE = 4*/
+  DROP			/*!< DROP = 5*/
+  } T_Command;	
 /**
  * @brief obtiene la entrada del usuario
  *
