@@ -21,23 +21,23 @@ struct _Space {
 
 Space* space_create(Id id) {
 
-  Space *newSpace = NULL;
+  Space *new_space = NULL;
 
   if (id == NO_ID) return NULL;
 
-  newSpace = (Space *) malloc(sizeof (Space));
+  new_space = (Space *) malloc(sizeof (Space));
 
-  if (newSpace == NULL) return NULL;
+  if (new_space == NULL) return NULL;
   
-  newSpace->id = id;
-  newSpace->name[0] = '\0';
-  newSpace->north = NO_ID;
-  newSpace->south = NO_ID;
-  newSpace->east = NO_ID;
-  newSpace->west = NO_ID;
-  newSpace->object = NO_ID;
+  new_space->id = id;
+  new_space->name[0] = '\0';
+  new_space->north = NO_ID;
+  new_space->south = NO_ID;
+  new_space->east = NO_ID;
+  new_space->west = NO_ID;
+  new_space->object = NO_ID;
 
-  return newSpace;
+  return new_space;
 }
 
 STATUS space_destroy(Space* space) {

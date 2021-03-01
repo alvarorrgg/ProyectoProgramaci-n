@@ -21,25 +21,24 @@ struct _Object {
 
 Object* object_create(Id id) {
 
-  Object *newObject = NULL;
+  Object *new_object = NULL;
 
   if (id == NO_ID) return NULL;
 
-  newObject = (Object *) malloc(sizeof (Object));
+  new_object = (Object *) malloc(sizeof (Object));
 
-  if (newObject == NULL) return NULL;
+  if (new_object == NULL) return NULL;
   
-  newObject->id = id;
-  newObject->name[0] = '\0';
+  new_object->id = id;
+  new_object->name[0] = '\0';
 
-  return newObject;
+  return new_object;
 }
 
 STATUS object_destroy(Object* object) {
   if (!object) return ERROR;
   
   free(object);
-  object = NULL;
 
   return OK;
 }

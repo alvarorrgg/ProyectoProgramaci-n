@@ -1,5 +1,5 @@
 /** 
- * @brief Archivo cabecera de la función object.h, en el se define la estructura de datos Object y sus funciones.
+ * @brief Archivo cabecera del modulo object.h, en el se define la estructura de datos Object y sus funciones.
  * 
  * @file object.h
  * @author R1

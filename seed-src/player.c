@@ -18,20 +18,20 @@ struct _Player {
 
 Player* player_create(Id id) {
 
-  Player *newPlayer = NULL;
+  Player *new_player = NULL;
 
   if (id == NO_ID) return NULL;
 
-  newPlayer = (Player *) malloc(sizeof (Player));
+  new_player = (Player *) malloc(sizeof (Player));
 
-  if (newPlayer == NULL) return NULL;
+  if (new_player == NULL) return NULL;
   
-  newPlayer->id = id;
-  newPlayer->name[0] = '\0';
-  newPlayer->location = NO_ID;
-  newPlayer->object = object_create(id);
+  new_player->id = id;
+  new_player->name[0] = '\0';
+  new_player->location = NO_ID;
+  new_player->object = object_create(id);
 
-  return newPlayer;
+  return new_player;
 }
 
 STATUS player_destroy(Player* player) {
