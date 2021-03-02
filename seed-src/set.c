@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "types.h"
+
 #include "set.h"
 
 struct _Set {
@@ -20,16 +20,16 @@ struct _Set {
 };
 
 Set* set_create() {
-
+ int i;
   Set *new_set= NULL;
   new_set = (Set *) malloc(sizeof (Set));
 
   if (new_set == NULL) return NULL;
   
-  for(int i =0;i<MAX_IDS;i++){
-  	new_set[i]=NO_ID;
+  for(i =0;i<MAX_IDS;i++){
+  	new_set->id[i]=NO_ID;
   }
-  new_set->total=0;
+  new_set->total_ids=0;
   
   return new_set;
 }
@@ -41,30 +41,82 @@ STATUS set_destroy(Set* set){
 }
 
 STATUS set_id_add(Set* set,Id id){
-	if(set==NULL || id<0) return ERROR;
-	set->id[set->total_ids]=id;
-	set->total_ids++;
-	return OK;
+	if(set==NULL || id<0 || set_is_full(set)||set_has_id(set,id) || id<0 ) return ERROR;
+	else{
+		set->id[set->total_ids]=id;
+		set->total_ids++;
+		return OK;
+	}
 	}
 	
-STATUS set_id_delete(Set* set){
-	if(set==NULL) return ERROR;
-	set->id[set->total_ids]=NULL;
+STATUS set_id_delete(Set* set,Id id){
+	int j;
+	if(set==NULL || set_is_empty(set) || !set_has_id(set,id)) return ERROR;
+	j=set_find_object_by_id(set,id);
+	set->id[j]=set->id[set->total_ids];
+	set->id[set->total_ids]=NO_ID;
 	set->total_ids--;
 	return OK;
 }
+
+STATUS set_set_total_ids(Set* set,int n){
+	if (set==NULL || n<0) return ERROR;
+	if(n>100) n=100;
+	set->total_ids=n;
+	return OK;
+	}
+	
+int set_get_total_ids(Set* set){
+	if(set==NULL) return -1;
+	return set->total_ids;
+	}
+	
+BOOL set_has_id(Set* set, Id id){
+ 	int i;
+	if(set==NULL || id<0) return FALSE;
+	for(i=0; i<set->total_ids;i++){
+		if(set->id[i]==id){
+			return TRUE;
+			}
+		}
+	return FALSE;
+	}
+	
+int set_find_object_by_id(Set* set, Id id){
+	int i;
+	if(set==NULL || id<0) return NO_ID;
+	for(i=0; i<set->total_ids;i++){
+		if(set->id[i]==id){
+			return i;
+		}
+	}
+	return NO_ID;
+	}
+BOOL set_is_empty(Set* set){
+	if(set==NULL) return FALSE;
+	if(set->total_ids==0) return TRUE;
+	return FALSE;
+	}
+	
+BOOL set_is_full(Set* set){
+	if(set==NULL) return FALSE;
+	if(set->total_ids==MAX_IDS) return TRUE;
+	return FALSE;
+	}
+	
 STATUS set_print(FILE *pf, const Set *set){
+ 	int i;
 	if(set==NULL || pf==NULL) return ERROR;
 	
 	
     fprintf (pf, "El set tiene %d elementos: \n", set->total_ids);
 
-    for (int i=0, i<set->total_ids; i++){
-        fprintf(pf,"Id: %ld. \n", set->items[i]);
+    for (i=0 ;i<set->total_ids; i++){
+        fprintf(pf,"Id: %ld. \n", set->id[i]);
         i++;
    	}
    	fprintf (pf, "\n");
-   	return OK
+   	return OK;
    }
 
 

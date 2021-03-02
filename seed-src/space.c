@@ -137,7 +137,7 @@ Id space_get_west(Space* space) {
 
 BOOL space_get_object(Space* space) {
   if (!space) return FALSE;
-  
+  if(space->object==NO_ID) return FALSE;
   return space->object;
 }
 
