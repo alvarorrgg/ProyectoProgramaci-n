@@ -11,7 +11,10 @@
 #ifndef DIE_H
 #define DIE_H
 #include "types.h"
-#include "set.h"
+#include "time.h"
 #define MAX_IDS 100
 
 typedef struct _Die Die;
+
+Die * die_create(Id id);
+STATUS die_destroy(Die * die);

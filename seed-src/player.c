@@ -13,7 +13,7 @@ struct _Player {
   Id id;		/*!< coordenadas */
   char name[WORD_SIZE + 1];	/*!< nombre del jugador */
   Id location;		/*!< localización del jugador */
-  Object *object;		/*!< objeto (Estructura de datos objeto) */
+  Object *object;	/*!< objeto (Estructura de datos objeto) */
 };
 
 Player* player_create(Id id) {
