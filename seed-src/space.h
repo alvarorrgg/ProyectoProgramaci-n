@@ -12,6 +12,7 @@
 #define SPACE_H
 
 #include "types.h"
+#include "set.h"
 
 /**
  * @brief Define un espacio
@@ -197,7 +198,7 @@ Id space_get_west(Space* space);
 /**
  * @brief establece el objeto a TRUE o FALSE
  *
- * space_set_object establece el valor de object a TRUE o a FALSE
+ * space_set_objects establece el valor de object a TRUE o a FALSE
  * 
  * @date 18-02-2021
  * @author Profesores PPROG
@@ -206,19 +207,56 @@ Id space_get_west(Space* space);
  * @param value el valor que se le otorga
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS space_set_object(Space* space, Id value);
+STATUS space_set_objects(Space* space, Id value);
 /**
- * @brief obtiene el objeto "TRUE o FALSE"
+ * @brief obtiene los ids de los objetos en el set
  *
- * space_get_object obtiene el valor de object a TRUE o a FALSE
+ * space_get_objects obtiene los ids de los objetos en el espacio
  * 
  * @date 18-02-2021
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @return space->object el valor del objeto
+ * @return los ids de los objetos
  */
-BOOL space_get_object(Space* space);
+Id* space_get_objects(Space* space);
+/**
+ * @brief obtiene el numero total de objetos
+ *
+ * space_get_objects obtiene el numero total de objetos
+ * 
+ * @date 18-02-2021
+ * @author Profesores PPROG
+ *
+ * @param space el espacio que se trabaja
+ * @return el numero de objetos
+ */
+int space_get_number_of_objects(Space* space);
+/**
+ * @brief verifica si un espacio tiene un objeto
+ *
+ * space_get_objects comprueba que el objeto esta en el espacio
+ * 
+ * @date 18-02-2021
+ * @author Profesores PPROG
+ *
+ * @param space el espacio que se trabaja, Id del objeto
+ * @return TRUE o FALSE segun si el objeto esta o no en el espacio
+ */
+BOOL space_has_object_id(Space* space, Id id);
+/**
+ * @brief elimina un objeto de un espacio
+ *
+ * space_get_objects elimina el objeto de id determinado
+ * 
+ * @date 18-02-2021
+ * @author Profesores PPROG
+ *
+ * @param space el espacio que se trabaja, Id del objeto
+ * @return OK o ERROR segun si se ha eliminado correctamente el objeto o no.
+ */
+STATUS space_remove_object(Space* space, Id id);
+
 /**
  * @brief muestra por pantalla el espacio creado
  *

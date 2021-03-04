@@ -63,4 +63,4 @@ set_test.o: set.h set_test.c types.h
 
 clean: 
 	@echo "Limpiando"
-	rm -rf *.o ocaEXE setPruebaEXE SpacePruebaEXE
+	rm -rf *.o ocaEXE setPruebaEXE spacePruebaEXE

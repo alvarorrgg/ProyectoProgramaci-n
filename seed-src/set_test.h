@@ -43,5 +43,7 @@
   void test1_set_print();
   void test2_set_print();
   void test3_set_print();
+  void test1_set_get_ids();
+  void test2_set_get_ids();
 
 #endif

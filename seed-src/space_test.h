@@ -10,7 +10,9 @@
 
 #ifndef SPACE_TEST_H
 #define SPACE_TEST_H
-
+#include "test.h"
+#include "set.h"
+#include "space.h"
 /**
  * @test Test space creation
  * @pre Space ID 
@@ -63,8 +65,8 @@ void test3_space_set_west();
 void test4_space_set_west();
 void test1_space_get_id();
 void test2_space_get_id();
-void test1_space_set_object();
-void test2_space_set_object();
+void test1_space_set_objects();
+void test2_space_set_objects();
 void test1_space_get_name();
 void test2_space_get_name();
 void test1_space_get_north();
@@ -78,5 +80,10 @@ void test2_space_get_west();
 void test1_space_get_object();
 void test2_space_get_object();
 void test3_space_get_object();
+void test1_space_remove_object(); 
+void test2_space_remove_object();
+void test1_space_has_object_id();
+void test2_space_has_object_id();
+void test3_space_has_object_id();
 
 #endif

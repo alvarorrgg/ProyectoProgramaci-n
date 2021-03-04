@@ -133,6 +133,18 @@ BOOL set_is_empty(Set* set);
  */
 BOOL set_is_full(Set* set);
 /**
+ * @brief obtiene los ids del set
+ *
+ * set_get_ids sirve para ver que ids hay en el set
+ *
+ * @date 18-02-2021
+ * @author R1
+ *
+ * @param recibe un puntero a set.
+ * @return devuelve NULL en caso de error, sino devuelve los ids del set.
+ */
+Id* set_get_ids(Set *set);
+/**
  * @brief Muestra por pantalla las caracteristicas del set
  *
  * set_print muestra los valores de los parametros del set

@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "types.h"
 #include "space.h"
+
 
 /**
  * @brief Estructura space
@@ -16,7 +16,7 @@ struct _Space {
   Id south;		/*!< coordenada sur */
   Id east;		/*!< coordenada este */
   Id west;		/*!< coordenada oeste */
-  Id object;		/*!< id del objeto */
+  Set* objects;		/*!< array de objetos */
 };
 
 Space* space_create(Id id) {
@@ -28,21 +28,20 @@ Space* space_create(Id id) {
   new_space = (Space *) malloc(sizeof (Space));
 
   if (new_space == NULL) return NULL;
-  
+  new_space->objects=set_create();
   new_space->id = id;
   new_space->name[0] = '\0';
   new_space->north = NO_ID;
   new_space->south = NO_ID;
   new_space->east = NO_ID;
   new_space->west = NO_ID;
-  new_space->object = NO_ID;
 
   return new_space;
 }
 
 STATUS space_destroy(Space* space) {
   if (!space) return ERROR;
-  
+  set_destroy(space->objects);
   free(space);
 
   return OK;
@@ -88,13 +87,14 @@ STATUS space_set_west(Space* space, Id id) {
   return OK;
 }
 
-STATUS space_set_object(Space* space, Id value) {
-  if (!space) return ERROR;
-  
-  space->object = value;
+STATUS space_set_objects(Space* space, Id id) {
+  if (!space || set_id_add(space->objects,id)==ERROR) return ERROR;
   return OK;
 }
 
+STATUS space_remove_object(Space* space, Id id) {
+  return set_id_delete(space->objects,id);
+}
 
 const char * space_get_name(Space* space) {
   if (!space) return NULL;
@@ -135,16 +135,23 @@ Id space_get_west(Space* space) {
 }
 
 
-BOOL space_get_object(Space* space) {
-  if (!space) return FALSE;
-  if(space->object==NO_ID) return FALSE;
-  return space->object;
+Id* space_get_objects(Space* space) {
+  if (!space) return NULL;
+  return set_get_ids(space->objects);
 }
 
+int space_get_number_of_objects(Space* space) {
+  return set_get_total_ids(space->objects);
+}
+
+BOOL space_has_object_id(Space* space, Id id){
+  if (!space)  return FALSE;
+
+  return set_has_id(space->objects, id);
+}
 
 STATUS space_print(Space* space) {
   Id idaux = NO_ID;
-
   if (!space) return ERROR;
   
   fprintf(stdout, "--> Space (Id: %ld; Name: %s)\n", space->id, space->name);
@@ -170,8 +177,11 @@ STATUS space_print(Space* space) {
   
    else fprintf(stdout, "---> No west link.\n");
 
-  if (space_get_object(space)) fprintf(stdout, "---> Object in the space.\n");
-  else  fprintf(stdout, "---> No object in the space.\n");
+  if ( space_get_objects(space)== NULL) fprintf(stdout, "---> No hay objetos en este espacio\n");
+    else {
+    fprintf(stdout, "---> Los objetos del espacio son:\n");
+    set_print(stdout, space->objects);
+  }
 
   return OK;
 }

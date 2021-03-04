@@ -104,6 +104,12 @@ BOOL set_is_full(Set* set){
 	return FALSE;
 	}
 	
+Id* set_get_ids(Set *set){
+	if(set==NULL || set->total_ids==0) return NULL;
+	return set->id;
+	}
+	
+	
 STATUS set_print(FILE *pf, const Set *set){
  	int i;
 	if(set==NULL || pf==NULL) return ERROR;

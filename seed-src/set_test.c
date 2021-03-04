@@ -16,7 +16,7 @@
 #include "set_test.h"
 #include "test.h"
 
-#define MAX_TESTS 32
+#define MAX_TESTS 34
 
 /** 
  * @brief Main function for SET unit tests. 
@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
   int all = 1;
 
   if (argc < 2) {
-    printf("Running all test for module Space:\n");
+    printf("Running all test for module Set:\n");
   } else {
     test = atoi(argv[1]);
     all = 0;
@@ -87,6 +87,9 @@ int main(int argc, char** argv) {
   if (all || test == 30) test1_set_print();
   if (all || test == 31) test2_set_print();
   if (all || test == 32) test3_set_print();
+  
+  if (all || test == 33) test1_set_get_ids();
+  if (all || test == 34) test2_set_get_ids();
 
   PRINT_PASSED_PERCENTAGE;
 
@@ -275,6 +278,16 @@ int main(int argc, char** argv) {
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_print(stdout,s) == OK);
+  	}
+  	
+  void test1_set_get_ids(){
+  	Set *s=NULL;
+  	PRINT_TEST_RESULT(set_get_ids(s) == NULL);
+  	}
+  void test2_set_get_ids(){
+  	Set *s;
+  	s=set_create();
+  	PRINT_TEST_RESULT(set_get_ids(s) == NULL);
   	}
 
 

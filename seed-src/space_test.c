@@ -12,11 +12,11 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
-#include "space.h"
-#include "space_test.h"
-#include "test.h"
 
-#define MAX_TESTS 28
+#include "space_test.h"
+
+
+#define MAX_TESTS 34
 
 /** 
  * @brief Main function for SPACE unit tests. 
@@ -62,20 +62,25 @@ int main(int argc, char** argv) {
   if (all || test == 15) test2_space_get_name();
   if (all || test == 16) test1_space_get_object();
   if (all || test == 17) test2_space_get_object();
-  if (all || test == 18) test3_space_get_object();
-  if (all || test == 19) test1_space_get_north();
-  if (all || test == 20) test2_space_get_north();
-  if (all || test == 21) test1_space_get_south();
-  if (all || test == 22) test2_space_get_south();
-  if (all || test == 23) test1_space_get_east();
-  if (all || test == 24) test2_space_get_east();
-  if (all || test == 25) test1_space_get_west();
-  if (all || test == 26) test2_space_get_west();
-  if (all || test == 27) test1_space_get_id();
-  if (all || test == 28) test2_space_get_id();
+  if (all || test == 18) test1_space_get_north();
+  if (all || test == 19) test2_space_get_north();
+  if (all || test == 20) test1_space_get_south();
+  if (all || test == 21) test2_space_get_south();
+  if (all || test == 22) test1_space_get_east();
+  if (all || test == 23) test2_space_get_east();
+  if (all || test == 24) test1_space_get_west();
+  if (all || test == 25) test2_space_get_west();
+  if (all || test == 26) test1_space_get_id();
+  if (all || test == 27) test2_space_get_id();
+  if (all || test == 28) test1_space_set_objects();
+  if (all || test == 29) test2_space_set_objects();
+  if (all || test == 30) test1_space_remove_object();
+  if (all || test == 31) test2_space_remove_object();
+  if (all || test == 32) test1_space_has_object_id();
+  if (all || test == 33) test2_space_has_object_id();
+  if (all || test == 34) test3_space_has_object_id();
 
   PRINT_PASSED_PERCENTAGE;
-
   return 1;
 }
 
@@ -151,15 +156,15 @@ void test2_space_set_west() {
   PRINT_TEST_RESULT(space_set_west(s, 4) == ERROR);
 }
 
-void test1_space_set_object() {
+void test1_space_set_objects() {
   Space *s;
   s = space_create(1);
-  PRINT_TEST_RESULT(space_set_object(s,TRUE) == OK);
+  PRINT_TEST_RESULT(space_set_objects(s,TRUE) == OK);
 }
 
-void test2_space_set_object() {
+void test2_space_set_objects() {
   Space *s = NULL;
-  PRINT_TEST_RESULT(space_set_object(s,TRUE) == ERROR);
+  PRINT_TEST_RESULT(space_set_objects(s,TRUE) == ERROR);
 }
 
 void test1_space_get_name() {
@@ -179,21 +184,13 @@ void test2_space_get_name() {
 void test1_space_get_object() {
   Space *s;
   s = space_create(1);
-  PRINT_TEST_RESULT(space_get_object(s) == FALSE);
+  PRINT_TEST_RESULT(space_get_objects(s) == NULL);
      
 }
 
 void test2_space_get_object() {
-  Space *s;
-  s = space_create(1);
-  space_set_object(s,TRUE);
-  PRINT_TEST_RESULT(space_get_object(s) == TRUE);
-     
-}
-
-void test3_space_get_object() {
   Space *s = NULL;
-  PRINT_TEST_RESULT(space_get_object(s) == FALSE);
+  PRINT_TEST_RESULT(space_get_objects(s) == NULL);
 }
 
 void test1_space_get_north() {
@@ -254,3 +251,38 @@ void test2_space_get_id() {
   Space *s = NULL;
   PRINT_TEST_RESULT(space_get_id(s) == NO_ID);
 }
+
+
+void test1_space_remove_object() {
+  Space *s;
+  s = space_create(25);
+  space_set_objects(s, 10);
+  PRINT_TEST_RESULT(space_remove_object(s,10) == OK);
+}
+
+void test2_space_remove_object() {
+  Space *s;
+  s = space_create(25);
+  space_set_objects(s, 10);
+  PRINT_TEST_RESULT(space_remove_object(s,-10) == ERROR);
+}
+
+void test1_space_has_object_id() {
+  Space *s = NULL;
+  PRINT_TEST_RESULT(space_has_object_id(s,NO_ID) == FALSE);
+}
+
+void test2_space_has_object_id() {
+  Space *s;
+  s = space_create(25);
+  space_set_objects(s, 10);
+  PRINT_TEST_RESULT(space_has_object_id(s,10) == TRUE);
+}
+
+void test3_space_has_object_id() {
+  Space *s;
+  s = space_create(25);
+  space_set_objects(s, 10);
+  PRINT_TEST_RESULT(space_has_object_id(s,-10) == FALSE);
+}
+
