@@ -15,13 +15,15 @@
 #include "die.h"
 
 struct _Die {
-  Id id[MAX_IDS];
+  Id id;
   int min, max;
   int last_roll;
 };
 
-Die *die(Die *die){
+Die *die(){
 
+  if (!die) return NULL;
+  
   int i;
   Die * new_die =NULL;
   
@@ -29,10 +31,7 @@ Die *die(Die *die){
   
   if (new_die==NULL) return NULL;
 
-  for(i=0;i<MAX_IDS;i++){
-    new_die->id[i]=NO_ID;
-  }
-  
+  new_die->id=NO_ID;
   new_die->min=1;
   new_die->max=6;
   new_die->last_roll=NO_ID;
@@ -41,27 +40,38 @@ Die *die(Die *die){
 }
 
 STATUS die_destroy(Die * die){
-
   if (!die) return ERROR;
   free(die);
   return OK;
 }
 
+int die_roll(Die * die){
+  if (!die) return -1;
+  die->last_roll=rand () %(die->max) + die->min;
+  return die->last_roll;
+}
 
+STATUS die_set_Id(Die * die, Id id){
+  if (!die || !id) return ERROR;
+  die->id=id;
+  return OK;
+}
 
+int die_get_last_roll(Die * die){
+  if (!die) return -1;
+  return die->last_roll;
+}
 
+Id die_get_id(Die * die){
+  if (!die) return NO_ID;
+  return die->id;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+STATUS die_print(FILE *pf, const Die *die){
+  if (!pf || !die) return ERROR;
+  
+  fprintf(pf,"El dado %ld ha sacado un %d. \n", die->id,die->last_roll);
+  
+  return OK;
+}
 
