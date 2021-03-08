@@ -87,7 +87,7 @@ STATUS game_reader_load_objects(Game* game, char* filename) {
       toks = strtok(NULL, "|");
       pos_obj = atol(toks);
 #ifdef DEBUG 
-      printf("Leido: %ld|%s|%ld\n", id, name,posObj);
+      printf("Leido: %ld|%s|%ld\n", id, name,posobj);
 #endif
       object = object_create(id);
       if (space != NULL) {

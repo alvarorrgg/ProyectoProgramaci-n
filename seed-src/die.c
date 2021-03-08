@@ -20,14 +20,14 @@ struct _Die {
   int last_roll;
 };
 
-Die *die_create(){
+Die *die_create(Id id){
   Die * new_die =NULL;
   
   new_die=(Die *) malloc(sizeof(Die));
   
   if (new_die==NULL) return NULL;
 
-  new_die->id=NO_ID;
+  new_die->id=id;
   new_die->min=1;
   new_die->max=6;
   new_die->last_roll=NO_ID;
@@ -54,7 +54,7 @@ STATUS die_set_Id(Die * die, Id id){
 }
 
 int die_get_last_roll(Die * die){
-  if (!die) return -1;
+  if (!die) return 0;
   return die->last_roll;
 }
 
@@ -63,8 +63,8 @@ Id die_get_id(Die * die){
   return die->id;
 }
 
-STATUS die_print(FILE *pf, const Die *die){
-  if (!pf || !die) return ERROR;
+STATUS die_print(Die *die){
+  if (!die) return ERROR;
   
   fprintf(pf,"El dado %ld ha sacado un %d. \n", die->id,die->last_roll);
   

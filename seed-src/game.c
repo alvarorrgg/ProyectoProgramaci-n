@@ -25,6 +25,8 @@ typedef void (*callback_fn)(Game* game);
  * Lista de devoluciones de llamada por cada comando en el juego 
  */
  
+ 
+ 
 /**
  * @brief Acción del jugador
  *
@@ -98,9 +100,6 @@ void game_callback_back(Game* game);
  */
 void game_callback_take(Game* game);
 
-/**
- * Lista de devoluciones de llamada por cada comando en el juego 
- */
  
 /**
  * @brief Acción del jugador
@@ -114,6 +113,18 @@ void game_callback_take(Game* game);
  */
 void game_callback_drop(Game* game);
 
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_roll se tira el dado para avanzar
+ *
+ * @date 08-03-2021
+ * @author R2
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acción
+ */
+void game_callback_roll(Game* game);
+
 
 
 /**
@@ -126,6 +137,7 @@ static callback_fn game_callback_fn_list[N_CALLBACK]={
   game_callback_back,
   game_callback_take,
   game_callback_drop,
+  game_callback_roll,
   };
 
 /**
@@ -156,10 +168,11 @@ STATUS game_create(Game* game) {
     game->spaces[i] = NULL; /*Se inicializan todos los espacios con un valor NULL*/
   }
    for (i = 0; i < MAX_OBJECTS; i++) {
-    game->objects[i] = NULL; /*Se inicializan todos los espacios con un valor NULL*/
+    game->objects[i] = NULL; /*Se inicializan todos los objetos con un valor NULL*/
   }
   game->player = player_create(1);
   game->last_cmd = NO_CMD;
+  game->die = die_create(1);
   
   return OK;
 }
@@ -186,6 +199,7 @@ STATUS game_destroy(Game* game) {
     object_destroy(game->objects[i]);/*Se destruyen todos los objetos uno a uno*/
   } 
   player_destroy(game->player);/*Se destruye el jugador*/
+  die_destroy(game->die);/*Se destruye el dado*/
 
     
   return OK;
@@ -258,19 +272,19 @@ Id game_get_object_location(Game* game,Id id) {/*Explicación código: muy parec
   int k=0;
   if(game==NULL || !game_id_object_exists(game,id)) return NO_ID;
   while(game->spaces[k] != NULL){
-  	 if(space_has_object_id(game->spaces[k], id))return space_get_id(game->spaces[k]);/*Se detecta la posición del objeto y se devuelve como return*/
+    if(space_has_object_id(game->spaces[k], id)) return space_get_id(game->spaces[k]);/*Se detecta la posición del objeto y se devuelve como return*/
   	k++;
   	} 
   return NO_ID;
 }
 BOOL game_id_object_exists(Game* game, Id id){
-	int i;
-	for(i=0;i<MAX_OBJECTS;i++){
-		if(object_get_id(game->objects[i])==id){
-			return TRUE;
-		}
-	}
-	return FALSE;
+  int i;
+  for(i=0;i<MAX_OBJECTS;i++){
+    if(object_get_id(game->objects[i])==id){
+      return TRUE;
+    }
+  }
+  return FALSE;
 }
 	
 STATUS game_update(Game* game, T_Command cmd) {
@@ -376,10 +390,16 @@ void game_callback_drop(Game* game){
           k++;
       }
 
-  }
+}
   */
 
-
+void game_callback_roll(Game* game){
+  if(!game)return;
+  if(die_get_id(game->die)==NO_ID)return;
+  if(die_get_last_roll(game->die)==-1 || die_get_last_roll(game->die)==0)return;
+  
+  die_roll(game->die);
+}
 
 
 

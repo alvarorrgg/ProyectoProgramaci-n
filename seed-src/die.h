@@ -27,7 +27,7 @@ typedef struct _Die Die;
  *
  * @return el dado creado
  */
-Die * die_create();
+Die * die_create(Id id);
 
 /**
  * @brief destruye un dado 

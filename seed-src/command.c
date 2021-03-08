@@ -13,7 +13,7 @@
 #include "command.h"
 
 #define CMD_LENGHT 30
-/*brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
+/* 2brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
 char *cmd_to_str[N_CMD][N_CMDT] = {
   {"","No command"}, 
   {"","Unknown"}, 
@@ -21,7 +21,8 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
   {"n","Next"}, 
   {"b","Back"}, 
   {"t","Take"}, 
-  {"d","Drop"}
+  {"d","Drop"},
+  {"rl","Roll"}
 };
 
 T_Command get_user_input(){

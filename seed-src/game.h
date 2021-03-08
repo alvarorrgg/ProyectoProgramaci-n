@@ -15,6 +15,7 @@
 #include "object.h"
 #include "command.h"
 #include "space.h"
+#include "die.h"
 
 /**
  * @brief La estructura game
@@ -23,10 +24,11 @@
  */
 
 typedef struct _Game{
-  Player *player;			/*!<Modulo player*/
-  Object *objects[MAX_OBJECTS+1];	/*!<Tabla de objetos del juego*/
+  Player *player;			/*!< Modulo player*/
+  Object *objects[MAX_OBJECTS+1];	/*!< Tabla de objetos del juego*/
   Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/
   T_Command last_cmd;			/*!< comando que se recibe del jugador*/
+  Die *die;				/*!< Dado del juego*/
 } Game;
 
 /**
