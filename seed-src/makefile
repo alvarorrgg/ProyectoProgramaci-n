@@ -3,15 +3,15 @@ FLAGS=-ansi -pedantic
 #setPruebaEXE: set.o set_test.o
 	#gcc -o setPruebaEXE $(FLAGS) set.o set_test.o
 
-ocaEXE: command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o
-	gcc -o ocaEXE $(FLAGS) command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o
+ocaEXE: command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o
+	gcc -o ocaEXE $(FLAGS) command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o
 
 command.o: command.c command.h
 	@echo "######################"
 	@echo "Creando $@"
 	gcc -Wall -c $(FLAGS) command.c
 
-game.o: game.c game.h game_reader.h
+game.o: game.c set.c space.c object.c player.c game.h game_reader.h
 	@echo "######################"
 	@echo "Creando $@"	
 	gcc -Wall -c $(FLAGS) game.c
@@ -31,7 +31,7 @@ screen.o: screen.c screen.h
 	@echo "Creando $@"
 	gcc -Wall -c $(FLAGS) screen.c
 
-space.o: space.c types.h space.h
+space.o: space.c set.h types.h space.h
 	@echo "######################"
 	@echo "Creando $@"
 	gcc -Wall -c $(FLAGS) space.c
@@ -56,10 +56,10 @@ set.o: set.c set.h types.h
 	@echo "Creando $@"
 	gcc -Wall -c $(FLAGS) set.c
 
-set_test.o: set.h set_test.c types.h
-	@echo "####################"
+die.o: die.c die.h types.h
+	@echo "#####################"
 	@echo "Creando $@"
-	gcc -Wall -c $(FLAGS) set_test.c
+	gcc -Wall -c $(FLAGS) die.c
 
 clean: 
 	@echo "Limpiando"

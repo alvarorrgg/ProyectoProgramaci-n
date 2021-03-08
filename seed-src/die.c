@@ -20,11 +20,7 @@ struct _Die {
   int last_roll;
 };
 
-Die *die(){
-
-  if (!die) return NULL;
-  
-  int i;
+Die *die_create(){
   Die * new_die =NULL;
   
   new_die=(Die *) malloc(sizeof(Die));
@@ -36,7 +32,7 @@ Die *die(){
   new_die->max=6;
   new_die->last_roll=NO_ID;
   
-  return * new_die;
+  return new_die;
 }
 
 STATUS die_destroy(Die * die){

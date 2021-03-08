@@ -24,7 +24,7 @@
 
 typedef struct _Game{
   Player *player;			/*!<Modulo player*/
-  Object *object;			/*!<Modulo object*/
+  Object *objects[MAX_OBJECTS+1];	/*!<Tabla de objetos del juego*/
   Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/
   T_Command last_cmd;			/*!< comando que se recibe del jugador*/
 } Game;
@@ -129,7 +129,7 @@ Space* game_get_space(Game* game, Id id);
  * @param game el juego donde se determian la posición del jugador
  * @return la posición del jugador
  */
-Id     game_get_player_location(Game* game);
+Id game_get_player_location(Game* game);
 /**
  * @brief Determina la posición del objeto
  *
@@ -141,7 +141,7 @@ Id     game_get_player_location(Game* game);
  * @param game el juego donde se determian la posición del objeto
  * @return la posición del objeto
  */
-Id     game_get_object_location(Game* game);
+Id game_get_object_location(Game* game,Id id);
 
 /**
  * @brief Encuentra el último comando introducido
@@ -170,4 +170,71 @@ T_Command game_get_last_command(Game* game);
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_add_space(Game* game, Space* space);
+/**
+ * @brief Añade un nuevo objeto al juego
+ *
+ * game_add_space Añade un objeto a la lista de objetos.
+ *
+ * @date  18-02-2021
+ * @author R1
+ *
+ * @param game el juego al que se va a añadir un espacio
+ * @param object el espacio que se va a añadir
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS game_add_object(Game* game, Object* object);
+/**
+ * @brief Cambia la localización del objeto
+ *
+ * game_object_set_location Cambia la localizacion del objeto
+ *
+ * @date  18-02-2021
+ * @author R1
+ *
+ * @param game el juego al que se va a añadir un espacio
+ * @param id identificador del objeto.
+ * @param nueva posición del objeto
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+
+/**
+ * @brief Establece la posición del jugador
+ *
+ * game_set_player_location Comienza comprobando si el segundo parametro es -1
+ *
+
+ *
+ * @param game el juego donde se establece el jugador
+ * @param position la posición donde se establece el jugador
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS game_set_player_location(Game* game, Id id);
+
+/**
+ * @brief Establece la posición del objeto
+ *
+ * game_set_objet_location Comprueba si el segundo parametro es -1
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego donde se establece el objeto
+ * @param position la posición donde se establece el objeto
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS game_set_object_location(Game* game, Id id,Id pos_obj);
+
+/**
+ * @brief Establece la posición del objeto
+ *
+ * game_set_objet_location Comprueba si el segundo parametro es -1
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego donde se establece el objeto
+ * @param position la posición donde se establece el objeto
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+BOOL game_id_object_exists(Game* game, Id id);
 #endif

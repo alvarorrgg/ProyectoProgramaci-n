@@ -147,32 +147,6 @@ static callback_fn game_callback_fn_list[N_CALLBACK]={
  */
 Id game_get_space_id_at(Game* game, int position);
 
-/**
- * @brief Establece la posición del jugador
- *
- * game_set_player_location Comienza comprobando si el segundo parametro es -1
- *
-
- *
- * @param game el juego donde se establece el jugador
- * @param position la posición donde se establece el jugador
- * @return OK para saber que se ha ejecutado la función correctamente
- */
-STATUS game_set_player_location(Game* game, Id id);
-
-/**
- * @brief Establece la posición del objeto
- *
- * game_set_objet_location Comprueba si el segundo parametro es -1
- *
- * @date 18-02-2021
- * @author Profesores PProg
- *
- * @param game el juego donde se establece el objeto
- * @param position la posición donde se establece el objeto
- * @return OK para saber que se ha ejecutado la función correctamente
- */
-STATUS game_set_object_location(Game* game, Id id);
 
 /*Implementación de las funciones de Game*/ 
 
@@ -181,8 +155,10 @@ STATUS game_create(Game* game) {
   for (i = 0; i < MAX_SPACES; i++) {
     game->spaces[i] = NULL; /*Se inicializan todos los espacios con un valor NULL*/
   }
+   for (i = 0; i < MAX_OBJECTS; i++) {
+    game->objects[i] = NULL; /*Se inicializan todos los espacios con un valor NULL*/
+  }
   game->player = player_create(1);
-  game->object = object_create(1);
   game->last_cmd = NO_CMD;
   
   return OK;
@@ -193,9 +169,9 @@ STATUS game_create_from_file(Game* game, char* filename) {
   if (game_create(game) == ERROR) return ERROR;
 
   if (game_reader_load_spaces(game, filename) == ERROR) return ERROR;/*Se leen los espacios del fichero data.dat*/
-
+   if (game_reader_load_objects(game, filename) == ERROR) return ERROR;/*Se leen los objetos del fichero data.dat*/
   game_set_player_location(game, game_get_space_id_at(game, 0));/*Se inicializa el jugador en el primer espacio*/
-  game_set_object_location(game, game_get_space_id_at(game, 0));/*Se inicializa el objeto en el primer espacio*/
+
 
   return OK;
 }
@@ -206,9 +182,11 @@ STATUS game_destroy(Game* game) {
   for (i = 0; (i < MAX_SPACES) && (game->spaces[i] != NULL); i++) {
     space_destroy(game->spaces[i]);/*Se destruyen todos los espacios uno a uno*/
   }
-      
+       for (i = 0; (i < MAX_OBJECTS) && (game->objects[i] != NULL); i++) {
+    object_destroy(game->objects[i]);/*Se destruyen todos los objetos uno a uno*/
+  } 
   player_destroy(game->player);/*Se destruye el jugador*/
-  object_destroy(game->object);/*Se destruye el objeto*/
+
     
   return OK;
 }
@@ -220,6 +198,17 @@ STATUS game_add_space(Game* game, Space* space) {
   while ( (i < MAX_SPACES) && (game->spaces[i] != NULL)) i++; 
   
   game->spaces[i] = space;
+
+  return OK;
+}
+
+STATUS game_add_object(Game* game, Object* object) {
+  int i = 0;
+  if (object== NULL) return ERROR; 
+   
+  while ( (i < MAX_OBJECTS) && (game->objects[i] != NULL)) i++; 
+  
+  game->objects[i] = object;
 
   return OK;
 }
@@ -250,35 +239,40 @@ STATUS game_set_player_location(Game* game, Id id) {
   if (id == NO_ID || game==NULL) return ERROR; 
   return player_set_location(game->player, id);
 }
-
-STATUS game_set_object_location(Game* game, Id id) {/*Explicación código: Primero verifica que el id dado es valido y mediante un bucle while recorre los espacios del juego hasta encontrar el que coincide con el id dado, una vez se encuentra, se devuelve la funcion space_set_object con la que se coloca el objeto en la posición correcta.*/
-  int k=0;
-  if(id == NO_ID || game==NULL) return ERROR;
-  while(game->spaces[k] != NULL){
-   if (space_get_id(game->spaces[k]) == id) return space_set_object(game->spaces[k], object_get_id(game->object));/*Se le atribuye al espacio determinado el objeto*/
-    k++;
-  }  
-  return ERROR;
-}
-
-
-
-
 Id game_get_player_location(Game* game) {
 if(game==NULL) return NO_ID;
   return player_get_location(game->player);
 }
 
-Id game_get_object_location(Game* game) {/*Explicación código: muy parecida a game_set_object_location salvo por que el bucle recorre espacios hasta que encuentra uno en el que los valores dados por space_get_object y object_get_id sean iguales, es decir, hasta que se encuentra un objeto. Una vez se encuentra, se devuelve el id del objeto.*/
+STATUS game_set_object_location(Game* game, Id id,Id pos_obj) {/*Explicación código: Primero verifica que el id dado es valido y mediante un bucle while recorre los espacios del juego hasta encontrar el que coincide con el id dado, una vez se encuentra, se devuelve la funcion space_set_object con la que se coloca el objeto en la posición correcta.*/
   int k=0;
-  if(game==NULL) return NO_ID;
+  if(pos_obj == NO_ID || game==NULL || !game_id_object_exists(game,id)) return ERROR;
   while(game->spaces[k] != NULL){
-  	if (space_get_object(game->spaces[k] ) == object_get_id(game->object))return space_get_id(game->spaces[k]);/*Se detecta la posición del objeto y se devuelve como return*/
+   if (space_get_id(game->spaces[k]) == pos_obj) return space_set_objects(game->spaces[k], id);/*Se le atribuye al espacio determinado el objeto*/
+    k++;
+  }  
+  return ERROR;
+}
+
+Id game_get_object_location(Game* game,Id id) {/*Explicación código: muy parecida a game_set_object_location salvo por que el bucle recorre espacios hasta que encuentra uno en el que los valores dados por space_get_object y object_get_id sean iguales, es decir, hasta que se encuentra un objeto. Una vez se encuentra, se devuelve el id del objeto.*/
+  int k=0;
+  if(game==NULL || !game_id_object_exists(game,id)) return NO_ID;
+  while(game->spaces[k] != NULL){
+  	 if(space_has_object_id(game->spaces[k], id))return space_get_id(game->spaces[k]);/*Se detecta la posición del objeto y se devuelve como return*/
   	k++;
   	} 
   return NO_ID;
 }
-
+BOOL game_id_object_exists(Game* game, Id id){
+	int i;
+	for(i=0;i<MAX_OBJECTS;i++){
+		if(object_get_id(game->objects[i])==id){
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+	
 STATUS game_update(Game* game, T_Command cmd) {
   game->last_cmd = cmd;
   (*game_callback_fn_list[cmd])(game);
@@ -289,14 +283,14 @@ T_Command game_get_last_command(Game* game){
   return game->last_cmd;
 }
 
-void game_print_data(Game* game) {
+/*void game_print_data(Game* game) {
   int i = 0;
   printf("\n\n-------------\n\n"); 
   printf("=> Spaces: \n");
   for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++) {
     space_print(game->spaces[i]);
   } 
-  printf("=> Object location: %d\n", (int) game_get_object_location(game));    
+  printf("=> Object location: %d\n", (int) game_get_object_location(game,id));    
   printf("=> Player location: %d\n", (int) game_get_player_location(game));
   printf("prompt:> ");
 }
@@ -304,7 +298,7 @@ void game_print_data(Game* game) {
 
 BOOL game_is_over(Game* game) {
   return FALSE;
-}
+}*/
 
 /**
    Callbacks implementation for each action 
@@ -355,36 +349,35 @@ void game_callback_back(Game* game) {
     }
   }
 }
-
-void game_callback_take(Game* game) {/*Explicación código: Se verifica que el objeto y el jugador estan en el mismo espacio en caso de estarlo, se recoge el objeto y el player pasa a poseerlo para poder dejarlo en un futuro caso. */
+/*
+void game_callback_take(Game* game) {
   int k=0;
-  while(game->spaces[k]!=NULL){/*Se recorren todos los espacios del juego*/
-      if (space_get_id(game->spaces[k])==game_get_player_location(game) ){/*Cuando se encuentra al jugador*/
-        if (space_get_object(game->spaces[k]) == NO_ID) return;/*En caso de que en el espacio del jugador no este el objeto*/
-      else{/*En caso de que si*/
-        player_set_object(game->player, space_get_object(game->spaces[k]));/*Se le da el objeto al jugador*/
-        space_set_object(game->spaces[k], NO_ID);/*Se quita el objeto del espacio determinado*/
-        break;/*Se sale del bucle*/
+  while(game->spaces[k]!=NULL){
+      if (space_get_id(game->spaces[k])==game_get_player_location(game) ){
+        if (space_get_objects(game->spaces[k]) == NO_ID) return;
+      else{
+        player_set_object(game->player, space_get_objects(game->spaces[k]));
+        space_set_objects(game->spaces[k], NO_ID);
         }
     }
     k++;
   }
 }
 
-void game_callback_drop(Game* game){/*Explicación código: Se verifica que el player tiene el objeto y en caso de tenerlo, se deja caer en el espacio en el que se encuentra el player.*/
+void game_callback_drop(Game* game){
   int k=0;
-  if(player_get_object(game->player) == NO_ID) return;/*Se verifica que player tiene el objeto*/
-  while (game->spaces[k] != NULL){/*Se recorre todos los espacios hasta encontrar en el que se encuentra el jugador*/
-    if (space_get_id(game->spaces[k]) ==  game_get_player_location(game)){/*Una vez se encuentra la posición del jugador*/
-        space_set_object(game->spaces[k], object_get_id(game->object));/*Se coloca el objeto en el espacio*/
-        player_set_object(game->player, NO_ID);/*Se le quita el objeto al jugador*/
-        break;/*Se sale del bucle*/
+  if(player_get_object(game->player) == NO_ID) return;
+  while (game->spaces[k] != NULL){
+    if (space_get_id(game->spaces[k]) ==  game_get_player_location(game)){
+        space_set_objects(game->spaces[k], object_get_id(game->object));
+        player_set_object(game->player, NO_ID);
+        break;
     }
           k++;
       }
 
   }
-  
+  */
 
 
 

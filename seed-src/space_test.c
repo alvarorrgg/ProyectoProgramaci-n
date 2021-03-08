@@ -16,7 +16,7 @@
 #include "space_test.h"
 
 
-#define MAX_TESTS 34
+#define MAX_TESTS 38
 
 /** 
  * @brief Main function for SPACE unit tests. 
@@ -79,6 +79,11 @@ int main(int argc, char** argv) {
   if (all || test == 32) test1_space_has_object_id();
   if (all || test == 33) test2_space_has_object_id();
   if (all || test == 34) test3_space_has_object_id();
+  if (all || test == 35) test1_space_set_gdesc();
+  if (all || test == 36) test2_space_set_gdesc();
+  if (all || test == 37) test1_space_get_gdesc();
+  if (all || test == 38) test2_space_get_gdesc();
+  
 
   PRINT_PASSED_PERCENTAGE;
   return 1;
@@ -285,4 +290,61 @@ void test3_space_has_object_id() {
   space_set_objects(s, 10);
   PRINT_TEST_RESULT(space_has_object_id(s,-10) == FALSE);
 }
+
+void test1_space_set_gdesc() {
+  char **gdesc;
+  Space *s=NULL;
+  gdesc = (char **)malloc(3*sizeof(char *));
+  gdesc[0] = (char *)malloc(9*sizeof(char));
+  gdesc[1] = (char *)malloc(9*sizeof(char));
+  gdesc[2] = (char *)malloc(9*sizeof(char));
+  PRINT_TEST_RESULT(space_set_gdesc(s,gdesc) == ERROR);
+  free(gdesc[0]);
+  free(gdesc[1]);
+  free(gdesc[2]);
+  free(gdesc);
+}
+
+void test2_space_set_gdesc() {
+  char **gdesc;
+  Space *s;
+  gdesc = (char **)malloc(3*sizeof(char *));
+  gdesc[0] = (char *)malloc(9*sizeof(char));
+  gdesc[1] = (char *)malloc(9*sizeof(char));
+  gdesc[2] = (char *)malloc(9*sizeof(char));
+  s = space_create(25);
+  PRINT_TEST_RESULT(space_set_gdesc(s,gdesc) == OK);
+  free(gdesc[0]);
+  free(gdesc[1]);
+  free(gdesc[2]);
+  free(gdesc);
+}
+
+void test1_space_get_gdesc() {
+  Space *s = NULL;
+  PRINT_TEST_RESULT(space_get_gdesc(s) == NULL);
+}
+
+void test2_space_get_gdesc() {
+  char **gdesc,**gdesc2;
+  Space *s;
+  gdesc2 = (char **)malloc(3*sizeof(char *));
+  gdesc2[0] = (char *)malloc(9*sizeof(char));
+  gdesc2[1] = (char *)malloc(9*sizeof(char));
+  gdesc2[2] = (char *)malloc(9*sizeof(char));
+  gdesc = (char **)malloc(3*sizeof(char *));
+  gdesc[0] = (char *)malloc(9*sizeof(char));
+  gdesc[1] = (char *)malloc(9*sizeof(char));
+  gdesc[2] = (char *)malloc(9*sizeof(char));
+  gdesc[0]="Hola";
+  gdesc[1]="Hola";
+  gdesc[2]="Hola";
+  s = space_create(25);
+  space_set_gdesc(s,gdesc);
+  gdesc2=space_get_gdesc(s);
+  PRINT_TEST_RESULT(strcmp(gdesc[0],gdesc2[0])==0);
+  free(gdesc);
+  free(gdesc2);
+}
+
 

@@ -12,7 +12,7 @@
 #define SPACE_H
 
 #include "types.h"
-#include "set.h"
+
 
 /**
  * @brief Define un espacio
@@ -256,6 +256,31 @@ BOOL space_has_object_id(Space* space, Id id);
  * @return OK o ERROR segun si se ha eliminado correctamente el objeto o no.
  */
 STATUS space_remove_object(Space* space, Id id);
+/**
+ * @brief cambias la descripción de un espacio
+ *
+ * space_set_gdesc cambias la descripción grafica de un objeto
+ * 
+ * @date 18-02-2021
+ * @author R1
+ *
+ * @param space el espacio que se trabaja
+ * @param descripción
+ * @return OK o ERROR segun si se ha cambiado la descripción o no.
+ */
+STATUS space_set_gdesc(Space *space, char **desc);
+/**
+ * @brief cambias la descripción de un espacio
+ *
+ * space_get_gdesc obtienes la descripción grafica de un objeto
+ * 
+ * @date 18-02-2021
+ * @author R1
+ *
+ * @param space el espacio que se trabaja
+ * @return OK o ERROR segun si se ha obtenido la descripción o no.
+ */
+char** space_get_gdesc(Space *space);
 
 /**
  * @brief muestra por pantalla el espacio creado

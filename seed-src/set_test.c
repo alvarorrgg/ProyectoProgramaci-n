@@ -16,7 +16,7 @@
 #include "set_test.h"
 #include "test.h"
 
-#define MAX_TESTS 34
+#define MAX_TESTS 35
 
 /** 
  * @brief Main function for SET unit tests. 
@@ -46,51 +46,53 @@ int main(int argc, char** argv) {
 
 
   if (all || test == 1) test1_set_create();
+  if (all || test == 2) test2_set_create();
   
-  if (all || test == 2) test1_set_id_add();
-  if (all || test == 3) test2_set_id_add();
-  if (all || test == 4) test3_set_id_add();
-  if (all || test == 5) test4_set_id_add();
+  if (all || test == 3) test1_set_id_add();
+  if (all || test == 4) test2_set_id_add();
+  if (all || test == 5) test3_set_id_add();
+  if (all || test == 6) test4_set_id_add();
   
-  if (all || test == 6) test1_set_id_delete();
-  if (all || test == 7) test2_set_id_delete();
-  if (all || test == 8) test3_set_id_delete();
-  if (all || test == 9) test4_set_id_delete();
+  if (all || test == 7) test1_set_id_delete();
+  if (all || test == 8) test2_set_id_delete();
+  if (all || test == 9) test3_set_id_delete();
+  if (all || test == 10) test4_set_id_delete();
   
-  if (all || test == 10) test1_set_set_total_ids();
-  if (all || test == 11) test2_set_set_total_ids();
-  if (all || test == 12) test3_set_set_total_ids();
+  if (all || test == 11) test1_set_set_total_ids();
+  if (all || test == 12) test2_set_set_total_ids();
+  if (all || test == 13) test3_set_set_total_ids();
   
   
   if (all || test == 13) test1_set_get_total_ids();
-  if (all || test == 14) test2_set_get_total_ids();
+  if (all || test == 15) test2_set_get_total_ids();
 
-  if (all || test == 15) test1_set_has_id();
-  if (all || test == 16) test2_set_has_id();
-  if (all || test == 17) test3_set_has_id();
-  if (all || test == 18) test4_set_has_id();
+  if (all || test == 16) test1_set_has_id();
+  if (all || test == 17) test2_set_has_id();
+  if (all || test == 18) test3_set_has_id();
+  if (all || test == 19) test4_set_has_id();
    
-  if (all || test == 19) test1_set_find_object_by_id();
-  if (all || test == 20) test2_set_find_object_by_id();
-  if (all || test == 21) test3_set_find_object_by_id();
-  if (all || test == 22) test4_set_find_object_by_id();
+  if (all || test == 20) test1_set_find_object_by_id();
+  if (all || test == 21) test2_set_find_object_by_id();
+  if (all || test == 22) test3_set_find_object_by_id();
+  if (all || test == 23) test4_set_find_object_by_id();
   
-  if (all || test == 23) test1set_is_empty();
-  if (all || test == 24) test2_set_is_empty();
-  if (all || test == 25) test3_set_is_empty();
+  if (all || test == 24) test1set_is_empty();
+  if (all || test == 25) test2_set_is_empty();
+  if (all || test == 26) test3_set_is_empty();
   
-  if (all || test == 26) test1_set_is_full();
-  if (all || test == 27) test2_set_is_full();
-  if (all || test == 28) test3_set_is_full();
-  if (all || test == 29) test4_set_is_full();
+  if (all || test == 27) test1_set_is_full();
+  if (all || test == 28) test2_set_is_full();
+  if (all || test == 29) test3_set_is_full();
+  if (all || test == 30) test4_set_is_full();
   
-  if (all || test == 30) test1_set_print();
-  if (all || test == 31) test2_set_print();
-  if (all || test == 32) test3_set_print();
+  if (all || test == 31) test1_set_print();
+  if (all || test == 32) test2_set_print();
+  if (all || test == 33) test3_set_print();
   
-  if (all || test == 33) test1_set_get_ids();
-  if (all || test == 34) test2_set_get_ids();
+  if (all || test == 34) test1_set_get_ids();
+  if (all || test == 35) test2_set_get_ids();
 
+  
   PRINT_PASSED_PERCENTAGE;
 
   return 1;
@@ -101,6 +103,12 @@ int main(int argc, char** argv) {
   Set *s;
   s = set_create();
   PRINT_TEST_RESULT(set_get_total_ids(s) == 0);
+}
+
+ void test2_set_create() {
+  Set *s;
+  s = set_create();
+  PRINT_TEST_RESULT(set_is_empty(s) == TRUE);
 }
 
   void test1_set_id_add(){

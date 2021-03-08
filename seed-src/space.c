@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "space.h"
-
+#include "set.h"
 
 /**
  * @brief Estructura space
@@ -16,7 +16,8 @@ struct _Space {
   Id south;		/*!< coordenada sur */
   Id east;		/*!< coordenada este */
   Id west;		/*!< coordenada oeste */
-  Set* objects;		/*!< array de objetos */
+  Set* objects;	/*!< array de objetos */
+  char **gdesc;	/*!< Descripción grafica */
 };
 
 Space* space_create(Id id) {
@@ -34,8 +35,11 @@ Space* space_create(Id id) {
   new_space->north = NO_ID;
   new_space->south = NO_ID;
   new_space->east = NO_ID;
-  new_space->west = NO_ID;
-
+  new_space->west = NO_ID;  
+  new_space->gdesc = (char **)malloc(3*sizeof(char *));
+  new_space->gdesc[0] = (char *)malloc(9*sizeof(char));
+  new_space->gdesc[1] = (char *)malloc(9*sizeof(char));
+  new_space->gdesc[2] = (char *)malloc(9*sizeof(char));
   return new_space;
 }
 
@@ -43,7 +47,10 @@ STATUS space_destroy(Space* space) {
   if (!space) return ERROR;
   set_destroy(space->objects);
   free(space);
-
+  free(space->gdesc[0]);
+  free(space->gdesc[1]);
+  free(space->gdesc[2]);
+  free(space->gdesc);
   return OK;
 }
 
@@ -90,6 +97,21 @@ STATUS space_set_west(Space* space, Id id) {
 STATUS space_set_objects(Space* space, Id id) {
   if (!space || set_id_add(space->objects,id)==ERROR) return ERROR;
   return OK;
+}
+
+STATUS space_set_gdesc(Space *space, char **desc){
+  if (!space) return ERROR;
+  strcpy(space->gdesc[0], desc[0]);
+  strcpy(space->gdesc[1], desc[1]);
+  strcpy(space->gdesc[2], desc[2]);
+
+  return OK;
+}
+
+char** space_get_gdesc(Space *space){
+  if (!space)  return NULL;
+  return space->gdesc;
+
 }
 
 STATUS space_remove_object(Space* space, Id id) {

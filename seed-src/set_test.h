@@ -12,6 +12,7 @@
 #define SPACE_TEST_H
 
   void test1_set_create();  
+  void test2_set_create();
   void test1_set_id_add();
   void test2_set_id_add();
   void test3_set_id_add();

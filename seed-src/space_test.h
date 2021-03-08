@@ -85,5 +85,8 @@ void test2_space_remove_object();
 void test1_space_has_object_id();
 void test2_space_has_object_id();
 void test3_space_has_object_id();
-
+void test1_space_set_gdesc();
+void test2_space_set_gdesc();
+void test1_space_get_gdesc();
+void test2_space_get_gdesc();
 #endif

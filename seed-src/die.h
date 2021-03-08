@@ -108,3 +108,4 @@ Id die_get_id(Die * die);
  * @return ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS die_print(FILE *pf, const Die *die);
+#endif
