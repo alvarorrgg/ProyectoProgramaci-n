@@ -107,5 +107,5 @@ Id die_get_id(Die * die);
  * @param die el dado que se imprime
  * @return ERROR o OK según si se encuentra o no algun fallo
  */
-STATUS die_print(FILE *pf, const Die *die);
+STATUS die_print(FILE *pf,Die *die);
 #endif

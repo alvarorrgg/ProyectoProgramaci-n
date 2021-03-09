@@ -63,4 +63,4 @@ die.o: die.c die.h types.h
 
 clean: 
 	@echo "Limpiando"
-	rm -rf *.o ocaEXE setPruebaEXE spacePruebaEXE
+	rm -rf *.o ocaEXE setPruebaEXE spacePruebaEXE diePruebaEXE

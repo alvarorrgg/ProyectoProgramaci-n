@@ -48,13 +48,13 @@ int die_roll(Die * die){
 }
 
 STATUS die_set_Id(Die * die, Id id){
-  if (!die || !id) return ERROR;
+  if (!die || !id || id<0) return ERROR;
   die->id=id;
   return OK;
 }
 
 int die_get_last_roll(Die * die){
-  if (!die) return 0;
+  if (!die) return -1;
   return die->last_roll;
 }
 
@@ -63,8 +63,8 @@ Id die_get_id(Die * die){
   return die->id;
 }
 
-STATUS die_print(Die *die){
-  if (!die) return ERROR;
+STATUS die_print(FILE *pf,Die *die){
+  if (!die || !pf) return ERROR;
   
   fprintf(pf,"El dado %ld ha sacado un %d. \n", die->id,die->last_roll);
   

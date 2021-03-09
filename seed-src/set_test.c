@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
   if (all || test == 13) test3_set_set_total_ids();
   
   
-  if (all || test == 13) test1_set_get_total_ids();
+  if (all || test == 14) test1_set_get_total_ids();
   if (all || test == 15) test2_set_get_total_ids();
 
   if (all || test == 16) test1_set_has_id();
@@ -76,7 +76,7 @@ int main(int argc, char** argv) {
   if (all || test == 22) test3_set_find_object_by_id();
   if (all || test == 23) test4_set_find_object_by_id();
   
-  if (all || test == 24) test1set_is_empty();
+  if (all || test == 24) test1_set_is_empty();
   if (all || test == 25) test2_set_is_empty();
   if (all || test == 26) test3_set_is_empty();
   
@@ -146,6 +146,7 @@ int main(int argc, char** argv) {
   void test3_set_id_delete(){
   	Set *s;
   	s=set_create();
+  	set_id_add(s,3);
   	PRINT_TEST_RESULT(set_id_delete(s,5) == ERROR);
   	}
   void test4_set_id_delete(){
@@ -231,7 +232,7 @@ int main(int argc, char** argv) {
   	}
   	
   	
-  void test1set_is_empty(){
+  void test1_set_is_empty(){
   	Set *s=NULL;
   	PRINT_TEST_RESULT(set_is_empty(s) == FALSE);
   	}
