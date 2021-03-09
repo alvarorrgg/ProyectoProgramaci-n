@@ -82,6 +82,7 @@ int main(int argc, char** argv) {
   PRINT_TEST_RESULT(die_get_id(d) == 5);
 }
 
+
  void test1_die_roll() {
   Die *d=NULL;
   PRINT_TEST_RESULT(die_roll(d) == -1);
@@ -92,6 +93,7 @@ int main(int argc, char** argv) {
   die_roll(d);
   PRINT_TEST_RESULT(die_get_last_roll(d)>0 && die_get_last_roll(d)<7);
 }
+
 
  void test1_die_set_Id() {
   Die *d=NULL;
@@ -108,6 +110,7 @@ int main(int argc, char** argv) {
   PRINT_TEST_RESULT(die_set_Id(d,-5) == ERROR);
 }
 
+
  void test1_die_get_last_roll() {
   Die *d=NULL;
   PRINT_TEST_RESULT(die_get_last_roll(d) == -1);
@@ -119,6 +122,7 @@ int main(int argc, char** argv) {
   PRINT_TEST_RESULT(die_get_last_roll(d)>0 && die_get_last_roll(d)<7);
 }
 
+
  void test1_die_get_id() {
   Die *d=NULL;
   PRINT_TEST_RESULT(die_get_id(d) == NO_ID);
@@ -128,6 +132,7 @@ int main(int argc, char** argv) {
   d = die_create(5);
   PRINT_TEST_RESULT(die_get_id(d) == 5);
 }
+
 
  void test1_die_print() {
   Die *d=NULL;
