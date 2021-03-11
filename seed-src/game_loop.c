@@ -71,17 +71,27 @@ void game_loop_cleanup(Game game, Graphic_engine *gengine);
 int main(int argc, char *argv[]) {
   Game game;
   Graphic_engine *gengine;
+  FILE *fchlog;
 
   if (argc < 2) {
     fprintf(stderr, "Use: %s <game_data_file>\n", argv[0]);
     return 1;
   }
+  if(argc>2){
+  	if(strcmp(argv[2],-l)==0) {
+  		fchlog=fopen(argv[3],"w");
+  		if(fchlog==NULL) return ERROR;
+  		}
+  	else{
+  	fprintf(stderr,"Los parametros se deben introducir de la forma ./ocaBAS data.dat -l log.txt");
+  	}
+  		
 
   if (!game_loop_init(&game, &gengine, argv[1])){
     game_loop_run(game, gengine);
     game_loop_cleanup(game, gengine);
   }
-
+  fclose(fchlog);
   return 0;
 }
 
