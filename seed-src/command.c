@@ -13,34 +13,39 @@
 #include "command.h"
 
 #define CMD_LENGHT 30
-/* 2brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
+/* @brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
 char *cmd_to_str[N_CMD][N_CMDT] = {
-  {"","No command"}, 
-  {"","Unknown"}, 
-  {"e","Exit"}, 
-  {"n","Next"}, 
-  {"b","Back"}, 
-  {"t","Take"}, 
-  {"d","Drop"},
-  {"rl","Roll"}
-};
+    {"", "No command"},
+    {"", "Unknown"},
+    {"e", "Exit"},
+    {"n", "Next"},
+    {"b", "Back"},
+    {"t", "Take"},
+    {"d", "Drop"},
+    {"rl", "Roll"},
+    {"l", "Left"},
+    {"r", "Right"}};
 
-T_Command get_user_input(){
+T_Command get_user_input()
+{
   T_Command cmd = NO_CMD;
   char input[CMD_LENGHT] = "";
-  int i= UNKNOWN - NO_CMD + 1;
-	
-  if (scanf("%s",  input) > 0){
+  int i = UNKNOWN - NO_CMD + 1;
+
+  if (scanf("%s", input) > 0)
+  {
     cmd = UNKNOWN;
-    while(cmd == UNKNOWN && i < N_CMD){
-      if (!strcasecmp( input, cmd_to_str[i][CMDS]) || !strcasecmp(input, cmd_to_str[i][CMDL])){
+    while (cmd == UNKNOWN && i < N_CMD)
+    {
+      if (!strcasecmp(input, cmd_to_str[i][CMDS]) || !strcasecmp(input, cmd_to_str[i][CMDL]))
+      {
         cmd = i + NO_CMD;
       }
-      else{
+      else
+      {
         i++;
       }
     }
   }
   return cmd;
 }
-

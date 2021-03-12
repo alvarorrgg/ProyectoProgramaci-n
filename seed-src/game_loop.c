@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "graphic_engine.h"
 
 /**
@@ -78,12 +79,13 @@ int main(int argc, char *argv[]) {
     return 1;
   }
   if(argc>2){
-  	if(strcmp(argv[2],-l)==0) {
+  	if(strcmp(argv[2],"-l")==0) {
   		fchlog=fopen(argv[3],"w");
   		if(fchlog==NULL) return ERROR;
   		}
   	else{
   	fprintf(stderr,"Los parametros se deben introducir de la forma ./ocaBAS data.dat -l log.txt");
+  	}
   	}
   		
 
