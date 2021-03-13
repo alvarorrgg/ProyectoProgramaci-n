@@ -29,7 +29,7 @@ Player* player_create(Id id) {
   new_player->id = id;
   new_player->name[0] = '\0';
   new_player->location = NO_ID;
-  new_player->object = object_create(id);
+  new_player->object = object_create(NO_ID);
 
   return new_player;
 }

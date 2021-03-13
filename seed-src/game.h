@@ -117,9 +117,33 @@ void   game_print_data(Game* game);
  *
  * @param game el juego del que se va a identificar el espacio
  * @param position la posición del espacio
- * @return la función space_get_id con la posición position del juego
+ * @return la función space_get_space con la posición position del juego
  */
 Space* game_get_space(Game* game, Id id);
+/**
+ * @brief Identifica el dado
+ *
+ * game_get_die Sirve para obtener el dado del juego
+ *
+ * @date  18-02-2021
+ * @author R1
+ *
+ * @param game el juego del que se va a identificar el espacio
+ * @return el dado del juego
+ */
+Die* game_get_die(Game* game);
+/**
+ * @brief Identifica el jugador
+ *
+ * game_get_player Sirve para obtener el jugador del juego
+ *
+ * @date  18-02-2021
+ * @author R1 
+ *
+ * @param game el juego del que se va a identificar el espacio
+ * @return el jugador del juego
+ */
+Player *game_get_player(Game *game);
 /**
  * @brief Determina la posición del jugador
  *
