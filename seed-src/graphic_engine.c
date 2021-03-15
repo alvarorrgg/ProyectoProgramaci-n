@@ -207,14 +207,18 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
   screen_area_clear(ge->help);
   sprintf(str, " The commands you can use are:");
   screen_area_puts(ge->help, str);
-  sprintf(str, "     next or n, back or b, exit or e, take or t, drop or d");
+  sprintf(str, "next or n, back or b, exit or e, take or t, drop or d,roll or rl,left or l,right or r");
   screen_area_puts(ge->help, str);
 
   /* Pinta en el área de comentarios */
   last_cmd = game_get_last_command(game);
-  sprintf(str, " %s (%s)", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
+  if(last_cmd!=-1){
+  if(game_get_status(game)!=1){
+  sprintf(str, " %s (%s): ERROR", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
+  }
+  else sprintf(str, " %s (%s) OK ", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
   screen_area_puts(ge->feedback, str);
-
+}
   /* Volcarlo en la terminal */
   screen_paint();
   printf("prompt:> ");

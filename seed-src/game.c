@@ -267,7 +267,11 @@ Id game_get_space_id_at(Game *game, int position)
 
   return space_get_id(game->spaces[position]);
 }
-
+STATUS game_get_status(Game* game){
+  if(game==NULL) return ERROR;
+    else
+      return game->st;
+}
 Space *game_get_space(Game *game, Id id)
 {
   int i = 0;
@@ -346,7 +350,11 @@ BOOL game_id_object_exists(Game *game, Id id)
 STATUS game_update(Game *game, T_Command cmd)
 {
   game->last_cmd = cmd;
-  (*game_callback_fn_list[cmd])(game);
+  if(cmd!=-1){
+  game->st=(*game_callback_fn_list[cmd])(game);
+  }
+  else
+    game->st = 0;
   return OK;
 }
 
@@ -380,7 +388,7 @@ BOOL game_is_over(Game *game)
 
 STATUS game_callback_unknown(Game *game)
 {
-  return OK;
+  return ERROR;
 }
 
 STATUS game_callback_exit(Game *game)

@@ -28,7 +28,8 @@ typedef struct _Game{
   Object *objects[MAX_OBJECTS+1];	/*!< Tabla de objetos del juego*/
   Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/
   T_Command last_cmd;			/*!< comando que se recibe del jugador*/
-  Die *die;				/*!< Dado del juego*/
+  Die *die;               /*!< Dado del juego*/
+  STATUS st; 
 } Game;
 
 /**
@@ -156,6 +157,18 @@ Player *game_get_player(Game *game);
  * @return la posición del jugador
  */
 Id game_get_player_location(Game* game);
+/**
+ * @brief Determina el estado del comando
+ *
+ * game_get_status obtiene el estado del comando 
+ *
+ * @date  18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego donde se determian la posición del jugador
+ * @return el estado del comando o OK o ERROR
+ */
+STATUS game_get_status(Game* game);
 /**
  * @brief Determina la posición del objeto
  *
