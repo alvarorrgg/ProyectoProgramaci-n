@@ -145,6 +145,19 @@ BOOL set_is_full(Set* set);
  */
 Id* set_get_ids(Set *set);
 /**
+ * @brief cambia los ids del set
+ *
+ * set_get_ids cambia los ids del set
+ *
+ * @date 18-02-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param recibe un puntero a set.
+ * @param numero nuevo de los ids
+ * @return devuelve ERROR o OK segun si todo esta correctamente hecho o no.
+ */
+STATUS set_set_total_ids(Set *setn,int n);
+/**
  * @brief Muestra por pantalla las caracteristicas del set
  *
  * set_print muestra los valores de los parametros del set
