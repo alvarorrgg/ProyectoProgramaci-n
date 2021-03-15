@@ -499,6 +499,7 @@ STATUS game_callback_take(Game *game)
   char objeto[OBJECT_NAME];
   int k = 0, i = 0, j=0;
   Id id=NO_ID;
+  if(player_get_object(game->player)!=NO_ID) return ERROR;
   fgets(objeto, WORD_SIZE, stdin);
   for (j = 0; j < strlen(objeto); j++)
   {
