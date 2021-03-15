@@ -41,20 +41,21 @@ STATUS set_destroy(Set* set){
 }
 
 STATUS set_id_add(Set* set,Id id){
-	if(set==NULL || id<0 || set_is_full(set)||set_has_id(set,id) || id<0 ) return ERROR;
-	else{
+	if(set==NULL || id<0 || set_is_full(set)||set_has_id(set,id) ) return ERROR;
 		set->id[set->total_ids]=id;
-		set->total_ids++;
+		(set->total_ids)++;	
 		return OK;
-	}
 	}
 	
 STATUS set_id_delete(Set* set,Id id){
 	int j;
-	if(set==NULL || set_is_empty(set) || !set_has_id(set,id)) return ERROR;
+	if(set==NULL || set_is_empty(set) || !set_has_id(set,id)){
+
+		return ERROR;
+	} 
 	j=set_find_object_by_id(set,id);
-	set->id[j]=set->id[set->total_ids];
-	set->id[set->total_ids]=NO_ID;
+	set->id[j]=set->id[set->total_ids-1];
+	set->id[set->total_ids-1]=NO_ID;
 	set->total_ids--;
 	return OK;
 }
@@ -85,8 +86,10 @@ BOOL set_has_id(Set* set, Id id){
 int set_find_object_by_id(Set* set, Id id){
 	int i;
 	if(set==NULL || id<0) return NO_ID;
+	
 	for(i=0; i<set->total_ids;i++){
-		if(set->id[i]==id){
+		
+		if(set->id[i]==id){		
 			return i;
 		}
 	}

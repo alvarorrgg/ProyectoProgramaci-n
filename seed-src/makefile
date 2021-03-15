@@ -1,5 +1,5 @@
 #makefile de juego OCA
-FLAGS=-ansi -pedantic
+FLAGS=-ansi -pedantic -g 
 #setPruebaEXE: set.o set_test.o
 	#gcc -o setPruebaEXE $(FLAGS) set.o set_test.o
 
@@ -9,7 +9,7 @@ ocaEXE: command.o game.o game_loop.o graphic_engine.o screen.o space.o game_read
 command.o: command.c command.h
 	@echo "######################"
 	@echo "Creando $@"
-	gcc -Wall -c $(FLAGS) command.c
+	gcc -Wall -c  $(FLAGS) command.c
 
 game.o: game.c set.c space.c object.c player.c game.h game_reader.h
 	@echo "######################"

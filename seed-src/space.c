@@ -46,11 +46,11 @@ Space* space_create(Id id) {
 STATUS space_destroy(Space* space) {
   if (!space) return ERROR;
   set_destroy(space->objects);
-  free(space);
   free(space->gdesc[0]);
   free(space->gdesc[1]);
   free(space->gdesc[2]);
   free(space->gdesc);
+  free(space);
   return OK;
 }
 
@@ -115,6 +115,7 @@ char** space_get_gdesc(Space *space){
 }
 
 STATUS space_remove_object(Space* space, Id id) {
+   
   return set_id_delete(space->objects,id);
 }
 

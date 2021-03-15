@@ -15,7 +15,7 @@
 #include "game.h"
 #include "game_reader.h"
 #define N_CALLBACK 9
-
+#define OBJECT_NAME 10
 /**
  * Define el tipo de funciones para las devoluciones de llamada
  */
@@ -241,6 +241,7 @@ STATUS game_add_space(Game *game, Space *space)
     i++;
 
   game->spaces[i] = space;
+  
 
   return OK;
 }
@@ -255,7 +256,6 @@ STATUS game_add_object(Game *game, Object *object)
     i++;
 
   game->objects[i] = object;
-
   return OK;
 }
 
@@ -496,51 +496,74 @@ STATUS game_callback_left(Game *game)
 
 STATUS game_callback_take(Game *game)
 {
-  /* int k = 0;
-      while (game->spaces[k] != NULL)
+  char objeto[OBJECT_NAME];
+  int k = 0, i = 0, j=0;
+  Id id=NO_ID;
+  fgets(objeto, WORD_SIZE, stdin);
+  for (j = 0; j < strlen(objeto); j++)
+  {
+    objeto[j] = objeto[j + 1];
+  }
+  objeto[2] =(char)0;
+  while (game->objects[i] != NULL)
+  {
+    if (strcmp(object_get_name(game->objects[i]), objeto) == 0)
+    {
+      id = object_get_id(game->objects[i]);
+    }
+    i++;
+    }
+  if(id==NO_ID) return ERROR;
+
+    while (game->spaces[k] != NULL)
+    {
+        
+      if (space_get_id(game->spaces[k]) == game_get_player_location(game))
       {
-        if (space_get_id(game->spaces[k]) == game_get_player_location(game))
-        {
-          if (space_get_objects(game->spaces[k]) == NO_ID)
-            return ERROR;
-          else
-          {
-            player_set_object(game->player, space_get_objects(game->spaces[k]));
-            space_set_objects(game->spaces[k], NO_ID);
-            return OK;
-          }
-        }
-        k++;
-  }*/
+      if (!space_has_object_id(game->spaces[k], id)){
+        return ERROR;
+      }
+      else
+      {
+        player_set_object(game->player, id);
+        space_remove_object(game->spaces[k], id);
+        return OK;
+      }
+    }
+    k++;
+  }
   return OK;
+
 }
 
 STATUS game_callback_drop(Game *game)
 {
-  /*  int k = 0;
+   int k = 0;
   if (player_get_object(game->player) == NO_ID)
     return ERROR;
   while (game->spaces[k] != NULL)
   {
     if (space_get_id(game->spaces[k]) == game_get_player_location(game))
     {
-      space_set_objects(game->spaces[k], object_get_id(game->object));
+      space_set_objects(game->spaces[k], player_get_object(game->player));
       player_set_object(game->player, NO_ID);
       break;
     }
     k++;
   }
-  */
+  
   return OK;
 }
 
 STATUS game_callback_roll(Game *game)
 {
-  if (!game)
-    return ERROR;
+  
+  if (!game)  return ERROR;
+  
+    
   if (die_get_id(game->die) == NO_ID)
     return ERROR;
-
+  
   die_roll(game->die);
   return OK;
 }

@@ -71,8 +71,9 @@ Id player_get_object(Player* player) {
 }
 
 STATUS player_set_object(Player* player, Id value) {
-  if (!player) return ERROR;
-  
+  if (!player) {
+    return ERROR;
+  }
   object_set_id(player->object,value);
   
   return OK;

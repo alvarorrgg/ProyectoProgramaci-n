@@ -71,7 +71,7 @@ STATUS set_id_delete(Set* set,Id id);
  * @param recibe un puntero a set y un entero que será el numero de ids.
  * @return devuelve ERROR o OK según si se encuentra o no algun fallo
  */
-STATUS set_set_total_ids(Set* set,int n);
+/*STATUS set_set_total_ids(Set* set,int n);*/
 /**
  * @brief obtiene el numero total de ids
  *

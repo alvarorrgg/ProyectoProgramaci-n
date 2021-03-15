@@ -59,10 +59,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   T_Command last_cmd = UNKNOWN;
   extern char *cmd_to_str[N_CMD][N_CMDT];
   obj = (char **)malloc(4 * sizeof(char *));
-  obj[0] = (char *)malloc(3 * sizeof(char));
-  obj[1] = (char *)malloc(3 * sizeof(char));
-  obj[2] = (char *)malloc(3 * sizeof(char));
-  obj[3] = (char *)malloc(3 * sizeof(char));
+
 
 
   /* Pintar en el área del mapa */
@@ -75,13 +72,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     id_next = space_get_south(space_act);
     space_next = game_get_space(game, id_next);
 
-    if (game_get_object_location(game, 1) == id_back) obj[0] = "O1";
+    if (space_has_object_id(space_back,1)) obj[0] = "O1";
     else obj[0] = "  ";
-    if (game_get_object_location(game, 2) == id_back)obj[1] = "O2";
+    if (space_has_object_id(space_back,2))  obj[1] = "O2";
     else obj[1] = "  " ;
-    if (game_get_object_location(game, 3) == id_back) obj[2] = "O3";
+    if (space_has_object_id(space_back,3)) obj[2] = "O3";
     else obj[2] = "  ";
-    if (game_get_object_location(game, 4) == id_back) obj[3] = "O4";
+    if (space_has_object_id(space_back,4))obj[3] = "O4";
     else obj[3] = "  ";
 
     if (id_back != NO_ID)
@@ -104,13 +101,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
     }
 
-    if (game_get_object_location(game, 1) == id_act) obj[0] = "O1";
+    if (space_has_object_id(space_act,1)) obj[0] = "O1";
     else obj[0] = "  ";
-    if (game_get_object_location(game, 2) == id_act)obj[1] = "O2";
+    if (space_has_object_id(space_act,2))  obj[1] = "O2";
     else obj[1] = "  " ;
-    if (game_get_object_location(game, 3) == id_act) obj[2] = "O3";
+    if (space_has_object_id(space_act,3)) obj[2] = "O3";
     else obj[2] = "  ";
-    if (game_get_object_location(game, 4) == id_act) obj[3] = "O4";
+    if (space_has_object_id(space_act,4))obj[3] = "O4";
     else obj[3] = "  ";
 
     if (id_act != NO_ID)
@@ -132,13 +129,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
     }
 
-    if (game_get_object_location(game, 1) == id_next) obj[0] = "O1";
+    if (space_has_object_id(space_next,1)) obj[0] = "O1";
     else obj[0] = "  ";
-    if (game_get_object_location(game, 2) == id_next)obj[1] = "O2";
+    if (space_has_object_id(space_next,2))  obj[1] = "O2";
     else obj[1] = "  " ;
-    if (game_get_object_location(game, 3) == id_next) obj[2] = "O3";
+    if (space_has_object_id(space_next,3)) obj[2] = "O3";
     else obj[2] = "  ";
-    if (game_get_object_location(game, 4) == id_next) obj[3] = "O4";
+    if (space_has_object_id(space_next,4))obj[3] = "O4";
     else obj[3] = "  ";
 
     if (id_next != NO_ID)
@@ -162,6 +159,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
     }
   }
+
   free(obj);
   /* Pinta en el área de la despcripción */
   screen_area_clear(ge->descript);
@@ -195,11 +193,13 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
     if((int)die_get_last_roll(game_get_die(game))==-1) sprintf(str, "Last roll of dice: 0");
     else sprintf(str, "Last roll of dice: %d",(int)die_get_last_roll(game_get_die(game)));
     screen_area_puts(ge->descript, str);
+
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);
-    if((int)player_get_object(game_get_player(game))!=-1) sprintf(str, "Player has object: %d",(int)player_get_object(game_get_player(game)));
 
+    if((int)player_get_object(game_get_player(game))!=-1) sprintf(str, "Player has object: %d",(int)player_get_object(game_get_player(game)));
    screen_area_puts(ge->descript, str);
+   
   /* Pinta en el área del banner */
   screen_area_puts(ge->banner, " The game of the Goose ");
 

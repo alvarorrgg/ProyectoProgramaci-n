@@ -23,15 +23,13 @@ Object* object_create(Id id) {
 
   Object *new_object = NULL;
 
-  if (id == NO_ID) return NULL;
 
   new_object = (Object *) malloc(sizeof (Object));
 
   if (new_object == NULL) return NULL;
   
   new_object->id = id;
-  new_object->name[0] = '\0';
-
+  new_object->name[0] = (char)0;
   return new_object;
 }
 
@@ -57,7 +55,10 @@ STATUS object_set_name(Object* object, char* name) {
 }
 
 STATUS object_set_id(Object* object, Id id) {
-  if (!object) return ERROR;
+  if (!object) {
+    return ERROR;
+  }
+
   object->id=id;
   return OK;
 }
