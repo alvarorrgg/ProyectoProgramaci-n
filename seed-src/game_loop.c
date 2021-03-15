@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "graphic_engine.h"
+#include "command.h"
 
 /**
  *
@@ -41,7 +42,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
  * @param game juego que continúa
  * @param gengine motor que se utiliza en el juego
  */
-void game_loop_run(Game game, Graphic_engine *gengine);
+void game_loop_run(Game game, Graphic_engine *gengine,FILE *f);
 /**
  *
  * @brief función que finaliza el juego
@@ -72,23 +73,26 @@ void game_loop_cleanup(Game game, Graphic_engine *gengine);
 int main(int argc, char *argv[]) {
   Game game;
   Graphic_engine *gengine;
+  FILE *f = NULL;
   if (argc < 2) {
     fprintf(stderr, "Use: %s <game_data_file>\n", argv[0]);
     return 1;
   }
   if(argc>2){
   	if(strcmp(argv[2],"-l")==0) {
+      f = fopen(argv[3], "w");
     }
   	else{
   	fprintf(stderr,"Los parametros se deben introducir de la forma ./ocaBAS data.dat -l log.txt");
   	}
   	}
   if (!game_loop_init(&game, &gengine, argv[1])){
-    game_loop_run(game, gengine);
+    game_loop_run(game, gengine,f);
     game_loop_cleanup(game, gengine);
+    if(argc>2)fclose(f); 
   }
   return 0;
-}
+  }
 
 int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name){
   if (game_create_from_file(game, file_name) == ERROR) {
@@ -105,13 +109,24 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name){
   return 0;
 }
 
-void game_loop_run(Game game, Graphic_engine *gengine){
+void game_loop_run(Game game, Graphic_engine *gengine,FILE *f){
   T_Command command = NO_CMD;
-
+   extern char *cmd_to_str[N_CMD][N_CMDT];
   while ((command != EXIT) && !game_is_over(&game)) {/*Mientras que el comando sea distinto de EXIT o no se cumpla game_is_over, se pintará la pantalla cada vez que se ejecute game_update*/
     graphic_engine_paint_game(gengine, &game);
-    command = get_user_input();
+    command = command_get_user_input();
     game_update(&game, command);
+if(f!=NULL){
+
+if(command_get_cmd(game_get_command(&game))!=-1){
+  if(command_get_status(game_get_command(&game))!=1){
+  fprintf(f, " %s (%s): ERROR\n", cmd_to_str[command_get_cmd(game_get_command(&game)) - NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDS]);
+  }
+  else{
+     fprintf(f, " %s (%s) OK\n", cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDS]);
+}
+  }
+}
   }
 }
 

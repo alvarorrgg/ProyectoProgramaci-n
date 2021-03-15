@@ -2,7 +2,7 @@
  * @brief It declares the tests for the set module
  * 
  * @file set_test.h
- * @author R1
+ * @author Álvaro Rodríguez
  * @version 2.0 
  * @date 18-02-2021
  * @copyright GNU Public License

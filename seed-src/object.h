@@ -2,7 +2,7 @@
  * @brief Archivo cabecera del modulo object.h, en el se define la estructura de datos Object y sus funciones.
  * 
  * @file object.h
- * @author R1
+ * @author Álvaro Rodríguez
  * @version 1.0 
  * @date 18-02-2021 
  * @copyright GNU Public License
@@ -27,7 +27,7 @@ typedef struct _Object Object;
  * object_create crea un objeto y le da atributos sin valor, es la inicialización del objeto.
  *
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param recibe un tipo id que es equivalente a recibir un long
  * @return devuelve un puntero a objeto, NULL en caso de detectar algun error.
@@ -39,7 +39,7 @@ Object* object_create(Id id);
  * object_destroy destruye un objeto y todo lo relacionado con este, tanto su id como su nombre.
  *
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param recibe un puntero a la estructura de datos objeto
  * @return devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error.
@@ -52,7 +52,7 @@ STATUS object_destroy(Object* object);
  * object_get_id sirve para obtener el id de un objeto.
  *
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param recibe un puntero a la estructura de datos objeto
  * @return devuelve el id del objeto
@@ -64,7 +64,7 @@ Id object_get_id(Object* object);
  * object_set_name sirve para cambiar el nombre del objeto
  *
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param recibe un puntero a la estructura de datos objeto
  * @param recibe el nombre que se le va a poner al objeto.
@@ -77,7 +77,7 @@ STATUS object_set_name(Object* object, char* name);
  * object_set_id sirve para cambiar la posición de un objeto
  *
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param recibe un puntero a la estructura de datos objeto
  * @param recibe el nuevo lugar del objeto
@@ -90,7 +90,7 @@ STATUS object_set_name(Object* object, char* name);
  * object_print sirve para escribir los atributos de el objeto como su id o su nombre.
  *
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param recibe un puntero a la estructura de datos objeto
  * @return devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
@@ -105,7 +105,7 @@ STATUS object_set_name(Object* object, char* name);
  * object_get_name sirve para obtener el nombre de un objeto.
  *
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param recibe un puntero a la estructura de datos objeto
  * @return devuelve el nombre del objeto

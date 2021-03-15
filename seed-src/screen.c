@@ -1,3 +1,12 @@
+/**
+ * @brief Define una pantalla
+ *
+ * @file screen.c
+ * @author Profesores PPROG
+ * @version 2.0
+ * @date 07-02-2021
+ * @copyright GNU Public License
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

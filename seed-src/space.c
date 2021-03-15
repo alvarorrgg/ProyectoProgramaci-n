@@ -1,3 +1,12 @@
+/** 
+ * @brief Se encarga de los espacios del juego
+ * 
+ * @file space.c
+ * @author Profesores Pprog,Álvaro Rodríguez
+ * @version 2.0 
+ * @date 18-02-2021
+ * @copyright GNU Public License
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

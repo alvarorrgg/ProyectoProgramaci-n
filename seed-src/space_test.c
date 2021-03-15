@@ -1,8 +1,8 @@
 /** 
  * @brief It tests space module
  * 
- * @file space_test_en.c
- * @author Profesores Pprog
+ * @file space_test.c
+ * @author Profesores Pprog, Álvaro Rodríguez
  * @version 2.0 
  * @date 16-01-2015
  * @updated 19-01-2016

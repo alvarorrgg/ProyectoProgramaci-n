@@ -2,7 +2,7 @@
  * @brief Archivo cabecera del modulo set.h, en el se define la estructura de datos Object y sus funciones.
  * 
  * @file die.h
- * @author R2
+ * @author Alberto Vicente
  * @version 1.0 
  * @date 02-03-2021 
  * @copyright GNU Public License
@@ -22,7 +22,7 @@ typedef struct _Die Die;
  * 
  * die_create crea un dado inicializando sus variables
  *
- * @author R2
+ * @author Alberto Vicente
  * @date 02-03-2021
  *
  * @return el dado creado
@@ -34,7 +34,7 @@ Die * die_create(Id id);
  * 
  * die_destroy destruye un dado y vacia la memoria reservada
  *
- * @author R2
+ * @author Alberto Vicente
  * @date 02-03-2021
  *
  * @param die el dado que se destruye
@@ -47,7 +47,7 @@ STATUS die_destroy(Die * die);
  * 
  * die_roll simula el tiro de un dado generando un número aleatoria entre 1 y 6
  *
- * @author R2
+ * @author Alberto Vicente
  * @date 07-03-2021
  *
  * @param die el dado que se tira
@@ -60,7 +60,7 @@ int die_roll(Die * die);
  * 
  * die_set_Id estable el id al dado
  *
- * @author R2
+ * @author Alberto Vicente
  * @date 07-03-2021
  *
  * @param el id que se fija
@@ -74,7 +74,7 @@ STATUS die_set_Id(Die * die, Id id);
  * 
  * die_get_last_roll recoge la ultima tirada del dado
  *
- * @author R2
+ * @author Alberto Vicente
  * @date 07-03-2021
  *
  * @param die el dado del que se recoge la última tirada
@@ -87,7 +87,7 @@ int die_get_last_roll(Die * die);
  * 
  * die_get_id encuentra el id del dado
  *
- * @author R2
+ * @author Alberto Vicente
  * @date 07-03-2021
  *
  * @param die el dado del que se busca el id
@@ -100,7 +100,7 @@ Id die_get_id(Die * die);
  * 
  * die_get_id imprime los valores útiles del dado
  *
- * @author R2
+ * @author Alberto Vicente
  * @date 07-03-2021
  *
  * @param pf el fichero donde se imprime

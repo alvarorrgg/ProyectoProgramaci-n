@@ -2,7 +2,7 @@
  * @brief Implementa la estructura de datos abstractos Set y sus funciones que se encargan del manejo de conjuntos.
  * 
  * @file set.c
- * @author R1
+ * @author Álvaro Rodríguez
  * @version 1.0 
  * @date 18-02-2021 
  * @copyright GNU Public License

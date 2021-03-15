@@ -262,7 +262,7 @@ STATUS space_remove_object(Space* space, Id id);
  * space_set_gdesc cambias la descripción grafica de un objeto
  * 
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @param descripción
@@ -275,7 +275,7 @@ STATUS space_set_gdesc(Space *space, char **desc);
  * space_get_gdesc obtienes la descripción grafica de un objeto
  * 
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @return OK o ERROR segun si se ha obtenido la descripción o no.

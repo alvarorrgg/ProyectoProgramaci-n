@@ -2,7 +2,7 @@
  * @brief Implementa el inicio de juego y obtiene los valores iniciales de data.dat
  * 
  * @file game_reader.c
- * @author R1
+ * @author Álvaro Rodríguez
  * @version 1.0 
  * @date 18-02-2021  
  * @copyright GNU Public License
@@ -122,7 +122,7 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       toks = strtok(NULL, "|");
       pos_obj = atol(toks);
 #ifdef DEBUG
-      printf("Leido: %ld|%s|%ld\n", id, name, posobj);
+      printf("Leido: %ld|%s|%ld\n", id, name, pos_obj);
 #endif
       object = object_create(id);
       if (pos_obj != NO_ID)

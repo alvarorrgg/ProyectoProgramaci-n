@@ -3,7 +3,7 @@
  * llamada asociadas para cada comando
  * 
  * @file game.c
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez, Alberto Vicente y ProfesoresPProg
  * @version 1.0 
  * @date 13-01-2015 
  * @copyright GNU Public License
@@ -92,7 +92,7 @@ STATUS game_callback_back(Game *game);
  * game_callback_take si se esta encima de un objeto y se pulsa t o take se recoge el objeto
  *
  * @date 28-02-2021
- * @author R2
+ * @author Alberto Vicente
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
@@ -104,7 +104,7 @@ STATUS game_callback_take(Game *game);
  * game_callback_drop si se tiene un objeto, y se introduce d o drop, se deja caer el objeto.
  *
  * @date 28-02-2021
- * @author R2
+ * @author Alberto Vicente
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
@@ -116,7 +116,7 @@ STATUS game_callback_drop(Game *game);
  * game_callback_roll se tira el dado para avanzar
  *
  * @date 08-03-2021
- * @author R2
+ * @author Alberto Vicente
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
@@ -127,7 +127,7 @@ STATUS game_callback_roll(Game *game);
  * game_callback_right saltos del jugador en casillas especiales si se introduce right o r
  *
  * @date 08-03-2021
- * @author R1
+ * @author Álvaro Rodríguez	
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
@@ -138,7 +138,7 @@ STATUS game_callback_right(Game *game);
  * game_callback_left saltos del jugador en casillas especiales si se introduce left o l
  *
  * @date 08-03-2021
- * @author R1
+ * @author Álvaro Rodríguez	
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
@@ -191,8 +191,8 @@ STATUS game_create(Game *game)
     game->objects[i] = NULL; /*Se inicializan todos los objetos con un valor NULL*/
   }
   game->player = player_create(1);
-  game->last_cmd = NO_CMD;
   game->die = die_create(1);
+  game->command = command_init();
 
   return OK;
 }
@@ -227,6 +227,7 @@ STATUS game_destroy(Game *game)
   }
   player_destroy(game->player); /*Se destruye el jugador*/
   die_destroy(game->die);       /*Se destruye el dado*/
+  command_destroy(game->command);
 
   return OK;
 }
@@ -267,11 +268,7 @@ Id game_get_space_id_at(Game *game, int position)
 
   return space_get_id(game->spaces[position]);
 }
-STATUS game_get_status(Game* game){
-  if(game==NULL) return ERROR;
-    else
-      return game->st;
-}
+
 Space *game_get_space(Game *game, Id id)
 {
   int i = 0;
@@ -334,6 +331,10 @@ Id game_get_object_location(Game *game, Id id)
   }
   return NO_ID;
 }
+Command* game_get_command(Game* game){
+  if (!game) return NULL;
+  return game->command;
+}
 BOOL game_id_object_exists(Game *game, Id id)
 {
   int i;
@@ -349,19 +350,18 @@ BOOL game_id_object_exists(Game *game, Id id)
 
 STATUS game_update(Game *game, T_Command cmd)
 {
-  game->last_cmd = cmd;
+  STATUS st;
+  command_set_cmd(game->command,cmd);
   if(cmd!=-1){
-  game->st=(*game_callback_fn_list[cmd])(game);
+  st=(*game_callback_fn_list[cmd])(game);
+  command_set_status(game->command, st);
   }
   else
-    game->st = 0;
+    command_set_status(game->command, 0);
   return OK;
 }
 
-T_Command game_get_last_command(Game *game)
-{
-  return game->last_cmd;
-}
+
 
 void game_print_data(Game *game)
 {
@@ -507,8 +507,8 @@ STATUS game_callback_take(Game *game)
   char objeto[OBJECT_NAME];
   int k = 0, i = 0, j=0;
   Id id=NO_ID;
-  if(player_get_object(game->player)!=NO_ID) return ERROR;
   fgets(objeto, WORD_SIZE, stdin);
+  if(player_get_object(game->player)!=NO_ID) return ERROR;
   for (j = 0; j < strlen(objeto); j++)
   {
     objeto[j] = objeto[j + 1];

@@ -1,3 +1,12 @@
+/**
+ * @brief Define un motor gráfico textual
+ *
+ * @file graphic_engine.c
+ * @author Álvaro Rodríguez
+ * @version 2.0
+ * @date 07-02-2021
+ * @copyright GNU Public License
+ */
 #include <stdlib.h>
 #include <stdio.h>
 #include "screen.h"
@@ -55,7 +64,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   Space *space_act = NULL, *space_back = NULL, *space_next = NULL;
   char **gdesc;
   char **obj = NULL;
-  char str[255];
+  char str[MAX_CHARS];
   T_Command last_cmd = UNKNOWN;
   extern char *cmd_to_str[N_CMD][N_CMDT];
   obj = (char **)malloc(4 * sizeof(char *));
@@ -211,9 +220,9 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
   screen_area_puts(ge->help, str);
 
   /* Pinta en el área de comentarios */
-  last_cmd = game_get_last_command(game);
+  last_cmd = command_get_cmd(game_get_command(game));
   if(last_cmd!=-1){
-  if(game_get_status(game)!=1){
+  if(command_get_status(game_get_command(game))!=1){
   sprintf(str, " %s (%s): ERROR", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
   }
   else sprintf(str, " %s (%s) OK ", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);

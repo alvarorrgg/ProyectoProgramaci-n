@@ -2,7 +2,7 @@
  * @brief Implementa la estructura de datos abstractos Object, y las funciones que estan relacionadas con esta.
  * 
  * @file object.c
- * @author R1
+ * @author Álvaro Rodríguez
  * @version 1.0 
  * @date 18-02-2021 
  * @copyright GNU Public License
@@ -13,7 +13,11 @@
 #include <string.h>
 #include "types.h"
 #include "object.h"
-
+/**
+ * @brief Estructura object
+ *
+ * contiene las variables del jugador
+ */
 struct _Object {
   Id id;			/** !< id del objeto*/
   char name[WORD_SIZE + 1];	/**!< nombre del objeto*/

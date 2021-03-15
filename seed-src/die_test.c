@@ -2,7 +2,7 @@
  * @brief It tests die module
  * 
  * @file die_test.c
- * @author R1
+ * @author Álvaro Rodríguez
  * @version 2.0 
  * @date 16-01-2015
  * @updated 18-02-2021

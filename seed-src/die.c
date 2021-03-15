@@ -2,7 +2,7 @@
  * @brief Módulo para aplicar funcionalidad al dado
  * 
  * @file die.c
- * @author R2
+ * @author Alberto Vicente
  * @version 2.0 
  * @date 02-03-2021
  * @updated 02-03-2021

@@ -1,0 +1,5 @@
+ Take (t) OK
+ Take (t): ERROR
+ Next (n) OK
+ Drop (d) OK
+ Exit (e) OK

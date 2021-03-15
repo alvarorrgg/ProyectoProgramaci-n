@@ -1,3 +1,13 @@
+/** 
+ * @brief Se encarga del jugador
+ * 
+ * @file player.c
+ * @author Alberto Garcia.
+ * @version 2.0 
+ * @date 18-02-2021
+ * @copyright GNU Public License
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

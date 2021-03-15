@@ -26,10 +26,9 @@
 typedef struct _Game{
   Player *player;			/*!< Modulo player*/
   Object *objects[MAX_OBJECTS+1];	/*!< Tabla de objetos del juego*/
-  Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/
-  T_Command last_cmd;			/*!< comando que se recibe del jugador*/
+  Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/		/*!< comando que se recibe del jugador*/
   Die *die;               /*!< Dado del juego*/
-  STATUS st; 
+  Command *command;
 } Game;
 
 /**
@@ -127,7 +126,7 @@ Space* game_get_space(Game* game, Id id);
  * game_get_die Sirve para obtener el dado del juego
  *
  * @date  18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param game el juego del que se va a identificar el espacio
  * @return el dado del juego
@@ -139,7 +138,7 @@ Die* game_get_die(Game* game);
  * game_get_player Sirve para obtener el jugador del juego
  *
  * @date  18-02-2021
- * @author R1 
+ * @author Álvaro Rodríguez 
  *
  * @param game el juego del que se va a identificar el espacio
  * @return el jugador del juego
@@ -157,18 +156,7 @@ Player *game_get_player(Game *game);
  * @return la posición del jugador
  */
 Id game_get_player_location(Game* game);
-/**
- * @brief Determina el estado del comando
- *
- * game_get_status obtiene el estado del comando 
- *
- * @date  18-02-2021
- * @author Profesores PProg
- *
- * @param game el juego donde se determian la posición del jugador
- * @return el estado del comando o OK o ERROR
- */
-STATUS game_get_status(Game* game);
+
 /**
  * @brief Determina la posición del objeto
  *
@@ -183,18 +171,17 @@ STATUS game_get_status(Game* game);
 Id game_get_object_location(Game* game,Id id);
 
 /**
- * @brief Encuentra el último comando introducido
+ * @brief Controla la estructura command dentro de game
  *
- * game_get_last_command averigua el último comando introducido
+ * game_get_command Controla la estructura command dentro de game
  *
  * @date  18-02-2021
- * @author Profesores PProg
+ * @author Álvaro Rodríguez 
  *
- * @param game el juego del que se quiere averiguar el último comando introducido
- * @param cmd 
+ * @param game el juego del que se va a sacar command
  * @return el último comando introducido
  */
-T_Command game_get_last_command(Game* game);
+Command* game_get_command(Game* game);
 
 /**
  * @brief Añade un nuevo espacio al juego
@@ -215,7 +202,7 @@ STATUS game_add_space(Game* game, Space* space);
  * game_add_space Añade un objeto a la lista de objetos.
  *
  * @date  18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param game el juego al que se va a añadir un espacio
  * @param object el espacio que se va a añadir
@@ -228,7 +215,7 @@ STATUS game_add_object(Game* game, Object* object);
  * game_object_set_location Cambia la localizacion del objeto
  *
  * @date  18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @param game el juego al que se va a añadir un espacio
  * @param id identificador del objeto.
