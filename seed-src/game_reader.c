@@ -2,7 +2,7 @@
  * @brief Implementa el inicio de juego y obtiene los valores iniciales de data.dat
  * 
  * @file game_reader.c
- * @author Álvaro Rodríguez
+ * @author Álvaro Rodríguez Alberto Vicente
  * @version 1.0 
  * @date 18-02-2021  
  * @copyright GNU Public License
@@ -26,19 +26,24 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   STATUS status = OK;
 
   gdesc = (char **)malloc(3 * sizeof(char *));
-  if (gdesc == NULL) return ERROR;
+  if (gdesc == NULL)
+    return ERROR;
   gdesc[0] = (char *)malloc(9 * sizeof(char));
-  if (gdesc[0] == NULL) return ERROR;
+  if (gdesc[0] == NULL)
+    return ERROR;
   gdesc[1] = (char *)malloc(9 * sizeof(char));
-  if (gdesc[1] == NULL) return ERROR;
+  if (gdesc[1] == NULL)
+    return ERROR;
   gdesc[2] = (char *)malloc(9 * sizeof(char));
-  if (gdesc[2] == NULL) return ERROR;
+  if (gdesc[2] == NULL)
+    return ERROR;
 
   if (!filename)
     return ERROR;
 
   file = fopen(filename, "r");
-  if (file == NULL) return ERROR;
+  if (file == NULL)
+    return ERROR;
 
   while (fgets(line, WORD_SIZE, file))
   {
@@ -63,7 +68,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       toks = strtok(NULL, "|");
       strcpy(gdesc[2], toks);
 #ifdef DEBUG
-      printf("Leido: %ld|%s|%ld|%ld|%ld|%ld\n", id, name, north, east, south, west); /*Debugger*/
+      printf("Leido: %ld|%s|%ld|%ld|%ld|%ld\n", id, name, north, east, south, west);
 #endif
       space = space_create(id);
       if (space != NULL)
@@ -78,7 +83,8 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       }
     }
   }
-  if (ferror(file)) status = ERROR;
+  if (ferror(file))
+    status = ERROR;
   free(gdesc[0]);
   free(gdesc[1]);
   free(gdesc[2]);
@@ -123,11 +129,11 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       if (pos_obj != NO_ID)
       {
         object_set_name(object, name);
-        if(strlen(name)>7){  /*Necesario para poder escribir objetos diferentes de O1 por ejemplo Rojo*/
+        if(strlen(name)>7){
           printf("El nombre de un objeto no puede tener mas de 7 caracteres");
           return ERROR;
         }
-        while ((i < MAX_OBJECTS) && (game_get_object(game,i) != NULL)) i++; /*Este bloque de codigo sirve para verificar que no se han introducido dos nombres iguales*/
+        while ((i < MAX_OBJECTS) && (game_get_object(game,i) != NULL)) i++;
         for (j = 0; j < i;j++){
           if(strcmp(name,object_get_name(game_get_object(game,j)))==0){
             printf("Has creado dos objetos con el mismo nombre: Cambia el nombre de los objetos");
@@ -139,7 +145,8 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       }
     }
   }
-  if (ferror(file)) status = ERROR;
+  if (ferror(file))
+    status = ERROR;
   fclose(file);
 
   return status;

@@ -14,16 +14,12 @@
 #include "types.h"
 #include "player.h"
 #include "object.h"
-/**
- * @brief Estructura player
- *
- * contiene las variables del jugador
- */
+
 struct _Player {
-  Id id;		/*!< coordenadas */
+  Id id;		                /*!< Id del jugador */
   char name[WORD_SIZE + 1];	/*!< nombre del jugador */
   Id location;		/*!< localización del jugador */
-  Object *object;	/*!< objeto (Estructura de datos objeto) */
+  Id object;	/*!< Id del objeto del jugador */
 };
 
 Player* player_create(Id id) {
@@ -39,7 +35,7 @@ Player* player_create(Id id) {
   new_player->id = id;
   new_player->name[0] = '\0';
   new_player->location = NO_ID;
-  new_player->object = object_create(NO_ID);
+  new_player->object = NO_ID;
 
   return new_player;
 }
@@ -47,9 +43,7 @@ Player* player_create(Id id) {
 STATUS player_destroy(Player* player) {
   if (!player) return ERROR;
   
-  object_destroy(player->object);
   free(player);
-
   return OK;
 }
 
@@ -77,15 +71,15 @@ Id player_get_id(Player* player) {
 Id player_get_object(Player* player) {
   if (!player) return FALSE;
   
-  return object_get_id(player->object);;
+  return player->object;
 }
 
 STATUS player_set_object(Player* player, Id value) {
   if (!player) {
     return ERROR;
   }
-  object_set_id(player->object,value);
-  
+  player->object = value;
+
   return OK;
 }
 

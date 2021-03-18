@@ -26,9 +26,9 @@
 typedef struct _Game{
   Player *player;			/*!< Modulo player*/
   Object *objects[MAX_OBJECTS+1];	/*!< Tabla de objetos del juego*/
-  Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/		/*!< comando que se recibe del jugador*/
+  Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/		
   Die *die;               /*!< Dado del juego*/
-  Command *command;
+  Command *command;       /*!< comando que se recibe del jugador*/
 } Game;
 
 /**

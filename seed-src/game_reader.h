@@ -2,7 +2,7 @@
  * @brief Archivo de cabecera de game_reader.c con las definiciones de funciones publicas.
  * 
  * @file game_reader.h
- * @author Álvaro Rodríguez	
+ * @author Álvaro Rodríguez,Alberto Vicente
  * @version 1.0 
  * @date 18-02-2021 
  * @copyright GNU Public License
@@ -33,7 +33,7 @@ STATUS game_reader_load_spaces(Game* game, char* filename);
  * game_reader_load_objects carga los objetos del fichero leido según una estructura determinada.
  *
  * @date 18-02-2021 
- * @author Álvaro Rodríguez
+ * @author Alberto Vicente
  *
  * @param game  un puntero de tipo Game que es una estructura definida en "game.h" 
  * @param filename del archivo de donde se van a obtener los valores..

@@ -62,7 +62,7 @@ STATUS set_id_delete(Set* set,Id id){
 
 STATUS set_set_total_ids(Set* set,int n){
 	if (set==NULL || n<0) return ERROR;
-	if(n>100) n=100;
+	if(n>MAX_IDS) n=MAX_IDS;
 	set->total_ids=n;
 	return OK;
 	}

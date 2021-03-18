@@ -27,11 +27,7 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"rl", "Roll"},	/** !< rl <=> roll*/
     {"l", "Left"},	/** !< l <=> left*/
     {"r", "Right"}};	/** !< r <=> right*/
-/**
- * @brief Estructura command
- *
- * contiene los comandos
- */
+
 struct _Command {
   T_Command cmd; /** !< comando*/
   STATUS st;    /**  !< status del comando*/

@@ -10,7 +10,7 @@
  #ifndef SET_H
 #define SET_H
 #include "types.h"
-#define MAX_IDS 100
+#define MAX_IDS 100 /*Numero maximo de ids*/
 
 /**
  * @brief Estructura set

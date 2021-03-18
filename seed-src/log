@@ -1,11 +1,9 @@
  Take (t): OK
  Next (n): OK
  Drop (d): OK
+ Back (b): OK
+ Take (t): OK
  Next (n): OK
  Next (n): OK
- Next (n): OK
- Left (l): OK
- Right (r): OK
- Next (n): OK
- Left (l): ERROR
+ Drop (d): OK
  Exit (e): OK

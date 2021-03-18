@@ -13,11 +13,7 @@
 #include "space.h"
 #include "set.h"
 
-/**
- * @brief Estructura space
- *
- * contiene las variables del espacio
- */
+
 struct _Space {
   Id id;		/*!< coordenadas */
   char name[WORD_SIZE + 1];	/*!< nombre del espacio */
@@ -45,8 +41,8 @@ Space* space_create(Id id) {
   new_space->south = NO_ID;
   new_space->east = NO_ID;
   new_space->west = NO_ID;  
-  new_space->gdesc = (char **)malloc(3*sizeof(char *));
-  new_space->gdesc[0] = (char *)malloc(9*sizeof(char));
+  new_space->gdesc = (char **)malloc(3*sizeof(char *)); /*Se reserva memoria para la descripcion grafica*/
+  new_space->gdesc[0] = (char *)malloc(9*sizeof(char)); 
   new_space->gdesc[1] = (char *)malloc(9*sizeof(char));
   new_space->gdesc[2] = (char *)malloc(9*sizeof(char));
   return new_space;
@@ -54,7 +50,7 @@ Space* space_create(Id id) {
 
 STATUS space_destroy(Space* space) {
   if (!space) return ERROR;
-  set_destroy(space->objects);
+  set_destroy(space->objects); 
   free(space->gdesc[0]);
   free(space->gdesc[1]);
   free(space->gdesc[2]);

@@ -13,11 +13,7 @@
 #include <string.h>
 #include "types.h"
 #include "object.h"
-/**
- * @brief Estructura object
- *
- * contiene las variables del jugador
- */
+
 struct _Object {
   Id id;			/** !< id del objeto*/
   char name[WORD_SIZE + 1];	/**!< nombre del objeto*/

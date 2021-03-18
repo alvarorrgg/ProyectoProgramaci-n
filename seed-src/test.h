@@ -1,3 +1,14 @@
+/**
+ * @brief Definde el tipo test.h
+ *
+ * @file test.h
+ * @author Profesores PPROG
+ * @version 1.0
+ * @date 13-01-2015
+ * @copyright GNU Public License
+ */
+
+
 #ifndef _TEST_H
 #define _TEST_H
 

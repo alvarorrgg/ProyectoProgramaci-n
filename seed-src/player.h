@@ -19,8 +19,8 @@
  */
 typedef struct _Player Player;
 
-#define MAX_PLAYERS 100
-#define FIRST_PLAYER 1
+#define MAX_PLAYERS 100 /*Numero maximo de jugadores*/
+#define FIRST_PLAYER 1 /*Primer jugador*/
 /**
  * @brief Crea un jugador
  *
@@ -29,8 +29,8 @@ typedef struct _Player Player;
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un tipo id que es equivalente a recibir un long
- * @return devuelve un puntero a objeto, NULL en caso de detectar algun error.
+ * @param id recibe un tipo id que es equivalente a recibir un long
+ * @return Player devuelve un puntero a objeto, NULL en caso de detectar algun error.
  */
 Player* player_create(Id id);
 /**
@@ -41,8 +41,8 @@ Player* player_create(Id id);
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a la estructura de datos jugador
- * @return devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error.
+ * @param player recibe un puntero a la estructura de datos jugador
+ * @return STATUS devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error.
  */
 
 STATUS player_destroy(Player* player);
@@ -54,8 +54,8 @@ STATUS player_destroy(Player* player);
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a la estructura de datos jugador
- * @return devuelve el id del jugador
+ * @param player recibe un puntero a la estructura de datos jugador
+ * @return Id devuelve el id del jugador
  */
 Id player_get_id(Player* player);
 /**
@@ -66,9 +66,9 @@ Id player_get_id(Player* player);
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a la estructura de datos jugador
- * @param recibe el nombre que se le va a poner al jugador.
- * @return devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
+ * @param player recibe un puntero a la estructura de datos jugador
+ * @param name recibe el nombre que se le va a poner al jugador.
+ * @return STATUS devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
  */
 STATUS player_set_name(Player* player, char* name);
 /**
@@ -79,8 +79,8 @@ STATUS player_set_name(Player* player, char* name);
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a la estructura de datos jugador
- * @return devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
+ * @param player recibe un puntero a la estructura de datos jugador
+ * @return STATUS devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
  */
  STATUS player_print(Player* player);
 
@@ -92,8 +92,8 @@ STATUS player_set_name(Player* player, char* name);
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a la estructura de datos jugador
- * @return devuelve el nombre del jugador
+ * @param player recibe un puntero a la estructura de datos jugador
+ * @return const char devuelve el nombre del jugador
  */
  const char* player_get_name(Player* player);
 
@@ -105,9 +105,9 @@ STATUS player_set_name(Player* player, char* name);
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param player el jugador que se trabaja
+ * @param player el jugador del juego
  * @param value el valor que se le otorga
- * @return OK para saber que se ha ejecutado la función correctamente
+ * @return STATUS OK para saber que se ha ejecutado la función correctamente
  */
 STATUS player_set_object(Player* player, Id value);
 
@@ -119,8 +119,8 @@ STATUS player_set_object(Player* player, Id value);
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param player el jugador que se trabaja
- * @return OK para saber que se ha ejecutado la función correctamente
+ * @param player el jugador del juego
+ * @return STATUS OK para saber que se ha ejecutado la función correctamente
  */
 STATUS player_set_location(Player* player, Id id);
 
@@ -132,8 +132,8 @@ STATUS player_set_location(Player* player, Id id);
  * @date 23-02-2021
  * @author Álvaro Rodríguez
  *
- * @param player el espacio que se trabaja
- * @return player->location la localización del jugador
+ * @param player el jugador del juego
+ * @return Id la localización del jugador
  */
 Id player_get_location(Player* player);
 
@@ -145,8 +145,8 @@ Id player_get_location(Player* player);
  * @date 22-02-2021
  * @author Álvaro Rodríguez
  *
- * @param player el jugador que se trabaja
- * @return player->object el valor del objeto
+ * @param player el jugador del juego
+ * @return Id del objeto
  */
 Id player_get_object(Player* player);
 #endif

@@ -17,7 +17,7 @@
 #include "test.h"
 
 
-#define MAX_TESTS 14
+#define MAX_TESTS 14 /*Numero maximo de tests*/
 
 /** 
  * @brief Main function for DIE unit tests. 

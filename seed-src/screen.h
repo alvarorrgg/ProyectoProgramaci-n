@@ -11,7 +11,7 @@
 #ifndef __SCREEN__
 #define __SCREEN__
 
-#define SCREEN_MAX_STR 80
+#define SCREEN_MAX_STR 80 
 
 /**
  * @brief Define un área
