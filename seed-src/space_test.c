@@ -333,10 +333,7 @@ void test2_space_set_gdesc() {
   gdesc[2] = (char *)malloc(9*sizeof(char));
   s = space_create(25);
   PRINT_TEST_RESULT(space_set_gdesc(s,gdesc) == OK);
-  free(gdesc[0]);
-  free(gdesc[1]);
-  free(gdesc[2]);
-  free(gdesc);
+
   space_destroy(s);
 }
 
@@ -363,8 +360,7 @@ void test2_space_get_gdesc() {
   space_set_gdesc(s,gdesc);
   gdesc2=space_get_gdesc(s);
   PRINT_TEST_RESULT(strcmp(gdesc[0],gdesc2[0])==0);
-  free(gdesc);
-  free(gdesc2);
+
   space_destroy(s);
 }
 

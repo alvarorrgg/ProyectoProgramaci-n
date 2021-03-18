@@ -1,5 +1,5 @@
 /** 
- * @brief Archivo cabecera del modulo set.h, en el se define la estructura de datos Object y sus funciones.
+ * @brief Archivo cabecera del modulo die.h en el que se definen las funciones de die.c
  * 
  * @file die.h
  * @author Alberto Vicente
@@ -10,10 +10,14 @@
  
 #ifndef DIE_H
 #define DIE_H
+#define MAX_IDS 100
 #include "types.h"
 #include "time.h"
-#define MAX_IDS 100
-
+/**
+ * @brief Estructura die
+ *
+ * contiene las variables del dado
+ */
 typedef struct _Die Die;
 
 
@@ -25,6 +29,7 @@ typedef struct _Die Die;
  * @author Alberto Vicente
  * @date 02-03-2021
  *
+ * @param Id el id del dado
  * @return el dado creado
  */
 Die * die_create(Id id);
@@ -37,7 +42,7 @@ Die * die_create(Id id);
  * @author Alberto Vicente
  * @date 02-03-2021
  *
- * @param die el dado que se destruye
+ * @param Die el dado que se destruye
  * @return ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS die_destroy(Die * die);
@@ -45,12 +50,12 @@ STATUS die_destroy(Die * die);
 /**
  * @brief tira el dado
  * 
- * die_roll simula el tiro de un dado generando un número aleatoria entre 1 y 6
+ * die_roll simula el tiro de un dado generando un número aleatorio entre 1 y 6
  *
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param die el dado que se tira
+ * @param Die el dado que se tira
  * @return el valor aleatorio generado
  */
 int die_roll(Die * die);
@@ -63,8 +68,8 @@ int die_roll(Die * die);
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param el id que se fija
- * @param die el dado al que se le establece el id
+ * @param Id el id que se fija
+ * @param Die el dado al que se le establece el id
  * @return ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS die_set_Id(Die * die, Id id);
@@ -77,7 +82,7 @@ STATUS die_set_Id(Die * die, Id id);
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param die el dado del que se recoge la última tirada
+ * @param Die el dado del que se recoge la última tirada
  * @return la última tirada del dado
  */
 int die_get_last_roll(Die * die);
@@ -90,7 +95,7 @@ int die_get_last_roll(Die * die);
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param die el dado del que se busca el id
+ * @param Die el dado del que se busca el id
  * @return el id del dado
  */
 Id die_get_id(Die * die);
@@ -98,13 +103,13 @@ Id die_get_id(Die * die);
 /**
  * @brief imprime el dado
  * 
- * die_get_id imprime los valores útiles del dado
+ * die_print imprime los valores útiles del dado
  *
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param pf el fichero donde se imprime
- * @param die el dado que se imprime
+ * @param FILE el fichero donde se imprime
+ * @param Die el dado que se imprime
  * @return ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS die_print(FILE *pf,Die *die);

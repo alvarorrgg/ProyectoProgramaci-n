@@ -7,7 +7,7 @@
  * @date 18-02-2021
  * @copyright GNU Public License
  */
- #ifndef DIE_TEST_H
+#ifndef DIE_TEST_H
 #define DIE_TEST_H
  /**
  * @test Test function for die_create
@@ -104,11 +104,5 @@ void test2_die_print();
  * @post Output==OK
  */
 void test3_die_print();
-
-
-
-
-
-
 
 #endif

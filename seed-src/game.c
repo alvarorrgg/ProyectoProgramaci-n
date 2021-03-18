@@ -103,9 +103,9 @@ void game_callback_take(Game *game);
  *
  * game_callback_drop si se tiene un objeto, y se introduce d o drop, se deja caer el objeto.
  *
+ * @version 1.0
  * @date 28-02-2021
  * @author Alberto Vicente
- *
  * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
 void game_callback_drop(Game *game);
@@ -182,14 +182,9 @@ Id game_get_space_id_at(Game *game, int position);
 STATUS game_create(Game *game)
 {
   int i;
-  for (i = 0; i < MAX_SPACES; i++)
-  {
-    game->spaces[i] = NULL; /*Se inicializan todos los espacios con un valor NULL*/
-  }
-  for (i = 0; i < MAX_OBJECTS; i++)
-  {
-    game->objects[i] = NULL; /*Se inicializan todos los objetos con un valor NULL*/
-  }
+  for (i = 0; i < MAX_SPACES; i++) game->spaces[i] = NULL; /*Se inicializan todos los espacios con un valor NULL*/
+  for (i = 0; i < MAX_OBJECTS; i++) game->objects[i] = NULL; /*Se inicializan todos los objetos con un valor NULL*/
+  
   game->player = player_create(1);
   game->die = die_create(1);
   game->command = command_init();
@@ -202,12 +197,10 @@ STATUS game_create_from_file(Game *game, char *filename)
  
   if (game_create(game) == ERROR)
     return ERROR;
-  if (game_reader_load_spaces(game, filename) == ERROR)
-    return ERROR; /*Se leen los espacios del fichero data.dat*/
-  if (game_reader_load_objects(game, filename) == ERROR)
+  if (game_reader_load_spaces(game, filename) == ERROR) return ERROR;/*Se leen los espacios del fichero data.dat*/ 
+  if (game_reader_load_objects(game, filename) == ERROR) return ERROR; /*Se leen los objetos del fichero data.dat*/ 
     return ERROR;
- 
-  /*Se leen los objetos del fichero data.dat*/
+
   game_set_player_location(game, game_get_space_id_at(game, 0)); /*Se inicializa el jugador en el primer espacio*/
 
   return OK;
@@ -217,17 +210,13 @@ STATUS game_destroy(Game *game)
 {
   int i = 0;
 
-  for (i = 0; (i < MAX_SPACES) && (game->spaces[i] != NULL); i++)
-  {
-    space_destroy(game->spaces[i]); /*Se destruyen todos los espacios uno a uno*/
-  }
-  for (i = 0; (i < MAX_OBJECTS) && (game->objects[i] != NULL); i++)
-  {
-    object_destroy(game->objects[i]); /*Se destruyen todos los objetos uno a uno*/
-  }
+  for (i = 0; (i < MAX_SPACES) && (game->spaces[i] != NULL); i++)  space_destroy(game->spaces[i]); /*Se destruyen todos los espacios uno a uno*/
+  
+  for (i = 0; (i < MAX_OBJECTS) && (game->objects[i] != NULL); i++) object_destroy(game->objects[i]); /*Se destruyen todos los objetos uno a uno*/
+  
   player_destroy(game->player); /*Se destruye el jugador*/
   die_destroy(game->die);       /*Se destruye el dado*/
-  command_destroy(game->command);
+  command_destroy(game->command);/*Se destruye la estructura comando*/
 
   return OK;
 }
@@ -235,36 +224,30 @@ STATUS game_destroy(Game *game)
 STATUS game_add_space(Game *game, Space *space)
 {
   int i = 0;
-  if (space == NULL)
-    return ERROR;
+  if (space == NULL) return ERROR;
 
-  while ((i < MAX_SPACES) && (game->spaces[i] != NULL))
-    i++;
+  while ((i < MAX_SPACES) && (game->spaces[i] != NULL)) i++; /*Se busca el último espacio sin inicializar*/
 
-  game->spaces[i] = space;
+  game->spaces[i] = space; /*Se inicializa*/
   
-
   return OK;
 }
 
 STATUS game_add_object(Game *game, Object *object)
 {
   int i = 0;
-  if (object == NULL)
-    return ERROR;
+  if (object == NULL) return ERROR;
 
-  while ((i < MAX_OBJECTS) && (game->objects[i] != NULL))
-    i++;
+  while ((i < MAX_OBJECTS) && (game->objects[i] != NULL))i++; /*Se busca el último objeto sin inicializar*/
 
-  game->objects[i] = object;
+  game->objects[i] = object; /*Se inizializa el objeto*/
   return OK;
 }
 
 Id game_get_space_id_at(Game *game, int position)
 {
 
-  if (position < 0 || position >= MAX_SPACES)
-    return NO_ID;
+  if (position < 0 || position >= MAX_SPACES) return NO_ID;
 
   return space_get_id(game->spaces[position]);
 }
@@ -272,14 +255,11 @@ Id game_get_space_id_at(Game *game, int position)
 Space *game_get_space(Game *game, Id id)
 {
   int i = 0;
-
-  if (id == NO_ID)
-    return NULL;
+  if (id == NO_ID)return NULL;
 
   for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++)
   {
-    if (id == space_get_id(game->spaces[i]))
-      return game->spaces[i];
+    if (id == space_get_id(game->spaces[i])) return game->spaces[i];
   }
 
   return NULL;
@@ -293,20 +273,16 @@ Player* game_get_player(Game* game){
 
 STATUS game_set_player_location(Game *game, Id id)
 {
-  if (id == NO_ID || game == NULL)
-    return ERROR;
+  if (id == NO_ID || game == NULL) return ERROR;
   return player_set_location(game->player, id);
 }
 Id game_get_player_location(Game *game)
 {
-  if (game == NULL)
-    return NO_ID;
+  if (game == NULL) return NO_ID;
   return player_get_location(game->player);
 }
 Object *game_get_object(Game *game, int index){
-    if(index<0 || index>MAX_OBJECTS){
-      return NULL;
-    }
+    if(index<0 || index>MAX_OBJECTS) return NULL;
     return game->objects[index];
 }
 STATUS game_set_object_location(Game *game, Id id, Id pos_obj)
@@ -355,7 +331,6 @@ BOOL game_id_object_exists(Game *game, Id id)
 
 STATUS game_update(Game *game, T_Command cmd)
 {
-
   command_set_cmd(game->command,cmd);
  (*game_callback_fn_list[cmd])(game);
   return OK;
@@ -436,7 +411,7 @@ void game_callback_next(Game *game)
 
 void game_callback_back(Game *game)
 {
-    int i = 0;
+  int i = 0;
   Id current_id = NO_ID;
   Id space_id = NO_ID;
   space_id = game_get_player_location(game);
@@ -545,32 +520,31 @@ void game_callback_take(Game *game)
   char objeto[OBJECT_NAME];
   int k = 0, i = 0, j=0;
   Id id=NO_ID;
-  fgets(objeto, WORD_SIZE, stdin);
-  if(player_get_object(game->player)!=NO_ID) {
+  fgets(objeto, WORD_SIZE, stdin); /*Obtengo el nombre del objeto*/
+  if(player_get_object(game->player)!=NO_ID) { /*Compruebo que el player no tiene ningun objeto*/
     command_set_status(game->command, ERROR);
     return;
   }
-    for (j = 0; objeto[j + 1] != (char)0; j++)
+    for (j = 0; objeto[j + 1] != (char)0; j++) /*Me deshago del espacio entre el take y el nombre del objeto*/
     {
-      objeto[j] = objeto[j + 1];
+      objeto[j] = objeto[j + 1]; 
   }
   j--;
-  printf("%i", j);
-  objeto[j] =(char)0;
+  objeto[j] =(char)0; /*Pongo la ultima letra del objeto a "null" para evitar errores*/
   while (game->objects[i] != NULL)
   {
-    if (strcmp(object_get_name(game->objects[i]), objeto) == 0)
+    if (strcmp(object_get_name(game->objects[i]), objeto) == 0) /*Busco el objeto que tenga el mismo nombre que el comando*/
     {
-      id = object_get_id(game->objects[i]);
+      id = object_get_id(game->objects[i]); /*Obtengo el id de este*/
     }
     i++;
     }
   if(id==NO_ID){
-    command_set_status(game->command,ERROR);
+    command_set_status(game->command,ERROR); /*Si no encuentra el nombre entonces error*/
     return ;
   }
 
-    while (game->spaces[k] != NULL)
+    while (game->spaces[k] != NULL) /*Localizo el espacio y cambio la información necesaria del espacio el player y el objeto*/
     {
         
       if (space_get_id(game->spaces[k]) == game_get_player_location(game))
@@ -597,11 +571,11 @@ void game_callback_take(Game *game)
 void game_callback_drop(Game *game)
 {
    int k = 0;
-  if (player_get_object(game->player) == NO_ID){
+  if (player_get_object(game->player) == NO_ID){ /*Compruebo que player tenga objeto*/
     command_set_status(game->command, ERROR);
     return;
   }
-  while (game->spaces[k] != NULL)
+  while (game->spaces[k] != NULL) /*Localizo el espacio y actualizo la información del espacio y del player*/
   {
     if (space_get_id(game->spaces[k]) == game_get_player_location(game))
     {

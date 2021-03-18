@@ -33,9 +33,8 @@ int main(int argc, char** argv) {
   int test = 0;
   int all = 1;
 
-  if (argc < 2) {
-    printf("Running all test for module Die:\n");
-  } else {
+  if (argc < 2)  printf("Running all test for module Die:\n");
+ else {
     test = atoi(argv[1]);
     all = 0;
     printf("Running test %d:\t", test);

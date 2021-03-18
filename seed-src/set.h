@@ -10,8 +10,13 @@
  #ifndef SET_H
 #define SET_H
 #include "types.h"
-#define MAX_IDS 4
+#define MAX_IDS 100
 
+/**
+ * @brief Estructura set
+ *
+ * contiene las variables del conjunto de objetos
+ */
 typedef struct _Set Set;
 /**
  * @brief Crea un set

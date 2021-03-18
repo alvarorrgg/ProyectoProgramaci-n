@@ -15,9 +15,9 @@
 #include "die.h"
 
 struct _Die {
-  Id id;
-  int min, max;
-  int last_roll;
+  Id id;		/** !< Id del dado */
+  int min, max;	/** !< minimo y maximo del dado */
+  int last_roll;	/** !< ultimo roll del dado */
 };
 
 Die *die_create(Id id){
@@ -43,7 +43,7 @@ STATUS die_destroy(Die * die){
 
 int die_roll(Die * die){
   if (!die) return -1;
-  die->last_roll=rand () %(die->max) + die->min;
+  die->last_roll=rand () %(die->max) + die->min; /*Obtiene un valor aleatorio entre 1 y 6 ambos incluidos*/
   return die->last_roll;
 }
 

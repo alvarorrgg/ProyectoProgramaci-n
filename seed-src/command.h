@@ -2,7 +2,7 @@
  * @brief Implementa el intérprete de comandos
  *
  * @file command.h
- * @author Álvaro Rodríguez
+ * @author Álvaro Rodríguez, Profesores PPRog
  * @version 2.0
  * @date 13-01-2020
  * @copyright GNU Public License
@@ -13,7 +13,11 @@
 #define N_CMDT 2
 #define N_CMD 10
 #include "types.h"
-
+/**
+ * @brief Estructura command
+ *
+ * contiene las partes de un comando
+ */
 typedef struct _Command Command;
 
 /**
@@ -23,8 +27,8 @@ typedef struct _Command Command;
  */
 typedef enum enum_CmdType {
   CMDS,		/*!< Comando ... */
-  CMDL
-  } T_CmdType;	/*!< Comando ... */
+  CMDL			/*!< Comando ... */
+  } T_CmdType;	
 
 /**
  * @brief Comandos
@@ -44,7 +48,7 @@ typedef enum enum_Command {
   LEFT			/*!< LEFT = 8*/
   } T_Command;	
 /**
- * @brief obtiene la entrada del usuario
+ * @brief obtiene la entrada del usuario.
  *
  * command_get_user_input sirve para saber que comando a introducido el usuario
  *
@@ -56,58 +60,68 @@ typedef enum enum_Command {
 T_Command command_get_user_input();
 
 /**
- * @brief inicializa la estructura de datos command
+ * @brief inicializa la estructura de datos command.
  *
  * command_init sirve para inicializar la estructura de datos
  *
  * @date 13-01-2020
  * @author Álvaro Rodríguez
- * @return el comando inicializado.
+ * @return Command, el comando inicializado.
  */
 Command* command_init();
 
 /**
- * @brief destruye command
+ * @brief destruye command.
  *
  * command_destroy destruye la estructura
  *
  * @date 13-01-2020
  * @author Álvaro Rodríguez
- * @return STATUS segun si se ha hecho todo de manera correcta o no
+ *
+ * @param Command el comando a destruir
+ *
+ * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
  */
 STATUS command_destroy(Command *command);
 /**
- * @brief cambia el estado del comando
+ * @brief cambia el estado del comando.
  *
- * command_set_status sirve para cambiar el estado
+ * command_set_status sirve para cambiar el estado.
  *
  * @date 13-01-2020
  * @author Álvaro Rodríguez
- * @param la estructura de datos command
- * @param el nuevo estado
- * @return STATUS segun si se ha hecho todo de manera correcta o no
+ *
+ * @param Command la estructura de datos command
+ * @param STATUS el nuevo estado
+ *
+ * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
  */
 STATUS command_set_status(Command *command,STATUS st);
 /**
- * @brief obtiene el estado
+ * @brief obtiene el estado.
  *
  * command_get_status sirve para obtener el estado
  *
  * @date 13-01-2020
  * @author Álvaro Rodríguez
- * @param la estructura de datos command
+ *
+ * @param Command estructura de datos command
+ *
  * @return STATUS del ultimo comando.
  */
 STATUS command_get_status(Command *command);
 /**
- * @brief cambia el ultimo comando
+ * @brief cambia el ultimo comando.
  *
- * command_set_cmd sirve para cambiar el comando
+ * command_set_cmd sirve para cambiar el comando.
  *
  * @date 13-01-2020
  * @author Álvaro Rodríguez
- * @param  la estructura de datos command y T_command el comando introducido por el usuario.
- * @return Status según si se ha cambiado correctamente.
+ *
+ * @param  Command estructura de datos command
+ * @param  T_Command enumeración con valores de cada comando
+ *
+ * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
  */
 STATUS command_set_cmd(Command *command,T_Command cmd);
 /**
@@ -117,8 +131,9 @@ STATUS command_set_cmd(Command *command,T_Command cmd);
  *
  * @date 13-01-2020
  * @author Álvaro Rodríguez
- * @param  la estructura de datos command 
- * @param T_command el comando introducido por el usuario.
+ *
+ * @param  Command estructura de datos command 
+ *
  * @return T_Command, el ultimo comando.
  */
 T_Command command_get_cmd(Command *command);
