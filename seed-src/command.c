@@ -33,8 +33,8 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
  * contiene los comandos
  */
 struct _Command {
-  T_Command cmd; /** !< id del objeto*/
-  STATUS st;
+  T_Command cmd; /** !< comando*/
+  STATUS st;    /**  !< status del comando*/
 };
 Command* command_init(){
   Command * new_command =NULL;

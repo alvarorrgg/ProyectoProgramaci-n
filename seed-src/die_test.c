@@ -75,11 +75,13 @@ int main(int argc, char** argv) {
   Die *d;
   d = die_create(5);
   PRINT_TEST_RESULT(die_get_last_roll(d) == NO_ID);
-}
+  die_destroy(d);
+ }
  void test2_die_create() {
   Die *d;
   d = die_create(5);
   PRINT_TEST_RESULT(die_get_id(d) == 5);
+  die_destroy(d);
 }
 
 
@@ -92,6 +94,7 @@ int main(int argc, char** argv) {
   d = die_create(5);
   die_roll(d);
   PRINT_TEST_RESULT(die_get_last_roll(d)>0 && die_get_last_roll(d)<7);
+  die_destroy(d);
 }
 
 
@@ -103,11 +106,13 @@ int main(int argc, char** argv) {
   Die *d;
   d = die_create(5);
   PRINT_TEST_RESULT(die_set_Id(d,5) == OK);
+  die_destroy(d);
 }
  void test3_die_set_Id() {
   Die *d;
   d = die_create(5);
   PRINT_TEST_RESULT(die_set_Id(d,-5) == ERROR);
+  die_destroy(d);
 }
 
 
@@ -120,6 +125,7 @@ int main(int argc, char** argv) {
   d = die_create(5);
   die_roll(d);
   PRINT_TEST_RESULT(die_get_last_roll(d)>0 && die_get_last_roll(d)<7);
+  die_destroy(d);
 }
 
 
@@ -131,6 +137,7 @@ int main(int argc, char** argv) {
   Die *d;
   d = die_create(5);
   PRINT_TEST_RESULT(die_get_id(d) == 5);
+  die_destroy(d);
 }
 
 
@@ -142,9 +149,11 @@ int main(int argc, char** argv) {
   Die *d;
   d = die_create(5);
   PRINT_TEST_RESULT(die_print(NULL,d) == ERROR);
+  die_destroy(d);
 }
  void test3_die_print() {
   Die *d;
   d = die_create(5);
   PRINT_TEST_RESULT(die_print(stdout,d) == OK);
+  die_destroy(d);
 }

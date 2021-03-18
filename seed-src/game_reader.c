@@ -97,6 +97,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
 STATUS game_reader_load_objects(Game *game, char *filename)
 {
   FILE *file = NULL;
+  int i = 0,j=0;
   char line[WORD_SIZE] = "";
   char name[WORD_SIZE] = "";
   char *toks = NULL;
@@ -128,7 +129,18 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       if (pos_obj != NO_ID)
       {
         object_set_name(object, name);
-        game_add_object(game, object);
+        if(strlen(name)>7){
+          printf("El nombre de un objeto no puede tener mas de 7 caracteres");
+          return ERROR;
+        }
+        while ((i < MAX_OBJECTS) && (game_get_object(game,i) != NULL)) i++;
+        for (j = 0; j < i;j++){
+          if(strcmp(name,object_get_name(game_get_object(game,j)))==0){
+            printf("Has creado dos objetos con el mismo nombre: Cambia el nombre de los objetos");
+            return ERROR;
+          }
+        }
+          game_add_object(game, object);
         game_set_object_location(game, id, pos_obj);
       }
     }

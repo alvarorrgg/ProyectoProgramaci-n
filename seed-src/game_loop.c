@@ -78,14 +78,21 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "Use: %s <game_data_file>\n", argv[0]);
     return 1;
   }
-  if(argc>2){
+  if(argc>2 && argc==4){
   	if(strcmp(argv[2],"-l")==0) {
       f = fopen(argv[3], "w");
     }
   	else{
   	fprintf(stderr,"Los parametros se deben introducir de la forma ./ocaBAS data.dat -l log.txt");
+  	return 0;
   	}
   	}
+  else { 
+   	if(argc==3) {
+   		fprintf(stderr,"Tienes que poner o bien 2 argumento so bien 4");
+   		return 0;
+   		}
+   		}
   if (!game_loop_init(&game, &gengine, argv[1])){
     game_loop_run(game, gengine,f);
     game_loop_cleanup(game, gengine);
@@ -123,7 +130,7 @@ if(command_get_cmd(game_get_command(&game))!=-1){
   fprintf(f, " %s (%s): ERROR\n", cmd_to_str[command_get_cmd(game_get_command(&game)) - NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDS]);
   }
   else{
-     fprintf(f, " %s (%s) OK\n", cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDS]);
+     fprintf(f, " %s (%s): OK\n", cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDS]);
 }
   }
 }

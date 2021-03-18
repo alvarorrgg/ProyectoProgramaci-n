@@ -103,12 +103,14 @@ int main(int argc, char** argv) {
   Set *s;
   s = set_create();
   PRINT_TEST_RESULT(set_get_total_ids(s) == 0);
-}
+  set_destroy(s);
+ }
 
  void test2_set_create() {
   Set *s;
   s = set_create();
   PRINT_TEST_RESULT(set_is_empty(s) == TRUE);
+  set_destroy(s);
 }
 
   void test1_set_id_add(){
@@ -119,17 +121,20 @@ int main(int argc, char** argv) {
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_id_add(s,5) == OK);
+	set_destroy(s);
   	}
   void test3_set_id_add(){
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_id_add(s,-3) == ERROR);
+	set_destroy(s);
   	}
   void test4_set_id_add(){
   	Set *s;
   	s=set_create();
   	set_set_total_ids(s,1000);
   	PRINT_TEST_RESULT(set_id_add(s,5) == ERROR);
+	set_destroy(s);
   	}
   	
   	
@@ -142,18 +147,21 @@ int main(int argc, char** argv) {
   	s=set_create();
   	set_id_add(s,5);
   	PRINT_TEST_RESULT(set_id_delete(s,5) == OK);
+	set_destroy(s);
   	}
   void test3_set_id_delete(){
   	Set *s;
   	s=set_create();
   	set_id_add(s,3);
   	PRINT_TEST_RESULT(set_id_delete(s,5) == ERROR);
+	set_destroy(s);
   	}
   void test4_set_id_delete(){
   	Set *s;
   	s=set_create();
   	set_set_total_ids(s,0);
   	PRINT_TEST_RESULT(set_id_delete(s,5) == ERROR);
+	set_destroy(s);
   	}
   	
   	
@@ -165,11 +173,13 @@ int main(int argc, char** argv) {
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_set_total_ids(s,-5) == ERROR);
+	  set_destroy(s);
   	}
   void test3_set_set_total_ids(){
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_set_total_ids(s,3) == OK);
+	set_destroy(s);
   	}
   	
   	
@@ -181,6 +191,7 @@ int main(int argc, char** argv) {
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_get_total_ids(s) != -1);
+	set_destroy(s);
   	}
   	
   	
@@ -193,18 +204,21 @@ int main(int argc, char** argv) {
   	s=set_create();
   	set_id_add(s,5);
   	PRINT_TEST_RESULT(set_has_id(s,5) == TRUE);
+	set_destroy(s);
   	}
   void test3_set_has_id(){
   	Set *s;
   	s=set_create();
   	set_id_add(s,5);
   	PRINT_TEST_RESULT(set_has_id(s,3) == FALSE);
+	set_destroy(s);
   	}
   void test4_set_has_id(){
   	Set *s;
   	s=set_create();
   	set_id_add(s,5);
   	PRINT_TEST_RESULT(set_has_id(s,-4) == FALSE);
+	set_destroy(s);
   	}
   	
   	
@@ -217,18 +231,21 @@ int main(int argc, char** argv) {
   	s=set_create();
   	set_id_add(s,5);
   	PRINT_TEST_RESULT(set_find_object_by_id(s,5) != NO_ID);
+	set_destroy(s);
   	}
   void test3_set_find_object_by_id(){
   	Set *s;
   	s=set_create();
   	set_id_add(s,5);
   	PRINT_TEST_RESULT(set_find_object_by_id(s,-4) == NO_ID);
+	set_destroy(s);
   	}
   void test4_set_find_object_by_id(){
   	Set *s;
   	s=set_create();
   	set_id_add(s,5);
   	PRINT_TEST_RESULT(set_find_object_by_id(s,2) == NO_ID);
+	set_destroy(s);
   	}
   	
   	
@@ -240,6 +257,7 @@ int main(int argc, char** argv) {
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_is_empty(s) == TRUE);
+	set_destroy(s);
   	}
   	
   void test3_set_is_empty(){
@@ -247,6 +265,7 @@ int main(int argc, char** argv) {
   	s=set_create();
   	set_id_add(s,5);
   	PRINT_TEST_RESULT(set_is_empty(s) == FALSE);
+	set_destroy(s);
   	}
   
   
@@ -259,6 +278,7 @@ int main(int argc, char** argv) {
   	s=set_create();
   	set_set_total_ids(s,1000);
   	PRINT_TEST_RESULT(set_is_full(s) == TRUE);
+	set_destroy(s);
   	}
   	
   void test3_set_is_full(){
@@ -266,12 +286,14 @@ int main(int argc, char** argv) {
   	s=set_create();
   	set_set_total_ids(s,100);
   	PRINT_TEST_RESULT(set_is_full(s) == TRUE);
+	set_destroy(s);
   	}
  void test4_set_is_full(){
     	Set *s;
   	s=set_create();
   	set_set_total_ids(s,50);
   	PRINT_TEST_RESULT(set_is_full(s) == FALSE);
+	set_destroy(s);
   	}
  
   void test1_set_print(){
@@ -282,11 +304,13 @@ int main(int argc, char** argv) {
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_print(NULL,s) == ERROR);
+	set_destroy(s);
   	}
   void test3_set_print(){
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_print(stdout,s) == OK);
+	set_destroy(s);
   	}
   	
   void test1_set_get_ids(){
@@ -297,6 +321,7 @@ int main(int argc, char** argv) {
   	Set *s;
   	s=set_create();
   	PRINT_TEST_RESULT(set_get_ids(s) == NULL);
+	set_destroy(s);
   	}
 
 

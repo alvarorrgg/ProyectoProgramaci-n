@@ -98,12 +98,14 @@ void test2_space_create() {
   Space *s;
   s = space_create(4);
   PRINT_TEST_RESULT(space_get_id(s) == 4);
+  space_destroy(s);
 }
 
 void test1_space_set_name() {
   Space *s;
   s = space_create(5);
   PRINT_TEST_RESULT(space_set_name(s, "hola") == OK);
+  space_destroy(s);
 }
 
 void test2_space_set_name() {
@@ -115,12 +117,14 @@ void test3_space_set_name() {
   Space *s;
   s = space_create(5);
   PRINT_TEST_RESULT(space_set_name(s, NULL) == ERROR);
+  space_destroy(s);
 }
 
 void test1_space_set_north() {
   Space *s;
   s = space_create(5);
   PRINT_TEST_RESULT(space_set_north(s, 4) == OK);
+  space_destroy(s);
 }
 
 void test2_space_set_north() {
@@ -132,6 +136,7 @@ void test1_space_set_south() {
   Space *s;
   s = space_create(5);
   PRINT_TEST_RESULT(space_set_south(s, 4) == OK);
+  space_destroy(s);
 }
 
 void test2_space_set_south() {
@@ -143,6 +148,7 @@ void test1_space_set_east() {
   Space *s;
   s = space_create(5);
   PRINT_TEST_RESULT(space_set_east(s, 4) == OK);
+  space_destroy(s);
 }
 
 void test2_space_set_east() {
@@ -154,6 +160,7 @@ void test1_space_set_west() {
   Space *s;
   s = space_create(5);
   PRINT_TEST_RESULT(space_set_west(s, 4) == OK);
+  space_destroy(s);
 }
 
 void test2_space_set_west() {
@@ -165,6 +172,7 @@ void test1_space_set_objects() {
   Space *s;
   s = space_create(1);
   PRINT_TEST_RESULT(space_set_objects(s,TRUE) == OK);
+  space_destroy(s);
 }
 
 void test2_space_set_objects() {
@@ -177,6 +185,7 @@ void test1_space_get_name() {
   s = space_create(1);
   space_set_name(s, "adios");
   PRINT_TEST_RESULT(strcmp(space_get_name(s), "adios") == 0);
+  space_destroy(s);
 
 }
 
@@ -190,6 +199,7 @@ void test1_space_get_object() {
   Space *s;
   s = space_create(1);
   PRINT_TEST_RESULT(space_get_objects(s) == NULL);
+  space_destroy(s);
      
 }
 
@@ -203,6 +213,7 @@ void test1_space_get_north() {
   s = space_create(5);
   space_set_north(s, 4);
   PRINT_TEST_RESULT(space_get_north(s) == 4);
+  space_destroy(s);
 }
 
 void test2_space_get_north() {
@@ -215,6 +226,7 @@ void test1_space_get_south() {
   s = space_create(5);
   space_set_south(s, 2);
   PRINT_TEST_RESULT(space_get_south(s) == 2);
+  space_destroy(s);
 }
 
 void test2_space_get_south() {
@@ -227,6 +239,7 @@ void test1_space_get_east() {
   s = space_create(5);
   space_set_east(s, 1);
   PRINT_TEST_RESULT(space_get_east(s) == 1);
+  space_destroy(s);
 }
 
 void test2_space_get_east() {
@@ -239,6 +252,7 @@ void test1_space_get_west() {
   s = space_create(5);
   space_set_west(s, 6);
   PRINT_TEST_RESULT(space_get_west(s) == 6);
+  space_destroy(s);
 }
 
 void test2_space_get_west() {
@@ -250,6 +264,7 @@ void test1_space_get_id() {
   Space *s;
   s = space_create(25);
   PRINT_TEST_RESULT(space_get_id(s) == 25);
+  space_destroy(s);
 }
 
 void test2_space_get_id() {
@@ -263,6 +278,7 @@ void test1_space_remove_object() {
   s = space_create(25);
   space_set_objects(s, 10);
   PRINT_TEST_RESULT(space_remove_object(s,10) == OK);
+  space_destroy(s);
 }
 
 void test2_space_remove_object() {
@@ -270,6 +286,7 @@ void test2_space_remove_object() {
   s = space_create(25);
   space_set_objects(s, 10);
   PRINT_TEST_RESULT(space_remove_object(s,-10) == ERROR);
+  space_destroy(s);
 }
 
 void test1_space_has_object_id() {
@@ -282,6 +299,7 @@ void test2_space_has_object_id() {
   s = space_create(25);
   space_set_objects(s, 10);
   PRINT_TEST_RESULT(space_has_object_id(s,10) == TRUE);
+  space_destroy(s);
 }
 
 void test3_space_has_object_id() {
@@ -289,6 +307,7 @@ void test3_space_has_object_id() {
   s = space_create(25);
   space_set_objects(s, 10);
   PRINT_TEST_RESULT(space_has_object_id(s,-10) == FALSE);
+  space_destroy(s);
 }
 
 void test1_space_set_gdesc() {
@@ -318,6 +337,7 @@ void test2_space_set_gdesc() {
   free(gdesc[1]);
   free(gdesc[2]);
   free(gdesc);
+  space_destroy(s);
 }
 
 void test1_space_get_gdesc() {
@@ -345,6 +365,7 @@ void test2_space_get_gdesc() {
   PRINT_TEST_RESULT(strcmp(gdesc[0],gdesc2[0])==0);
   free(gdesc);
   free(gdesc2);
+  space_destroy(s);
 }
 
 

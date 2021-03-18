@@ -182,7 +182,18 @@ Id game_get_object_location(Game* game,Id id);
  * @return el último comando introducido
  */
 Command* game_get_command(Game* game);
-
+/**
+ * @brief devuelve un objeto dado su indice
+ *
+ * game_get_object devuelve un objeto dado su indice
+ *
+ * @date  18-02-2021
+ * @author Álvaro Rodríguez 
+ *
+ * @param game el juego del que se va a obtener el objeto
+ * @return Object, el objeto a obtener.
+ */
+Object *game_get_object(Game *game, int index);
 /**
  * @brief Añade un nuevo espacio al juego
  *
