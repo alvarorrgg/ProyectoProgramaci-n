@@ -1,0 +1,8 @@
+El juego de la oca esta implementado con ciertas mejoras no necesariamente estipuladas en el pdf pero que fueron habladas en clase como:
+
+    Los objetos pueden tener cualquier nombre (dentro de un limite)
+    Para utilizar la funcion take se hará de la forma siguiente: Take (nombre del objeto) asi que si el objeto se llamará Rojo, se usaria take Rojo.
+    No puede haber dos objetos con el mismo nombre.
+    Los colores del juego han sido cambiados para hacerlo más "único"
+    En caso de que los objetos no cupieran en un espacio, se representara de la forma Rojo...
+    
