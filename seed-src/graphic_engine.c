@@ -230,6 +230,8 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     if (id_next != NO_ID)
     {
       gdesc = space_get_gdesc(space_next);
+      sprintf(str, "        v");
+      screen_area_puts(ge->map, str);
       sprintf(str, "  +-----------+");
       screen_area_puts(ge->map, str);
       sprintf(str, "  |       C:%2d|", (int)id_next);
@@ -242,8 +244,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
       sprintf(str, "  |%s |",espacios_next);
       screen_area_puts(ge->map, str);
-      sprintf(str, "  +-----------+");
-      screen_area_puts(ge->map, str);
+
     }
   }
 
