@@ -23,14 +23,7 @@
  * Almacena información del juego a tiempo real
  */
 
-typedef struct _Game{
-  Player *player;			/*!< Modulo player*/
-  Object *objects[MAX_OBJECTS+1];	/*!< Tabla de objetos del juego*/
-  Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/		
-  Die *die;               /*!< Dado del juego*/
-  Command *command;       /*!< comando que se recibe del jugador*/
-} Game;
-
+typedef struct _Game Game;
 /**
  * @brief Crea el juego
  *
@@ -42,7 +35,21 @@ typedef struct _Game{
  * @param game el juego que se va a crear
  * @return OK para saber que se ha ejecutado la función correctamente
  */
+
 STATUS game_create(Game* game);
+
+/**
+ * @brief Inicializa el juego
+ *
+ * game_init Inicializa el juego 
+ *
+ * @date 18-02-2021
+ * @author R1
+ *
+ * @param 
+ * @return Puntero a la estructura Game si todo ha ido bien, NULL si ha ocurrido un error
+ */
+Game *game_init();
 /**
  * @brief Crea el juego en un fichero
  *

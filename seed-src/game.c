@@ -14,8 +14,18 @@
 #include <string.h>
 #include "game.h"
 #include "game_reader.h"
+
 #define N_CALLBACK 9
 #define OBJECT_NAME 10
+
+
+struct _Game{
+  Player *player;			/*!< Modulo player*/
+  Object *objects[MAX_OBJECTS+1];	/*!< Tabla de objetos del juego*/
+  Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/		
+  Die *die;               /*!< Dado del juego*/
+  Command *command;       /*!< comando que se recibe del jugador*/
+};
 /**
  * Define el tipo de funciones para las devoluciones de llamada
  */
@@ -179,6 +189,17 @@ Id game_get_space_id_at(Game *game, int position);
 
 /*Implementación de las funciones de Game*/
 
+Game *game_init(){
+
+  Game *game=NULL;
+
+  game=(Game*)malloc(sizeof(Game));
+
+  if(game==NULL)return NULL;
+
+  return game;
+
+}
 STATUS game_create(Game *game)
 {
   int i;
@@ -228,6 +249,7 @@ STATUS game_destroy(Game *game)
   player_destroy(game->player); /*Se destruye el jugador*/
   die_destroy(game->die);       /*Se destruye el dado*/
   command_destroy(game->command);
+  free(game);
 
   return OK;
 }

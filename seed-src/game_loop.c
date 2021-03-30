@@ -13,6 +13,7 @@
 #include <string.h>
 #include "graphic_engine.h"
 #include "command.h"
+#include "game.h"
 
 /**
  *
@@ -42,7 +43,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
  * @param game juego que continúa
  * @param gengine motor que se utiliza en el juego
  */
-void game_loop_run(Game game, Graphic_engine *gengine,FILE *f);
+void game_loop_run(Game *game, Graphic_engine *gengine,FILE *f);
 /**
  *
  * @brief función que finaliza el juego
@@ -55,7 +56,7 @@ void game_loop_run(Game game, Graphic_engine *gengine,FILE *f);
  * @param game juego que se destruye
  * @param gengine motor que se destruye
  */
-void game_loop_cleanup(Game game, Graphic_engine *gengine);
+void game_loop_cleanup(Game *game, Graphic_engine *gengine);
 
 /**
  *
@@ -71,7 +72,7 @@ void game_loop_cleanup(Game game, Graphic_engine *gengine);
  * @return 0 si la función se realiza correctamente
  */
 int main(int argc, char *argv[]) {
-  Game game;
+  Game *game;
   Graphic_engine *gengine;
   FILE *f = NULL;
   if (argc < 2) {
@@ -93,7 +94,8 @@ int main(int argc, char *argv[]) {
    		return 0;
    		}
    		}
-  if (!game_loop_init(&game, &gengine, argv[1])){ /*Inicio del juego*/
+  game=game_init();     
+  if (!game_loop_init(game, &gengine, argv[1])){ /*Inicio del juego*/
     game_loop_run(game, gengine,f); /*Bucle donde se desarrolla el juego*/
     game_loop_cleanup(game, gengine);
     if(argc>2)fclose(f); /*Necesaria esta comprobación para no cerrar el archivo en caso de que no se hubiera abierto*/
@@ -117,29 +119,29 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name){
   return 0;
 }
 
-void game_loop_run(Game game, Graphic_engine *gengine,FILE *f){/*Aqui es donde se desarrolla todo el juego*/
+void game_loop_run(Game *game, Graphic_engine *gengine,FILE *f){/*Aqui es donde se desarrolla todo el juego*/
   T_Command command = NO_CMD;
    extern char *cmd_to_str[N_CMD][N_CMDT]; /*Incluyo esta variable desde command para poder incluir los comandos en el file*/
-  while ((command != EXIT) && !game_is_over(&game)) {/*Mientras que el comando sea distinto de EXIT o no se cumpla game_is_over, se pintará la pantalla cada vez que se ejecute game_update*/
-    graphic_engine_paint_game(gengine, &game);
+  while ((command != EXIT) && !game_is_over(game)) {/*Mientras que el comando sea distinto de EXIT o no se cumpla game_is_over, se pintará la pantalla cada vez que se ejecute game_update*/
+    graphic_engine_paint_game(gengine, game);
     command = command_get_user_input();
-    game_update(&game, command);
+    game_update(game, command);
 if(f!=NULL){      /*Necesario para no escribir en un fichero vacio*/
-if(command_get_cmd(game_get_command(&game))!=-1){
-  if(command_get_status(game_get_command(&game))!=1){
-  fprintf(f, " %s (%s): ERROR\n", cmd_to_str[command_get_cmd(game_get_command(&game)) - NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDS]);/*Se usa esta linea cuando el status es ERROR*/
+if(command_get_cmd(game_get_command(game))!=-1){
+  if(command_get_status(game_get_command(game))!=1){
+  fprintf(f, " %s (%s): ERROR\n", cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(game))- NO_CMD][CMDS]);/*Se usa esta linea cuando el status es ERROR*/
   } 
   else{
-     fprintf(f, " %s (%s): OK\n", cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(&game))- NO_CMD][CMDS]);/*Se usa esta linea cuando el status es OK*/
+     fprintf(f, " %s (%s): OK\n", cmd_to_str[command_get_cmd(game_get_command(game))- NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(game))- NO_CMD][CMDS]);/*Se usa esta linea cuando el status es OK*/
 }
   }
 }
   }
-graphic_engine_paint_game(gengine, &game);
+graphic_engine_paint_game(gengine, game);
 }
 
 
-void game_loop_cleanup(Game game, Graphic_engine *gengine){
-  game_destroy(&game);
+void game_loop_cleanup(Game *game, Graphic_engine *gengine){
+  game_destroy(game);
   graphic_engine_destroy(gengine);
 }
