@@ -1,5 +1,5 @@
 #makefile de juego OCA
-target = ocaEXE
+target = ocaEXE space_test set_test die_test
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o
 CC = gcc
@@ -12,6 +12,8 @@ vpath %.o obj
 all: $(target)
 
 ocaEXE: $(OBJ)
+	@echo "#####################"
+	@echo "Creando $@"
 	$(CC) -o  $@ $^
 
 command.o: command.c command.h types.h
@@ -69,7 +71,37 @@ die.o: die.c die.h types.h
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
+die_test: die_test.o die.o
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -o  $@ $^
+
+die_test.o: die_test.c die_test.h die.h
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -c $(FLAGS) $<
+
+set_test: set_test.o set.o
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -o  $@ $^
+
+set_test.o: set_test.c set_test.h set.h
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -c $(FLAGS) $<
+
+space_test: space_test.o space.o set.o
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -o  $@ $^
+
+space_test.o: space_test.c space_test.h space.h set.h
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -c $(FLAGS) $<
+
 .PHONY: clean
 clean: 
 	@echo "Limpiando"
-	rm -rf *.o ocaEXE setPruebaEXE spacePruebaEXE diePruebaEXE
+	rm -rf *.o ocaEXE set_test space_test die_test
