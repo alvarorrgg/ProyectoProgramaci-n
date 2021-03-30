@@ -71,7 +71,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   char espacios_back[MAX_CHARS1],espacios_act[MAX_CHARS1],espacios_next[MAX_CHARS1];/*Servira para llevar recuento de los objetos en un espacio*/
   T_Command last_cmd = UNKNOWN;
   extern char *cmd_to_str[N_CMD][N_CMDT]; /*Variable traida del modulo command para el tratado de comandos*/
-
+  memset(espacios_back,0,MAX_CHARS1);
   /* Pintar en el área del mapa */
   screen_area_clear(ge->map);
   if ((id_act = game_get_player_location(game)) != NO_ID)
@@ -285,7 +285,7 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);
 /*Verificamos que el player tiene algun objeto en caso de tenerlo se escribe*/
-    if((int)player_get_object(game_get_player(game))!=-1) sprintf(str, "Player has object: %d",(int)player_get_object(game_get_player(game)));
+    if((int)player_get_object(game_get_player(game))!=-1) sprintf(str, "Player has object: %s",object_get_name(game_get_object(game,player_get_object(game_get_player(game))-1)));
    screen_area_puts(ge->descript, str);
    
   /* Pinta en el área del banner */
@@ -305,7 +305,7 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
   if(command_get_status(game_get_command(game))!=1){
   sprintf(str, " %s (%s): ERROR", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
   }
-  else sprintf(str, " %s (%s) OK ", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
+  else sprintf(str, " %s (%s): OK ", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
   screen_area_puts(ge->feedback, str);
 }
   /* Volcarlo en la terminal */
