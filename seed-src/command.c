@@ -32,7 +32,7 @@ struct _Command {
   T_Command cmd; /** !< comando*/
   STATUS st;    /**  !< status del comando*/
 };
-
+/*EJEMPLO*/
 Command* command_init(){
   Command * new_command =NULL;
 	  
