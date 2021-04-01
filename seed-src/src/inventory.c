@@ -21,8 +21,9 @@ Inventory* inventory_create(){
 
 
 STATUS inventory_destroy(Inventory* inventory){
-    if (!inventory) return ERROR;
     STATUS st;
+    if (!inventory) return ERROR;
+ 
 
     st = set_destroy (inventory->objects);
     free (inventory);
@@ -32,8 +33,9 @@ STATUS inventory_destroy(Inventory* inventory){
 
 
 STATUS inventory_setObject (Inventory *inventory , Id id){
+     STATUS st;
     if (!inventory  || id<0 || !id || set_get_total_ids(inventory->objects) >= inventory->Max_Objets) return ERROR;
-    STATUS st;
+   
 
     st = set_id_add (inventory->objects , id);
 
@@ -49,8 +51,9 @@ Id* inventory_getInventory (Inventory *inventory){
 
 
 STATUS inventory_print (Inventory *inventory , FILE *pf){
-    if(! inventory || pf == NULL) return ERROR;
     STATUS st;
+    if(! inventory || pf == NULL) return ERROR;
+    
 
     st = set_print( pf , inventory->objects);
 
@@ -59,8 +62,9 @@ STATUS inventory_print (Inventory *inventory , FILE *pf){
 
 
 STATUS inventory_deleteObject (Inventory* inventory , Id id){
-    if(!inventory || !id || id<0 || inventory_isEmpty(inventory) == TRUE || set_has_id(inventory->objects , id) == FALSE) return ERROR;
     STATUS st;
+    if(!inventory || !id || id<0 || inventory_isEmpty(inventory) == TRUE || set_has_id(inventory->objects , id) == FALSE) return ERROR;
+    
 
     st = set_id_delete (inventory->objects , id);
 
@@ -68,7 +72,7 @@ STATUS inventory_deleteObject (Inventory* inventory , Id id){
 }
 
 BOOL inventory_isEmpty (Inventory * inventory){
-    if(!inventory) return ERROR;
+    if(!inventory) return FALSE;
 
     if(set_is_empty (inventory->objects) == TRUE) return TRUE;
 

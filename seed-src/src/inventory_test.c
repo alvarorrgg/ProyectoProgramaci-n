@@ -184,7 +184,7 @@ void test1_inventory_deleteObject(){
 
 void test2_inventory_deleteObject(){
     Inventory *inventory = inventory_create();
-    Id id;
+    Id id=-1;
     PRINT_TEST_RESULT( inventory_deleteObject (inventory , id) == ERROR);  
     inventory_destroy (inventory);
 }
@@ -211,7 +211,7 @@ void test5_inventory_deleteObject(){
 
 void test1_inventory_isEmpty(){
     Inventory *inventory = NULL;
-    PRINT_TEST_RESULT( inventory_isEmpty(inventory) == ERROR);
+    PRINT_TEST_RESULT( inventory_isEmpty(inventory) == FALSE);
 }
 
 void test2_inventory_isEmpty(){

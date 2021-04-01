@@ -120,5 +120,5 @@ inventory_test.o: inventory_test.c inventory_test.h inventory.h test.h
 .PHONY: clean
 clean: 
 	@echo "Limpiando"
-	rm -rf *.o ocaEXE set_test space_test die_test
+	rm -rf *.o ocaEXE set_test space_test die_test inventory_test
 	
