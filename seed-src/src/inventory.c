@@ -32,9 +32,9 @@ STATUS inventory_destroy(Inventory* inventory){
 }
 
 
-STATUS inventory_setObject (Inventory *inventory , Id id){
+STATUS inventory_set_object (Inventory *inventory , Id id){
      STATUS st;
-    if (!inventory  || id<0 || !id || set_get_total_ids(inventory->objects) >= inventory->Max_Objets) {
+    if (!inventory  || id<0 || !id || inventory_is_full (inventory) == TRUE) {
         return ERROR;
     }
 
@@ -44,7 +44,7 @@ STATUS inventory_setObject (Inventory *inventory , Id id){
 }
 
 
-Id* inventory_getInventory (Inventory *inventory){
+Id* inventory_get_inventory (Inventory *inventory){
     if(!inventory) return NULL;
 
     return set_get_ids (inventory->objects);
@@ -62,20 +62,51 @@ STATUS inventory_print (Inventory *inventory , FILE *pf){
 }
 
 
-STATUS inventory_deleteObject (Inventory* inventory , Id id){
+STATUS inventory_delete_object (Inventory* inventory , Id id){
     STATUS st;
-    if(!inventory || !id || id<0 || inventory_isEmpty(inventory) == TRUE || set_has_id(inventory->objects , id) == FALSE) return ERROR;
-    
+    if(!inventory || !id || id<0 || inventory_is_empty(inventory) == TRUE || set_has_id(inventory->objects , id) == FALSE) return ERROR;
 
     st = set_id_delete (inventory->objects , id);
 
     return st;
 }
 
-BOOL inventory_isEmpty (Inventory * inventory){
+BOOL inventory_is_empty (Inventory * inventory){
     if(!inventory) return FALSE;
 
     if(set_is_empty (inventory->objects) == TRUE) return TRUE;
 
     return FALSE;   
+}
+
+
+BOOL inventory_is_full(Inventory* inventory){
+    if(!inventory) return FALSE;
+
+    if(set_get_total_ids (inventory->objects) == inventory->Max_Objets) return TRUE;
+
+    return FALSE;
+}
+
+BOOL inventory_search_object (Inventory *inventory , Id id){
+    if (!inventory || id == NO_ID || id < 0 || inventory_is_empty (inventory) == TRUE) return FALSE;
+
+    if (set_has_id (inventory->objects , id) == TRUE) return TRUE;
+
+    return FALSE;
+}
+
+STATUS inventory_set_max_objects (Inventory *inventory , int max){
+    if(!inventory || max < 0 ) return ERROR;
+
+    inventory->Max_Objets = max;
+
+    return OK;
+}
+
+
+int inventory_get_max_objects (Inventory *inventory){
+    if (!inventory) return -1;
+
+    return inventory->Max_Objets;
 }

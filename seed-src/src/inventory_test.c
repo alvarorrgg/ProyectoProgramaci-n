@@ -50,30 +50,47 @@ int main(int argc, char** argv) {
   
   if (all || test == 3) test1_inventory_destroy();
 
-  if (all || test == 4) test1_inventory_setObject();
-  if (all || test == 5) test2_inventory_setObject();
-  if (all || test == 6) test3_inventory_setObject();  
-  if (all || test == 7) test4_inventory_setObject();
-  if (all || test == 8) test5_inventory_setObject();
+  if (all || test == 4) test1_inventory_set_object();
+  if (all || test == 5) test2_inventory_set_object();
+  if (all || test == 6) test3_inventory_set_object();  
+  if (all || test == 7) test4_inventory_set_object();
+  if (all || test == 8) test5_inventory_set_object();
 
-  if (all || test == 9) test1_inventory_getInventory();
-  if (all || test == 10) test2_inventory_getInventory();
+  if (all || test == 9) test1_inventory_get_inventory();
+  if (all || test == 10) test2_inventory_get_inventory();
   
   if (all || test == 11) test1_inventory_print();
   if (all || test == 12) test2_inventory_print();
   if (all || test == 13) test3_inventory_print();
   
   
-  if (all || test == 14) test1_inventory_deleteObject();
-  if (all || test == 15) test2_inventory_deleteObject();
-  if (all || test == 16) test3_inventory_deleteObject();
-  if (all || test == 17) test4_inventory_deleteObject();
-  if (all || test == 18) test5_inventory_deleteObject();
+  if (all || test == 14) test1_inventory_delete_object();
+  if (all || test == 15) test2_inventory_delete_object();
+  if (all || test == 16) test3_inventory_delete_object();
+  if (all || test == 17) test4_inventory_delete_object();
+  if (all || test == 18) test5_inventory_delete_object();
 
-  if (all || test == 19) test1_inventory_isEmpty();   
-  if (all || test == 20) test2_inventory_isEmpty();
-  if (all || test == 21) test3_inventory_isEmpty();
-  
+  if (all || test == 19) test1_inventory_is_empty();   
+  if (all || test == 20) test2_inventory_is_empty();
+  if (all || test == 21) test3_inventory_is_empty();
+
+  if (all || test == 22) test1_inventory_is_full();   
+  if (all || test == 23) test2_inventory_is_full();
+  if (all || test == 24) test3_inventory_is_full();
+
+  if (all || test == 25) test1_inventory_search_object();
+  if (all || test == 26) test2_inventory_search_object();
+  if (all || test == 27) test3_inventory_search_object();
+  if (all || test == 28) test4_inventory_search_object();
+  if (all || test == 29) test5_inventory_search_object();
+
+  if (all || test == 30) test1_inventory_set_max_objects();
+  if (all || test == 31) test2_inventory_set_max_objects();
+  if (all || test == 32) test3_inventory_set_max_objects();
+
+  if (all || test == 33) test1_inventory_get_max_objects();
+  if (all || test == 34) test2_inventory_get_max_objects();
+
   PRINT_PASSED_PERCENTAGE;
 
   return 1;
@@ -90,7 +107,7 @@ void test1_inventory_create(){
 void test2_inventory_create(){
     Inventory *new_invetory  = inventory_create();
 
-    PRINT_TEST_RESULT( inventory_isEmpty (new_invetory) == TRUE );
+    PRINT_TEST_RESULT( inventory_is_empty (new_invetory) == TRUE );
     inventory_destroy (new_invetory);
 }
 
@@ -99,63 +116,63 @@ void test1_inventory_destroy(){
     PRINT_TEST_RESULT( inventory_destroy (inventory) == ERROR );
 }
 
-void test1_inventory_setObject(){
+void test1_inventory_set_object(){
     Inventory *inventory = NULL;
-    PRINT_TEST_RESULT( inventory_setObject (inventory , 5) == ERROR );
+    PRINT_TEST_RESULT( inventory_set_object (inventory , 5) == ERROR );
 }
 
-void test2_inventory_setObject(){
+void test2_inventory_set_object(){
     Inventory *inventory = inventory_create();
-    inventory_setObject (inventory , 5);
-    PRINT_TEST_RESULT( inventory_setObject (inventory , 5) == ERROR );
+    inventory_set_object (inventory , 5);
+    PRINT_TEST_RESULT( inventory_set_object (inventory , 5) == ERROR );
     inventory_destroy (inventory);
 }
 
-void test3_inventory_setObject(){
+void test3_inventory_set_object(){
     Inventory *inventory = inventory_create();
-    PRINT_TEST_RESULT( inventory_setObject (inventory , -5) == ERROR );
+    PRINT_TEST_RESULT( inventory_set_object (inventory , -5) == ERROR );
     inventory_destroy (inventory);
 }
 
-void test4_inventory_setObject(){
+void test4_inventory_set_object(){
     Inventory *inventory = inventory_create();
     Id id = NO_ID;
-    PRINT_TEST_RESULT( inventory_setObject (inventory , id) == ERROR );
+    PRINT_TEST_RESULT( inventory_set_object (inventory , id) == ERROR );
     inventory_destroy (inventory);
 }
 
-void test5_inventory_setObject(){
+void test5_inventory_set_object(){
     Inventory *inventory = inventory_create();
 
-    inventory_setObject (inventory , 01);
-    inventory_setObject (inventory , 02);
-    inventory_setObject (inventory , 03);
-    inventory_setObject (inventory , 04);
-    inventory_setObject (inventory , 05);
-    inventory_setObject (inventory , 06);
-    inventory_setObject (inventory , 07);
-    inventory_setObject (inventory , 16);
-    inventory_setObject (inventory , 17);
-    inventory_setObject (inventory , 10);
-    inventory_setObject (inventory , 11);
-    inventory_setObject (inventory , 12);
-    inventory_setObject (inventory , 13);
-    inventory_setObject (inventory , 14);
-    inventory_setObject (inventory , 15);
+    inventory_set_object (inventory , 01);
+    inventory_set_object (inventory , 02);
+    inventory_set_object (inventory , 03);
+    inventory_set_object (inventory , 04);
+    inventory_set_object (inventory , 05);
+    inventory_set_object (inventory , 06);
+    inventory_set_object (inventory , 07);
+    inventory_set_object (inventory , 16);
+    inventory_set_object (inventory , 17);
+    inventory_set_object (inventory , 10);
+    inventory_set_object (inventory , 11);
+    inventory_set_object (inventory , 12);
+    inventory_set_object (inventory , 13);
+    inventory_set_object (inventory , 14);
+    inventory_set_object (inventory , 15);
         
-    PRINT_TEST_RESULT( inventory_setObject (inventory , 18) == ERROR);
+    PRINT_TEST_RESULT( inventory_set_object (inventory , 18) == ERROR);
     
     inventory_destroy (inventory);
 }
 
-void test1_inventory_getInventory(){
+void test1_inventory_get_inventory(){
     Inventory *inventory = NULL;
-    PRINT_TEST_RESULT( inventory_getInventory (inventory) == NULL );
+    PRINT_TEST_RESULT( inventory_get_inventory (inventory) == NULL );
 }
 
-void test2_inventory_getInventory(){
+void test2_inventory_get_inventory(){
     Inventory *inventory = inventory_create();
-    PRINT_TEST_RESULT( inventory_getInventory (inventory) == NULL );
+    PRINT_TEST_RESULT( inventory_get_inventory (inventory) == NULL );
     inventory_destroy(inventory);
 }
 
@@ -177,53 +194,157 @@ void test3_inventory_print(){
 }
 
 
-void test1_inventory_deleteObject(){
+void test1_inventory_delete_object(){
     Inventory *inventory = NULL;
-    PRINT_TEST_RESULT( inventory_deleteObject (inventory , 5) == ERROR);  
+    PRINT_TEST_RESULT( inventory_delete_object (inventory , 5) == ERROR);  
 }
 
-void test2_inventory_deleteObject(){
+void test2_inventory_delete_object(){
     Inventory *inventory = inventory_create();
     Id id=-1;
-    PRINT_TEST_RESULT( inventory_deleteObject (inventory , id) == ERROR);  
+    PRINT_TEST_RESULT( inventory_delete_object (inventory , id) == ERROR);  
     inventory_destroy (inventory);
 }
 
-void test3_inventory_deleteObject(){
+void test3_inventory_delete_object(){
     Inventory *inventory = inventory_create();
-    inventory_setObject (inventory , 5);
-    PRINT_TEST_RESULT( inventory_deleteObject (inventory , -6) == ERROR);  
+    inventory_set_object (inventory , 5);
+    PRINT_TEST_RESULT( inventory_delete_object (inventory , -6) == ERROR);  
     inventory_destroy(inventory);
 }
 
-void test4_inventory_deleteObject(){
+void test4_inventory_delete_object(){
     Inventory *inventory = inventory_create();
-    PRINT_TEST_RESULT( inventory_deleteObject (inventory , 5) == ERROR);  
+    PRINT_TEST_RESULT( inventory_delete_object (inventory , 5) == ERROR);  
     inventory_destroy(inventory);
 }
 
-void test5_inventory_deleteObject(){
+void test5_inventory_delete_object(){
     Inventory *inventory = inventory_create();
-    inventory_setObject (inventory , 5);
-    PRINT_TEST_RESULT( inventory_deleteObject (inventory , 6) == ERROR);  
+    inventory_set_object (inventory , 5);
+    PRINT_TEST_RESULT( inventory_delete_object (inventory , 6) == ERROR);  
     inventory_destroy(inventory);
 }
 
-void test1_inventory_isEmpty(){
+void test1_inventory_is_empty(){
     Inventory *inventory = NULL;
-    PRINT_TEST_RESULT( inventory_isEmpty(inventory) == FALSE);
+    PRINT_TEST_RESULT( inventory_is_empty(inventory) == FALSE);
 }
 
-void test2_inventory_isEmpty(){
+void test2_inventory_is_empty(){
     Inventory *inventory = inventory_create();
-    inventory_setObject (inventory , 5);
-    PRINT_TEST_RESULT( inventory_isEmpty(inventory) == FALSE);
+    inventory_set_object (inventory , 5);
+    PRINT_TEST_RESULT( inventory_is_empty(inventory) == FALSE);
     inventory_destroy(inventory);
 }
 
-void test3_inventory_isEmpty(){
+void test3_inventory_is_empty(){
     Inventory *inventory = inventory_create();
-    PRINT_TEST_RESULT( inventory_isEmpty(inventory) == TRUE);
+    PRINT_TEST_RESULT( inventory_is_empty(inventory) == TRUE);
     inventory_destroy(inventory);
 }
+
+
+void test1_inventory_is_full(){
+    Inventory *inventory = NULL;
+
+    PRINT_TEST_RESULT( inventory_is_full(inventory) == FALSE);
+}
+
+void test2_inventory_is_full(){
+    Inventory *inventory = inventory_create();
+
+    PRINT_TEST_RESULT( inventory_is_full (inventory) == FALSE);
+    inventory_destroy(inventory);
+}
+
+void test3_inventory_is_full(){
+    Inventory *inventory = inventory_create();
+
+    inventory_set_max_objects (inventory , 5);
+
+    inventory_set_object (inventory , 01);
+    inventory_set_object (inventory , 02);
+    inventory_set_object (inventory , 03);
+    inventory_set_object (inventory , 04);
+    inventory_set_object (inventory , 05);
+    
+
+    PRINT_TEST_RESULT( inventory_is_full (inventory) == TRUE);
+    inventory_destroy(inventory);
+}
+
+void test1_inventory_search_object(){
+    Inventory *inventory = NULL;
+
+    PRINT_TEST_RESULT( inventory_search_object (inventory , 5) == FALSE);
+}
+
+void test2_inventory_search_object(){
+    Inventory *inventory = inventory_create();
+
+    PRINT_TEST_RESULT( inventory_search_object (inventory , NO_ID) == FALSE);
+    inventory_destroy(inventory);
+}
+
+void test3_inventory_search_object(){
+    Inventory *inventory = inventory_create();
+
+    PRINT_TEST_RESULT( inventory_search_object (inventory , -5) == FALSE);
+    inventory_destroy(inventory);
+}
+
+void test4_inventory_search_object(){
+    Inventory *inventory = inventory_create();
+
+    PRINT_TEST_RESULT( inventory_search_object (inventory , 5) == FALSE);
+    inventory_destroy(inventory);
+}
+
+void test5_inventory_search_object(){
+    Inventory *inventory = inventory_create();
+
+    inventory_search_object (inventory , 5);
+
+    PRINT_TEST_RESULT( inventory_search_object (inventory , 5) == FALSE);
+    inventory_destroy(inventory);
+}
+
+void test1_inventory_set_max_objects(){
+    Inventory *inventory = NULL;
+
+    PRINT_TEST_RESULT( inventory_set_max_objects (inventory , 5) == ERROR);
+}
+
+void test2_inventory_set_max_objects(){
+    Inventory *inventory = inventory_create();
+
+    PRINT_TEST_RESULT( inventory_set_max_objects (inventory , -5) == ERROR);
+    inventory_destroy(inventory);
+}
+
+void test3_inventory_set_max_objects(){
+    Inventory *inventory = inventory_create();
+    inventory_set_max_objects (inventory , 5);
+
+    PRINT_TEST_RESULT( inventory_get_max_objects (inventory) == 5);
+    inventory_destroy(inventory);
+}
+
+void test1_inventory_get_max_objects(){
+    Inventory *inventory = NULL ;
+
+    PRINT_TEST_RESULT( inventory_get_max_objects (inventory) == -1);
+ 
+}
+
+void test2_inventory_get_max_objects(){
+    Inventory *inventory = inventory_create();
+
+    PRINT_TEST_RESULT( inventory_get_max_objects (inventory) == 15);
+ 
+}
+
+
+
 

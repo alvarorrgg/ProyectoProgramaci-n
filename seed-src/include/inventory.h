@@ -31,7 +31,7 @@ typedef struct _Inventory Inventory;
  * @date 30-03-2021
  * @author Gonzalo Martín
  *
- * @param id 
+ * @param 
  * @return el inventario creado
  */
 Inventory* inventory_create();
@@ -44,7 +44,7 @@ Inventory* inventory_create();
  * @date 30-03-2021
  * @author Gonzalo Martín
  *
- * @param inventary el inventario a destruir
+ * @param inventory el inventario a destruir
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS inventory_destroy(Inventory* inventory);
@@ -52,29 +52,29 @@ STATUS inventory_destroy(Inventory* inventory);
 /**
  * @brief añade al inventario del jugador un elemento
  *
- * inventory_setObject añade al inventario del jugador un elemento
+ * inventory_set_object añade al inventario del jugador un elemento
  * 
  * @date 30-03-2021
  * @author Gonzalo Martín
  *
- * @param inventary el inventario y el Id del elemento
+ * @param inventory el inventario y el Id del elemento
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS inventory_setObject (Inventory *inventory , Id id);
+STATUS inventory_set_object (Inventory *inventory , Id id);
 
 
 /**
  * @brief devuelve el inventario
  *
- * inventory_getInventory delvuelve el inventario del jugador
+ * inventory_get_inventory delvuelve el inventario del jugador
  * 
  * @date 30-03-2021
  * @author Gonzalo Martín
  *
- * @param inventary el inventario 
+ * @param inventory el inventario 
  * @return los ids de los objetos
  */
-Id* inventory_getInventory (Inventory *inventory);
+Id* inventory_get_inventory (Inventory *inventory);
 
 /**
  * @brief printea el inventario
@@ -84,7 +84,7 @@ Id* inventory_getInventory (Inventory *inventory);
  * @date 30-03-2021
  * @author Gonzalo Martín
  *
- * @param inventary el inventario y un puntero a un FILE
+ * @param inventory el inventario y un puntero a un FILE
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS inventory_print (Inventory *inventory , FILE *pf);
@@ -93,28 +93,82 @@ STATUS inventory_print (Inventory *inventory , FILE *pf);
 /**
  * @brief elimina un objeto
  *
- * inventory_deleteObject elmina un objecto del inventario del jugador
+ * inventory_delete_object elmina un objecto del inventario del jugador
  * 
  * @date 30-03-2021
  * @author Gonzalo Martín
  *
- * @param inventary el inventario y el id del elemento
+ * @param inventory el inventario y el id del elemento
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS inventory_deleteObject (Inventory* inventory , Id id);
+STATUS inventory_delete_object (Inventory* inventory , Id id);
 
 
 /**
  * @brief chequea si la mochila esta vacia
  *
- * inventory_isEmpty chequea si la mochila del jugador esta vacia
+ * inventory_is_empty chequea si la mochila del jugador esta vacia
  * 
  * @date 30-03-2021
  * @author Gonzalo Martín
  *
- * @param inventary el inventario
+ * @param inventory el inventario
  * @return TRUE si esta vacia, FALSE si no lo esta
  */
-BOOL inventory_isEmpty (Inventory * inventory);
+BOOL inventory_is_empty (Inventory * inventory);
+
+/**
+ * @brief chequea si la mochila esta llena
+ *
+ * inventory_is_full chequea si la mochila del jugador esta llena
+ * 
+ * @date 01-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param inventory el inventario
+ * @return TRUE si esta llena, FALSE si no lo esta
+ */
+BOOL inventory_is_full(Inventory* inventory);
+
+/**
+ * @brief chequea hay hay un cierto objecto en la mochila 
+ *
+ * inventory_serach_object chequea si hay un determinado objecto en la mochila del jugador
+ * 
+ * @date 01-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param inventory el inventario y el Id del objeto a buscar
+ * @return TRUE si esta el objeto en la mochila, FALSE si no lo esta
+ */
+BOOL inventory_search_object (Inventory *inventory , Id id);
+
+/**
+ * @brief establece el numero maximo de objectos 
+ *
+ * inventory_set_max_objects establece el numero maximo de objectos de la mochila
+ * 
+ * @date 01-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param inventory el inventario y el nuevo numero maximo de objetos
+ * @return Ok si se ha establecido bien, ERROR si no fue asi
+ */
+STATUS inventory_set_max_objects (Inventory *inventory , int max);
+
+/**
+ * @brief devuelve el numero maximo de objectos 
+ *
+ * inventory_get_max_objects devuelve el numero maximo de objectos de la mochila
+ * 
+ * @date 01-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param inventory el inventario
+ * @return el numero maximo de objectos que caben en la mochila, -1 si ha avido un error
+ */
+int inventory_get_max_objects (Inventory *inventory);
+
+
 
 #endif
