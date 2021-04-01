@@ -34,8 +34,9 @@ STATUS inventory_destroy(Inventory* inventory){
 
 STATUS inventory_setObject (Inventory *inventory , Id id){
      STATUS st;
-    if (!inventory  || id<0 || !id || set_get_total_ids(inventory->objects) >= inventory->Max_Objets) return ERROR;
-   
+    if (!inventory  || id<0 || !id || set_get_total_ids(inventory->objects) >= inventory->Max_Objets) {
+        return ERROR;
+    }
 
     st = set_id_add (inventory->objects , id);
 

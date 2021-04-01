@@ -13,6 +13,7 @@
 #include <string.h>
 #include "game.h"
 #include "game_reader.h"
+#include "inventory.h"
 
 STATUS game_reader_load_spaces(Game *game, char *filename)
 {

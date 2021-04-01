@@ -19,7 +19,6 @@
  */
 typedef struct _Object Object;
 
-#define MAX_OBJECTS 100 /*Numero maximo de objetos*/
 #define FIRST_OBJECT 1  /*Posición del primer objeto*/
 /**
  * @brief Crea un objeto

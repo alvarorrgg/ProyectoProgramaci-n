@@ -143,7 +143,7 @@ void test5_inventory_setObject(){
     inventory_setObject (inventory , 14);
     inventory_setObject (inventory , 15);
         
-    PRINT_TEST_RESULT( inventory_setObject (inventory , 18) == ERROR );
+    PRINT_TEST_RESULT( inventory_setObject (inventory , 18) == ERROR);
     
     inventory_destroy (inventory);
 }

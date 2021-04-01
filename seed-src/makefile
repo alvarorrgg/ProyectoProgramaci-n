@@ -21,7 +21,7 @@ command.o: command.c command.h types.h
 	@echo "Creando $@"
 	$(CC) -c  $(FLAGS) $<
 
-game.o: game.c game.h player.h types.h object.h command.h space.h die.h game_reader.h
+game.o: game.c game.h player.h types.h object.h command.h space.h die.h game_reader.h inventory.h
 	@echo "######################"
 	@echo "Creando $@"	
 	$(CC)  -c $(FLAGS) $<
@@ -46,7 +46,7 @@ space.o: space.c set.h types.h space.h
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
-game_reader.o: game_reader.c game_reader.h game.h player.h object.h command.h space.h die.h types.h
+game_reader.o: game_reader.c game_reader.h game.h player.h object.h command.h space.h die.h types.h inventory.h
 	@echo "######################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<

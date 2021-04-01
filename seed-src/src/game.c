@@ -14,7 +14,7 @@
 #include <string.h>
 #include "game.h"
 #include "game_reader.h"
-
+#include "inventory.h"
 #define N_CALLBACK 9
 #define OBJECT_NAME 10
 
