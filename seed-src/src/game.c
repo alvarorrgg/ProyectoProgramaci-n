@@ -575,7 +575,6 @@ void game_callback_take(Game *game)
     for (j = 0; objeto[j + 1] != (char)0; j++) objeto[j] = objeto[j + 1];/*Se eliminan el espacio de la cadena*/  
   
   j--;
-  printf("%i", j);
   objeto[j] =(char)0;/*Se pone al final el caracter de fin de cadena*/
   while (game->objects[i] != NULL)
   {
