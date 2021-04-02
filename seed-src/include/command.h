@@ -11,7 +11,7 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 #define N_CMDT 2 /*Variable global*/
-#define N_CMD 10 /*Numero de comandos*/
+#define N_CMD 11 /*Numero de comandos*/
 #include "types.h"
 /**
  * @brief Estructura command

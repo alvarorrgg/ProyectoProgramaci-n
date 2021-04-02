@@ -295,7 +295,7 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
   screen_area_clear(ge->help);
   sprintf(str, " The commands you can use are:");
   screen_area_puts(ge->help, str);
-  sprintf(str, "next or n, back or b, exit or e, take or t, drop or d,roll or rl,left or l,right or r"); /*Se escriben los comandos posibles*/
+  sprintf(str, "next or n, back or b, exit or e, take or t, drop or d,roll or rl,left or l,right or r,move or m"); /*Se escriben los comandos posibles*/
   screen_area_puts(ge->help, str);
 
   /* Pinta en el área de comentarios */

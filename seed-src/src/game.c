@@ -15,8 +15,10 @@
 #include "game.h"
 #include "game_reader.h"
 #include "inventory.h"
-#define N_CALLBACK 9
+#define N_CALLBACK 10
 #define OBJECT_NAME 10
+#define DIRECTION_NAME 10
+
 
 
 struct _Game{
@@ -153,6 +155,18 @@ void game_callback_right(Game *game);
  * @param game el parametro sobre el que opera el comando con su respectiva acción
  */
 void game_callback_left(Game *game);
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_move saltos del jugador hacia las posiciones especificadas
+ *
+ * @date 08-03-2021
+ * @author Alexandru Marius Platon	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ */
+void game_callback_move(Game *game);
+
 
 /**
  * Array que guarda los comandos
@@ -167,6 +181,8 @@ static callback_fn game_callback_fn_list[N_CALLBACK] = {
     game_callback_roll,	/*ROLL=6*/
     game_callback_right,	/*RIGHT=7*/
     game_callback_left,	/*LEFT=8*/
+    game_callback_move, /*MOVE=9*/
+
 };
 
 /**
@@ -652,3 +668,61 @@ void game_callback_roll(Game *game)
   command_set_status(game->command, OK);
     return;
 }
+void game_callback_move(Game *game)
+
+{
+  int j;
+  
+  char direction[DIRECTION_NAME];
+  
+  fgets(direction, WORD_SIZE, stdin);/*Se recibe la segunda parte del comando move */
+   for (j = 0; direction[j + 1] != (char)0; j++) {
+     direction[j] = direction[j + 1];
+     
+     }/*Se eliminan el espacio de la cadena*/  
+  
+  j--;
+  direction[j] =(char)0;/*Se pone al final el caracter de fin de cadena*/
+
+  if(strcmp(direction, "north")==0 || strcmp(direction, "n")==0){
+
+    game_callback_back(game);
+    command_set_status(game->command, command_get_status(game->command));
+
+    return;
+  }
+  else if(strcmp(direction, "south")==0 || strcmp(direction, "s")==0){
+
+    game_callback_next(game);
+    command_set_status(game->command, command_get_status(game->command));
+
+    return;
+  }
+  else if(strcmp(direction, "west")==0 || strcmp(direction, "w")==0){
+
+printf("El if del west\n");
+    game_callback_left(game);
+    command_set_status(game->command, command_get_status(game->command));
+
+    return;
+  }
+  else if(strcmp(direction, "east")==0 || strcmp(direction, "e")==0){
+printf("El if del east\n");
+    game_callback_right(game);
+    command_set_status(game->command, command_get_status(game->command));
+
+    return;
+  }
+  
+  else {
+
+    printf("La direccion no es valida.\n");
+    command_set_status(game->command, ERROR);
+
+    return;
+
+  }
+
+
+}
+
