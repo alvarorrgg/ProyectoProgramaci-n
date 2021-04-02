@@ -217,7 +217,7 @@ STATUS game_add_space(Game* game, Space* space);
 /**
  * @brief Añade un nuevo objeto al juego
  *
- * game_add_space Añade un objeto a la lista de objetos.
+ * game_add_object Añade un objeto a la lista de objetos.
  *
  * @date  18-02-2021
  * @author Álvaro Rodríguez
@@ -227,6 +227,19 @@ STATUS game_add_space(Game* game, Space* space);
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_add_object(Game* game, Object* object);
+/**
+ * @brief Añade un nuevo jugador al juego
+ *
+ * game_add_player Añade un objeto a la lista de objetos.
+ *
+ * @date  18-02-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param game el juego al que se va a añadir un espacio
+ * @param player el espacio que se va a añadir
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS game_add_player(Game* game, Player* player);
 /**
  * @brief Cambia la localización del objeto
  *

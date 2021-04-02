@@ -12,7 +12,7 @@
  /**
  * @test Test function for inventory_create
  * @pre created inventory and checked if it is diferent from NULL
- * @post Output==NULL
+ * @post Output!=NULL
  */
 void test1_inventory_create();
 
@@ -60,11 +60,22 @@ void test4_inventory_set_object();
 
 /**
  * @test Test function for inventory_set_object
- * @pre set the number of objects to 1000 and trying to add one more object
+ * @pre set the number of objects to 15 and trying to add one more object
  * @post Output==ERROR
  */
 void test5_inventory_set_object();
-
+/**
+ * @test Test function for inventory_get_number_of_objects
+ * @pre given NULL inventory trying to see how many object does the inventory have
+ * @post Output==-1
+ */
+void test1_inventory_get_number_of_objects();
+/**
+ * @test Test function for inventory_get_number_of_objects
+ * @pre adding an object and seeing how many objects the inventory has
+ * @post Output==1
+ */
+void test2_inventory_get_number_of_objects();
 /**
  * @test Test function for inventory_get_inventory
  * @pre try to get the objects of a NULL inventory

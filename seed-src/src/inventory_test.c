@@ -16,7 +16,7 @@
 #include "inventory_test.h"
 #include "test.h"
 
-#define MAX_TESTS 35 /*Numero maximo de tests*/
+#define MAX_TESTS 36 /*Numero maximo de tests*/
 
 /** 
  * @brief Main function for SET unit tests. 
@@ -91,6 +91,9 @@ int main(int argc, char** argv) {
   if (all || test == 33) test1_inventory_get_max_objects();
   if (all || test == 34) test2_inventory_get_max_objects();
 
+  if (all || test == 35) test1_inventory_get_number_of_objects();
+  if (all || test == 36) test2_inventory_get_number_of_objects();
+
   PRINT_PASSED_PERCENTAGE;
 
   return 1;
@@ -164,7 +167,17 @@ void test5_inventory_set_object(){
     
     inventory_destroy (inventory);
 }
+void test1_inventory_get_number_of_objects(){
+    Inventory *inventory = NULL;
+    PRINT_TEST_RESULT( inventory_get_number_of_objects (inventory) == -1 );
+}
 
+void test2_inventory_get_number_of_objects(){
+    Inventory *inventory = inventory_create();
+    inventory_set_object (inventory , 15);
+    PRINT_TEST_RESULT( inventory_get_number_of_objects (inventory) == 1 );
+    inventory_destroy (inventory);
+}
 void test1_inventory_get_inventory(){
     Inventory *inventory = NULL;
     PRINT_TEST_RESULT( inventory_get_inventory (inventory) == NULL );

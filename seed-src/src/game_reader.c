@@ -127,6 +127,7 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       printf("Leido: %ld|%s|%ld\n", id, name, pos_obj);
 #endif
       object = object_create(id);
+      if(!object) return ERROR;
       if (pos_obj != NO_ID)
       {
         object_set_name(object, name);
@@ -143,6 +144,66 @@ STATUS game_reader_load_objects(Game *game, char *filename)
         }
           game_add_object(game, object);
         game_set_object_location(game, id, pos_obj);
+      }
+    }
+  }
+  if (ferror(file))
+    status = ERROR;
+  fclose(file);
+
+  return status;
+}
+
+
+STATUS game_reader_load_players(Game *game, char *filename)
+{
+  FILE *file = NULL;
+  char line[WORD_SIZE] = "";
+  char name[WORD_SIZE] = "";
+  char *toks = NULL;
+  Id id = NO_ID,player_pos=NO_ID;
+  Player *player=NULL;
+  int max_objects=0;
+  STATUS status = OK;
+
+  if (!filename)
+    return ERROR;
+
+  file = fopen(filename, "r");
+  if (file == NULL)
+    return ERROR;
+
+  while (fgets(line, WORD_SIZE, file))
+  {
+    if (strncmp("#p:", line, 3) == 0)
+    {
+      toks = strtok(line + 3, "|");
+      id = atol(toks);
+      toks = strtok(NULL, "|");
+      strcpy(name, toks);
+      toks = strtok(NULL, "|");
+      player_pos=atol(toks);
+      toks = strtok(NULL, "|");
+      max_objects=atoi(toks);
+      
+#ifdef DEBUG
+      printf("Leido: %ld|%s|%ld|%i|\n", id, name, player_pos,max_objects);
+#endif
+      player=player_create(id);
+      if(!player) return ERROR;
+      if (player_pos != NO_ID)
+      {
+        player_set_name(player, name);
+        if(strlen(name)>7){
+          printf("El nombre del jugador no puede tener mas de 7 caracteres");
+          return ERROR;
+        }
+        if(player_pos==0) {
+          player_pos=1;
+        }
+        player_set_location(player,player_pos);
+        player_set_inventory_max_capacity(player,max_objects);
+        game_add_player(game,player);
       }
     }
   }

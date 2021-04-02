@@ -50,6 +50,10 @@ Id* inventory_get_inventory (Inventory *inventory){
     return set_get_ids (inventory->objects);
 }
 
+int inventory_get_number_of_objects(Inventory *inventory){
+    if(!inventory) return -1;
+    return set_get_total_ids(inventory->objects);
+}
 
 STATUS inventory_print (Inventory *inventory , FILE *pf){
     STATUS st;

@@ -75,7 +75,18 @@ STATUS inventory_set_object (Inventory *inventory , Id id);
  * @return los ids de los objetos
  */
 Id* inventory_get_inventory (Inventory *inventory);
-
+/**
+ * @brief devuelve el numero de objetos en el inventario
+ *
+ * inventory_get_number_of_objects devuelve el numero de objetos dentro del inventario
+ * 
+ * @date 30-03-2021
+ * @author Gonzalo Martín
+ *
+ * @param inventory el inventario 
+ * @return int el numero de objetos
+ */
+int inventory_get_number_of_objects(Inventory *inventory);
 /**
  * @brief printea el inventario
  *

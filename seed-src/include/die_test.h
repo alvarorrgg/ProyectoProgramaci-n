@@ -14,7 +14,6 @@
  * @pre created die with id=5 and checked if last roll was correct
  * @post Output==NO_ID
  */
-
 void test1_die_create();
  /**
  * @test Test function for die_roll

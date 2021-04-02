@@ -12,6 +12,7 @@
 #define PLAYER_H
 
 #include "types.h"
+#include "inventory.h"
 /**
  * @brief La estructura Player
  *
@@ -80,9 +81,10 @@ STATUS player_set_name(Player* player, char* name);
  * @author Álvaro Rodríguez
  *
  * @param player recibe un puntero a la estructura de datos jugador
+ * @param pf donde escribe el print
  * @return STATUS devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
  */
- STATUS player_print(Player* player);
+ STATUS player_print(FILE *pf,Player* player);
 
 /**
  * @brief Obtiene el nombre del jugador
@@ -98,9 +100,9 @@ STATUS player_set_name(Player* player, char* name);
  const char* player_get_name(Player* player);
 
 /**
- * @brief establece el objeto a TRUE o FALSE
+ * @brief añade un objeto al player
  *
- * player_set_object establece el valor de object a TRUE o a FALSE
+ * player_add_object añade un objeto a player
  * 
  * @date 22-02-2021
  * @author Álvaro Rodríguez
@@ -109,8 +111,21 @@ STATUS player_set_name(Player* player, char* name);
  * @param value el valor que se le otorga
  * @return STATUS OK para saber que se ha ejecutado la función correctamente
  */
-STATUS player_set_object(Player* player, Id value);
+STATUS player_add_object(Player* player, Id value);
 
+/**
+ * @brief borra un objeto de player
+ *
+ * player_remove_object borra un objeto
+ * 
+ * @date 22-02-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param player el jugador del juego
+ * @param value el valor que se le otorga
+ * @return STATUS OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS player_remove_object(Player* player, Id value);
 /**
  * @brief establece la posición del jugador
  *
@@ -120,10 +135,23 @@ STATUS player_set_object(Player* player, Id value);
  * @author Álvaro Rodríguez
  *
  * @param player el jugador del juego
+ * @param id nueva localizacion del jugador
  * @return STATUS OK para saber que se ha ejecutado la función correctamente
  */
 STATUS player_set_location(Player* player, Id id);
-
+/**
+ * @brief establece la nueva capacidad del inventario
+ *
+ * player_set_inventory_max_capacity cambia la capacidad del inventario
+ * 
+ * @date 02-04-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param player el jugador del juego
+ * @param max_objects nueva capacidad del inventario
+ * @return STATUS OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS player_set_inventory_max_capacity(Player *player, int max_objects);
 /**
  * @brief obtiene la localización del jugador
  *
@@ -138,9 +166,9 @@ STATUS player_set_location(Player* player, Id id);
 Id player_get_location(Player* player);
 
 /**
- * @brief obtiene el objeto "TRUE o FALSE"
+ * @brief Obtiene todos los ids de los objetos que tiene player
  *
- * player_get_object obtiene el valor de object a TRUE o a FALSE
+ * player_get_object obtiene los objetos de player
  * 
  * @date 22-02-2021
  * @author Álvaro Rodríguez
@@ -148,5 +176,31 @@ Id player_get_location(Player* player);
  * @param player el jugador del juego
  * @return Id del objeto
  */
-Id player_get_object(Player* player);
+Id *player_get_objects(Player* player);
+
+/**
+ * @brief Obtiene el inventario del objeto
+ *
+ * player_get_inventory obtiene el inventario del objeto
+ * 
+ * @date 2-04-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param player el jugador del juego
+ * @return Inventory el inventario del player
+ */
+Inventory *player_get_inventory(Player* player);
+/**
+ * @brief verifica si el jugador tiene un objeto
+ *
+ * player_has_object verifica si el player tiene un objeto TRUE si lo tiene FALSE si no
+ * 
+ * @date 22-02-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param player el jugador del juego
+ * @param id el identificador del objeto a verificar
+ * @return TRUE o FALSE segun si tiene el objeto o no
+ */
+BOOL player_has_object(Player* player,Id id);
 #endif

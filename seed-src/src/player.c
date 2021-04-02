@@ -18,8 +18,8 @@
 struct _Player {
   Id id;		                /*!< Id del jugador */
   char name[WORD_SIZE + 1];	/*!< nombre del jugador */
-  Id location;		/*!< localización del jugador */
-  Id object;	/*!< Id del objeto del jugador */
+  Id location;	          	/*!< localización del jugador */
+  Inventory *inventory;	    /*!< Id del objeto del jugador */
 };
 
 Player* player_create(Id id) {
@@ -35,20 +35,20 @@ Player* player_create(Id id) {
   new_player->id = id;
   new_player->name[0] = '\0';
   new_player->location = NO_ID;
-  new_player->object = NO_ID;
+  new_player->inventory=inventory_create();
 
   return new_player;
 }
 
 STATUS player_destroy(Player* player) {
   if (!player) return ERROR;
-  
+  inventory_destroy(player->inventory);
   free(player);
   return OK;
 }
 
 STATUS player_set_name(Player* player, char* name) {
-  if (!player || !name) return ERROR;
+  if (!player || strlen(name)==0) return ERROR;
   
   if (!strcpy(player->name, name))  return ERROR;
  
@@ -66,21 +66,31 @@ Id player_get_id(Player* player) {
   
   return player->id;
 }
-
-
-Id player_get_object(Player* player) {
-  if (!player) return FALSE;
-  
-  return player->object;
+STATUS player_set_inventory_max_capacity(Player *player, int max_objects){
+  if(!player || max_objects<0) return ERROR;
+  return inventory_set_max_objects(player->inventory,max_objects);
 }
 
-STATUS player_set_object(Player* player, Id value) {
+Id *player_get_objects(Player* player) {
+  if (!player) return NULL;
+  
+  return inventory_get_inventory(player->inventory);
+}
+
+STATUS player_add_object(Player* player, Id value) {
   if (!player) {
     return ERROR;
   }
-  player->object = value;
+  
+  return inventory_set_object(player->inventory,value);
+}
 
-  return OK;
+STATUS player_remove_object(Player* player, Id value) {
+  if (!player) {
+    return ERROR;
+  }
+  
+  return inventory_delete_object(player->inventory,value);
 }
 
 STATUS player_set_location(Player* player, Id id) {
@@ -97,17 +107,29 @@ Id player_get_location(Player* player) {
   return player->location;
 }
 
-STATUS player_print(Player* player) {
-
-  if (!player) return ERROR;
+BOOL player_has_object(Player* player, Id id){
+  if(!player || !inventory_search_object(player->inventory,id)) return FALSE;
   
-  fprintf(stdout, "--> Player (Id: %ld; Name: %s)\n", player->id, player->name);
-  
-  if (player_get_location(player)!=-1) fprintf(stdout, "---> Player location: %li \n",player_get_location(player));
-  else  fprintf(stdout, "---> No player location.\n");
+  return TRUE;
 
-   if (player_get_id(player) != NO_ID) fprintf(stdout, "---> Existe un jugador.\n");
-   else fprintf(stdout, "---> No existe jugador.\n");
+}
+
+Inventory *player_get_inventory(Player* player){
+  if(!player) return NULL;
+  return player->inventory ;
+}
+
+STATUS player_print(FILE *pf,Player* player) {
+
+  if (!player || !pf) return ERROR;
+  
+  fprintf(pf, "--> Player (Id: %ld; Name: %s)\n", player->id, player->name);
+  
+  if (player_get_location(player)!=-1) fprintf(pf, "---> Player location: %li \n",player_get_location(player));
+  else  fprintf(pf, "---> No player location.\n");
+
+   if (player_get_id(player) != NO_ID) fprintf(pf, "---> Existe un jugador.\n");
+   else fprintf(pf, "---> No existe jugador.\n");
   
 
   return OK;

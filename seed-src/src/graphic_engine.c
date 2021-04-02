@@ -63,7 +63,9 @@ void graphic_engine_destroy(Graphic_engine *ge)
 /*Hemos implementado el graphic enginge de manera que los objetos puedan tener el nombre que se quiera(dentro de unos requisitos) y el programa no se vea afectado por estos cambios*/
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 {
+  int i=0;
   Id id_act = NO_ID, id_back = NO_ID, id_next = NO_ID, obj_loc = NO_ID;
+  Id* id_objetos;
   Space *space_act = NULL, *space_back = NULL, *space_next = NULL;
   char **gdesc;
   char obj[MAX_CHARS1],obj1[MAX_CHARS1],obj2[MAX_CHARS1],obj3[MAX_CHARS1];/*Nombre de cada objeto*/
@@ -284,9 +286,20 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
 
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);
-/*Verificamos que el player tiene algun objeto en caso de tenerlo se escribe*/
-    if((int)player_get_object(game_get_player(game))!=-1) sprintf(str, "Player has object: %s",object_get_name(game_get_object(game,player_get_object(game_get_player(game))-1)));
-   screen_area_puts(ge->descript, str);
+
+    if(inventory_get_number_of_objects(player_get_inventory(game_get_player(game)))==0){
+      sprintf(str,"Player has no objects");
+      screen_area_puts(ge->descript, str);
+    }
+    else{
+      sprintf(str,"This is the inventory of the player: ");
+      screen_area_puts(ge->descript, str);
+      id_objetos=inventory_get_inventory(player_get_inventory(game_get_player(game)));
+      for(i=0;i<inventory_get_number_of_objects(player_get_inventory(game_get_player(game)));i++){
+      sprintf(str,"                                   %i:%s",i+1,object_get_name(game_get_object(game,id_objetos[i]-1)));
+      screen_area_puts(ge->descript, str);
+     }
+    }
    
   /* Pinta en el área del banner */
   screen_area_puts(ge->banner, " The game of the Goose ");
