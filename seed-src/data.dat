@@ -24,7 +24,7 @@
 #s:24|Casilla 24|23|-1|25|-1|       |       |       |
 #s:25|Casilla 25|24|-1|-1|17|       |<o)_// | \_#/  |
 #o:1|Rojo|1
-#o:2|Azul|3
+#o:2|Azul|1
 #o:3|Verde|1
-#o:4|Negro|5
-#p:1|ply1|0|15|
+#o:4|Negro|1
+#p:1|ply1|1|15|
