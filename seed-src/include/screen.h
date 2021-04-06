@@ -68,7 +68,7 @@ Area* screen_area_init(int x, int y, int width, int height);
  * @date 18-02-2021
  * @author Profesores PProg
  *
- * @param área de la pantalla que se va a destruir
+ * @param area de la pantalla que se va a destruir
  */
 void  screen_area_destroy(Area* area);
 
@@ -80,7 +80,7 @@ void  screen_area_destroy(Area* area);
  * @date 18-02-2021
  * @author Profesores PProg
  *
- * @param área de la pantalla que se va a despejar
+ * @param area de la pantalla que se va a despejar
  */
 void  screen_area_clear(Area* area);
 
@@ -92,7 +92,7 @@ void  screen_area_clear(Area* area);
  * @date 18-02-2021
  * @author Profesores PProg
  *
- * @param área donde se resetea el cursor
+ * @param area donde se resetea el cursor
  */
 void  screen_area_reset_cursor(Area* area);
 
@@ -104,7 +104,8 @@ void  screen_area_reset_cursor(Area* area);
  * @date 18-02-2021
  * @author Profesores PProg
  *
- * @param área donde se resetea el cursor
+ * @param area donde se resetea el cursor
+ * @param str string donde se almacena la información
  */
 void  screen_area_puts(Area* area, char *str);
 

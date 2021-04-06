@@ -257,7 +257,7 @@ STATUS game_reader_load_players(Game *game, char *filename)
         if(id_space1 + 1 == id_space2){
           flag=1;
         } 
-        else if(id_esp_1 +8 == id_esp_2){ 
+        else if(id_space1 +8 == id_space2){ 
            flag=2;
         }       
         else{                      

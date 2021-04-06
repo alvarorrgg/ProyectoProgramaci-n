@@ -49,4 +49,12 @@ typedef enum {
   N, S, E, W	/* !< N = 0 , S = 1 , E = 2 , W = 3*/
 } DIRECTION;
 
+/**
+ * @brief Opciones para TYPES
+ *
+ * Da valores numéricos siguiendo un orden a las variables de la estructura
+ */
+typedef enum {
+  OPEN=0,CLOSE /* !< OPEN=0,CLOSE=1*/
+} TYPES;
 #endif

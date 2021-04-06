@@ -29,7 +29,7 @@ typedef struct _Die Die;
  * @author Alberto Vicente
  * @date 02-03-2021
  *
- * @param Id el id del dado
+ * @param id el id del dado
  * @return el dado creado
  */
 Die * die_create(Id id);
@@ -42,7 +42,7 @@ Die * die_create(Id id);
  * @author Alberto Vicente
  * @date 02-03-2021
  *
- * @param Die el dado que se destruye
+ * @param die el dado que se destruye
  * @return ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS die_destroy(Die * die);
@@ -55,7 +55,7 @@ STATUS die_destroy(Die * die);
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param Die el dado que se tira
+ * @param die el dado que se tira
  * @return el valor aleatorio generado
  */
 int die_roll(Die * die);
@@ -68,8 +68,8 @@ int die_roll(Die * die);
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param Id el id que se fija
- * @param Die el dado al que se le establece el id
+ * @param id el id que se fija
+ * @param die el dado al que se le establece el id
  * @return ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS die_set_Id(Die * die, Id id);
@@ -82,7 +82,7 @@ STATUS die_set_Id(Die * die, Id id);
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param Die el dado del que se recoge la última tirada
+ * @param die el dado del que se recoge la última tirada
  * @return la última tirada del dado
  */
 int die_get_last_roll(Die * die);
@@ -95,7 +95,7 @@ int die_get_last_roll(Die * die);
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param Die el dado del que se busca el id
+ * @param die el dado del que se busca el id
  * @return el id del dado
  */
 Id die_get_id(Die * die);
@@ -108,8 +108,8 @@ Id die_get_id(Die * die);
  * @author Alberto Vicente
  * @date 07-03-2021
  *
- * @param FILE el fichero donde se imprime
- * @param Die el dado que se imprime
+ * @param pf el fichero donde se imprime
+ * @param die el dado que se imprime
  * @return ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS die_print(FILE *pf,Die *die);

@@ -78,7 +78,7 @@ Command* command_init();
  * @date 13-01-2020
  * @author Álvaro Rodríguez
  *
- * @param Command el comando a destruir
+ * @param command el comando a destruir
  *
  * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
  */
@@ -91,8 +91,8 @@ STATUS command_destroy(Command *command);
  * @date 13-01-2020
  * @author Álvaro Rodríguez
  *
- * @param Command la estructura de datos command
- * @param STATUS el nuevo estado
+ * @param command la estructura de datos command
+ * @param st el nuevo estado
  *
  * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
  */
@@ -105,7 +105,7 @@ STATUS command_set_status(Command *command,STATUS st);
  * @date 13-01-2020
  * @author Álvaro Rodríguez
  *
- * @param Command estructura de datos command
+ * @param command estructura de datos command
  *
  * @return STATUS del ultimo comando.
  */
@@ -118,8 +118,8 @@ STATUS command_get_status(Command *command);
  * @date 13-01-2020
  * @author Álvaro Rodríguez
  *
- * @param  Command estructura de datos command
- * @param  T_Command enumeración con valores de cada comando
+ * @param  command estructura de datos command
+ * @param  cmd enumeración con valores de cada comando
  *
  * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
  */
@@ -132,7 +132,7 @@ STATUS command_set_cmd(Command *command,T_Command cmd);
  * @date 13-01-2020
  * @author Álvaro Rodríguez
  *
- * @param  Command estructura de datos command 
+ * @param  command estructura de datos command 
  *
  * @return T_Command, el ultimo comando.
  */
@@ -145,7 +145,7 @@ T_Command command_get_cmd(Command *command);
  * @date 13-01-2020
  * @author Álvaro Rodríguez
  *
- * @param  Command estructura de datos command
+ * @param  command estructura de datos command
  * @param  arg donde se almacena el comando
  *
  * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
@@ -159,7 +159,7 @@ STATUS command_set_arg(Command *command,char *arg);
  * @date 13-01-2020
  * @author Álvaro Rodríguez
  *
- * @param  Command estructura de datos command 
+ * @param  command estructura de datos command 
  *
  * @return T_Command, la instrucción que sigue al comando
  */

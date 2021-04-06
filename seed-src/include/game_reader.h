@@ -54,4 +54,18 @@ STATUS game_reader_load_objects(Game* game, char* filename);
  * @return devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. 
  */
 STATUS game_reader_load_players(Game* game, char* filename);
+
+/**
+ * @brief Cargar links
+ *
+ * game_reader_load_players carga los links del fichero leido segun la estructura determinada
+ *
+ * @date 18-02-2021 
+ * @author Álvaro Rodríguez
+ *
+ * @param game  un puntero de tipo Game que es una estructura definida en "game.h" 
+ * @param filename del archivo de donde se van a obtener los valores..
+ * @return devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. 
+ */
+/*STATUS game_reader_load_players(Game* game, char* filename);*/
 #endif

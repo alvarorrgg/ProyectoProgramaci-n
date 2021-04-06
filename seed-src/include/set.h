@@ -37,7 +37,7 @@ Set* set_create();
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set.
+ * @param set recibe un puntero a set.
  * @return devuelve ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS set_destroy(Set* set);
@@ -49,7 +49,8 @@ STATUS set_destroy(Set* set);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set y el id que se va a añadir.
+ * @param set recibe un puntero a set y el id que se va a añadir.
+ * @param id recibe el id a añadir
  * @return devuelve ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS set_id_add(Set* set,Id id);
@@ -61,7 +62,8 @@ STATUS set_id_add(Set* set,Id id);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set y un id para encontrar el objeto a eliminar.
+ * @param set recibe un puntero a set y un id para encontrar el objeto a eliminar.
+ * @param id recibe el id a borrar
  * @return devuelve ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS set_id_delete(Set* set,Id id);
@@ -73,10 +75,11 @@ STATUS set_id_delete(Set* set,Id id);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set y un entero que será el numero de ids.
+ * @param set recibe un puntero a set y un entero que será el numero de ids.
+ * @param n nuevo numero de ids
  * @return devuelve ERROR o OK según si se encuentra o no algun fallo
  */
-/*STATUS set_set_total_ids(Set* set,int n);*/
+STATUS set_set_total_ids(Set* set,int n);
 /**
  * @brief obtiene el numero total de ids
  *
@@ -85,7 +88,7 @@ STATUS set_id_delete(Set* set,Id id);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set.
+ * @param set recibe un puntero a set.
  * @return devuelve un entero con el numero total de ids.
  */
 int set_get_total_ids(Set* set);
@@ -97,7 +100,8 @@ int set_get_total_ids(Set* set);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set y un id.
+ * @param set recibe un puntero a set y un id.
+ * @param id para verificar si lo tienen
  * @return devuelve TRUE si lo tiene y FALSE si no lo tiene o hay algun error
  */
 BOOL set_has_id(Set* set, Id id);
@@ -109,7 +113,8 @@ BOOL set_has_id(Set* set, Id id);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set y el id del objeto a encontrar.
+ * @param set recibe un puntero a set y el id del objeto a encontrar.
+ * @param id para encontrar un objeto
  * @return devuelve un entero con la posición del entero en el array.
  */
 int set_find_object_by_id(Set* set, Id id);
@@ -121,7 +126,7 @@ int set_find_object_by_id(Set* set, Id id);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set.
+ * @param set recibe un puntero a set.
  * @return devuelve TRUE si esta vacio o FALSE si no lo está o hay algun error.
  */
 BOOL set_is_empty(Set* set);
@@ -133,7 +138,7 @@ BOOL set_is_empty(Set* set);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set.
+ * @param set recibe un puntero a set.
  * @return devuelve TRUE si esta lleno o FALSE si no lo está o hay algun error.
  */
 BOOL set_is_full(Set* set);
@@ -145,23 +150,11 @@ BOOL set_is_full(Set* set);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recibe un puntero a set.
+ * @param set recibe un puntero a set.
  * @return devuelve NULL en caso de error, sino devuelve los ids del set.
  */
 Id* set_get_ids(Set *set);
-/**
- * @brief cambia los ids del set
- *
- * set_get_ids cambia los ids del set
- *
- * @date 18-02-2021
- * @author Álvaro Rodríguez
- *
- * @param recibe un puntero a set.
- * @param numero nuevo de los ids
- * @return devuelve ERROR o OK segun si todo esta correctamente hecho o no.
- */
-STATUS set_set_total_ids(Set *setn,int n);
+
 /**
  * @brief Muestra por pantalla las caracteristicas del set
  *
@@ -170,7 +163,8 @@ STATUS set_set_total_ids(Set *setn,int n);
  * @date 18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param recive el fichero en el que se mostrarán los parametros yun puntero a set.
+ * @param pf recive el fichero en el que se mostrarán los parametros yun puntero a set.
+ * @param set recibe un puntero a set
  * @return devuelve ERROR o OK según si se encuentra o no algun fallo
  */
 STATUS set_print(FILE *pf, const Set *set);
