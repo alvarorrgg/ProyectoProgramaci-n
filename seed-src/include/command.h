@@ -137,4 +137,31 @@ STATUS command_set_cmd(Command *command,T_Command cmd);
  * @return T_Command, el ultimo comando.
  */
 T_Command command_get_cmd(Command *command);
+/**
+ * @brief cambia el cuerpo del comando
+ *
+ * command_set_arg sirve para cambiar la parte de final del comando
+ *
+ * @date 13-01-2020
+ * @author Álvaro Rodríguez
+ *
+ * @param  Command estructura de datos command
+ * @param  arg donde se almacena el comando
+ *
+ * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
+ */
+STATUS command_set_arg(Command *command,char *arg);
+/**
+ * @brief obtiene el cuerpo del comando
+ *
+ * command_get_arg sirve para saber que instruccion sigue al comando
+ *
+ * @date 13-01-2020
+ * @author Álvaro Rodríguez
+ *
+ * @param  Command estructura de datos command 
+ *
+ * @return T_Command, la instrucción que sigue al comando
+ */
+char* command_get_arg(Command *command);
 #endif

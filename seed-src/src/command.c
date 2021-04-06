@@ -32,6 +32,7 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
 
 struct _Command {
   T_Command cmd; /** !< comando*/
+  char *arg;     /** !<Segunda parte del comando*/
   STATUS st;    /**  !< status del comando*/
 };
 /*EJEMPLO*/
@@ -79,6 +80,16 @@ T_Command command_get_cmd(Command *command){
   return command->cmd;
 }
 
+STATUS command_set_arg(Command *command,char *arg){
+  if(command==NULL ) return ERROR;
+  command->arg = arg;
+  return OK;
+}
+
+char* command_get_arg(Command *command){
+  if(command==NULL) return ERROR;
+  return command->arg;
+}
 
 T_Command command_get_user_input()
 {

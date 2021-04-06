@@ -16,8 +16,7 @@
 #include "game_reader.h"
 #include "inventory.h"
 #define N_CALLBACK 10
-#define OBJECT_NAME 15
-#define DIRECTION_NAME 10
+#define ARG_NAME 15
 
 
 
@@ -388,8 +387,14 @@ BOOL game_id_object_exists(Game *game, Id id)
 
 STATUS game_update(Game *game, T_Command cmd)
 {
-
+  char arg[ARG_NAME];
+  int j=0;
   command_set_cmd(game->command,cmd);
+  fgets(arg, WORD_SIZE, stdin);
+  for (j = 0; arg[j + 1] != (char)0; j++) arg[j] = arg[j + 1];
+  j--;
+  arg[j] =(char)0;
+  command_set_arg(game->command,arg);
  (*game_callback_fn_list[cmd])(game);
   return OK;
 }
@@ -575,18 +580,14 @@ void game_callback_left(Game *game)
 
 void game_callback_take(Game *game)
 {
-  char objeto[OBJECT_NAME];
-  int k = 0, i = 0, j=0;
+  char objeto[ARG_NAME];
+  int k = 0, i = 0;
   Id id=NO_ID;
-  fgets(objeto, WORD_SIZE, stdin);/*Se recibe la segunda parte del comando take */
+  strcpy(objeto,command_get_arg(game->command));
   if(inventory_is_full(player_get_inventory(game->player))) { /*Se verifica que el inventario del player no este lleno*/
     command_set_status(game->command, ERROR);
     return;
   }
-    for (j = 0; objeto[j + 1] != (char)0; j++) objeto[j] = objeto[j + 1];/*Se eliminan el espacio de la cadena*/  
-  
-  j--;
-  objeto[j] =(char)0;/*Se pone al final el caracter de fin de cadena*/
   while (game->objects[i] != NULL)
   {
     if (strcmp(object_get_name(game->objects[i]), objeto) == 0) /*Se buscan los objetos que tengan el mismo nombre que el señalado*/
@@ -626,17 +627,14 @@ void game_callback_take(Game *game)
 
 void game_callback_drop(Game *game)
 {
-   char objeto[OBJECT_NAME];
-  int k = 0, i = 0, j=0;
+   char objeto[ARG_NAME];
+  int k = 0, i = 0;
   Id id=NO_ID;
-  fgets(objeto, WORD_SIZE, stdin);/*Se recibe la segunda parte del comando drop */
+  strcpy(objeto,command_get_arg(game->command));
   if (inventory_is_empty(player_get_inventory(game->player))){/*Se verifica que el player tiene algun objeto*/
     command_set_status(game->command, ERROR);
     return;
   }
-  for (j = 0; objeto[j + 1] != (char)0; j++) objeto[j] = objeto[j + 1];/*Se eliminan el espacio de la cadena*/  
-  j--;
-  objeto[j] =(char)0;/*Se pone al final el caracter de fin de cadena*/
     while (game->objects[i] != NULL)
   {
     if (strcmp(object_get_name(game->objects[i]), objeto) == 0) /*Se buscan los objetos que tengan el mismo nombre que el señalado*/
@@ -690,18 +688,8 @@ void game_callback_roll(Game *game)
 void game_callback_move(Game *game)
 
 {
-  int j;
-  
-  char direction[DIRECTION_NAME];
-  
-  fgets(direction, WORD_SIZE, stdin);/*Se recibe la segunda parte del comando move */
-   for (j = 0; direction[j + 1] != (char)0; j++) {
-     direction[j] = direction[j + 1];
-     
-     }/*Se eliminan el espacio de la cadena*/  
-  
-  j--;
-  direction[j] =(char)0;/*Se pone al final el caracter de fin de cadena*/
+  char direction[ARG_NAME];
+  strcpy(direction,command_get_arg(game->command));
 
   if(strcmp(direction, "north")==0 || strcmp(direction, "n")==0){
 

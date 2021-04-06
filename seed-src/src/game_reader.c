@@ -213,3 +213,89 @@ STATUS game_reader_load_players(Game *game, char *filename)
 
   return status;
 }
+
+/*STATUS game_reader_load_links(Game* game, char* filename) {
+  FILE* file = NULL;
+  char name[WORD_SIZE] = "";
+  char line[WORD_SIZE] = "";
+  char* toks = NULL;
+  Id id = NO_ID,id_space1=0,id_space2=0;
+  Space *space1, *space2;
+  int flag=-1;
+  Type gate = CLOSED;
+  Link *link1=NULL;
+  Link *link2=NULL;
+  
+
+  if (!filename) 
+    return ERROR;
+  
+
+  file = fopen(filename, "r");
+  if (file == NULL) 
+    return ERROR;
+  
+
+  while (fgets(line, WORD_SIZE, file)) {
+    if (strncmp("#l:", line, 3) == 0) {
+      toks = strtok(line + 3, "|");
+      id = atol(toks);
+      toks = strtok(NULL, "|");
+      strcpy(name, toks);
+      toks = strtok(NULL, "|");
+      id__space1 = atol(toks);
+      toks = strtok(NULL, "|");
+      id_space2 = atol(toks);
+      toks = strtok(NULL, "|");
+      gate = atol(toks);
+
+      printf("Leido: %ld|%s|%ld|%ld|%d\n", id, name, id_space1, id_space2, gate);
+      Estas lineas sirven para comprobar de que tipo de enlace estamos hablando, normal, oca, puente o muerte 
+      Primero comprobaremos que tipo de enlace es, y mediante un flag lo guardamos, luego segun el tipo de enlace creamos 1 link o 2 links
+      Y asi se hacen las uniones.
+      if (id != NO_ID) {
+        if(id_space1 + 1 == id_space2){
+          flag=1;
+        } 
+        else if(id_esp_1 +8 == id_esp_2){ 
+           flag=2;
+        }       
+        else{                      
+            flag=3;
+        }
+        if(flag==1 || flag==2){
+          link1 = link_create(id);
+          link_set_name(link1, name);
+          link_set_id_from(link1, id_space1);
+          link_set_id_to(link1, id_space2);
+          link_set_status(link1, gate);
+          link2 = link_create(id);
+          link_set_name(link2, name);
+          link_set_id_from(link2, id_space2);
+          link_set_id_to(link2, id_space1);
+          link_set_status(link2, gate);
+          if(flag==1){
+          space_set_south(game_get_space(game,id_space1),link1);
+          space_set_north(game_get_space(game,id_space2),link2);
+          }
+          else{
+            space_set_east(game_get_space(game,id_space1),link1);
+            space_set_west(game_get_space(game,id_space2),link2);
+          }
+        }
+        else{
+          space_set_east(game_get_space(game,id_space1),link1);
+        }
+       
+      }
+    }
+  }
+
+  if (ferror(file)) {
+    status = ERROR;
+  }
+
+  fclose(file);
+
+  return OK;
+}*/
