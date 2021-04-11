@@ -294,4 +294,31 @@ STATUS game_set_object_location(Game* game, Id id,Id pos_obj);
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 BOOL game_id_object_exists(Game* game, Id id);
+
+/**
+ * @brief Determina la ultima descripcion pedida
+ *
+ * game_set_descripcion determina la descripcion del ultimo objeto pedido
+ *
+ * @date 11-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param game 
+ * @return lo que guarda la el campo last_descripcion
+ */
+STATUS game_set_last_description(Game* game , char* descr);
+
+/**
+ * @brief Devueve la ultima descripcion pedida
+ *
+ * game_get_descripcion devuelve la descripcion del ultimo objeto pedido
+ *
+ * @date 11-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param game 
+ * @return lo que guarda la el campo last_descripcion
+ */
+const char* game_get_last_descripcion(Game* game);
+
 #endif

@@ -15,7 +15,7 @@
 #include "game.h"
 #include "game_reader.h"
 #include "inventory.h"
-#define N_CALLBACK 10
+#define N_CALLBACK 11
 #define ARG_NAME 15
 
 
@@ -26,6 +26,7 @@ struct _Game{
   Space* spaces[MAX_SPACES + 1];	/*!< Tabla de espacios del juego*/		
   Die *die;               /*!< Dado del juego*/
   Command *command;       /*!< comando que se recibe del jugador*/
+  char last_descripcion[LEN_DES]; /*!< Ultima descripcion */
 };
 /**
  * Define el tipo de funciones para las devoluciones de llamada
@@ -166,6 +167,17 @@ void game_callback_left(Game *game);
  */
 void game_callback_move(Game *game);
 
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_inspect examina los objetos indicados obteniendo la descripción de los mismos
+ * @date 10-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva accion
+ */
+void game_callback_inspect(Game *game);
+
 
 /**
  * Array que guarda los comandos
@@ -181,6 +193,7 @@ static callback_fn game_callback_fn_list[N_CALLBACK] = {
     game_callback_right,	/*RIGHT=7*/
     game_callback_left,	/*LEFT=8*/
     game_callback_move, /*MOVE=9*/
+    game_callback_inspect, /*INSPECT*/
 
 };
 
@@ -211,6 +224,8 @@ Game *game_init(){
   game=(Game*)malloc(sizeof(Game));
 
   if(game==NULL)return NULL;
+
+  /*strcpy (game->last_descripcion , "No has pedido aun ninguna descripcion");*/
 
   return game;
 
@@ -415,10 +430,26 @@ void game_print_data(Game *game)
   printf("prompt:> ");
 }
 
+const char* game_get_last_descripcion(Game* game){
+  if (!game) return  NULL;
+
+  return game->last_descripcion;
+}
+
+STATUS game_set_last_description(Game* game , char* descr){
+  if(!game || descr == NULL) return ERROR;
+
+  if (!strcpy(game->last_descripcion , descr)) return ERROR;
+
+  return OK;
+}
+
 BOOL game_is_over(Game *game)
 {
   return FALSE;
 }
+
+
 
 /**
    Callbacks implementation for each action 
@@ -733,3 +764,37 @@ printf("El if del east\n");
 
 }
 
+void game_callback_inspect(Game *game){
+  if(!game){
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  
+  char name[WORD_SIZE];
+  int i = 0;
+  Id id;
+
+  strcpy(name ,command_get_arg(game->command));
+
+  while (game->objects[i] != NULL){
+    id = object_get_id_by_name(game->objects[i] , name);
+    if (id != -1) break; 
+    i++;
+  }
+
+  if (id == -1){
+    command_set_status(game->command, ERROR);
+    return;
+  }
+
+  if (game_get_player_location (game) == game_get_object_location (game , id) || inventory_search_object (player_get_inventory(game->player) , id) ==TRUE){
+    game_set_last_description (game , (char *) object_get_description (game->objects[i]));
+    printf("%s", game->last_descripcion);
+    command_set_status(game->command, OK);
+    return;
+  }
+  else{
+    command_set_status(game->command, ERROR);
+    return;
+  }
+}

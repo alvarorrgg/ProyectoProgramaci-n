@@ -11,7 +11,7 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 #define N_CMDT 2 /*Variable global*/
-#define N_CMD 11 /*Numero de comandos*/
+#define N_CMD 12 /*Numero de comandos*/
 #include "types.h"
 /**
  * @brief Estructura command
@@ -45,7 +45,8 @@ typedef enum enum_Command {
   DROP,		/*!< DROP = 5*/
   ROLL,		/*!< ROLL = 6*/
   RIGHT,		/*!< RIGHT = 7*/
-  LEFT			/*!< LEFT = 8*/
+  LEFT,			/*!< LEFT = 8*/
+  INSPECT  /*!< INSPECT = 9*/
   } T_Command;	
 /**
  * @brief obtiene la entrada del usuario.

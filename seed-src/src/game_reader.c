@@ -101,6 +101,7 @@ STATUS game_reader_load_objects(Game *game, char *filename)
   int i = 0,j=0;
   char line[WORD_SIZE] = "";
   char name[WORD_SIZE] = "";
+  char descr[LEN_DES] = "";
   char *toks = NULL;
   Id id = NO_ID, pos_obj = NO_ID;
   Object *object = NULL;
@@ -123,6 +124,8 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       strcpy(name, toks);
       toks = strtok(NULL, "|");
       pos_obj = atol(toks);
+      toks = strtok(NULL, "|");
+      strcpy (descr , toks);
 #ifdef DEBUG
       printf("Leido: %ld|%s|%ld\n", id, name, pos_obj);
 #endif
@@ -130,6 +133,7 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       if(!object) return ERROR;
       if (pos_obj != NO_ID)
       {
+        object_set_description (object , descr);
         object_set_name(object, name);
         if(strlen(name)>7){
           printf("El nombre de un objeto no puede tener mas de 7 caracteres");

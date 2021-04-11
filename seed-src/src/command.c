@@ -27,7 +27,8 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"rl", "Roll"},	/** !< rl <=> roll*/
     {"l", "Left"},	/** !< l <=> left*/
     {"r", "Right"}, /** !< r <=> right*/
-    {"m", "Move"}};	/** !< m <=> move*/
+    {"m", "Move"}, /** !< m <=> move*/
+    {"i" , "Inspect"}};	/** !< i <=> inspect*/
 
 
 struct _Command {

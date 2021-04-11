@@ -11,6 +11,8 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#define LEN_DES 30 /*Numero maximo de caracteres en la descrpicion del objeto*/
+
 #include "types.h"
 /**
  * @brief La estructura Object
@@ -111,5 +113,45 @@ STATUS object_set_name(Object* object, char* name);
  */
  const char* object_get_name(Object* object);
 
+
+ /**
+ * @brief Obtiene la descrpicion del objeto
+ *
+ * object_get_description sirve para obtener la descrpicion del objeto
+ *
+ * @date 10-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param object recibe un puntero a la estructura de datos objeto
+ * @return const char devuelve la descrpicion del objeto
+ */
+ const char* object_get_description(Object* object);
+
+ /**
+ * @brief Determina la descrpicion del objeto
+ *
+ * object_set_description sirve para determinar la descrpicion del objeto
+ *
+ * @date 10-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param object recibe un puntero a la estructura de datos objeto y la propia descripcion
+ * @return STATUS devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
+ */
+ STATUS object_set_description(Object* object , char* descr);
+
+
+/**
+ * @brief Devuelve el Id de un objeto
+ *
+ * object_get_id_by_name devuelve el Id de un objeto dependiendo del nombre
+ *
+ * @date 10-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param object recibe un puntero a la estructura de datos objeto y un nombre char
+ * @return el Id del objeto con el nobre pasado por argumento 
+ */
+ Id object_get_id_by_name (Object *object , char *name);
 
 #endif

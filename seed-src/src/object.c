@@ -17,6 +17,7 @@
 struct _Object {
   Id id;			/** !< id del objeto*/
   char name[WORD_SIZE + 1];	/**!< nombre del objeto*/
+  char description[LEN_DES]; /**!!< descripción de cada objecto*/
 };
 
 Object* object_create(Id id) {
@@ -68,6 +69,30 @@ const char * object_get_name(Object* object) {
   
   return object->name;
 }
+
+const char* object_get_description(Object* object){
+  if (!object) return NULL;
+
+  return object->description;
+}
+
+STATUS object_set_description(Object* object , char* descr){
+  if(!object || descr == NULL) return ERROR;
+
+  if (!strcpy(object->description, descr)) return ERROR;
+
+  return OK;
+}
+
+
+ Id object_get_id_by_name (Object *object , char *name){
+  if (!object || name == NULL) return -1;
+
+  if (strcmp (name , object_get_name (object)) == 0) return object->id;
+
+  return -1;
+
+ }
 
 STATUS object_print(Object* object) {
   if (!object) return ERROR;

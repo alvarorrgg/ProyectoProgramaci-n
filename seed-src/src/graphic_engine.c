@@ -300,7 +300,27 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
       screen_area_puts(ge->descript, str);
      }
     }
-   
+
+    /*if (game_get_last_descripcion (game) == NULL ){
+      sprintf(str, " ");
+      screen_area_puts(ge->descript, str);
+      sprintf(str,"No has pedido aun ninguna descripcion");
+      screen_area_puts(ge->descript, str);
+    }
+    else{
+      sprintf(str, " ");
+      screen_area_puts(ge->descript, str);
+      sprintf(str,"%s" ,game_get_last_descripcion(game));
+      screen_area_puts(ge->descript, str);
+    }*/
+
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str,"%s" ,game_get_last_descripcion(game));
+    screen_area_puts(ge->descript, str);
+    
+
+
   /* Pinta en el área del banner */
   screen_area_puts(ge->banner, " The game of the Goose ");
 
