@@ -1,20 +1,20 @@
 #makefile de juego OCA
-target = ocaEXE space_test set_test die_test inventory_test player_test
-FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include
+target = ocaEXE  set_test die_test inventory_test player_test space_test docs
+FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
+OBJDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o)
 CC = gcc
 
 vpath %.c src:include
 vpath %.h include
 vpath %.o obj
  
-
 all: $(target)
 
 ocaEXE: $(OBJ)
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $^
+	$(CC) -o  $@ $(OBJDIR)
 
 command.o: command.c command.h types.h
 	@echo "######################"
@@ -84,7 +84,7 @@ link.o: link.c link.h types.h
 die_test: die_test.o die.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $^
+	$(CC) -o  $@ $(addprefix obj/,$^)
 
 die_test.o: die_test.c die_test.h die.h
 	@echo "#####################"
@@ -94,19 +94,19 @@ die_test.o: die_test.c die_test.h die.h
 set_test: set_test.o set.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $^
+	$(CC) -o  $@ $(addprefix obj/,$^)
 
 set_test.o: set_test.c set_test.h set.h
 	@echo "#####################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
-space_test: space_test.o space.o set.o
+space_test: space_test.o space.o set.o link.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $^
+	$(CC) -o  $@ $(addprefix obj/,$^)
 
-space_test.o: space_test.c space_test.h space.h set.h
+space_test.o: space_test.c space_test.h space.h set.h link.h
 	@echo "#####################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
@@ -114,7 +114,7 @@ space_test.o: space_test.c space_test.h space.h set.h
 inventory_test: inventory_test.o inventory.o set.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $^	
+	$(CC) -o  $@ $(addprefix obj/,$^)	
 
 inventory_test.o: inventory_test.c inventory_test.h inventory.h test.h 
 	@echo "#####################"
@@ -124,15 +124,18 @@ inventory_test.o: inventory_test.c inventory_test.h inventory.h test.h
 player_test: player_test.o player.o inventory.o set.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $^	
+	$(CC) -o  $@ $(addprefix obj/,$^)	
 
 player_test.o: player_test.c player_test.h player.h test.h inventory.h set.h
 	@echo "#####################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
-.PHONY: clean
+docs:
+	# @doxygen ./Doxyfile
+
+.PHONY: clean 
 clean: 
 	@echo "Limpiando"
-	rm -rf *.o ocaEXE set_test space_test die_test inventory_test player_test 
+	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test 
 	

@@ -58,7 +58,7 @@ STATUS game_reader_load_players(Game* game, char* filename);
 /**
  * @brief Cargar links
  *
- * game_reader_load_players carga los links del fichero leido segun la estructura determinada
+ * game_reader_load_links carga los links del fichero leido segun la estructura determinada
  *
  * @date 18-02-2021 
  * @author Álvaro Rodríguez
@@ -67,5 +67,5 @@ STATUS game_reader_load_players(Game* game, char* filename);
  * @param filename del archivo de donde se van a obtener los valores..
  * @return devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. 
  */
-/*STATUS game_reader_load_players(Game* game, char* filename);*/
+STATUS game_reader_load_links(Game* game, char* filename);
 #endif

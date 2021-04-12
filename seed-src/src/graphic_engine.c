@@ -13,6 +13,7 @@
 #include "screen.h"
 #include "graphic_engine.h"
 #include "command.h"
+#include "link.h"
 
 #define MAX_CHARS1 11 /*Numero maximo de caracteres que se pueden escribir en cada linea del espacio*/
 
@@ -79,9 +80,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   if ((id_act = game_get_player_location(game)) != NO_ID)
   {
     space_act = game_get_space(game, id_act);
-    id_back = space_get_north(space_act);
+    id_back = link_get_to(space_get_north(space_act));
     space_back = game_get_space(game, id_back);
-    id_next = space_get_south(space_act);
+    id_next = link_get_to(space_get_south(space_act));
     space_next = game_get_space(game, id_next);
 /*Obtenemos el nombre de cada objeto o "" si no hay ningun objeto*/
     if (space_has_object_id(space_back,1)) strcpy(obj,object_get_name(game_get_object(game, 0)));
@@ -313,12 +314,12 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
       sprintf(str,"%s" ,game_get_last_descripcion(game));
       screen_area_puts(ge->descript, str);
     }*/
-
+if(strlen(game_get_last_descripcion(game))!=0){
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);
     sprintf(str,"%s" ,game_get_last_descripcion(game));
     screen_area_puts(ge->descript, str);
-    
+}
 
 
   /* Pinta en el área del banner */

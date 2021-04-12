@@ -13,6 +13,7 @@
 #include "test.h"
 #include "set.h"
 #include "space.h"
+#include "link.h"
 /**
  * @test Test space creation
  * @pre Space ID 

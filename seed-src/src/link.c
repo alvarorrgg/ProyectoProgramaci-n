@@ -43,41 +43,42 @@ Link* link_create(Id id){
 STATUS link_destroy(Link *l){
     
     if(!l)return ERROR;
+    
     free(l);
 
     return OK;
 }
 
-Id link_getId(Link *l){
+Id link_get_id(Link *l){
     if(!l)return NO_ID;
 
     return l->id;
 }
 
-char *link_getName(Link *l){
+char *link_get_name(Link *l){
     if(!l)return NULL;
 
     return l->name;
 }
 
-Id link_getIdFrom(Link *l){
+Id link_get_id_from(Link *l){
     if(!l)return NO_ID;
 
     return l->from;
 }
 
-Id link_getTo(Link *l){
+Id link_get_to(Link *l){
     if(!l)return NO_ID;
 
     return l->to;
 }
 
-TYPES link_getType(Link *l){
+TYPES link_get_type(Link *l){
     if(!l)return CLOSE;
     return l->type;
 }
 
-STATUS link_setId(Link *l, Id id){
+STATUS link_set_id(Link *l, Id id){
     if(!l || !id)return ERROR;
 
     l->id=id;
@@ -85,7 +86,7 @@ STATUS link_setId(Link *l, Id id){
     return OK;
 }
 
-STATUS link_setName(Link *l, char *name){
+STATUS link_set_name(Link *l, char *name){
     if(!l || !name)return ERROR;
 
     strcpy(l->name,name);
@@ -94,7 +95,7 @@ STATUS link_setName(Link *l, char *name){
     return OK;
 }
 
-STATUS link_setIdFrom(Link *l, Id from){
+STATUS link_set_id_from(Link *l, Id from){
     if(!l || !from)return ERROR;
 
     l->from=from;
@@ -102,7 +103,7 @@ STATUS link_setIdFrom(Link *l, Id from){
     return OK;
 }
 
-STATUS link_setIdTo(Link *l, Id to){
+STATUS link_set_id_to(Link *l, Id to){
     if(!l || !to)return ERROR;
 
     l->to=to;
@@ -110,7 +111,7 @@ STATUS link_setIdTo(Link *l, Id to){
     return OK;
 }
 
-STATUS link_setType(Link *l, TYPES type){
+STATUS link_set_type(Link *l, TYPES type){
     if(!l || !type)return ERROR;
 
     l->type=type;

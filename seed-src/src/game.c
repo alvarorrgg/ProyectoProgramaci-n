@@ -14,7 +14,7 @@
 #include <string.h>
 #include "game.h"
 #include "game_reader.h"
-#include "inventory.h"
+
 #define N_CALLBACK 11
 #define ARG_NAME 15
 
@@ -27,6 +27,7 @@ struct _Game{
   Die *die;               /*!< Dado del juego*/
   Command *command;       /*!< comando que se recibe del jugador*/
   char last_descripcion[LEN_DES]; /*!< Ultima descripcion */
+  Link *link[MAX_LINKS+1]; /*Tabla de links del juego*/
 };
 /**
  * Define el tipo de funciones para las devoluciones de llamada
@@ -241,8 +242,13 @@ STATUS game_create(Game *game)
   {
     game->objects[i] = NULL; /*Se inicializan todos los objetos con un valor NULL*/
   }
+   for (i = 0; i < MAX_LINKS; i++)
+  {
+    game->link[i] = NULL; /*Se inicializan todos los links con un valor NULL*/
+  }
   game->die = die_create(1);
   game->command = command_init();
+  game->last_descripcion[0] = '\0';
 
   return OK;
 }
@@ -252,10 +258,10 @@ STATUS game_create_from_file(Game *game, char *filename)
  
   if (game_create(game) == ERROR) return ERROR;
   if (game_reader_load_spaces(game, filename) == ERROR) return ERROR; /*Se leen los espacios del fichero data.dat*/
-  if (game_reader_load_objects(game, filename) == ERROR) return ERROR;
-  if (game_reader_load_players(game, filename) == ERROR) return ERROR;
- 
-  /*Se leen los objetos del fichero data.dat*/
+  if (game_reader_load_objects(game, filename) == ERROR) return ERROR;   /*Se leen los objetos del fichero data.dat*/
+  if (game_reader_load_players(game, filename) == ERROR) return ERROR;   /*Se leen los jugadores del fichero data.dat*/
+  if (game_reader_load_links(game, filename) == ERROR) return ERROR;   /*Se leen los links del fichero data.dat*/
+
 
   return OK;
 }
@@ -307,6 +313,34 @@ STATUS game_add_player(Game *game, Player *player)
   if(!game || !player) return ERROR;
   game->player=player;
   return OK;
+}
+
+STATUS game_add_link(Game *game, Link *link)
+{
+  int i = 0;
+  if (link == NULL)
+    return ERROR;
+
+  while ((i < MAX_LINKS) && (game->link[i] != NULL))
+    i++;
+
+  game->link[i] = link;
+  return OK;
+}
+
+Link *game_get_link(Game *game, Id id)
+{
+  int i = 0;
+
+  if (id == NO_ID) return NULL;
+
+  for (i = 0; i < MAX_LINKS && game->link[i] != NULL; i++)
+  {
+    if (id == link_get_id(game->link[i]))
+      return game->link[i];
+  }
+
+  return NULL;
 }
 
 Id game_get_space_id_at(Game *game, int position)
@@ -383,10 +417,12 @@ Id game_get_object_location(Game *game, Id id)
   }
   return NO_ID;
 }
+
 Command* game_get_command(Game* game){
   if (!game) return NULL;
   return game->command;
 }
+
 BOOL game_id_object_exists(Game *game, Id id)
 {
   int i;
@@ -485,7 +521,7 @@ void game_callback_next(Game *game)
 
     if (current_id == space_id)
     {
-      current_id = space_get_south(game->spaces[i]);
+      current_id = link_get_to(space_get_south(game->spaces[i]));
 
       if (current_id != NO_ID)
       {
@@ -521,7 +557,7 @@ void game_callback_back(Game *game)
 
     if (current_id == space_id)
     {
-      current_id = space_get_north(game->spaces[i]);
+      current_id = link_get_to(space_get_north(game->spaces[i]));
 
       if (current_id != NO_ID)
       {
@@ -556,8 +592,8 @@ void game_callback_right(Game *game)
 
     if (current_id == space_id)
     {
-      current_id = space_get_east(game->spaces[i]);
-
+      current_id = link_get_to(space_get_west(game->spaces[i]));
+      printf("%li",current_id);
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
@@ -591,7 +627,8 @@ void game_callback_left(Game *game)
 
     if (current_id == space_id)
     {
-      current_id = space_get_west(game->spaces[i]);
+      current_id = link_get_to(space_get_east(game->spaces[i]));
+      printf("%li",current_id);
 
       if (current_id != NO_ID)
       {
@@ -738,15 +775,13 @@ void game_callback_move(Game *game)
   }
   else if(strcmp(direction, "west")==0 || strcmp(direction, "w")==0){
 
-printf("El if del west\n");
-    game_callback_left(game);
+    game_callback_right(game);
     command_set_status(game->command, command_get_status(game->command));
 
     return;
   }
   else if(strcmp(direction, "east")==0 || strcmp(direction, "e")==0){
-printf("El if del east\n");
-    game_callback_right(game);
+    game_callback_left(game);
     command_set_status(game->command, command_get_status(game->command));
 
     return;
@@ -804,7 +839,6 @@ void game_callback_inspect(Game *game){
 
   if (game_get_player_location (game) == game_get_object_location (game , id) || inventory_search_object (player_get_inventory(game->player) , id) ==TRUE){
     game_set_last_description (game , (char *) object_get_description (game->objects[i]));
-    printf("%s", game->last_descripcion);
     command_set_status(game->command, OK);
     return;
   }

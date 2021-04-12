@@ -1,0 +1,260 @@
+\hypertarget{die_8h}{}\doxysection{die.\+h File Reference}
+\label{die_8h}\index{die.h@{die.h}}
+
+
+Archivo cabecera del modulo \mbox{\hyperlink{die_8h}{die.\+h}} en el que se definen las funciones de \mbox{\hyperlink{die_8c}{die.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}time.\+h\char`\"{}}\newline
+Include dependency graph for die.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{die_8h_a2e3f9972e68ab0fc8975493f49d7c5f0}\label{die_8h_a2e3f9972e68ab0fc8975493f49d7c5f0}} 
+\#define {\bfseries M\+A\+X\+\_\+\+I\+DS}~100 /$\ast$Numero maximo de ids$\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__Die}{\+\_\+\+Die}} \mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}}
+\begin{DoxyCompactList}\small\item\em Estructura die. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$ \mbox{\hyperlink{die_8h_a413bced882cd5cadbb1d8feaf367ed3f}{die\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em crea un dado \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{die_8h_a2115999335e58f733d846be485cfb783}{die\+\_\+destroy}} (\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$die)
+\begin{DoxyCompactList}\small\item\em destruye un dado \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{die_8h_a06289514edbedf660c4b043f78e859fc}{die\+\_\+roll}} (\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$die)
+\begin{DoxyCompactList}\small\item\em tira el dado \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{die_8h_a4d34c68d59d155a4abb559f4ddf60cb2}{die\+\_\+set\+\_\+\+Id}} (\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$die, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em establece el id \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{die_8h_a9347ed79daba7e8078611d67a52e1bfb}{die\+\_\+get\+\_\+last\+\_\+roll}} (\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$die)
+\begin{DoxyCompactList}\small\item\em recoge la ultima tirada \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{die_8h_a57c9a2627bb3a1ca04fe55d72bd6a5ea}{die\+\_\+get\+\_\+id}} (\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$die)
+\begin{DoxyCompactList}\small\item\em encuentra el id \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{die_8h_a438ae8696a4bec05b0fc113dc02d2e65}{die\+\_\+print}} (F\+I\+LE $\ast$pf, \mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$die)
+\begin{DoxyCompactList}\small\item\em imprime el dado \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Archivo cabecera del modulo \mbox{\hyperlink{die_8h}{die.\+h}} en el que se definen las funciones de \mbox{\hyperlink{die_8c}{die.\+c}}. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}\label{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}} 
+\index{die.h@{die.h}!Die@{Die}}
+\index{Die@{Die}!die.h@{die.h}}
+\doxysubsubsection{\texorpdfstring{Die}{Die}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__Die}{\+\_\+\+Die}} \mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}}}
+
+
+
+Estructura die. 
+
+contiene las variables del dado 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{die_8h_a413bced882cd5cadbb1d8feaf367ed3f}\label{die_8h_a413bced882cd5cadbb1d8feaf367ed3f}} 
+\index{die.h@{die.h}!die\_create@{die\_create}}
+\index{die\_create@{die\_create}!die.h@{die.h}}
+\doxysubsubsection{\texorpdfstring{die\_create()}{die\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}}$\ast$ die\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+crea un dado 
+
+die\+\_\+create crea un dado inicializando sus variables
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/03-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & el id del dado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el dado creado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{die_8h_a2115999335e58f733d846be485cfb783}\label{die_8h_a2115999335e58f733d846be485cfb783}} 
+\index{die.h@{die.h}!die\_destroy@{die\_destroy}}
+\index{die\_destroy@{die\_destroy}!die.h@{die.h}}
+\doxysubsubsection{\texorpdfstring{die\_destroy()}{die\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} die\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$}]{die }\end{DoxyParamCaption})}
+
+
+
+destruye un dado 
+
+die\+\_\+destroy destruye un dado y vacia la memoria reservada
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/03-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em die} & el dado que se destruye \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR o OK según si se encuentra o no algun fallo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{die_8h_a57c9a2627bb3a1ca04fe55d72bd6a5ea}\label{die_8h_a57c9a2627bb3a1ca04fe55d72bd6a5ea}} 
+\index{die.h@{die.h}!die\_get\_id@{die\_get\_id}}
+\index{die\_get\_id@{die\_get\_id}!die.h@{die.h}}
+\doxysubsubsection{\texorpdfstring{die\_get\_id()}{die\_get\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} die\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$}]{die }\end{DoxyParamCaption})}
+
+
+
+encuentra el id 
+
+die\+\_\+get\+\_\+id encuentra el id del dado
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+07-\/03-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em die} & el dado del que se busca el id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el id del dado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{die_8h_a9347ed79daba7e8078611d67a52e1bfb}\label{die_8h_a9347ed79daba7e8078611d67a52e1bfb}} 
+\index{die.h@{die.h}!die\_get\_last\_roll@{die\_get\_last\_roll}}
+\index{die\_get\_last\_roll@{die\_get\_last\_roll}!die.h@{die.h}}
+\doxysubsubsection{\texorpdfstring{die\_get\_last\_roll()}{die\_get\_last\_roll()}}
+{\footnotesize\ttfamily int die\+\_\+get\+\_\+last\+\_\+roll (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$}]{die }\end{DoxyParamCaption})}
+
+
+
+recoge la ultima tirada 
+
+die\+\_\+get\+\_\+last\+\_\+roll recoge la ultima tirada del dado
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+07-\/03-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em die} & el dado del que se recoge la última tirada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la última tirada del dado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{die_8h_a438ae8696a4bec05b0fc113dc02d2e65}\label{die_8h_a438ae8696a4bec05b0fc113dc02d2e65}} 
+\index{die.h@{die.h}!die\_print@{die\_print}}
+\index{die\_print@{die\_print}!die.h@{die.h}}
+\doxysubsubsection{\texorpdfstring{die\_print()}{die\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} die\+\_\+print (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{pf,  }\item[{\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$}]{die }\end{DoxyParamCaption})}
+
+
+
+imprime el dado 
+
+die\+\_\+print imprime los valores útiles del dado
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+07-\/03-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em pf} & el fichero donde se imprime \\
+\hline
+{\em die} & el dado que se imprime \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR o OK según si se encuentra o no algun fallo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{die_8h_a06289514edbedf660c4b043f78e859fc}\label{die_8h_a06289514edbedf660c4b043f78e859fc}} 
+\index{die.h@{die.h}!die\_roll@{die\_roll}}
+\index{die\_roll@{die\_roll}!die.h@{die.h}}
+\doxysubsubsection{\texorpdfstring{die\_roll()}{die\_roll()}}
+{\footnotesize\ttfamily int die\+\_\+roll (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$}]{die }\end{DoxyParamCaption})}
+
+
+
+tira el dado 
+
+die\+\_\+roll simula el tiro de un dado generando un número aleatorio entre 1 y 6
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+07-\/03-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em die} & el dado que se tira \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el valor aleatorio generado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{die_8h_a4d34c68d59d155a4abb559f4ddf60cb2}\label{die_8h_a4d34c68d59d155a4abb559f4ddf60cb2}} 
+\index{die.h@{die.h}!die\_set\_Id@{die\_set\_Id}}
+\index{die\_set\_Id@{die\_set\_Id}!die.h@{die.h}}
+\doxysubsubsection{\texorpdfstring{die\_set\_Id()}{die\_set\_Id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} die\+\_\+set\+\_\+\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$}]{die,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+establece el id 
+
+die\+\_\+set\+\_\+\+Id estable el id al dado
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+07-\/03-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & el id que se fija \\
+\hline
+{\em die} & el dado al que se le establece el id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR o OK según si se encuentra o no algun fallo 
+\end{DoxyReturn}

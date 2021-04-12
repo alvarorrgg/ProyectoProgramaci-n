@@ -12,7 +12,7 @@
 #define SPACE_H
 
 #include "types.h"
-
+#include "link.h"
 
 /**
  * @brief Define un espacio
@@ -98,10 +98,10 @@ const char* space_get_name(Space* space);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @param id marca una localización.
+ * @param link marca el link norte
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS space_set_north(Space* space, Id id);
+STATUS space_set_north(Space* space, Link *link);
 
 /**
  * @brief obtiene la coordenada norte del espacio
@@ -112,9 +112,9 @@ STATUS space_set_north(Space* space, Id id);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @return space->north la coordenada norte del espacio
+ * @return Link devuelve el link norte
  */
-Id space_get_north(Space* space);
+Link *space_get_north(Space* space);
 
 /**
  * @brief establece la coordenada sur
@@ -125,10 +125,10 @@ Id space_get_north(Space* space);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @param id marca una localización.
+ * @param link marca el link sur
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS space_set_south(Space* space, Id id);
+STATUS space_set_south(Space* space, Link *link);
 
 /**
  * @brief obtiene la coordenada sur del espacio
@@ -139,9 +139,9 @@ STATUS space_set_south(Space* space, Id id);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @return space->south la coordenada sur del espacio
+ * @return Link devuelve el link sur
  */
-Id space_get_south(Space* space);
+Link* space_get_south(Space* space);
 
 /**
  * @brief establece la coordenada este
@@ -152,10 +152,10 @@ Id space_get_south(Space* space);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @param id marca una localización.
+ * @param link marca el link este
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS space_set_east(Space* space, Id id);
+STATUS space_set_east(Space* space, Link *link);
 /**
  * @brief obtiene la coordenada este del espacio
  *
@@ -165,9 +165,9 @@ STATUS space_set_east(Space* space, Id id);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @return space->east la coordenada este del espacio
+ * @return Link devuelve el link este
  */
-Id space_get_east(Space* space);
+Link *space_get_east(Space* space);
 
 /**
  * @brief establece la coordenada oeste
@@ -178,10 +178,10 @@ Id space_get_east(Space* space);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @param id marca una localización.
+ * @param link marca el link oeste
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS space_set_west(Space* space, Id id);
+STATUS space_set_west(Space* space, Link *link);
 /**
  * @brief obtiene la coordenada oeste del espacio
  *
@@ -191,9 +191,9 @@ STATUS space_set_west(Space* space, Id id);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja
- * @return space->west la coordenada oeste del espacio
+ * @return Link devuelve el link oeste
  */
-Id space_get_west(Space* space);
+Link *space_get_west(Space* space);
 
 /**
  * @brief establece el objeto a TRUE o FALSE

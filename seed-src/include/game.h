@@ -16,6 +16,8 @@
 #include "command.h"
 #include "space.h"
 #include "die.h"
+#include "inventory.h"
+#include "link.h"
 
 /**
  * @brief La estructura game
@@ -222,38 +224,51 @@ STATUS game_add_space(Game* game, Space* space);
  * @date  18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param game el juego al que se va a añadir un espacio
- * @param object el espacio que se va a añadir
+ * @param game el juego al que se va a añadir un objeto
+ * @param object el objeto que se va a añadir
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_add_object(Game* game, Object* object);
 /**
  * @brief Añade un nuevo jugador al juego
  *
- * game_add_player Añade un objeto a la lista de objetos.
+ * game_add_player Añade un player al juego
  *
  * @date  18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param game el juego al que se va a añadir un espacio
- * @param player el espacio que se va a añadir
+ * @param game el juego al que se va a añadir un jugador
+ * @param player el jugador
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_add_player(Game* game, Player* player);
+
 /**
- * @brief Cambia la localización del objeto
+ * @brief Añade un nuevo link al juego
  *
- * game_object_set_location Cambia la localizacion del objeto
+ * game_add_link Añade un link a la lista de links.
  *
  * @date  18-02-2021
  * @author Álvaro Rodríguez
  *
- * @param game el juego al que se va a añadir un espacio
- * @param id identificador del objeto.
- * @param nueva posición del objeto
+ * @param game el juego al que se va a añadir un link
+ * @param player el link que se va a añadir
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-
+STATUS game_add_link(Game *game, Link *link);
+/**
+ * @brief Obtiene el link del id determinado
+ *
+ * game_get_link busca el link de id determinado
+ *
+ * @date  18-02-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param game el juego al que se va a añadir un link
+ * @param id el id del link que se va a devolver
+ * @return Se devuelve el link encontrado NULL si no se encuentra nada.
+ */
+Link *game_get_link(Game *game, Id id);
 /**
  * @brief Establece la posición del jugador
  *
