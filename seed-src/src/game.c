@@ -765,14 +765,15 @@ printf("El if del east\n");
 }
 
 void game_callback_inspect(Game *game){
+  char name[WORD_SIZE];
+  int i = 0;
+  Id id;
   if(!game){
     command_set_status(game->command, ERROR);
     return;
   }
   
-  char name[WORD_SIZE];
-  int i = 0;
-  Id id;
+
 
   strcpy(name ,command_get_arg(game->command));
 

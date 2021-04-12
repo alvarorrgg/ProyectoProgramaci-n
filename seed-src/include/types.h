@@ -57,4 +57,5 @@ typedef enum {
 typedef enum {
   OPEN=0,CLOSE /* !< OPEN=0,CLOSE=1*/
 } TYPES;
+
 #endif
