@@ -1,7 +1,7 @@
 #makefile de juego OCA
 target = ocaEXE space_test set_test die_test inventory_test player_test
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include
-OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o
+OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
 CC = gcc
 
 vpath %.c src:include
@@ -72,6 +72,11 @@ die.o: die.c die.h types.h
 	$(CC) -c $(FLAGS) $<
 	
 inventory.o: inventory.c inventory.h set.h types.h
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -c $(FLAGS) $<
+
+link.o: link.c link.h types.h
 	@echo "#####################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
