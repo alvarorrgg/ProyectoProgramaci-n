@@ -2,7 +2,12 @@
 target = ocaEXE  set_test die_test inventory_test player_test space_test docs
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
-OBJDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o)
+OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o)
+SET_TESTDIR = $(addprefix obj/,set_test.o set.o)
+DIE_TESTDIR = $(addprefix obj/,die_test.o die.o)
+INVENTORY_TESTDIR = $(addprefix obj/, inventory_test.o inventory.o set.o)
+PLAYER_TESTDIR = $(addprefix obj/, player_test.o player.o inventory.o set.o)
+SPACE_TESTDIR = $(addprefix obj/, space_test.o space.o set.o link.o)
 CC = gcc
 
 vpath %.c src:include
@@ -14,7 +19,7 @@ all: $(target)
 ocaEXE: $(OBJ)
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $(OBJDIR)
+	$(CC) -o  $@ $(OCAEXEDIR)
 
 command.o: command.c command.h types.h
 	@echo "######################"
@@ -84,7 +89,7 @@ link.o: link.c link.h types.h
 die_test: die_test.o die.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $(addprefix obj/,$^)
+	$(CC) -o  $@ $(DIE_TESTDIR)
 
 die_test.o: die_test.c die_test.h die.h
 	@echo "#####################"
@@ -94,7 +99,7 @@ die_test.o: die_test.c die_test.h die.h
 set_test: set_test.o set.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $(addprefix obj/,$^)
+	$(CC) -o  $@ $(SET_TESTDIR)
 
 set_test.o: set_test.c set_test.h set.h
 	@echo "#####################"
@@ -104,7 +109,7 @@ set_test.o: set_test.c set_test.h set.h
 space_test: space_test.o space.o set.o link.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $(addprefix obj/,$^)
+	$(CC) -o  $@ $(SPACE_TESTDIR)
 
 space_test.o: space_test.c space_test.h space.h set.h link.h
 	@echo "#####################"
@@ -114,7 +119,7 @@ space_test.o: space_test.c space_test.h space.h set.h link.h
 inventory_test: inventory_test.o inventory.o set.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $(addprefix obj/,$^)	
+	$(CC) -o  $@ $(INVENTORY_TESTDIR)	
 
 inventory_test.o: inventory_test.c inventory_test.h inventory.h test.h 
 	@echo "#####################"
@@ -124,7 +129,7 @@ inventory_test.o: inventory_test.c inventory_test.h inventory.h test.h
 player_test: player_test.o player.o inventory.o set.o
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o  $@ $(addprefix obj/,$^)	
+	$(CC) -o  $@ $(PLAYER_TESTDIR)	
 
 player_test.o: player_test.c player_test.h player.h test.h inventory.h set.h
 	@echo "#####################"
