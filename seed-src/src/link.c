@@ -63,7 +63,7 @@ char *link_getName(Link *l){
 Id link_getIdFrom(Link *l){
     if(!l)return NO_ID;
 
-    return l->to;
+    return l->from;
 }
 
 Id link_getTo(Link *l){
@@ -74,7 +74,6 @@ Id link_getTo(Link *l){
 
 TYPES link_getType(Link *l){
     if(!l)return CLOSE;
-
     return l->type;
 }
 
