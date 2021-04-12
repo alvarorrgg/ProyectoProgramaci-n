@@ -225,7 +225,7 @@ Game *game_init(){
 
   if(game==NULL)return NULL;
 
-  /*strcpy (game->last_descripcion , "No has pedido aun ninguna descripcion");*/
+  
 
   return game;
 
@@ -768,14 +768,28 @@ void game_callback_inspect(Game *game){
   char name[WORD_SIZE];
   int i = 0;
   Id id;
-  if(!game){
+  Id current_id = game_get_player_location (game);
+  Id space_id;
+
+  if(!game || current_id == NO_ID){
     command_set_status(game->command, ERROR);
     return;
   }
-  
-
-
+ 
   strcpy(name ,command_get_arg(game->command));
+
+  if (strcmp(name , "space") == 0 || strcmp (name , "s") ==0 ){
+    for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL ; i++){
+      space_id = space_get_id (game->spaces[i]);
+      if (current_id == space_id){
+        strcpy (game->last_descripcion , space_get_description (game->spaces[i]));
+        command_set_status(game->command, OK);
+        return;
+      }
+    }
+    command_set_status(game->command, ERROR);
+    return;
+  }
 
   while (game->objects[i] != NULL){
     id = object_get_id_by_name(game->objects[i] , name);

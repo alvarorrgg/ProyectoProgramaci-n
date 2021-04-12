@@ -14,12 +14,14 @@
 #include "game.h"
 #include "game_reader.h"
 #include "inventory.h"
+#include "object.h"
 
 STATUS game_reader_load_spaces(Game *game, char *filename)
 {
   FILE *file = NULL;
   char line[WORD_SIZE] = "";
   char name[WORD_SIZE] = "";
+  char descr[LEN_DES] = "";
   char **gdesc = NULL;
   char *toks = NULL;
   Id id = NO_ID, north = NO_ID, east = NO_ID, south = NO_ID, west = NO_ID;
@@ -68,6 +70,8 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       strcpy(gdesc[1], toks);
       toks = strtok(NULL, "|");
       strcpy(gdesc[2], toks);
+      toks = strtok(NULL, "|");
+      strcpy(descr, toks);
 #ifdef DEBUG
       printf("Leido: %ld|%s|%ld|%ld|%ld|%ld\n", id, name, north, east, south, west);
 #endif
@@ -81,6 +85,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
         space_set_west(space, west);
         space_set_gdesc(space, gdesc);
         game_add_space(game, space);
+        space_set_description (space , descr);
       }
     }
   }

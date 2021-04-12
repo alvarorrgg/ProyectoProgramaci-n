@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "object.h"
 #include "space.h"
 #include "set.h"
 
@@ -23,6 +24,7 @@ struct _Space {
   Id west;		/*!< coordenada oeste */
   Set* objects;	/*!< array de objetos */
   char **gdesc;	/*!< Descripción grafica */
+  char description[LEN_DES]; /*!< Descripción del espacio */
 };
 
 Space* space_create(Id id) {
@@ -176,6 +178,21 @@ BOOL space_has_object_id(Space* space, Id id){
   if (!space)  return FALSE;
 
   return set_has_id(space->objects, id);
+}
+
+
+STATUS space_set_description(Space* space , char* descr){
+  if(!space || descr == NULL) return ERROR;
+
+  if (!strcpy(space->description, descr)) return ERROR;
+
+  return OK;
+}
+
+const char* space_get_description(Space* space){
+    if (!space) return NULL;
+
+    return space->description;
 }
 
 STATUS space_print(Space* space) {

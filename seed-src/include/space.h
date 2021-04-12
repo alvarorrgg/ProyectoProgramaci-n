@@ -257,9 +257,9 @@ BOOL space_has_object_id(Space* space, Id id);
  */
 STATUS space_remove_object(Space* space, Id id);
 /**
- * @brief cambias la descripción de un espacio
+ * @brief cambias la descripción grafica de un espacio
  *
- * space_set_gdesc cambias la descripción grafica de un objeto
+ * space_set_gdesc cambias la descripción grafica de un espacio
  * 
  * @date 18-02-2021
  * @author Álvaro Rodríguez
@@ -270,7 +270,7 @@ STATUS space_remove_object(Space* space, Id id);
  */
 STATUS space_set_gdesc(Space *space, char **desc);
 /**
- * @brief cambias la descripción de un espacio
+ * @brief obtienes la descripción grafica de un espacio
  *
  * space_get_gdesc obtienes la descripción grafica de un objeto
  * 
@@ -281,6 +281,33 @@ STATUS space_set_gdesc(Space *space, char **desc);
  * @return OK o ERROR segun si se ha obtenido la descripción o no.
  */
 char** space_get_gdesc(Space *space);
+
+/**
+ * @brief cambias la descripción de un espacio
+ *
+ * space_set_gdesc cambias la descripción un espacio
+ * 
+ * @date 12-04-2021
+ * @author Gonzalo Martin
+ *
+ * @param space el espacio que se trabaja
+ * @param descripción
+ * @return OK o ERROR segun si se ha cambiado la descripción o no.
+ */
+STATUS space_set_description(Space* space , char* descr);
+
+/**
+ * @brief Obtiene la descrpicion del espacio
+ *
+ * object_get_description sirve para obtener la descrpicion del espacio
+ *
+ * @date 12-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param object recibe un puntero a la estructura de datos espacio
+ * @return const char devuelve la descrpicion del objeto
+ */
+ const char* space_get_description(Space* space);
 
 /**
  * @brief muestra por pantalla el espacio creado
