@@ -1,5 +1,5 @@
-\hypertarget{game__reader_8h}{}\doxysection{game\+\_\+reader.\+h File Reference}
-\label{game__reader_8h}\index{game\_reader.h@{game\_reader.h}}
+\hypertarget{game__reader_8h}{}\doxysection{include/game\+\_\+reader.h File Reference}
+\label{game__reader_8h}\index{include/game\_reader.h@{include/game\_reader.h}}
 
 
 Archivo de cabecera de \mbox{\hyperlink{game__reader_8c}{game\+\_\+reader.\+c}} con las definiciones de funciones publicas.  
@@ -15,7 +15,9 @@ This graph shows which files directly or indirectly include this file\+:
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game__reader_8h_a07d0cc9ec5cae35a9ad5dd7882357234}{game\+\_\+reader\+\_\+load\+\_\+objects}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, char $\ast$filename)
 \begin{DoxyCompactList}\small\item\em Cargar objetos. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game__reader_8h_ab683c8c4451a43ca9639c813cadbdafc}{game\+\_\+reader\+\_\+load\+\_\+players}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, char $\ast$filename)
-\begin{DoxyCompactList}\small\item\em Cargar jugadores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Cargar jugadores. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game__reader_8h_aa47ab8dc1e29821281766ab359e8ac8b}{game\+\_\+reader\+\_\+load\+\_\+links}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Cargar links. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -36,6 +38,34 @@ G\+NU Public License
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game__reader_8h_aa47ab8dc1e29821281766ab359e8ac8b}\label{game__reader_8h_aa47ab8dc1e29821281766ab359e8ac8b}} 
+\index{game\_reader.h@{game\_reader.h}!game\_reader\_load\_links@{game\_reader\_load\_links}}
+\index{game\_reader\_load\_links@{game\_reader\_load\_links}!game\_reader.h@{game\_reader.h}}
+\doxysubsubsection{\texorpdfstring{game\_reader\_load\_links()}{game\_reader\_load\_links()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+reader\+\_\+load\+\_\+links (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Cargar links. 
+
+game\+\_\+reader\+\_\+load\+\_\+links carga los links del fichero leido segun la estructura determinada
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & un puntero de tipo Game que es una estructura definida en \char`\"{}game.\+h\char`\"{} \\
+\hline
+{\em filename} & del archivo de donde se van a obtener los valores.. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devuelve un tipo de dato S\+T\+A\+T\+US que es o bien E\+R\+R\+OR o bien OK segun si hay o no algun fallo en la ejecución. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{game__reader_8h_a07d0cc9ec5cae35a9ad5dd7882357234}\label{game__reader_8h_a07d0cc9ec5cae35a9ad5dd7882357234}} 
 \index{game\_reader.h@{game\_reader.h}!game\_reader\_load\_objects@{game\_reader\_load\_objects}}
 \index{game\_reader\_load\_objects@{game\_reader\_load\_objects}!game\_reader.h@{game\_reader.h}}
@@ -74,47 +104,7 @@ devuelve un tipo de dato S\+T\+A\+T\+US que es o bien E\+R\+R\+OR o bien OK segu
 
 Cargar jugadores. 
 
-Cargar links.
-
 game\+\_\+reader\+\_\+load\+\_\+players carga los jugadores del fichero leido según una estructura determinada.
-
-\begin{DoxyDate}{Date}
-18-\/02-\/2021 
-\end{DoxyDate}
-\begin{DoxyAuthor}{Author}
-Álvaro Rodríguez
-\end{DoxyAuthor}
-
-\begin{DoxyParams}{Parameters}
-{\em game} & un puntero de tipo Game que es una estructura definida en \char`\"{}game.\+h\char`\"{} \\
-\hline
-{\em filename} & del archivo de donde se van a obtener los valores.. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-devuelve un tipo de dato S\+T\+A\+T\+US que es o bien E\+R\+R\+OR o bien OK segun si hay o no algun fallo en la ejecución.
-\end{DoxyReturn}
-game\+\_\+reader\+\_\+load\+\_\+players carga los links del fichero leido segun la estructura determinada
-
-\begin{DoxyDate}{Date}
-18-\/02-\/2021 
-\end{DoxyDate}
-\begin{DoxyAuthor}{Author}
-Álvaro Rodríguez
-\end{DoxyAuthor}
-
-\begin{DoxyParams}{Parameters}
-{\em game} & un puntero de tipo Game que es una estructura definida en \char`\"{}game.\+h\char`\"{} \\
-\hline
-{\em filename} & del archivo de donde se van a obtener los valores.. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-devuelve un tipo de dato S\+T\+A\+T\+US que es o bien E\+R\+R\+OR o bien OK segun si hay o no algun fallo en la ejecución.
-\end{DoxyReturn}
-Cargar jugadores.
-
-game\+\_\+reader\+\_\+load\+\_\+players carga los links del fichero leido segun la estructura determinada
 
 \begin{DoxyDate}{Date}
 18-\/02-\/2021 

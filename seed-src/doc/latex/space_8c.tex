@@ -1,5 +1,5 @@
-\hypertarget{space_8c}{}\doxysection{space.\+c File Reference}
-\label{space_8c}\index{space.c@{space.c}}
+\hypertarget{space_8c}{}\doxysection{src/space.c File Reference}
+\label{space_8c}\index{src/space.c@{src/space.c}}
 
 
 Se encarga de los espacios del juego.  
@@ -27,13 +27,13 @@ struct \mbox{\hyperlink{struct__Space}{\+\_\+\+Space}}
 \begin{DoxyCompactList}\small\item\em destruye un espacio \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_aab5b468f9822ab78dbe16d1321870d93}{space\+\_\+set\+\_\+name}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, char $\ast$name)
 \begin{DoxyCompactList}\small\item\em da nombre a un espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a9e6e3e3bac4996ac6b8bd555e52bfb26}{space\+\_\+set\+\_\+north}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a7bb471624e34ada843337a3f7a9fc48d}{space\+\_\+set\+\_\+north}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada norte \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a422ab9f220b4c471c44256a27377de1a}{space\+\_\+set\+\_\+south}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_ad286442d3000046a0704d08c9bb018ce}{space\+\_\+set\+\_\+south}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada sur \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a860a8f3e0227955ad56d1a12f0bdc44a}{space\+\_\+set\+\_\+east}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a187b52d1c27494b6de5767ffc4a90a59}{space\+\_\+set\+\_\+east}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada este \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_ad44b14cb38902cf31fa1f341beaab0db}{space\+\_\+set\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a8a6ba364ae5ac698023c840cd794e7ea}{space\+\_\+set\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada oeste \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a2ce3d38954acd26a39b0f0ffa4900c35}{space\+\_\+set\+\_\+objects}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em establece el objeto a T\+R\+UE o F\+A\+L\+SE \end{DoxyCompactList}\item 
@@ -47,13 +47,13 @@ const char $\ast$ \mbox{\hyperlink{space_8c_a310c540cd6e11073f7328add1f927001}{s
 \begin{DoxyCompactList}\small\item\em obtiene el nombre del espacio \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_ac8ddfd0d8692fd852ee49698c446cb50}{space\+\_\+get\+\_\+id}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la id del espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_ad331fba774897900f615d9d2e8d81a90}{space\+\_\+get\+\_\+north}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{space_8c_adbc010984595d103f79919e7bd41edca}{space\+\_\+get\+\_\+north}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada norte del espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_a9b86e1335c423eaad832e50d4c12cf1f}{space\+\_\+get\+\_\+south}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{space_8c_ac14710031471b5c593f8f269478d2d73}{space\+\_\+get\+\_\+south}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada sur del espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_a978a22b77f74bb2dab68a00571abbe0b}{space\+\_\+get\+\_\+east}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a7ce7daa8152786d85cca4ab04d698f76}{space\+\_\+get\+\_\+east}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada este del espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_af495ebfd5d13eba1a48cebd10992a17f}{space\+\_\+get\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a3dfc6c3c3ff571a4fe168383bb8ef6e5}{space\+\_\+get\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada oeste del espacio \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} $\ast$ \mbox{\hyperlink{space_8c_a9cd5617c6cb1789172fdb315ab002f4b}{space\+\_\+get\+\_\+objects}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene los ids de los objetos en el set \end{DoxyCompactList}\item 
@@ -165,11 +165,11 @@ Gonzalo Martín
 \begin{DoxyReturn}{Returns}
 const char devuelve la descrpicion del objeto 
 \end{DoxyReturn}
-\mbox{\Hypertarget{space_8c_a978a22b77f74bb2dab68a00571abbe0b}\label{space_8c_a978a22b77f74bb2dab68a00571abbe0b}} 
+\mbox{\Hypertarget{space_8c_a7ce7daa8152786d85cca4ab04d698f76}\label{space_8c_a7ce7daa8152786d85cca4ab04d698f76}} 
 \index{space.c@{space.c}!space\_get\_east@{space\_get\_east}}
 \index{space\_get\_east@{space\_get\_east}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_east()}{space\_get\_east()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+east (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ space\+\_\+get\+\_\+east (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -189,7 +189,7 @@ Profesores P\+P\+R\+OG
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-space-\/$>$east la coordenada este del espacio 
+Link devuelve el link este 
 \end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_a38d56b778cc242a93d7bce591b99eaa4}\label{space_8c_a38d56b778cc242a93d7bce591b99eaa4}} 
 \index{space.c@{space.c}!space\_get\_gdesc@{space\_get\_gdesc}}
@@ -269,11 +269,11 @@ Profesores P\+P\+R\+OG
 \begin{DoxyReturn}{Returns}
 space-\/$>$name el nombre del espacio 
 \end{DoxyReturn}
-\mbox{\Hypertarget{space_8c_ad331fba774897900f615d9d2e8d81a90}\label{space_8c_ad331fba774897900f615d9d2e8d81a90}} 
+\mbox{\Hypertarget{space_8c_adbc010984595d103f79919e7bd41edca}\label{space_8c_adbc010984595d103f79919e7bd41edca}} 
 \index{space.c@{space.c}!space\_get\_north@{space\_get\_north}}
 \index{space\_get\_north@{space\_get\_north}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_north()}{space\_get\_north()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+north (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ space\+\_\+get\+\_\+north (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -293,7 +293,7 @@ Profesores P\+P\+R\+OG
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-space-\/$>$north la coordenada norte del espacio 
+Link devuelve el link norte 
 \end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_acf12bc50824f01881abb273c22154069}\label{space_8c_acf12bc50824f01881abb273c22154069}} 
 \index{space.c@{space.c}!space\_get\_number\_of\_objects@{space\_get\_number\_of\_objects}}
@@ -347,11 +347,11 @@ Profesores P\+P\+R\+OG
 \begin{DoxyReturn}{Returns}
 los ids de los objetos 
 \end{DoxyReturn}
-\mbox{\Hypertarget{space_8c_a9b86e1335c423eaad832e50d4c12cf1f}\label{space_8c_a9b86e1335c423eaad832e50d4c12cf1f}} 
+\mbox{\Hypertarget{space_8c_ac14710031471b5c593f8f269478d2d73}\label{space_8c_ac14710031471b5c593f8f269478d2d73}} 
 \index{space.c@{space.c}!space\_get\_south@{space\_get\_south}}
 \index{space\_get\_south@{space\_get\_south}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_south()}{space\_get\_south()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+south (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ space\+\_\+get\+\_\+south (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -371,13 +371,13 @@ Profesores P\+P\+R\+OG
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-space-\/$>$south la coordenada sur del espacio 
+Link devuelve el link sur 
 \end{DoxyReturn}
-\mbox{\Hypertarget{space_8c_af495ebfd5d13eba1a48cebd10992a17f}\label{space_8c_af495ebfd5d13eba1a48cebd10992a17f}} 
+\mbox{\Hypertarget{space_8c_a3dfc6c3c3ff571a4fe168383bb8ef6e5}\label{space_8c_a3dfc6c3c3ff571a4fe168383bb8ef6e5}} 
 \index{space.c@{space.c}!space\_get\_west@{space\_get\_west}}
 \index{space\_get\_west@{space\_get\_west}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_west()}{space\_get\_west()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} space\+\_\+get\+\_\+west (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ space\+\_\+get\+\_\+west (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -397,7 +397,7 @@ Profesores P\+P\+R\+OG
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-space-\/$>$west la coordenada oeste del espacio 
+Link devuelve el link oeste 
 \end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_ac1ae195c8a0db13eaf8e5b5302f6e387}\label{space_8c_ac1ae195c8a0db13eaf8e5b5302f6e387}} 
 \index{space.c@{space.c}!space\_has\_object\_id@{space\_has\_object\_id}}
@@ -505,11 +505,11 @@ Gonzalo Martin
 \begin{DoxyReturn}{Returns}
 OK o E\+R\+R\+OR segun si se ha cambiado la descripción o no. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{space_8c_a860a8f3e0227955ad56d1a12f0bdc44a}\label{space_8c_a860a8f3e0227955ad56d1a12f0bdc44a}} 
+\mbox{\Hypertarget{space_8c_a187b52d1c27494b6de5767ffc4a90a59}\label{space_8c_a187b52d1c27494b6de5767ffc4a90a59}} 
 \index{space.c@{space.c}!space\_set\_east@{space\_set\_east}}
 \index{space\_set\_east@{space\_set\_east}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_east()}{space\_set\_east()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+east (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+east (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -527,7 +527,7 @@ Profesores P\+P\+R\+OG
 \begin{DoxyParams}{Parameters}
 {\em space} & el espacio que se trabaja \\
 \hline
-{\em id} & marca una localización. \\
+{\em link} & marca el link este \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -589,11 +589,11 @@ Profesores P\+P\+R\+OG
 \begin{DoxyReturn}{Returns}
 OK para saber que se ha ejecutado la función correctamente 
 \end{DoxyReturn}
-\mbox{\Hypertarget{space_8c_a9e6e3e3bac4996ac6b8bd555e52bfb26}\label{space_8c_a9e6e3e3bac4996ac6b8bd555e52bfb26}} 
+\mbox{\Hypertarget{space_8c_a7bb471624e34ada843337a3f7a9fc48d}\label{space_8c_a7bb471624e34ada843337a3f7a9fc48d}} 
 \index{space.c@{space.c}!space\_set\_north@{space\_set\_north}}
 \index{space\_set\_north@{space\_set\_north}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_north()}{space\_set\_north()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+north (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+north (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -611,7 +611,7 @@ Profesores P\+P\+R\+OG
 \begin{DoxyParams}{Parameters}
 {\em space} & el espacio que se trabaja \\
 \hline
-{\em id} & marca una localización. \\
+{\em link} & marca el link norte \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -645,11 +645,11 @@ Profesores P\+P\+R\+OG
 \begin{DoxyReturn}{Returns}
 OK para saber que se ha ejecutado la función correctamente 
 \end{DoxyReturn}
-\mbox{\Hypertarget{space_8c_a422ab9f220b4c471c44256a27377de1a}\label{space_8c_a422ab9f220b4c471c44256a27377de1a}} 
+\mbox{\Hypertarget{space_8c_ad286442d3000046a0704d08c9bb018ce}\label{space_8c_ad286442d3000046a0704d08c9bb018ce}} 
 \index{space.c@{space.c}!space\_set\_south@{space\_set\_south}}
 \index{space\_set\_south@{space\_set\_south}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_south()}{space\_set\_south()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+south (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+south (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -667,17 +667,17 @@ Profesores P\+P\+R\+OG
 \begin{DoxyParams}{Parameters}
 {\em space} & el espacio que se trabaja \\
 \hline
-{\em id} & marca una localización. \\
+{\em link} & marca el link sur \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 OK para saber que se ha ejecutado la función correctamente 
 \end{DoxyReturn}
-\mbox{\Hypertarget{space_8c_ad44b14cb38902cf31fa1f341beaab0db}\label{space_8c_ad44b14cb38902cf31fa1f341beaab0db}} 
+\mbox{\Hypertarget{space_8c_a8a6ba364ae5ac698023c840cd794e7ea}\label{space_8c_a8a6ba364ae5ac698023c840cd794e7ea}} 
 \index{space.c@{space.c}!space\_set\_west@{space\_set\_west}}
 \index{space\_set\_west@{space\_set\_west}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_west()}{space\_set\_west()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+west (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+west (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -695,7 +695,7 @@ Profesores P\+P\+R\+OG
 \begin{DoxyParams}{Parameters}
 {\em space} & el espacio que se trabaja \\
 \hline
-{\em id} & marca una localización. \\
+{\em link} & marca el link oeste \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

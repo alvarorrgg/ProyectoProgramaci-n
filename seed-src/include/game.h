@@ -192,6 +192,19 @@ Id game_get_object_location(Game* game,Id id);
  */
 Command* game_get_command(Game* game);
 /**
+ * @brief Obtiene el total de objetos dentro del juego
+ *
+ * game_get_total_objects obtiene cuantos objetos hay en el juego
+ *
+ * @date  18-02-2021
+ * @author Álvaro Rodríguez 
+ *
+ * @param game el juego del que se va a sacar el numero de objetos
+ * @return el numero de objetos
+ */
+int game_get_total_objects(Game *game);
+
+/**
  * @brief devuelve un objeto dado su indice
  *
  * game_get_object devuelve un objeto dado su indice

@@ -15,7 +15,9 @@
 #include "command.h"
 #include "link.h"
 
-#define MAX_CHARS1 11 /*Numero maximo de caracteres que se pueden escribir en cada linea del espacio*/
+#define MAX_CHARS1 19 /*Numero maximo de caracteres que se pueden escribir en cada linea del espacio*/
+#define MAX_CHARS2 3 /*Numero maximo de caracteres que van a tener los links*/
+#define MAX_CHARS3 7 /*Numero maximo de caracteres que van a tener los links + las flechas*/
 
 struct _Graphic_engine
 {
@@ -65,16 +67,24 @@ void graphic_engine_destroy(Graphic_engine *ge)
 void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 {
   int i=0;
+  int sum=0;
+  int num_objects=0;
   Id id_act = NO_ID, id_back = NO_ID, id_next = NO_ID, obj_loc = NO_ID;
   Id* id_objetos;
   Space *space_act = NULL, *space_back = NULL, *space_next = NULL;
   char **gdesc;
-  char obj[MAX_CHARS1],obj1[MAX_CHARS1],obj2[MAX_CHARS1],obj3[MAX_CHARS1];/*Nombre de cada objeto*/
+  char obj[MAX_OBJECTS][MAX_CHARS1];
   char str[MAX_CHARS];
   char espacios_back[MAX_CHARS1],espacios_act[MAX_CHARS1],espacios_next[MAX_CHARS1];/*Servira para llevar recuento de los objetos en un espacio*/
   T_Command last_cmd = UNKNOWN;
+  Link *link1=NULL;
+  Link *link2=NULL;
+  char id1[MAX_CHARS2],id2[MAX_CHARS2],id_to1[MAX_CHARS3],id_to2[MAX_CHARS3];
   extern char *cmd_to_str[N_CMD][N_CMDT]; /*Variable traida del modulo command para el tratado de comandos*/
   memset(espacios_back,0,MAX_CHARS1);
+  memset(espacios_act,0,MAX_CHARS1);
+  memset(espacios_next,0,MAX_CHARS1);
+  num_objects=game_get_total_objects(game);
   /* Pintar en el área del mapa */
   screen_area_clear(ge->map);
   if ((id_act = game_get_player_location(game)) != NO_ID)
@@ -84,169 +94,207 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     space_back = game_get_space(game, id_back);
     id_next = link_get_to(space_get_south(space_act));
     space_next = game_get_space(game, id_next);
-/*Obtenemos el nombre de cada objeto o "" si no hay ningun objeto*/
-    if (space_has_object_id(space_back,1)) strcpy(obj,object_get_name(game_get_object(game, 0)));
-    else strcpy(obj,"");
-    if (space_has_object_id(space_back,2)) strcpy(obj1,object_get_name(game_get_object(game, 1)));
-    else strcpy(obj1,"");
-    if (space_has_object_id(space_back,3))strcpy(obj2,object_get_name(game_get_object(game, 2)));
-    else strcpy(obj2,"");
-    if (space_has_object_id(space_back,4))strcpy(obj3,object_get_name(game_get_object(game, 3)));
-    else strcpy(obj3,"");
- /*Vemos si la suma de todos los objetos es mayor que la cantidad de espacio que tenemos en caso afirmativo se escribe un objeto y ...*/
-    if(strlen(obj1)+strlen(obj2)+strlen(obj)+strlen(obj3)+strlen("    ")>MAX_CHARS1){
-      strcpy(espacios_back, obj);
-      if(strlen(espacios_back)==0){
-        strcpy(espacios_back, obj1);
-        if(strlen(espacios_back)==0){
-          strcpy(espacios_back, obj2);
-          if(strlen(espacios_back)==0){
-            strcpy(espacios_back, obj3);
-          }
-        }
+    for(i=0;i<num_objects+1;i++){
+        if (space_has_object_id(space_back,i)) strcpy(obj[i],object_get_name(game_get_object(game, i-1)));
+        else strcpy(obj[i],"");
+  }
+   for(i=0;i<num_objects+1;i++){
+      sum=sum+strlen(obj[i]);
+      if(strlen(obj[i])!=0) sum=sum+1;
+    }
+    if(sum>MAX_CHARS1){
+      for(i=0;i<num_objects+1;i++){
+        strcpy(espacios_back, obj[i]);
+        if(strlen(espacios_back)!=0) break;
       }
+    
       strcat(espacios_back, "...");
       while (strlen(espacios_back)<MAX_CHARS1) strcat(espacios_back, " ");
        
     }
-    else{ /*En caso negativo se pueden escribir todos los objetos sin ningun problema*/
-      strcat(espacios_back, obj);
-      strcat(espacios_back, " ");
-      strcat(espacios_back, obj1);
-      strcat(espacios_back, " ");
-      strcat(espacios_back, obj2);
-      strcat(espacios_back, " ");
-      strcat(espacios_back, obj3);
+    else{ 
+    for(i=0;i<num_objects+1;i++){
+        strcat(espacios_back, obj[i]);
+        if(strlen(obj[i])!=0) strcat(espacios_back, " ");
+      }
     }
      while (strlen(espacios_back)<MAX_CHARS1) strcat(espacios_back, " ");
     if (id_back != NO_ID)
     {
       gdesc = space_get_gdesc(space_back);
-      sprintf(str, "  |       C:%2d|", (int)id_back);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[0]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[1]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[2]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  |%s|",espacios_back);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  +-----------+");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "        ^");
-      screen_area_puts(ge->map, str);
-    }
-/*Obtenemos el nombre de cada objeto o "" si no hay ningun objeto*/
-     if (space_has_object_id(space_act,1))strcpy(obj,object_get_name(game_get_object(game, 0)));
-    else strcpy(obj,"");
-    if (space_has_object_id(space_act,2))strcpy(obj1,object_get_name(game_get_object(game, 1)));
-    else strcpy(obj1,"");
-    if (space_has_object_id(space_act,3))strcpy(obj2,object_get_name(game_get_object(game, 2)));
-    else strcpy(obj2,"");
-    if (space_has_object_id(space_act,4))strcpy(obj3,object_get_name(game_get_object(game, 3)));
-    else strcpy(obj3,"");
-/*Vemos si la suma de todos los objetos es mayor que la cantidad de espacio que tenemos en caso afirmativo se escribe un objeto y ...*/
- if(strlen(obj1)+strlen(obj2)+strlen(obj)+strlen(obj3)+strlen("    ")>MAX_CHARS1){
-      strcpy(espacios_act, obj);
-      if(strlen(espacios_act)==0){
-        strcpy(espacios_act, obj1);
-        if(strlen(espacios_act)==0){
-          strcpy(espacios_act, obj2);
-          if(strlen(espacios_act)==0){
-            strcpy(espacios_act, obj3);
-          }
-        }
+      link1=space_get_west(space_back);
+      sprintf(id_to1," %ld",link_get_to(link1));
+      if(strcmp(id_to1," -1")==0)strcpy(id_to1,"      ");
+      else strcat(id_to1," <--");
+      sprintf(id1,"%ld",link_get_id(link1));
+      if(strcmp(id1,"-1")==0)strcpy(id1,"  ");
+
+      link2=space_get_east(space_back);
+
+      sprintf(id_to2,"%ld",link_get_to(link2));
+      if(strcmp(id_to2,"-1")==0) strcpy(id_to2,"      ");
+      
+      else {
+        sprintf(id_to1,"%ld",link_get_to(link2));
+        strcpy(id_to2,"--> ");
+        strcat(id_to2,id_to1);
+        strcpy(id_to1,"      ");
       }
-      strcat(espacios_act, "...");
-      while (strlen(espacios_act)<MAX_CHARS1)strcat(espacios_act, " ");
-         
+      sprintf(id2,"%ld",link_get_id(link2));
+      if(strcmp(id2,"-1")==0)strcpy(id2,"  ");
+
+      sprintf(str, "      %s|                 %2d|%s",id1,(int)id_back,id2);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "  %s|    %s        |%s",id_to1, gdesc[0],id_to2);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        |    %s        |", gdesc[1]);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        |    %s        |", gdesc[2]);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        |%s|",espacios_back);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        +-------------------+");
+      screen_area_puts(ge->map, str);
+      link2=space_get_north(space_act);
+      sprintf(id2,"%ld",link_get_id(link2));
+      sprintf(str, "                 ^%s",id2);
+      screen_area_puts(ge->map, str);
     }
-    else{/*En caso negativo se pueden escribir todos los objetos sin ningun problema*/
-      strcat(espacios_act, obj);
-      strcat(espacios_act, " ");
-      strcat(espacios_act, obj1);
-      strcat(espacios_act, " ");
-      strcat(espacios_act, obj2);
-      strcat(espacios_act, " ");
-      strcat(espacios_act, obj3);
+    sum=0;
+     for(i=0;i<num_objects+1;i++){
+        if (space_has_object_id(space_act,i)) strcpy(obj[i],object_get_name(game_get_object(game, i-1)));
+        else strcpy(obj[i],"");
+  }
+   for(i=0;i<num_objects+1;i++){
+      sum=sum+strlen(obj[i]);
+      if(strlen(obj[i])!=0) sum=sum+1;
+    }
+    if(sum>MAX_CHARS1){
+      for(i=0;i<num_objects+1;i++){
+        strcpy(espacios_act, obj[i]);
+        if(strlen(espacios_act)!=0) break;
+      }
+    
+      strcat(espacios_act, "...");
+      while (strlen(espacios_act)<MAX_CHARS1) strcat(espacios_act, " ");
+       
+    }
+    else{ 
+    for(i=0;i<num_objects+1;i++){
+        strcat(espacios_act, obj[i]);
+        if(strlen(obj[i])!=0) strcat(espacios_act, " ");
+      }
     }
      while (strlen(espacios_act)<MAX_CHARS1) strcat(espacios_act, " ");
       
     if (id_act != NO_ID)
     {
       gdesc = space_get_gdesc(space_act);
-      sprintf(str, "  +-----------+");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  | ^_^   C:%2d|", (int)id_act);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[0]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[1]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[2]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  |%s|",espacios_act);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "  +-----------+");
-      screen_area_puts(ge->map, str);
-    }
-/*Obtenemos el nombre de cada objeto o "" si no hay ningun objeto*/
-     if (space_has_object_id(space_next,1))strcpy(obj,object_get_name(game_get_object(game, 0)));
-    else strcpy(obj,"");
-    if (space_has_object_id(space_next,2))strcpy(obj1,object_get_name(game_get_object(game, 1)));
-    else strcpy(obj1,"");
-    if (space_has_object_id(space_next,3))strcpy(obj2,object_get_name(game_get_object(game, 2)));
-    else strcpy(obj2,"");
-    if (space_has_object_id(space_next,4))strcpy(obj3,object_get_name(game_get_object(game, 3)));
-    else strcpy(obj3,"");
-/*Vemos si la suma de todos los objetos es mayor que la cantidad de espacio que tenemos en caso afirmativo se escribe un objeto y ...*/
- if(strlen(obj1)+strlen(obj2)+strlen(obj)+strlen(obj3)+strlen("    ")>MAX_CHARS1){
-      strcpy(espacios_next, obj);
-      if(strlen(espacios_next)==0){
-        strcpy(espacios_next, obj1);
-        if(strlen(espacios_next)==0){
-          strcpy(espacios_next, obj2);
-          if(strlen(espacios_next)==0){
-            strcpy(espacios_next, obj3);
-          }
-        }
-      }
-      strcat(espacios_next, "...");
-      while (strlen(espacios_next)<MAX_CHARS1-1) strcat(espacios_next, " ");
-      
-    }
-    else{/*En caso negativo se pueden escribir todos los objetos sin ningun problema*/
-      strcat(espacios_next, obj);
-      strcat(espacios_next, " ");
-      strcat(espacios_next, obj1);
-      strcat(espacios_next, " ");
-      strcat(espacios_next, obj2);
-      strcat(espacios_next, " ");
-      strcat(espacios_next, obj3);
-    }
+      link1=space_get_west(space_act);
+      sprintf(id_to1," %ld",link_get_to(link1));
+      if(strcmp(id_to1," -1")==0)strcpy(id_to1,"      ");
+      else strcat(id_to1," <--");
+      sprintf(id1,"%ld",link_get_id(link1));
+      if(strcmp(id1,"-1")==0)strcpy(id1,"  ");
 
-     while (strlen(espacios_next)<MAX_CHARS1-1)
-      {
-        strcat(espacios_next, " ");
-      }  
+      link2=space_get_east(space_act);
+
+      sprintf(id_to2,"%ld",link_get_to(link2));
+      if(strcmp(id_to2,"-1")==0) strcpy(id_to2,"      ");
+      
+      else {
+        sprintf(id_to1,"%ld",link_get_to(link2));
+        strcpy(id_to2,"--> ");
+        strcat(id_to2,id_to1);
+        strcpy(id_to1,"      ");
+      }
+      sprintf(id2,"%ld",link_get_id(link2));
+      if(strcmp(id2,"-1")==0)strcpy(id2,"  ");
+      sprintf(str, "      %s+-------------------+%s",id1,id2);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "  %s|                 %2d|%s",id_to1,(int)id_act,id_to2);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        |    %s        |", gdesc[0]);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        |    %s        |", gdesc[1]);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        |    %s        |", gdesc[2]);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        |%s|",espacios_act);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "        +-------------------+");
+      screen_area_puts(ge->map, str);
+
+    }
+    sum=0;
+     for(i=0;i<num_objects+1;i++){
+        if (space_has_object_id(space_next,i)) strcpy(obj[i],object_get_name(game_get_object(game, i-1)));
+        else strcpy(obj[i],"");
+  }
+   for(i=0;i<num_objects+1;i++){
+      sum=sum+strlen(obj[i]);
+      if(strlen(obj[i])!=0) sum=sum+1;
+    }
+    if(sum>MAX_CHARS1){
+      for(i=0;i<num_objects+1;i++){
+        strcpy(espacios_next, obj[i]);
+        if(strlen(espacios_next)!=0) break;
+      }
+    
+      strcat(espacios_next, "...");
+      while (strlen(espacios_next)<MAX_CHARS1) strcat(espacios_next, " ");
+       
+    }
+    else{ 
+    for(i=0;i<num_objects+1;i++){
+        strcat(espacios_next, obj[i]);
+        if(strlen(obj[i])!=0) strcat(espacios_next, " ");
+      }
+    }
+     while (strlen(espacios_next)<MAX_CHARS1) strcat(espacios_next, " ");
     if (id_next != NO_ID)
     {
       gdesc = space_get_gdesc(space_next);
-      sprintf(str, "        v");
+      link1=space_get_west(space_next);
+      sprintf(id_to1," %ld",link_get_to(link1));
+      if(strcmp(id_to1," -1")==0)strcpy(id_to1,"      ");
+      else strcat(id_to1," <--");
+      sprintf(id1,"%ld",link_get_id(link1));
+      if(strcmp(id1,"-1")==0)strcpy(id1,"  ");
+
+      link2=space_get_east(space_next);
+
+      sprintf(id_to2,"%ld",link_get_to(link2));
+      if(strcmp(id_to2,"-1")==0) strcpy(id_to2,"      ");
+      
+      else {
+        sprintf(id_to1,"%ld",link_get_to(link2));
+        strcpy(id_to2,"--> ");
+        strcat(id_to2,id_to1);
+        strcpy(id_to1,"      ");
+      }
+      link2=space_get_south(space_act);
+      sprintf(id2,"%ld",link_get_id(link2));
+
+      sprintf(str, "                 v %s",id2);
       screen_area_puts(ge->map, str);
-      sprintf(str, "  +-----------+");
+
+      link2=space_get_east(space_next);
+      sprintf(id2,"%ld",link_get_id(link2));
+      if(strcmp(id2,"-1")==0)strcpy(id2,"  ");
+      sprintf(str, "      %s+-------------------+%s",id1,id2);
       screen_area_puts(ge->map, str);
-      sprintf(str, "  |       C:%2d|", (int)id_next);
+      sprintf(str, "  %s|                 %2d|%s",id_to1,(int)id_next,id_to2);
       screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[0]);
+      sprintf(str, "        |    %s        |", gdesc[0]);
       screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[1]);
+      sprintf(str, "        |    %s        |", gdesc[1]);
       screen_area_puts(ge->map, str);
-      sprintf(str, "  |  %s  |", gdesc[2]);
+      sprintf(str, "        |    %s        |", gdesc[2]);
       screen_area_puts(ge->map, str);
-      sprintf(str, "  |%s |",espacios_next);
+      sprintf(str, "        |%s|",espacios_next);
       screen_area_puts(ge->map, str);
+
 
     }
   }
@@ -255,26 +303,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   screen_area_clear(ge->descript);
   sprintf(str, "  Object locations: ");
 /*Comprobamos que el objeto no esta en el player y en caso de no estarlo mostramos donde se encuentra*/
-  if ((obj_loc = game_get_object_location(game, 1)) != NO_ID)
+for(i=0;i<MAX_OBJECTS-1;i++){
+  if ((obj_loc = game_get_object_location(game, i)) != NO_ID)
   {
-    sprintf(str, "  %s: %d", object_get_name(game_get_object(game, 0)),(int)obj_loc);
+    sprintf(str, "  %s: %d", object_get_name(game_get_object(game, i-1)),(int)obj_loc);
     screen_area_puts(ge->descript, str);
   }
-if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
-  {
-    sprintf(str, "  %s: %d", object_get_name(game_get_object(game, 1)),(int)obj_loc);
-    screen_area_puts(ge->descript, str);
-  }
-  if ((obj_loc = game_get_object_location(game, 3)) != NO_ID)
-  {
-    sprintf(str, "  %s: %d", object_get_name(game_get_object(game, 2)),(int)obj_loc);
-    screen_area_puts(ge->descript, str);
-  }
-  if ((obj_loc = game_get_object_location(game, 4)) != NO_ID)
-  {
-    sprintf(str, "  %s: %d", object_get_name(game_get_object(game, 3)),(int)obj_loc);
-    screen_area_puts(ge->descript, str);
-  }
+}
   sprintf(str, " ");
     screen_area_puts(ge->descript, str);
     sprintf(str, " ");
@@ -302,18 +337,6 @@ if ((obj_loc = game_get_object_location(game, 2)) != NO_ID)
      }
     }
 
-    /*if (game_get_last_descripcion (game) == NULL ){
-      sprintf(str, " ");
-      screen_area_puts(ge->descript, str);
-      sprintf(str,"No has pedido aun ninguna descripcion");
-      screen_area_puts(ge->descript, str);
-    }
-    else{
-      sprintf(str, " ");
-      screen_area_puts(ge->descript, str);
-      sprintf(str,"%s" ,game_get_last_descripcion(game));
-      screen_area_puts(ge->descript, str);
-    }*/
 if(strlen(game_get_last_descripcion(game))!=0){
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);
@@ -329,7 +352,7 @@ if(strlen(game_get_last_descripcion(game))!=0){
   screen_area_clear(ge->help);
   sprintf(str, " The commands you can use are:");
   screen_area_puts(ge->help, str);
-  sprintf(str, "next or n, back or b, exit or e, take or t, drop or d,roll or rl,left or l,right or r,move or m"); /*Se escriben los comandos posibles*/
+  sprintf(str, "next or n, back or b, exit or e, take or t, drop or d,roll or rl,left or l,right or r,move or m, inspect or i"); /*Se escriben los comandos posibles*/
   screen_area_puts(ge->help, str);
 
   /* Pinta en el área de comentarios */

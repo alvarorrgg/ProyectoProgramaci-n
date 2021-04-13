@@ -1,5 +1,5 @@
-\hypertarget{graphic__engine_8c}{}\doxysection{graphic\+\_\+engine.\+c File Reference}
-\label{graphic__engine_8c}\index{graphic\_engine.c@{graphic\_engine.c}}
+\hypertarget{graphic__engine_8c}{}\doxysection{src/graphic\+\_\+engine.c File Reference}
+\label{graphic__engine_8c}\index{src/graphic\_engine.c@{src/graphic\_engine.c}}
 
 
 Define un motor gráfico textual.  
@@ -11,6 +11,7 @@ Define un motor gráfico textual.
 {\ttfamily \#include \char`\"{}screen.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}graphic\+\_\+engine.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}command.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}link.\+h\char`\"{}}\newline
 Include dependency graph for graphic\+\_\+engine.\+c\+:
 % FIG 0
 \doxysubsection*{Data Structures}
@@ -22,7 +23,13 @@ struct \mbox{\hyperlink{struct__Graphic__engine}{\+\_\+\+Graphic\+\_\+engine}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{graphic__engine_8c_a07fb6e10c0b882a179c211d92e910de9}\label{graphic__engine_8c_a07fb6e10c0b882a179c211d92e910de9}} 
-\#define {\bfseries M\+A\+X\+\_\+\+C\+H\+A\+R\+S1}~11 /$\ast$Numero maximo de caracteres que se pueden escribir en cada linea del espacio$\ast$/
+\#define {\bfseries M\+A\+X\+\_\+\+C\+H\+A\+R\+S1}~19 /$\ast$Numero maximo de caracteres que se pueden escribir en cada linea del espacio$\ast$/
+\item 
+\mbox{\Hypertarget{graphic__engine_8c_a2ac9d8bb509f36b093bde83d210e8f15}\label{graphic__engine_8c_a2ac9d8bb509f36b093bde83d210e8f15}} 
+\#define {\bfseries M\+A\+X\+\_\+\+C\+H\+A\+R\+S2}~3 /$\ast$Numero maximo de caracteres que van a tener los links$\ast$/
+\item 
+\mbox{\Hypertarget{graphic__engine_8c_a5706355ec2aeafbd96b95e2981dc7496}\label{graphic__engine_8c_a5706355ec2aeafbd96b95e2981dc7496}} 
+\#define {\bfseries M\+A\+X\+\_\+\+C\+H\+A\+R\+S3}~7 /$\ast$Numero maximo de caracteres que van a tener los links + las flechas$\ast$/
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}

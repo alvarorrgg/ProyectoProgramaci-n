@@ -1,5 +1,5 @@
-\hypertarget{game_8c}{}\doxysection{game.\+c File Reference}
-\label{game_8c}\index{game.c@{game.c}}
+\hypertarget{game_8c}{}\doxysection{src/game.c File Reference}
+\label{game_8c}\index{src/game.c@{src/game.c}}
 
 
 Implementa la interfaz del juego y todas las devoluciones de llamada asociadas para cada comando.  
@@ -88,6 +88,8 @@ void \mbox{\hyperlink{game_8c_aa4e4f958e69b85fc4ddbb1c44a0bfce7}{game\+\_\+callb
 \begin{DoxyCompactList}\small\item\em Determina la posición del jugador. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$ \mbox{\hyperlink{game_8c_a10298c790c9a9ca50b7090ef7e2029b7}{game\+\_\+get\+\_\+object}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, int index)
 \begin{DoxyCompactList}\small\item\em devuelve un objeto dado su indice \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_a7b7096dba6df39271160bdf387d9049f}{game\+\_\+get\+\_\+total\+\_\+objects}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Obtiene el total de objetos dentro del juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8c_a9b42bd6550bb1f3ce80e71eabdb6936c}{game\+\_\+set\+\_\+object\+\_\+location}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} pos\+\_\+obj)
 \begin{DoxyCompactList}\small\item\em Establece la posición del objeto. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{game_8c_aa84eca5a1131daafd7acbf74263b6f82}{game\+\_\+get\+\_\+object\+\_\+location}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
@@ -845,6 +847,32 @@ Profesores P\+Prog
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 la función space\+\_\+get\+\_\+id con la posición position del juego 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_a7b7096dba6df39271160bdf387d9049f}\label{game_8c_a7b7096dba6df39271160bdf387d9049f}} 
+\index{game.c@{game.c}!game\_get\_total\_objects@{game\_get\_total\_objects}}
+\index{game\_get\_total\_objects@{game\_get\_total\_objects}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_get\_total\_objects()}{game\_get\_total\_objects()}}
+{\footnotesize\ttfamily int game\+\_\+get\+\_\+total\+\_\+objects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Obtiene el total de objetos dentro del juego. 
+
+game\+\_\+get\+\_\+total\+\_\+objects obtiene cuantos objetos hay en el juego
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a sacar el numero de objetos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el numero de objetos 
 \end{DoxyReturn}
 \mbox{\Hypertarget{game_8c_a830f6d56febb15af02c31d17ea19ebfc}\label{game_8c_a830f6d56febb15af02c31d17ea19ebfc}} 
 \index{game.c@{game.c}!game\_id\_object\_exists@{game\_id\_object\_exists}}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: graphic_engine.c File Reference</title>
+<title>My Project: src/graphic_engine.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,6 +59,10 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -78,10 +82,11 @@ $(function() {
 <code>#include &quot;<a class="el" href="screen_8h_source.html">screen.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="graphic__engine_8h_source.html">graphic_engine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="command_8h_source.html">command.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="link_8h_source.html">link.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for graphic_engine.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="graphic__engine_8c__incl.png" border="0" usemap="#graphic__engine_8c" alt=""/></div>
+<div class="center"><img src="graphic__engine_8c__incl.png" border="0" usemap="#src_2graphic__engine_8c" alt=""/></div>
 <!-- MAP 0 -->
 </div>
 </div><table class="memberdecls">
@@ -93,8 +98,14 @@ Data Structures</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a07fb6e10c0b882a179c211d92e910de9"><td class="memItemLeft" align="right" valign="top"><a id="a07fb6e10c0b882a179c211d92e910de9"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_CHARS1</b>&#160;&#160;&#160;11 /*Numero maximo de caracteres que se pueden escribir en cada linea del espacio*/</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_CHARS1</b>&#160;&#160;&#160;19 /*Numero maximo de caracteres que se pueden escribir en cada linea del espacio*/</td></tr>
 <tr class="separator:a07fb6e10c0b882a179c211d92e910de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ac9d8bb509f36b093bde83d210e8f15"><td class="memItemLeft" align="right" valign="top"><a id="a2ac9d8bb509f36b093bde83d210e8f15"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_CHARS2</b>&#160;&#160;&#160;3 /*Numero maximo de caracteres que van a tener los links*/</td></tr>
+<tr class="separator:a2ac9d8bb509f36b093bde83d210e8f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5706355ec2aeafbd96b95e2981dc7496"><td class="memItemLeft" align="right" valign="top"><a id="a5706355ec2aeafbd96b95e2981dc7496"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_CHARS3</b>&#160;&#160;&#160;7 /*Numero maximo de caracteres que van a tener los links + las flechas*/</td></tr>
+<tr class="separator:a5706355ec2aeafbd96b95e2981dc7496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>

@@ -1,11 +1,11 @@
-digraph "graphic_engine.h"
+digraph "include/graphic_engine.h"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="graphic_engine.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Define un motor gráfico textual."];
+  Node1 [label="include/graphic_engine.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Define un motor gráfico textual."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="game_loop.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game__loop_8c.html",tooltip="Define el ciclo del juego."];
+  Node2 [label="src/game_loop.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game__loop_8c.html",tooltip="Define el ciclo del juego."];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="graphic_engine.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$graphic__engine_8c.html",tooltip="Define un motor gráfico textual."];
+  Node3 [label="src/graphic_engine.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$graphic__engine_8c.html",tooltip="Define un motor gráfico textual."];
 }

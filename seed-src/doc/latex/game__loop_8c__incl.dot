@@ -1,9 +1,9 @@
-digraph "game_loop.c"
+digraph "src/game_loop.c"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="game_loop.c",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Define el ciclo del juego."];
+  Node1 [label="src/game_loop.c",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Define el ciclo del juego."];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
   Node2 [label="stdio.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
@@ -30,15 +30,16 @@ digraph "game_loop.c"
   Node6 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
   Node12 [label="space.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$space_8h.html",tooltip="Define un espacio."];
   Node12 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
-  Node6 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
-  Node13 [label="die.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$die_8h.html",tooltip="Archivo cabecera del modulo die.h en el que se definen las funciones de die.c."];
+  Node12 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="link.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$link_8h.html",tooltip="Define los enlaces entre espacios."];
   Node13 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
-  Node13 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
-  Node14 [label="time.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="die.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$die_8h.html",tooltip="Archivo cabecera del modulo die.h en el que se definen las funciones de die.c."];
+  Node14 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="time.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node6 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
-  Node6 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
-  Node15 [label="link.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$link_8h.html",tooltip="Define los enlaces entre espacios."];
-  Node15 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
   Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
   Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
 }

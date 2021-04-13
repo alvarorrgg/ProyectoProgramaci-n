@@ -137,7 +137,7 @@ player_test.o: player_test.c player_test.h player.h test.h inventory.h set.h
 	$(CC) -c $(FLAGS) $<
 
 docs:
-	# @doxygen ./Doxyfile
+	@doxygen ./Doxyfile
 
 .PHONY: clean 
 clean: 

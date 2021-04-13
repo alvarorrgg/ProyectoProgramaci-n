@@ -13,7 +13,6 @@
 #include <stdlib.h>
 #include "command.h"
 
-
 #define CMD_LENGHT 30
 /* @brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
 char *cmd_to_str[N_CMD][N_CMDT] = {

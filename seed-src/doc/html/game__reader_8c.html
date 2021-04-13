@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: game_reader.c File Reference</title>
+<title>My Project: src/game_reader.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,6 +59,10 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -80,7 +84,7 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for game_reader.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="game__reader_8c__incl.png" border="0" usemap="#game__reader_8c" alt=""/></div>
+<div class="center"><img src="game__reader_8c__incl.png" border="0" usemap="#src_2game__reader_8c" alt=""/></div>
 <!-- MAP 0 -->
 </div>
 </div><table class="memberdecls">
@@ -93,10 +97,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a07d0cc9ec5cae35a9ad5dd7882357234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cargar objetos.  <a href="game__reader_8c.html#a07d0cc9ec5cae35a9ad5dd7882357234">More...</a><br /></td></tr>
 <tr class="separator:a07d0cc9ec5cae35a9ad5dd7882357234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab683c8c4451a43ca9639c813cadbdafc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a32c27cc471df37f4fc818d65de0a56c4">STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__reader_8c.html#ab683c8c4451a43ca9639c813cadbdafc">game_reader_load_players</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, char *filename)</td></tr>
-<tr class="memdesc:ab683c8c4451a43ca9639c813cadbdafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cargar links.  <a href="game__reader_8c.html#ab683c8c4451a43ca9639c813cadbdafc">More...</a><br /></td></tr>
+<tr class="memdesc:ab683c8c4451a43ca9639c813cadbdafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cargar jugadores.  <a href="game__reader_8c.html#ab683c8c4451a43ca9639c813cadbdafc">More...</a><br /></td></tr>
 <tr class="separator:ab683c8c4451a43ca9639c813cadbdafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa47ab8dc1e29821281766ab359e8ac8b"><td class="memItemLeft" align="right" valign="top"><a id="aa47ab8dc1e29821281766ab359e8ac8b"></a>
-<a class="el" href="types_8h.html#a32c27cc471df37f4fc818d65de0a56c4">STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><b>game_reader_load_links</b> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, char *filename)</td></tr>
+<tr class="memitem:aa47ab8dc1e29821281766ab359e8ac8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a32c27cc471df37f4fc818d65de0a56c4">STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game__reader_8c.html#aa47ab8dc1e29821281766ab359e8ac8b">game_reader_load_links</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, char *filename)</td></tr>
+<tr class="memdesc:aa47ab8dc1e29821281766ab359e8ac8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cargar links.  <a href="game__reader_8c.html#aa47ab8dc1e29821281766ab359e8ac8b">More...</a><br /></td></tr>
 <tr class="separator:aa47ab8dc1e29821281766ab359e8ac8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -107,6 +111,47 @@ Functions</h2></td></tr>
  </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aa47ab8dc1e29821281766ab359e8ac8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa47ab8dc1e29821281766ab359e8ac8b">&#9670;&nbsp;</a></span>game_reader_load_links()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="types_8h.html#a32c27cc471df37f4fc818d65de0a56c4">STATUS</a> game_reader_load_links </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cargar links. </p>
+<p>game_reader_load_links carga los links del fichero leido segun la estructura determinada</p>
+<dl class="section date"><dt>Date</dt><dd>18-02-2021 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Álvaro Rodríguez</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>un puntero de tipo Game que es una estructura definida en "game.h" </td></tr>
+    <tr><td class="paramname">filename</td><td>del archivo de donde se van a obtener los valores.. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. </dd></dl>
+
+</div>
+</div>
 <a id="a07d0cc9ec5cae35a9ad5dd7882357234"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07d0cc9ec5cae35a9ad5dd7882357234">&#9670;&nbsp;</a></span>game_reader_load_objects()</h2>
 
@@ -174,9 +219,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Cargar links. </p>
-<p>Cargar jugadores.</p>
-<p>game_reader_load_players carga los links del fichero leido segun la estructura determinada</p>
+<p>Cargar jugadores. </p>
+<p>game_reader_load_players carga los jugadores del fichero leido según una estructura determinada.</p>
 <dl class="section date"><dt>Date</dt><dd>18-02-2021 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Álvaro Rodríguez</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>

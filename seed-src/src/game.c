@@ -390,6 +390,16 @@ Object *game_get_object(Game *game, int index){
     }
     return game->objects[index];
 }
+int game_get_total_objects(Game *game){
+  int i = 0;
+  if (game == NULL)
+    return -1;
+
+  while ((i < MAX_OBJECTS) && (game->objects[i] != NULL))
+    i++;
+
+  return i;
+}
 STATUS game_set_object_location(Game *game, Id id, Id pos_obj)
 { /*Explicación código: Primero verifica que el id dado es valido y mediante un bucle while recorre los espacios del juego hasta encontrar el que coincide con el id dado, una vez se encuentra, se devuelve la funcion space_set_object con la que se coloca el objeto en la posición correcta.*/
   int k = 0;

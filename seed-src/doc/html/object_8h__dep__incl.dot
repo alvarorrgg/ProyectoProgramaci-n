@@ -1,27 +1,27 @@
-digraph "object.h"
+digraph "include/object.h"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="object.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Archivo cabecera del modulo object.h, en el se define la estructura de datos Object y sus funciones."];
+  Node1 [label="include/object.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Archivo cabecera del modulo object.h, en el se define la estructura de datos Object y sus funciones."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="game.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game_8h.html",tooltip="Archivo cabecera de game.c contiene la estructura de datos game en la que se almacenan algunas caract..."];
+  Node2 [label="include/game.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game_8h.html",tooltip="Archivo cabecera de game.c contiene la estructura de datos game en la que se almacenan algunas caract..."];
   Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="game.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game_8c.html",tooltip="Implementa la interfaz del juego y todas las devoluciones de llamada asociadas para cada comando."];
+  Node3 [label="include/graphic_engine.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$graphic__engine_8h.html",tooltip="Define un motor gráfico textual."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="src/game_loop.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game__loop_8c.html",tooltip="Define el ciclo del juego."];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="src/graphic_engine.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$graphic__engine_8c.html",tooltip="Define un motor gráfico textual."];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="src/game.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game_8c.html",tooltip="Implementa la interfaz del juego y todas las devoluciones de llamada asociadas para cada comando."];
   Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="graphic_engine.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$graphic__engine_8h.html",tooltip="Define un motor gráfico textual."];
-  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="game_loop.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game__loop_8c.html",tooltip="Define el ciclo del juego."];
-  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="graphic_engine.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$graphic__engine_8c.html",tooltip="Define un motor gráfico textual."];
-  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="game_reader.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game__reader_8c.html",tooltip="Implementa el inicio de juego y obtiene los valores iniciales de data.dat."];
+  Node7 [label="src/game_reader.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$game__reader_8c.html",tooltip="Implementa el inicio de juego y obtiene los valores iniciales de data.dat."];
   Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="object.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$object_8c.html",tooltip="Implementa la estructura de datos abstractos Object, y las funciones que estan relacionadas con esta."];
+  Node8 [label="src/object.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$object_8c.html",tooltip="Implementa la estructura de datos abstractos Object, y las funciones que estan relacionadas con esta."];
   Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 [label="player.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$player_8c.html",tooltip="Se encarga del jugador."];
+  Node9 [label="src/player.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$player_8c.html",tooltip="Se encarga del jugador."];
   Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node10 [label="space.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$space_8c.html",tooltip="Se encarga de los espacios del juego."];
+  Node10 [label="src/space.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$space_8c.html",tooltip="Se encarga de los espacios del juego."];
 }
