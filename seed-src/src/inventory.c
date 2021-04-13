@@ -4,9 +4,14 @@
 #include "set.h"
 #include "types.h"
 
+/**
+ * @brief Define el inventario del jugador
+ * 
+ * Estructura de espacio
+ */
 struct _Inventory{
-    Set *objects;
-    int Max_Objets;
+    Set *objects; /*!< Puntero a la estructura Set*/
+    int Max_Objets; /*!< Numero maximo de objetos*/
 };
 
 

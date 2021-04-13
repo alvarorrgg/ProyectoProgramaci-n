@@ -658,12 +658,21 @@ void game_callback_left(Game *game)
 
 void game_callback_take(Game *game)
 {
+
   char objeto[ARG_NAME];
   int k = 0, i = 0;
   Id id=NO_ID;
+  if(!game){
+    
+     command_set_status(game->command, ERROR);
+    
+    return;
+    }
+  
   strcpy(objeto,command_get_arg(game->command));
   if(inventory_is_full(player_get_inventory(game->player))) { /*Se verifica que el inventario del player no este lleno*/
     command_set_status(game->command, ERROR);
+    printf("pito\n");
     return;
   }
   while (game->objects[i] != NULL)

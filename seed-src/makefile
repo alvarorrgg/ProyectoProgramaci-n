@@ -1,5 +1,5 @@
 #makefile de juego OCA
-target = ocaEXE  set_test die_test inventory_test player_test space_test docs
+target = ocaEXE  set_test die_test inventory_test player_test space_test 
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
 OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o)

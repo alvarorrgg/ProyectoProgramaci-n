@@ -14,6 +14,11 @@
 #include <string.h>
 #include "die.h"
 
+/**
+ * @brief Define la estructura del dado
+ * 
+ * Estructura de dado
+ */
 struct _Die {
   Id id;		/** !< Id del dado */
   int min, max;	/** !< minimo y maximo del dado */

@@ -15,7 +15,7 @@
 
 #pragma GCC diagnostic ignored "-Wpedantic"
 
-#define ROWS 35
+#define ROWS 45
 #define COLUMNS 80
 #define TOTAL_DATA (ROWS * COLUMNS) + 1
 

@@ -29,7 +29,11 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"m", "Move"}, /** !< m <=> move*/
     {"i" , "Inspect"}};	/** !< i <=> inspect*/
 
-
+/**
+ * @brief Define las partes de comando
+ * 
+ * Estructura de comando
+ */
 struct _Command {
   T_Command cmd; /** !< comando*/
   char *arg;     /** !<Segunda parte del comando*/
