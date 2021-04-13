@@ -157,11 +157,11 @@ void game_loop_run(Game *game, Graphic_engine *gengine, FILE *f)
       else
       {
         if (strlen(command_get_arg(game_get_command(game))) == 1){
-            fprintf(f, " %s (%s): ERROR\n", cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDS]); /*Se usa esta linea cuando el status es ERROR*/
+            fprintf(f, " %s (%s): OK\n", cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDS]); /*Se usa esta linea cuando el status es ERROR*/
         }
         else
         {
-          fprintf(f, " %s (%s) %s: ERROR\n", cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDS], command_get_arg(game_get_command(game)));
+          fprintf(f, " %s (%s) %s: OK\n", cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDL], cmd_to_str[command_get_cmd(game_get_command(game)) - NO_CMD][CMDS], command_get_arg(game_get_command(game)));
         }
       }
     }
