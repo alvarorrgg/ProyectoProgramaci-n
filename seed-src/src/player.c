@@ -15,6 +15,11 @@
 #include "player.h"
 #include "object.h"
 
+/**
+ * @brief La estructura Player
+ *
+ * Almacena información del jugador.
+ */
 struct _Player {
   Id id;		                /*!< Id del jugador */
   char name[WORD_SIZE + 1];	/*!< nombre del jugador */

@@ -14,6 +14,11 @@
 #include "types.h"
 #include "object.h"
 
+/**
+ * @brief La estructura Object
+ *
+ * Almacena información del objeto.
+ */
 struct _Object {
   Id id;			/** !< id del objeto*/
   char name[WORD_SIZE + 1];	/**!< nombre del objeto*/
@@ -31,6 +36,7 @@ Object* object_create(Id id) {
   
   new_object->id = id;
   new_object->name[0] = (char)0;
+  
   return new_object;
 }
 

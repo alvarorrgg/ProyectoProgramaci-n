@@ -19,6 +19,11 @@
 #define MAX_CHARS2 3  /*Numero maximo de caracteres que van a tener los links*/
 #define MAX_CHARS3 7  /*Numero maximo de caracteres que van a tener los links + las flechas*/
 
+/**
+ * @brief carácteristicas del motor gráfico
+ *
+ * Contiene la información necesaria del motor gráfico
+ */
 struct _Graphic_engine
 {
   Area *map;      /*!< el mapa */

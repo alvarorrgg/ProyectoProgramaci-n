@@ -14,6 +14,12 @@
 
 #include "types.h"
 #define MAX_LINKS 100 /*Numero maximo de links*/
+
+/**
+ * @brief carácteristicas del modulo Link
+ *
+ * Contiene la información necesaria para la estructura Link
+ */
 typedef struct _Link Link;
 
 Link* link_create (Id id);

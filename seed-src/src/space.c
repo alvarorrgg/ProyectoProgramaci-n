@@ -14,8 +14,11 @@
 #include "space.h"
 #include "set.h"
 
-
-
+/**
+ * @brief Define un espacio
+ * 
+ * Estructura de espacio
+ */
 struct _Space {
   Id id;		/*!< coordenadas */
   char name[WORD_SIZE + 1];	/*!< nombre del espacio */

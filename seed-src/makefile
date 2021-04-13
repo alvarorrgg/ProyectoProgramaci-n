@@ -1,5 +1,5 @@
 #makefile de juego OCA
-target = ocaEXE  set_test die_test inventory_test player_test space_test 
+target = ocaEXE  set_test die_test inventory_test player_test space_test object_test docs
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
 OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o)
@@ -8,6 +8,7 @@ DIE_TESTDIR = $(addprefix obj/,die_test.o die.o)
 INVENTORY_TESTDIR = $(addprefix obj/, inventory_test.o inventory.o set.o)
 PLAYER_TESTDIR = $(addprefix obj/, player_test.o player.o inventory.o set.o)
 SPACE_TESTDIR = $(addprefix obj/, space_test.o space.o set.o link.o)
+OBJECT_TESTDIR = $(addprefix obj/, object_test.o  object.o)
 CC = gcc
 
 vpath %.c src:include
@@ -136,6 +137,16 @@ player_test.o: player_test.c player_test.h player.h test.h inventory.h set.h
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
+object_test: object_test.o object.o
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -o  $@ $(OBJECT_TESTDIR)	
+
+object_test.o: object_test.c object_test.h object.h test.h
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -c $(FLAGS) $<
+
 docs:
 	@doxygen ./Doxyfile
 
@@ -143,4 +154,3 @@ docs:
 clean: 
 	@echo "Limpiando"
 	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test 
-	

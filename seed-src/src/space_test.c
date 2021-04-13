@@ -83,6 +83,12 @@ int main(int argc, char** argv) {
   if (all || test == 36) test2_space_set_gdesc();
   if (all || test == 37) test1_space_get_gdesc();
   if (all || test == 38) test2_space_get_gdesc();
+  if (all || test == 39) test1_space_set_description();
+  if (all || test == 40) test2_space_set_description();
+  if (all || test == 41) test3_space_set_description();
+  if (all || test == 42) test1_space_get_description();
+  if (all || test == 43) test2_space_get_description();
+
   
 
   PRINT_PASSED_PERCENTAGE;
@@ -390,6 +396,46 @@ void test2_space_get_gdesc() {
   PRINT_TEST_RESULT(strcmp(gdesc[0],gdesc2[0])==0);
 
   space_destroy(s);
+}
+
+void test1_space_set_description(){
+  Space *space = NULL;
+
+  PRINT_TEST_RESULT(space_set_description (space , "Ejemplo descripcion") == ERROR);
+
+}
+
+
+void test2_space_set_description(){
+  Space *space = space_create(05);
+
+  char *descr = NULL;
+
+  PRINT_TEST_RESULT(space_set_description (space , descr) == ERROR);
+  space_destroy (space);
+}
+
+
+void test3_space_set_description(){
+  Space *space = space_create(05);
+
+  PRINT_TEST_RESULT(space_set_description (space , "Ejemplo descripcion") == OK);
+  space_destroy (space);
+}
+
+void test1_space_get_description(){
+  Space *space = NULL;
+
+  PRINT_TEST_RESULT(space_get_description (space) == NULL);
+}
+
+
+void test2_space_get_description(){
+  Space *space = space_create (05);
+  space_set_description (space , "Ejemplo de descripcion");
+
+  PRINT_TEST_RESULT(strcmp ( space_get_description (space) ,"Ejemplo de descripcion")  == 0);
+  space_destroy (space);
 }
 
 

@@ -247,4 +247,39 @@ void test1_space_get_gdesc();
  * @post Output=="Hola"
  */
 void test2_space_get_gdesc();
+
+/**
+ * @test Test function for space_set_descripcion
+ * @pre a NULL space
+ * @post Output==ERROR
+ */
+void test1_space_set_description();
+
+/**
+ * @test Test function for space_set_descripcion
+ * @pre a NULL descripcion
+ * @post Output==ERROR
+ */
+void test2_space_set_description();
+
+/**
+ * @test Test function for space_set_descripcion
+ * @pre corrrect inputs
+ * @post Output==OK
+ */
+void test3_space_set_description();
+
+/**
+ * @test Test function for space_get_descripcion
+ * @pre a NULL space
+ * @post Output==ERROR
+ */
+void test1_space_get_description();
+
+/**
+ * @test Test function for space_get_descripcion
+ * @pre a correct input
+ * @post Output=="Ejemplo descripcion"
+ */
+void test2_space_get_description();
 #endif

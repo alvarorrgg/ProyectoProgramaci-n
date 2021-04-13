@@ -355,6 +355,7 @@ void test2_inventory_get_max_objects(){
     Inventory *inventory = inventory_create();
 
     PRINT_TEST_RESULT( inventory_get_max_objects (inventory) == 15);
+    inventory_destroy (inventory);
  
 }
 

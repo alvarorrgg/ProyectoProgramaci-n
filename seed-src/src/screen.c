@@ -25,6 +25,11 @@
 
 #define ACCESS(d, x, y) (d + ((y) * COLUMNS) + (x))
 
+/**
+ * @brief Define un área
+ * 
+ * Estructura de área
+ */
 struct _Area{
   int x, y, width, height;
   char *cursor;

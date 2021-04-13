@@ -15,6 +15,11 @@
 #include "link.h"
 #include "types.h"
 
+/**
+ * @brief carácteristicas del modulo Link
+ *
+ * Contiene la información necesaria para la estructura Link
+ */
 struct _Link{
     Id id;
     char name [WORD_SIZE +1];
