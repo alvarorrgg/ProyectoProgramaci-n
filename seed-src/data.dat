@@ -19,10 +19,10 @@
 #s:19|Casilla 19|18|-1|19|-1|       |       |       |Ejemplo espacio 19|
 #s:20|Casilla 20|19|-1|20|-1|       |       |       |Ejemplo espacio 20|
 #s:21|Casilla 21|20|25|21|17|       |<o)_// | \_#/  |Oca 21|
-#s:22|Casilla 22|21|1|22|-1|^-----^|\O   O/|  \M/  |Muerte 22|
+#s:22|Casilla 22|21|1|22|-1|^-----^|\O   O/|  \M/  |Diablo ese colte ta vacano|
 #s:23|Casilla 23|22|-1|23|-1|       |       |       |Ejemplo espacio 23|
 #s:24|Casilla 24|23|-1|24|-1|       |       |       |Ejemplo espacio 24|
-#s:25|Casilla 25|24|-1|-1|17|       |<o)_// | \_#/  |Oca 25|
+#s:25|Casilla 25|24|-1|-1|17|       |<o)_// | \_#/  |Oca 25 so EZ|
 #o:1|Rojo|1|Descripcion ejemplo 1|
 #o:2|Azul|1|Descripcion ejemplo 2|
 #o:3|Verde|1|Descripcion ejemplo 3|

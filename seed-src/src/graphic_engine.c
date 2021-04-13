@@ -264,7 +264,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
         strcpy(id2, "  ");
       sprintf(str, "           %s+-------------------+%s", id1, id2);
       screen_area_puts(ge->map, str);
-      sprintf(str, "       %s|                 %2d|%s", id_to1, (int)id_act, id_to2);
+      sprintf(str, "       %s|          UwU    %2d|%s", id_to1, (int)id_act, id_to2);
       screen_area_puts(ge->map, str);
       sprintf(str, "             |    %s        |", gdesc[0]);
       screen_area_puts(ge->map, str);
@@ -433,12 +433,28 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   last_cmd = command_get_cmd(game_get_command(game));
   if (last_cmd != -1)
   {
-    if (command_get_status(game_get_command(game)) != 1)
+     if (command_get_status(game_get_command(game)) != 1)
     {
+      if(strlen(command_get_arg(game_get_command(game)))==1){
       sprintf(str, " %s (%s): ERROR", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
     }
-    else
-      sprintf(str, " %s (%s): OK ", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
+      else{
+        sprintf(str, " %s (%s) %s: ERROR", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS], command_get_arg(game_get_command(game)));
+
+      }
+    }
+    else{
+      if(strlen(command_get_arg(game_get_command(game)))==1){
+      sprintf(str, " %s (%s): OK", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
+
+    }
+      else{
+        sprintf(str, " %s (%s) %s: OK", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS], command_get_arg(game_get_command(game)));
+
+      }
+      
+    
+    }
     screen_area_puts(ge->feedback, str);
   }
   /* Volcarlo en la terminal */

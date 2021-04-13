@@ -19,7 +19,11 @@
 #define ARG_NAME 15
 
 
-
+/**
+ * @brief Define la estructura del dado
+ * 
+ * Estructura de dado
+ */
 struct _Game{
   Player *player;			/*!< Modulo player*/
   Object *objects[MAX_OBJECTS+1];	/*!< Tabla de objetos del juego*/

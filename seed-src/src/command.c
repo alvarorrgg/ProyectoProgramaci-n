@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <strings.h>
+#include <string.h>
 #include <stdlib.h>
 #include "command.h"
 
@@ -36,7 +37,7 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
  */
 struct _Command {
   T_Command cmd; /** !< comando*/
-  char *arg;     /** !<Segunda parte del comando*/
+  char arg[CMD_LENGHT];     /** !<Segunda parte del comando*/
   STATUS st;    /**  !< status del comando*/
 };
 /*EJEMPLO*/
@@ -49,6 +50,7 @@ Command* command_init(){
 	  
   new_command->cmd = NO_CMD;
   new_command->st = ERROR;
+  new_command->arg[0] = (char)0;
 
   return new_command;
 }
@@ -86,7 +88,7 @@ T_Command command_get_cmd(Command *command){
 
 STATUS command_set_arg(Command *command,char *arg){
   if(command==NULL ) return ERROR;
-  command->arg = arg;
+  strcpy(command->arg, arg);
   return OK;
 }
 
