@@ -95,11 +95,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a5f54fd55f983a2e33ce076cd9f587e82"><td class="memItemLeft" align="right" valign="top"><a id="a5f54fd55f983a2e33ce076cd9f587e82"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_SPACES</b>&#160;&#160;&#160;100 /*Numero maximo de espacios*/</td></tr>
+<tr class="memitem:a5f54fd55f983a2e33ce076cd9f587e82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="space_8h.html#a5f54fd55f983a2e33ce076cd9f587e82">MAX_SPACES</a>&#160;&#160;&#160;100</td></tr>
 <tr class="separator:a5f54fd55f983a2e33ce076cd9f587e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a088cbe7c6f78264d46c2624194c5c680"><td class="memItemLeft" align="right" valign="top"><a id="a088cbe7c6f78264d46c2624194c5c680"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>FIRST_SPACE</b>&#160;&#160;&#160;1 /*Primer espacio*/</td></tr>
+<tr class="memitem:a088cbe7c6f78264d46c2624194c5c680"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="space_8h.html#a088cbe7c6f78264d46c2624194c5c680">FIRST_SPACE</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a088cbe7c6f78264d46c2624194c5c680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -186,7 +184,38 @@ Functions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>13-01-2015 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License </dd></dl>
-</div><h2 class="groupheader">Typedef Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a088cbe7c6f78264d46c2624194c5c680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a088cbe7c6f78264d46c2624194c5c680">&#9670;&nbsp;</a></span>FIRST_SPACE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIRST_SPACE&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Primer espacio </p>
+
+</div>
+</div>
+<a id="a5f54fd55f983a2e33ce076cd9f587e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f54fd55f983a2e33ce076cd9f587e82">&#9670;&nbsp;</a></span>MAX_SPACES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_SPACES&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Numero maximo de espacios </p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
 <a id="a67533ffc2b70463baecc38fb0629bbfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67533ffc2b70463baecc38fb0629bbfc">&#9670;&nbsp;</a></span>Space</h2>
 
@@ -287,7 +316,7 @@ Functions</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Gonzalo Martín</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">object</td><td>recibe un puntero a la estructura de datos espacio </td></tr>
+    <tr><td class="paramname">space</td><td>recibe un puntero a la estructura de datos espacio </td></tr>
   </table>
   </dd>
 </dl>
@@ -598,6 +627,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">space</td><td>el espacio que se trabaja, Id del objeto </td></tr>
+    <tr><td class="paramname">id</td><td>id del objeto </td></tr>
   </table>
   </dd>
 </dl>
@@ -668,6 +698,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">space</td><td>el espacio que se trabaja, Id del objeto </td></tr>
+    <tr><td class="paramname">id</td><td>id del objeto a borrar </td></tr>
   </table>
   </dd>
 </dl>
@@ -708,7 +739,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">space</td><td>el espacio que se trabaja </td></tr>
-    <tr><td class="paramname">descripción</td><td></td></tr>
+    <tr><td class="paramname">descr</td><td>descripcion del espacio </td></tr>
   </table>
   </dd>
 </dl>
@@ -790,7 +821,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">space</td><td>el espacio que se trabaja </td></tr>
-    <tr><td class="paramname">descripción</td><td></td></tr>
+    <tr><td class="paramname">desc</td><td>descripcion de las casillas </td></tr>
   </table>
   </dd>
 </dl>

@@ -16,7 +16,7 @@
 #include "object_test.h"
 #include "test.h"
 
-#define MAX_TESTS 23 /*Numero maximo de tests*/
+#define MAX_TESTS 23 /*!<Numero maximo de tests*/
 
 /** 
  * @brief Main function for OBJECT unit tests. 

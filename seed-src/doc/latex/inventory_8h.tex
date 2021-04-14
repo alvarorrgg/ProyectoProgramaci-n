@@ -13,8 +13,7 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{inventory_8h_acdc7844fbd4d45737d4aa56834d37829}\label{inventory_8h_acdc7844fbd4d45737d4aa56834d37829}} 
-\#define {\bfseries M\+A\+X\+\_\+\+O\+B\+J\+E\+C\+TS}~15 /$\ast$Numero maximo de objetos que puede llevar el jugador$\ast$/
+\#define \mbox{\hyperlink{inventory_8h_acdc7844fbd4d45737d4aa56834d37829}{M\+A\+X\+\_\+\+O\+B\+J\+E\+C\+TS}}~15
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -66,6 +65,15 @@ Gonzalo Martín
 G\+NU Public License 
 \end{DoxyCopyright}
 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{inventory_8h_acdc7844fbd4d45737d4aa56834d37829}\label{inventory_8h_acdc7844fbd4d45737d4aa56834d37829}} 
+\index{inventory.h@{inventory.h}!MAX\_OBJECTS@{MAX\_OBJECTS}}
+\index{MAX\_OBJECTS@{MAX\_OBJECTS}!inventory.h@{inventory.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_OBJECTS}{MAX\_OBJECTS}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+O\+B\+J\+E\+C\+TS~15}
+
+Numero maximo de objetos que puede llevar el jugador 
 
 \doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}\label{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}} 
@@ -125,6 +133,8 @@ Gonzalo Martín
 
 \begin{DoxyParams}{Parameters}
 {\em inventory} & el inventario y el id del elemento \\
+\hline
+{\em id} & id del objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -308,6 +318,8 @@ Gonzalo Martín
 \begin{DoxyParams}{Parameters}
 {\em inventory} & el inventario y un puntero a un F\+I\+LE \\
 \hline
+{\em pf} & puntero al archivo \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 OK para saber que se ha ejecutado la función correctamente 
@@ -333,6 +345,8 @@ Gonzalo Martín
 
 \begin{DoxyParams}{Parameters}
 {\em inventory} & el inventario y el Id del objeto a buscar \\
+\hline
+{\em id} & del objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -360,6 +374,8 @@ Gonzalo Martín
 \begin{DoxyParams}{Parameters}
 {\em inventory} & el inventario y el nuevo numero maximo de objetos \\
 \hline
+{\em max} & numero maximo de objetos \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Ok si se ha establecido bien, E\+R\+R\+OR si no fue asi 
@@ -385,6 +401,8 @@ Gonzalo Martín
 
 \begin{DoxyParams}{Parameters}
 {\em inventory} & el inventario y el Id del elemento \\
+\hline
+{\em id} & id del objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

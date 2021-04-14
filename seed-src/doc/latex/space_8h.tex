@@ -14,11 +14,9 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{space_8h_a5f54fd55f983a2e33ce076cd9f587e82}\label{space_8h_a5f54fd55f983a2e33ce076cd9f587e82}} 
-\#define {\bfseries M\+A\+X\+\_\+\+S\+P\+A\+C\+ES}~100 /$\ast$Numero maximo de espacios$\ast$/
+\#define \mbox{\hyperlink{space_8h_a5f54fd55f983a2e33ce076cd9f587e82}{M\+A\+X\+\_\+\+S\+P\+A\+C\+ES}}~100
 \item 
-\mbox{\Hypertarget{space_8h_a088cbe7c6f78264d46c2624194c5c680}\label{space_8h_a088cbe7c6f78264d46c2624194c5c680}} 
-\#define {\bfseries F\+I\+R\+S\+T\+\_\+\+S\+P\+A\+CE}~1 /$\ast$Primer espacio$\ast$/
+\#define \mbox{\hyperlink{space_8h_a088cbe7c6f78264d46c2624194c5c680}{F\+I\+R\+S\+T\+\_\+\+S\+P\+A\+CE}}~1
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -92,6 +90,21 @@ Profesores P\+P\+R\+OG
 G\+NU Public License 
 \end{DoxyCopyright}
 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{space_8h_a088cbe7c6f78264d46c2624194c5c680}\label{space_8h_a088cbe7c6f78264d46c2624194c5c680}} 
+\index{space.h@{space.h}!FIRST\_SPACE@{FIRST\_SPACE}}
+\index{FIRST\_SPACE@{FIRST\_SPACE}!space.h@{space.h}}
+\doxysubsubsection{\texorpdfstring{FIRST\_SPACE}{FIRST\_SPACE}}
+{\footnotesize\ttfamily \#define F\+I\+R\+S\+T\+\_\+\+S\+P\+A\+CE~1}
+
+Primer espacio \mbox{\Hypertarget{space_8h_a5f54fd55f983a2e33ce076cd9f587e82}\label{space_8h_a5f54fd55f983a2e33ce076cd9f587e82}} 
+\index{space.h@{space.h}!MAX\_SPACES@{MAX\_SPACES}}
+\index{MAX\_SPACES@{MAX\_SPACES}!space.h@{space.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_SPACES}{MAX\_SPACES}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+S\+P\+A\+C\+ES~100}
+
+Numero maximo de espacios 
 
 \doxysubsection{Typedef Documentation}
 \mbox{\Hypertarget{space_8h_a67533ffc2b70463baecc38fb0629bbfc}\label{space_8h_a67533ffc2b70463baecc38fb0629bbfc}} 
@@ -179,7 +192,7 @@ Gonzalo Martín
 \end{DoxyAuthor}
 
 \begin{DoxyParams}{Parameters}
-{\em object} & recibe un puntero a la estructura de datos espacio \\
+{\em space} & recibe un puntero a la estructura de datos espacio \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -441,6 +454,8 @@ Profesores P\+P\+R\+OG
 \begin{DoxyParams}{Parameters}
 {\em space} & el espacio que se trabaja, Id del objeto \\
 \hline
+{\em id} & id del objeto \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 T\+R\+UE o F\+A\+L\+SE segun si el objeto esta o no en el espacio 
@@ -493,6 +508,8 @@ Profesores P\+P\+R\+OG
 \begin{DoxyParams}{Parameters}
 {\em space} & el espacio que se trabaja, Id del objeto \\
 \hline
+{\em id} & id del objeto a borrar \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 OK o E\+R\+R\+OR segun si se ha eliminado correctamente el objeto o no. 
@@ -519,7 +536,7 @@ Gonzalo Martin
 \begin{DoxyParams}{Parameters}
 {\em space} & el espacio que se trabaja \\
 \hline
-{\em descripción} & \\
+{\em descr} & descripcion del espacio \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -575,7 +592,7 @@ space\+\_\+set\+\_\+gdesc cambias la descripción grafica de un espacio
 \begin{DoxyParams}{Parameters}
 {\em space} & el espacio que se trabaja \\
 \hline
-{\em descripción} & \\
+{\em desc} & descripcion de las casillas \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

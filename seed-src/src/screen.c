@@ -15,13 +15,13 @@
 
 #pragma GCC diagnostic ignored "-Wpedantic"
 
-#define ROWS 45
-#define COLUMNS 80
-#define TOTAL_DATA (ROWS * COLUMNS) + 1
+#define ROWS 45 /*!<Numero maximo de filas*/
+#define COLUMNS 80 /*!<Numero maximo de columnas*/
+#define TOTAL_DATA (ROWS * COLUMNS) + 1 /*!<Area de la pantalla*/
 
-#define BG_CHAR '~'
-#define FG_CHAR ' '
-#define PROMPT " prompt:> "
+#define BG_CHAR '~' /*!<BG char*/
+#define FG_CHAR ' '/*!<FG char*/
+#define PROMPT " prompt:> "/*!<FG char*/
 
 #define ACCESS(d, x, y) (d + ((y) * COLUMNS) + (x))
 
@@ -31,8 +31,8 @@
  * Estructura de área
  */
 struct _Area{
-  int x, y, width, height;
-  char *cursor;
+  int x, y, width, height; /*!<Medidas pantalla*/
+  char *cursor;/*!<Cursor*/
 };
 
 char *__data;

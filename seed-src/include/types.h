@@ -11,8 +11,8 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#define WORD_SIZE 1000
-#define NO_ID -1
+#define WORD_SIZE 1000 /*!<Numero maximo letras por palabra*/
+#define NO_ID -1 /*!<Definicion de NO_ID */
 
 
 /**

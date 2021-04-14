@@ -20,8 +20,8 @@
  */
 typedef struct _Player Player;
 
-#define MAX_PLAYERS 100 /*Numero maximo de jugadores*/
-#define FIRST_PLAYER 1 /*Primer jugador*/
+#define MAX_PLAYERS 100 /*!<Numero maximo de jugadores*/
+#define FIRST_PLAYER 1 /*!<Primer jugador*/
 /**
  * @brief Crea un jugador
  *

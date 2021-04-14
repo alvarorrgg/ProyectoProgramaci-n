@@ -15,8 +15,8 @@
 #include "game.h"
 #include "game_reader.h"
 
-#define N_CALLBACK 11
-#define ARG_NAME 15
+#define N_CALLBACK 11 /*!<Numero maximo de llamadas a comandos*/
+
 
 
 /**
@@ -663,7 +663,7 @@ void game_callback_left(Game *game)
 void game_callback_take(Game *game)
 {
 
-  char objeto[ARG_NAME];
+  char objeto[WORD_SIZE];
   int k = 0, i = 0;
   Id id=NO_ID;
   if(!game){
@@ -718,7 +718,7 @@ void game_callback_take(Game *game)
 
 void game_callback_drop(Game *game)
 {
-   char objeto[ARG_NAME];
+   char objeto[WORD_SIZE];
   int k = 0, i = 0;
   Id id=NO_ID;
   strcpy(objeto,command_get_arg(game->command));
@@ -779,7 +779,7 @@ void game_callback_roll(Game *game)
 void game_callback_move(Game *game)
 
 {
-  char direction[ARG_NAME];
+  char direction[WORD_SIZE];
   strcpy(direction,command_get_arg(game->command));
 
   if(strcmp(direction, "north")==0 || strcmp(direction, "n")==0){

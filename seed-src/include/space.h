@@ -21,8 +21,8 @@
  */
 typedef struct _Space Space;
 
-#define MAX_SPACES 100 /*Numero maximo de espacios*/
-#define FIRST_SPACE 1 /*Primer espacio*/
+#define MAX_SPACES 100 /*!<Numero maximo de espacios*/
+#define FIRST_SPACE 1 /*!<Primer espacio*/
 
 /**
  * @brief crea un nuevo espacio
@@ -241,6 +241,7 @@ int space_get_number_of_objects(Space* space);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja, Id del objeto
+ * @param id id del objeto
  * @return TRUE o FALSE segun si el objeto esta o no en el espacio
  */
 BOOL space_has_object_id(Space* space, Id id);
@@ -253,6 +254,7 @@ BOOL space_has_object_id(Space* space, Id id);
  * @author Profesores PPROG
  *
  * @param space el espacio que se trabaja, Id del objeto
+ * @param id id del objeto a borrar
  * @return OK o ERROR segun si se ha eliminado correctamente el objeto o no.
  */
 STATUS space_remove_object(Space* space, Id id);
@@ -265,7 +267,7 @@ STATUS space_remove_object(Space* space, Id id);
  * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
- * @param descripción
+ * @param desc descripcion de las casillas
  * @return OK o ERROR segun si se ha cambiado la descripción o no.
  */
 STATUS space_set_gdesc(Space *space, char **desc);
@@ -291,7 +293,7 @@ char** space_get_gdesc(Space *space);
  * @author Gonzalo Martin
  *
  * @param space el espacio que se trabaja
- * @param descripción
+ * @param descr descripcion del espacio
  * @return OK o ERROR segun si se ha cambiado la descripción o no.
  */
 STATUS space_set_description(Space* space , char* descr);
@@ -304,7 +306,7 @@ STATUS space_set_description(Space* space , char* descr);
  * @date 12-04-2021
  * @author Gonzalo Martín
  *
- * @param object recibe un puntero a la estructura de datos espacio
+ * @param space recibe un puntero a la estructura de datos espacio
  * @return const char devuelve la descrpicion del objeto
  */
  const char* space_get_description(Space* space);

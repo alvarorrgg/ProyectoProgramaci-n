@@ -16,7 +16,7 @@
 #include "space_test.h"
 
 
-#define MAX_TESTS 38 /*Numero maximo de tests*/
+#define MAX_TESTS 38 /*!<Numero maximo de tests*/
 
 /** 
  * @brief Main function for SPACE unit tests. 

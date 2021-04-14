@@ -11,7 +11,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#define LEN_DES 30 /*Numero maximo de caracteres en la descrpicion del objeto*/
+#define LEN_DES 30 /*!<Numero maximo de caracteres en la descrpicion del objeto*/
 
 #include "types.h"
 /**

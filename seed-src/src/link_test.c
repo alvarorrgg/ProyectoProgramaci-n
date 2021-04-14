@@ -17,7 +17,7 @@
 #include "test.h"
 #include "types.h"
 
-#define MAX_TESTS 29 /*Numero maximo de tests*/
+#define MAX_TESTS 29 /*!<Numero maximo de tests*/
 
 /** 
  * @brief Main function for LINK unit tests. 

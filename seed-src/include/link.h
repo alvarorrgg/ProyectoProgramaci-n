@@ -13,7 +13,7 @@
 #define LINK_H
 
 #include "types.h"
-#define MAX_LINKS 100 /*Numero maximo de links*/
+#define MAX_LINKS 100 /*!<Numero maximo de links*/
 typedef struct _Link Link;
 
 Link* link_create (Id id);

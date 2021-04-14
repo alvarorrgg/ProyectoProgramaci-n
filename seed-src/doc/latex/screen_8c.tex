@@ -19,26 +19,20 @@ struct \mbox{\hyperlink{struct__Area}{\+\_\+\+Area}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{screen_8c_a3cfd3aa62338d12609f6d65bce97e9cd}\label{screen_8c_a3cfd3aa62338d12609f6d65bce97e9cd}} 
-\#define {\bfseries R\+O\+WS}~45
+\#define \mbox{\hyperlink{screen_8c_a3cfd3aa62338d12609f6d65bce97e9cd}{R\+O\+WS}}~45
 \item 
-\mbox{\Hypertarget{screen_8c_a06c6c391fc11d106e9909f0401b255b1}\label{screen_8c_a06c6c391fc11d106e9909f0401b255b1}} 
-\#define {\bfseries C\+O\+L\+U\+M\+NS}~80
+\#define \mbox{\hyperlink{screen_8c_a06c6c391fc11d106e9909f0401b255b1}{C\+O\+L\+U\+M\+NS}}~80
 \item 
-\mbox{\Hypertarget{screen_8c_afba5c5b9f73273ce653f890bb64740b0}\label{screen_8c_afba5c5b9f73273ce653f890bb64740b0}} 
-\#define {\bfseries T\+O\+T\+A\+L\+\_\+\+D\+A\+TA}~(R\+O\+WS $\ast$ C\+O\+L\+U\+M\+NS) + 1
+\#define \mbox{\hyperlink{screen_8c_afba5c5b9f73273ce653f890bb64740b0}{T\+O\+T\+A\+L\+\_\+\+D\+A\+TA}}~(\mbox{\hyperlink{screen_8c_a3cfd3aa62338d12609f6d65bce97e9cd}{R\+O\+WS}} $\ast$ \mbox{\hyperlink{screen_8c_a06c6c391fc11d106e9909f0401b255b1}{C\+O\+L\+U\+M\+NS}}) + 1
 \item 
-\mbox{\Hypertarget{screen_8c_a5e7c78a2c827b39d4464f2fc84058f87}\label{screen_8c_a5e7c78a2c827b39d4464f2fc84058f87}} 
-\#define {\bfseries B\+G\+\_\+\+C\+H\+AR}~\textquotesingle{}$\sim$\textquotesingle{}
+\#define \mbox{\hyperlink{screen_8c_a5e7c78a2c827b39d4464f2fc84058f87}{B\+G\+\_\+\+C\+H\+AR}}~\textquotesingle{}$\sim$\textquotesingle{}
 \item 
-\mbox{\Hypertarget{screen_8c_a0bbf43d51e6cd6f7119cf1d0063a3a94}\label{screen_8c_a0bbf43d51e6cd6f7119cf1d0063a3a94}} 
-\#define {\bfseries F\+G\+\_\+\+C\+H\+AR}~\textquotesingle{} \textquotesingle{}
+\#define \mbox{\hyperlink{screen_8c_a0bbf43d51e6cd6f7119cf1d0063a3a94}{F\+G\+\_\+\+C\+H\+AR}}~\textquotesingle{} \textquotesingle{}
 \item 
-\mbox{\Hypertarget{screen_8c_accdbea14ea06c15e271784368bd993e8}\label{screen_8c_accdbea14ea06c15e271784368bd993e8}} 
-\#define {\bfseries P\+R\+O\+M\+PT}~\char`\"{} prompt\+:$>$ \char`\"{}
+\#define \mbox{\hyperlink{screen_8c_accdbea14ea06c15e271784368bd993e8}{P\+R\+O\+M\+PT}}~\char`\"{} prompt\+:$>$ \char`\"{}
 \item 
 \mbox{\Hypertarget{screen_8c_a28b37557462b06fbb08e707dc0ba2136}\label{screen_8c_a28b37557462b06fbb08e707dc0ba2136}} 
-\#define {\bfseries A\+C\+C\+E\+SS}(d,  x,  y)~(d + ((y) $\ast$ C\+O\+L\+U\+M\+NS) + (x))
+\#define {\bfseries A\+C\+C\+E\+SS}(d,  x,  y)~(d + ((y) $\ast$ \mbox{\hyperlink{screen_8c_a06c6c391fc11d106e9909f0401b255b1}{C\+O\+L\+U\+M\+NS}}) + (x))
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -95,6 +89,45 @@ Profesores P\+P\+R\+OG
 G\+NU Public License 
 \end{DoxyCopyright}
 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{screen_8c_a5e7c78a2c827b39d4464f2fc84058f87}\label{screen_8c_a5e7c78a2c827b39d4464f2fc84058f87}} 
+\index{screen.c@{screen.c}!BG\_CHAR@{BG\_CHAR}}
+\index{BG\_CHAR@{BG\_CHAR}!screen.c@{screen.c}}
+\doxysubsubsection{\texorpdfstring{BG\_CHAR}{BG\_CHAR}}
+{\footnotesize\ttfamily \#define B\+G\+\_\+\+C\+H\+AR~\textquotesingle{}$\sim$\textquotesingle{}}
+
+BG char \mbox{\Hypertarget{screen_8c_a06c6c391fc11d106e9909f0401b255b1}\label{screen_8c_a06c6c391fc11d106e9909f0401b255b1}} 
+\index{screen.c@{screen.c}!COLUMNS@{COLUMNS}}
+\index{COLUMNS@{COLUMNS}!screen.c@{screen.c}}
+\doxysubsubsection{\texorpdfstring{COLUMNS}{COLUMNS}}
+{\footnotesize\ttfamily \#define C\+O\+L\+U\+M\+NS~80}
+
+Numero maximo de columnas \mbox{\Hypertarget{screen_8c_a0bbf43d51e6cd6f7119cf1d0063a3a94}\label{screen_8c_a0bbf43d51e6cd6f7119cf1d0063a3a94}} 
+\index{screen.c@{screen.c}!FG\_CHAR@{FG\_CHAR}}
+\index{FG\_CHAR@{FG\_CHAR}!screen.c@{screen.c}}
+\doxysubsubsection{\texorpdfstring{FG\_CHAR}{FG\_CHAR}}
+{\footnotesize\ttfamily \#define F\+G\+\_\+\+C\+H\+AR~\textquotesingle{} \textquotesingle{}}
+
+FG char \mbox{\Hypertarget{screen_8c_accdbea14ea06c15e271784368bd993e8}\label{screen_8c_accdbea14ea06c15e271784368bd993e8}} 
+\index{screen.c@{screen.c}!PROMPT@{PROMPT}}
+\index{PROMPT@{PROMPT}!screen.c@{screen.c}}
+\doxysubsubsection{\texorpdfstring{PROMPT}{PROMPT}}
+{\footnotesize\ttfamily \#define P\+R\+O\+M\+PT~\char`\"{} prompt\+:$>$ \char`\"{}}
+
+FG char \mbox{\Hypertarget{screen_8c_a3cfd3aa62338d12609f6d65bce97e9cd}\label{screen_8c_a3cfd3aa62338d12609f6d65bce97e9cd}} 
+\index{screen.c@{screen.c}!ROWS@{ROWS}}
+\index{ROWS@{ROWS}!screen.c@{screen.c}}
+\doxysubsubsection{\texorpdfstring{ROWS}{ROWS}}
+{\footnotesize\ttfamily \#define R\+O\+WS~45}
+
+Numero maximo de filas \mbox{\Hypertarget{screen_8c_afba5c5b9f73273ce653f890bb64740b0}\label{screen_8c_afba5c5b9f73273ce653f890bb64740b0}} 
+\index{screen.c@{screen.c}!TOTAL\_DATA@{TOTAL\_DATA}}
+\index{TOTAL\_DATA@{TOTAL\_DATA}!screen.c@{screen.c}}
+\doxysubsubsection{\texorpdfstring{TOTAL\_DATA}{TOTAL\_DATA}}
+{\footnotesize\ttfamily \#define T\+O\+T\+A\+L\+\_\+\+D\+A\+TA~(\mbox{\hyperlink{screen_8c_a3cfd3aa62338d12609f6d65bce97e9cd}{R\+O\+WS}} $\ast$ \mbox{\hyperlink{screen_8c_a06c6c391fc11d106e9909f0401b255b1}{C\+O\+L\+U\+M\+NS}}) + 1}
+
+Area de la pantalla 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{screen_8c_a0950dc68cba3d491b909a8abaac1c666}\label{screen_8c_a0950dc68cba3d491b909a8abaac1c666}} 

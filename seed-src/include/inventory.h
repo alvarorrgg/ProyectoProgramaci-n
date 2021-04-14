@@ -21,7 +21,7 @@
  */
 typedef struct _Inventory Inventory;
 
-#define MAX_OBJECTS 15 /*Numero maximo de objetos que puede llevar el jugador*/
+#define MAX_OBJECTS 15 /*!<Numero maximo de objetos que puede llevar el jugador*/
 
 /**
  * @brief crea el inventario del jugador
@@ -58,6 +58,7 @@ STATUS inventory_destroy(Inventory* inventory);
  * @author Gonzalo Martín
  *
  * @param inventory el inventario y el Id del elemento
+ * @param id id del objeto
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS inventory_set_object (Inventory *inventory , Id id);
@@ -96,6 +97,7 @@ int inventory_get_number_of_objects(Inventory *inventory);
  * @author Gonzalo Martín
  *
  * @param inventory el inventario y un puntero a un FILE
+ * @param pf puntero al archivo
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS inventory_print (Inventory *inventory , FILE *pf);
@@ -110,6 +112,7 @@ STATUS inventory_print (Inventory *inventory , FILE *pf);
  * @author Gonzalo Martín
  *
  * @param inventory el inventario y el id del elemento
+ * @param id id del objeto
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS inventory_delete_object (Inventory* inventory , Id id);
@@ -150,6 +153,7 @@ BOOL inventory_is_full(Inventory* inventory);
  * @author Gonzalo Martín
  *
  * @param inventory el inventario y el Id del objeto a buscar
+ * @param id del objeto
  * @return TRUE si esta el objeto en la mochila, FALSE si no lo esta
  */
 BOOL inventory_search_object (Inventory *inventory , Id id);
@@ -163,6 +167,7 @@ BOOL inventory_search_object (Inventory *inventory , Id id);
  * @author Gonzalo Martín
  *
  * @param inventory el inventario y el nuevo numero maximo de objetos
+ * @param max numero maximo de objetos
  * @return Ok si se ha establecido bien, ERROR si no fue asi
  */
 STATUS inventory_set_max_objects (Inventory *inventory , int max);

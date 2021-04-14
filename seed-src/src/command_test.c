@@ -16,7 +16,7 @@
 #include "command_test.h"
 #include "test.h"
 
-#define MAX_TESTS 21 /*Numero maximo de tests*/
+#define MAX_TESTS 21 /*!<Numero maximo de tests*/
 
 /** 
  * @brief Main function for SET unit tests. 

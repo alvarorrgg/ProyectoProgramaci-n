@@ -16,7 +16,7 @@
 #include "inventory_test.h"
 #include "test.h"
 
-#define MAX_TESTS 36 /*Numero maximo de tests*/
+#define MAX_TESTS 36 /*!<Numero maximo de tests*/
 
 /** 
  * @brief Main function for INVENTOTY unit tests. 
