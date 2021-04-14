@@ -452,7 +452,7 @@ BOOL game_id_object_exists(Game *game, Id id)
 
 STATUS game_update(Game *game, T_Command cmd)
 {
-  char arg[ARG_NAME];
+  char arg[WORD_SIZE];
   int j=0;
   command_set_cmd(game->command,cmd);
   fgets(arg, WORD_SIZE, stdin);
@@ -535,7 +535,7 @@ void game_callback_next(Game *game)
 
     if (current_id == space_id)
     {
-      current_id = link_get_to(space_get_south(game->spaces[i]));
+      current_id = link_get_id_to(space_get_south(game->spaces[i]));
 
       if (current_id != NO_ID)
       {
@@ -571,7 +571,7 @@ void game_callback_back(Game *game)
 
     if (current_id == space_id)
     {
-      current_id = link_get_to(space_get_north(game->spaces[i]));
+      current_id = link_get_id_to(space_get_north(game->spaces[i]));
 
       if (current_id != NO_ID)
       {
@@ -606,7 +606,7 @@ void game_callback_right(Game *game)
 
     if (current_id == space_id)
     {
-      current_id = link_get_to(space_get_west(game->spaces[i]));
+      current_id = link_get_id_to(space_get_west(game->spaces[i]));
       printf("%li",current_id);
       if (current_id != NO_ID)
       {
@@ -641,7 +641,7 @@ void game_callback_left(Game *game)
 
     if (current_id == space_id)
     {
-      current_id = link_get_to(space_get_east(game->spaces[i]));
+      current_id = link_get_id_to(space_get_east(game->spaces[i]));
       printf("%li",current_id);
 
       if (current_id != NO_ID)

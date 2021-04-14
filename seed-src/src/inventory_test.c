@@ -19,7 +19,7 @@
 #define MAX_TESTS 36 /*Numero maximo de tests*/
 
 /** 
- * @brief Main function for SET unit tests. 
+ * @brief Main function for INVENTOTY unit tests. 
  * 
  * You may execute ALL or a SINGLE test
  *   1.- No parameter -> ALL test are executed 
@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
   int all = 1;
 
   if (argc < 2) {
-    printf("Running all test for module Set:\n");
+    printf("Running all test for module Inventory:\n");
   } else {
     test = atoi(argv[1]);
     all = 0;

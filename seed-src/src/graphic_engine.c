@@ -110,9 +110,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   if ((id_act = game_get_player_location(game)) != NO_ID)
   {
     space_act = game_get_space(game, id_act);
-    id_back = link_get_to(space_get_north(space_act));
+    id_back = link_get_id_to(space_get_north(space_act));
     space_back = game_get_space(game, id_back);
-    id_next = link_get_to(space_get_south(space_act));
+    id_next = link_get_id_to(space_get_south(space_act));
     space_next = game_get_space(game, id_next);
     for (i = 0; i < num_objects + 1; i++)
     {
@@ -156,7 +156,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 
       gdesc = space_get_gdesc(space_back);
       link1 = space_get_west(space_back);
-      sprintf(id_to1, " %ld", link_get_to(link1));
+      sprintf(id_to1, " %ld", link_get_id_to(link1));
       if (strcmp(id_to1, " -1") == 0)
         strcpy(id_to1, "      ");
       else
@@ -167,13 +167,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 
       link2 = space_get_east(space_back);
 
-      sprintf(id_to2, "%ld", link_get_to(link2));
+      sprintf(id_to2, "%ld", link_get_id_to(link2));
       if (strcmp(id_to2, "-1") == 0)
         strcpy(id_to2, "      ");
 
       else
       {
-        sprintf(id_to1, "%ld", link_get_to(link2));
+        sprintf(id_to1, "%ld", link_get_id_to(link2));
         strcpy(id_to2, "--> ");
         strcat(id_to2, id_to1);
         strcpy(id_to1, "      ");
@@ -242,7 +242,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     {
       gdesc = space_get_gdesc(space_act);
       link1 = space_get_west(space_act);
-      sprintf(id_to1, " %ld", link_get_to(link1));
+      sprintf(id_to1, " %ld", link_get_id_to(link1));
       if (strcmp(id_to1, " -1") == 0)
         strcpy(id_to1, "      ");
       else
@@ -253,13 +253,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 
       link2 = space_get_east(space_act);
 
-      sprintf(id_to2, "%ld", link_get_to(link2));
+      sprintf(id_to2, "%ld", link_get_id_to(link2));
       if (strcmp(id_to2, "-1") == 0)
         strcpy(id_to2, "      ");
 
       else
       {
-        sprintf(id_to1, "%ld", link_get_to(link2));
+        sprintf(id_to1, "%ld", link_get_id_to(link2));
         strcpy(id_to2, "--> ");
         strcat(id_to2, id_to1);
         strcpy(id_to1, "      ");
@@ -324,7 +324,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     {
       gdesc = space_get_gdesc(space_next);
       link1 = space_get_west(space_next);
-      sprintf(id_to1, " %ld", link_get_to(link1));
+      sprintf(id_to1, " %ld", link_get_id_to(link1));
       if (strcmp(id_to1, " -1") == 0)
         strcpy(id_to1, "      ");
       else
@@ -335,13 +335,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 
       link2 = space_get_east(space_next);
 
-      sprintf(id_to2, "%ld", link_get_to(link2));
+      sprintf(id_to2, "%ld", link_get_id_to(link2));
       if (strcmp(id_to2, "-1") == 0)
         strcpy(id_to2, "      ");
 
       else
       {
-        sprintf(id_to1, "%ld", link_get_to(link2));
+        sprintf(id_to1, "%ld", link_get_id_to(link2));
         strcpy(id_to2, "--> ");
         strcat(id_to2, id_to1);
         strcpy(id_to1, "      ");

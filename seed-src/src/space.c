@@ -208,24 +208,24 @@ STATUS space_print(Space* space) {
   if (!space) return ERROR;
   
   fprintf(stdout, "--> Space (Id: %ld; Name: %s)\n", space->id, space->name);
-  idaux = link_get_to(space_get_north(space));
+  idaux = link_get_id_to(space_get_north(space));
   if (NO_ID != idaux) fprintf(stdout, "---> North link: %ld.\n", idaux);
   
    else fprintf(stdout, "---> No north link.\n");
   
 
-  idaux = link_get_to(space_get_south(space));
+  idaux = link_get_id_to(space_get_south(space));
   if (NO_ID != idaux) fprintf(stdout, "---> South link: %ld.\n", idaux);
   
   else fprintf(stdout, "---> No south link.\n");
   
 
-  idaux = link_get_to(space_get_east(space));
+  idaux = link_get_id_to(space_get_east(space));
   if (NO_ID != idaux) fprintf(stdout, "---> East link: %ld.\n", idaux);
    else fprintf(stdout, "---> No east link.\n");
   
 
-  idaux = link_get_to(space_get_west(space));
+  idaux = link_get_id_to(space_get_west(space));
   if (NO_ID != idaux) fprintf(stdout, "---> West link: %ld.\n", idaux);
   
    else fprintf(stdout, "---> No west link.\n");

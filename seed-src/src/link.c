@@ -15,11 +15,6 @@
 #include "link.h"
 #include "types.h"
 
-/**
- * @brief carácteristicas del modulo Link
- *
- * Contiene la información necesaria para la estructura Link
- */
 struct _Link{
     Id id;
     char name [WORD_SIZE +1];
@@ -72,7 +67,7 @@ Id link_get_id_from(Link *l){
     return l->from;
 }
 
-Id link_get_to(Link *l){
+Id link_get_id_to(Link *l){
     if(!l)return NO_ID;
 
     return l->to;
@@ -85,6 +80,7 @@ TYPES link_get_type(Link *l){
 
 STATUS link_set_id(Link *l, Id id){
     if(!l || !id)return ERROR;
+    if(id == NO_ID) return ERROR;
 
     l->id=id;
 
@@ -102,6 +98,7 @@ STATUS link_set_name(Link *l, char *name){
 
 STATUS link_set_id_from(Link *l, Id from){
     if(!l || !from)return ERROR;
+    if(from == NO_ID) return ERROR;
 
     l->from=from;
 
@@ -110,6 +107,7 @@ STATUS link_set_id_from(Link *l, Id from){
 
 STATUS link_set_id_to(Link *l, Id to){
     if(!l || !to)return ERROR;
+    if(to == NO_ID) return ERROR;
 
     l->to=to;
 
@@ -117,17 +115,17 @@ STATUS link_set_id_to(Link *l, Id to){
 }
 
 STATUS link_set_type(Link *l, TYPES type){
-    if(!l || !type)return ERROR;
+    if(!l)return ERROR;
 
     l->type=type;
 
     return OK;
 }
 
-STATUS link_print(Link *l){
-    if(!l)return ERROR;
+STATUS link_print(FILE *pf, Link *l){
+    if(!l || !pf)return ERROR;
 
-    fprintf(stdout, "--> Link (Id: %ld; Name: %s; From: %ld; To: %ld; Type: %d)\n", l->id, l->name, l->from, l->to, l->type);
+    fprintf(pf, "--> Link (Id: %ld; Name: %s; From: %ld; To: %ld; Type: %d)\n", l->id, l->name, l->from, l->to, l->type);
 
     return OK;
 }
