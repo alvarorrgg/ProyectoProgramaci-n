@@ -2,15 +2,17 @@
 target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test docs
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
+TEST = set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o
 OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o)
 SET_TESTDIR = $(addprefix obj/,set_test.o set.o)
 DIE_TESTDIR = $(addprefix obj/,die_test.o die.o)
 INVENTORY_TESTDIR = $(addprefix obj/, inventory_test.o inventory.o set.o)
 PLAYER_TESTDIR = $(addprefix obj/, player_test.o player.o inventory.o set.o)
 SPACE_TESTDIR = $(addprefix obj/, space_test.o space.o set.o link.o)
-OBJECT_TESTDIR = $(addprefix obj/, object_test.o  object.o)
+OBJECT_TESTDIR = $(addprefix obj/, object_test.o object.o)
 LINK_TESTDIR = $(addprefix obj/, link_test.o link.o)
 COMMAND_TESTDIR = $(addprefix obj/, command_test.o command.o)
+
 CC = gcc
 
 vpath %.c src:include
@@ -176,7 +178,7 @@ docs: $(OBJ)
 
 clean: 
 	@echo "Limpiando"
-	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test docs
+	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test link_test command_test object_test docs
 
 run: 
 	./ocaEXE data.dat
@@ -189,3 +191,15 @@ runl:
 
 runj:
 	./ocaEXE data.dat < juego1
+
+tests: $(TEST)
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -o set_test $(SET_TESTDIR) 
+	$(CC) -o die_test $(DIE_TESTDIR) 
+	$(CC) -o inventory_test $(INVENTORY_TESTDIR)
+	$(CC) -o player_test $(PLAYER_TESTDIR) 
+	$(CC) -o space_test $(SPACE_TESTDIR) 
+	$(CC) -o object_test $(OBJECT_TESTDIR) 
+	$(CC) -o link_test $(LINK_TESTDIR) 
+	$(CC) -o command_test $(COMMAND_TESTDIR)
