@@ -269,7 +269,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
         strcpy(id2, "  ");
       sprintf(str, "           %s+-------------------+%s", id1, id2);
       screen_area_puts(ge->map, str);
-      sprintf(str, "       %s|          UwU    %2d|%s", id_to1, (int)id_act, id_to2);
+      sprintf(str, "       %s|        UwU      %2d|%s", id_to1, (int)id_act, id_to2);
       screen_area_puts(ge->map, str);
       sprintf(str, "             |    %s        |", gdesc[0]);
       screen_area_puts(ge->map, str);

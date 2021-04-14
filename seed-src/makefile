@@ -1,5 +1,5 @@
 #makefile de juego OCA
-target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test docs
+target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test docs
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
 OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o)
@@ -10,6 +10,7 @@ PLAYER_TESTDIR = $(addprefix obj/, player_test.o player.o inventory.o set.o)
 SPACE_TESTDIR = $(addprefix obj/, space_test.o space.o set.o link.o)
 OBJECT_TESTDIR = $(addprefix obj/, object_test.o  object.o)
 LINK_TESTDIR = $(addprefix obj/, link_test.o link.o)
+COMMAND_TESTDIR = $(addprefix obj/, command_test.o command.o)
 CC = gcc
 
 vpath %.c src:include
@@ -154,6 +155,16 @@ link_test: link_test.o link.o
 	$(CC) -o  $@ $(LINK_TESTDIR)	
 
 link_test.o: link_test.c link_test.h link.h test.h 
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -c $(FLAGS) $<
+
+command_test: command_test.o command.o
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -o  $@ $(COMMAND_TESTDIR)	
+
+command_test.o: command_test.c command_test.h command.h test.h 
 	@echo "#####################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<

@@ -82,7 +82,7 @@ STATUS command_set_cmd(Command *command,T_Command cmd){
 }
 
 T_Command command_get_cmd(Command *command){
-  if(command==NULL) return ERROR;
+  if(command==NULL) return NO_CMD;
   return command->cmd;
 }
 
@@ -93,7 +93,7 @@ STATUS command_set_arg(Command *command,char *arg){
 }
 
 char* command_get_arg(Command *command){
-  if(command==NULL) return ERROR;
+  if(command==NULL) return NULL;
   return command->arg;
 }
 
