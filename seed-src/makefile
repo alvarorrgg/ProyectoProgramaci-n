@@ -169,10 +169,23 @@ command_test.o: command_test.c command_test.h command.h test.h
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
-docs: OBJ
+docs: $(OBJ)
 	@doxygen ./Doxyfile
 
-.PHONY: clean 
+.PHONY: clean run runv runl runj
+
 clean: 
 	@echo "Limpiando"
 	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test docs
+
+run: 
+	./ocaEXE data.dat
+
+runv: 
+	valgrind --leak-check=full ./ocaEXE data.dat
+
+runl:
+	./ocaEXE data.dat -l log.txt
+
+runj:
+	./ocaEXE data.dat < juego1
