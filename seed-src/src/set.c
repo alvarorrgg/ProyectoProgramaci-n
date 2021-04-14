@@ -24,7 +24,7 @@ struct _Set {
   int total_ids;	/** !< total de ids */	
 };
 
-Set* set_create() {
+Set* set_create() { 
  int i;
   Set *new_set= NULL;
   new_set = (Set *) malloc(sizeof (Set));

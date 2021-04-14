@@ -1,0 +1,769 @@
+\hypertarget{game_8h}{}\doxysection{include/game.h File Reference}
+\label{game_8h}\index{include/game.h@{include/game.h}}
+
+
+Archivo cabecera de \mbox{\hyperlink{game_8c}{game.\+c}} contiene la estructura de datos game en la que se almacenan algunas caracteristicas del juego y algunas de las funciones publicas del programa.  
+
+
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}object.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}command.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}space.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}die.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inventory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}link.\+h\char`\"{}}\newline
+Include dependency graph for game.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__Game}{\+\_\+\+Game}} \mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}}
+\begin{DoxyCompactList}\small\item\em La estructura game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_abed482f7a6cbbb66d095510973074388}{game\+\_\+create}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Crea el juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$ \mbox{\hyperlink{game_8h_a057a83fa209fb1cca41eec8ab4e5776b}{game\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_afc77f90739be0fd45b7f5616e543bfae}{game\+\_\+create\+\_\+from\+\_\+file}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Crea el juego en un fichero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_a0736924a1235c0e6fe9b6d91c2a12af8}{game\+\_\+destroy}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Destruye el fichero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_a005b4f436300333e7fff8fba2027337e}{game\+\_\+update}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}} cmd)
+\begin{DoxyCompactList}\small\item\em Actualiza el juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{game_8h_aa6efe0650af110bbd84e742cc8046d93}{game\+\_\+is\+\_\+over}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Termina el juego. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_a33a5ed8937423f8c012df3cedad4fa4c}{game\+\_\+print\+\_\+data}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Escribe por pantalla los datos de la partida. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$ \mbox{\hyperlink{game_8h_a69d94da9d27b542d3ebdeb8b60f1f2dc}{game\+\_\+get\+\_\+space}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em Identifica un espacio del juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$ \mbox{\hyperlink{game_8h_a5753a09313b092a52c0cea742c40f3cf}{game\+\_\+get\+\_\+die}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Identifica el dado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$ \mbox{\hyperlink{game_8h_af46efd507d797aec6da90d08aa592e32}{game\+\_\+get\+\_\+player}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Identifica el jugador. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{game_8h_ac6a628f2106f81c37d0e83c67920615f}{game\+\_\+get\+\_\+player\+\_\+location}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Determina la posición del jugador. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{game_8h_aa84eca5a1131daafd7acbf74263b6f82}{game\+\_\+get\+\_\+object\+\_\+location}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em Determina la posición del objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$ \mbox{\hyperlink{game_8h_acbfd3de0a2da3c05dc099c1062889f93}{game\+\_\+get\+\_\+command}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Controla la estructura command dentro de game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_a7b7096dba6df39271160bdf387d9049f}{game\+\_\+get\+\_\+total\+\_\+objects}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Obtiene el total de objetos dentro del juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$ \mbox{\hyperlink{game_8h_a10298c790c9a9ca50b7090ef7e2029b7}{game\+\_\+get\+\_\+object}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, int index)
+\begin{DoxyCompactList}\small\item\em devuelve un objeto dado su indice \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_ae5ad86de0a92d9eccb234948458da7f1}{game\+\_\+add\+\_\+space}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\begin{DoxyCompactList}\small\item\em Añade un nuevo espacio al juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_a9597a8e456aa74db536e87d56f56c3b4}{game\+\_\+add\+\_\+object}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Añade un nuevo objeto al juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_a4280b7ee7ac0d4575d0aa88e8b7f921b}{game\+\_\+add\+\_\+player}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em Añade un nuevo jugador al juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_a4691bee17d5784ad6eb257dfbb252c27}{game\+\_\+add\+\_\+link}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
+\begin{DoxyCompactList}\small\item\em Añade un nuevo link al juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{game_8h_a1064ec927b8c33cf55982b73845db7d3}{game\+\_\+get\+\_\+link}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em Obtiene el link del id determinado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_a492ca9fb594442dc43fc7d18a3820426}{game\+\_\+set\+\_\+player\+\_\+location}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em Establece la posición del jugador. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_a9b42bd6550bb1f3ce80e71eabdb6936c}{game\+\_\+set\+\_\+object\+\_\+location}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} pos\+\_\+obj)
+\begin{DoxyCompactList}\small\item\em Establece la posición del objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{game_8h_a830f6d56febb15af02c31d17ea19ebfc}{game\+\_\+id\+\_\+object\+\_\+exists}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em Establece la posición del objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8h_a29dae3874c7ea639e1ad13a1070bf814}{game\+\_\+set\+\_\+last\+\_\+description}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, char $\ast$descr)
+\begin{DoxyCompactList}\small\item\em Determina la ultima descripcion pedida. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{game_8h_aaa58a379e2decab27af682c0c1054a5f}{game\+\_\+get\+\_\+last\+\_\+descripcion}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Devueve la ultima descripcion pedida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Archivo cabecera de \mbox{\hyperlink{game_8c}{game.\+c}} contiene la estructura de datos game en la que se almacenan algunas caracteristicas del juego y algunas de las funciones publicas del programa. 
+
+\begin{DoxyAuthor}{Author}
+Profesores P\+P\+R\+OG 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+13-\/01-\/2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}\label{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}} 
+\index{game.h@{game.h}!Game@{Game}}
+\index{Game@{Game}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{Game}{Game}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__Game}{\+\_\+\+Game}} \mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}}}
+
+
+
+La estructura game. 
+
+Almacena información del juego a tiempo real 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_8h_a4691bee17d5784ad6eb257dfbb252c27}\label{game_8h_a4691bee17d5784ad6eb257dfbb252c27}} 
+\index{game.h@{game.h}!game\_add\_link@{game\_add\_link}}
+\index{game\_add\_link@{game\_add\_link}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_add\_link()}{game\_add\_link()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+add\+\_\+link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
+
+
+
+Añade un nuevo link al juego. 
+
+game\+\_\+add\+\_\+link Añade un link a la lista de links.
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego al que se va a añadir un link \\
+\hline
+{\em player} & el link que se va a añadir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a9597a8e456aa74db536e87d56f56c3b4}\label{game_8h_a9597a8e456aa74db536e87d56f56c3b4}} 
+\index{game.h@{game.h}!game\_add\_object@{game\_add\_object}}
+\index{game\_add\_object@{game\_add\_object}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_add\_object()}{game\_add\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+add\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+
+Añade un nuevo objeto al juego. 
+
+game\+\_\+add\+\_\+object Añade un objeto a la lista de objetos.
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego al que se va a añadir un objeto \\
+\hline
+{\em object} & el objeto que se va a añadir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a4280b7ee7ac0d4575d0aa88e8b7f921b}\label{game_8h_a4280b7ee7ac0d4575d0aa88e8b7f921b}} 
+\index{game.h@{game.h}!game\_add\_player@{game\_add\_player}}
+\index{game\_add\_player@{game\_add\_player}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_add\_player()}{game\_add\_player()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+add\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+Añade un nuevo jugador al juego. 
+
+game\+\_\+add\+\_\+player Añade un player al juego
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego al que se va a añadir un jugador \\
+\hline
+{\em player} & el jugador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_ae5ad86de0a92d9eccb234948458da7f1}\label{game_8h_ae5ad86de0a92d9eccb234948458da7f1}} 
+\index{game.h@{game.h}!game\_add\_space@{game\_add\_space}}
+\index{game\_add\_space@{game\_add\_space}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_add\_space()}{game\_add\_space()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+add\+\_\+space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+
+
+
+Añade un nuevo espacio al juego. 
+
+game\+\_\+add\+\_\+space Comprueba si el segundo parametro es N\+U\+LL, luego mediante un bucle determina cual es la primera casilla con valor N\+U\+LL para añadir un espacio en ella. También comprueba que no se haya sobrepasado el limite de casillas
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego al que se va a añadir un espacio \\
+\hline
+{\em space} & el espacio que se va a añadir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_abed482f7a6cbbb66d095510973074388}\label{game_8h_abed482f7a6cbbb66d095510973074388}} 
+\index{game.h@{game.h}!game\_create@{game\_create}}
+\index{game\_create@{game\_create}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_create()}{game\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Crea el juego. 
+
+game\+\_\+create Crea el juego declarando todos los espacios del tablero a N\+U\+LL e inicializa la posición del jugador y del objeto a -\/1, al igual que el comando introducido por el jugador
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego que se va a crear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_afc77f90739be0fd45b7f5616e543bfae}\label{game_8h_afc77f90739be0fd45b7f5616e543bfae}} 
+\index{game.h@{game.h}!game\_create\_from\_file@{game\_create\_from\_file}}
+\index{game\_create\_from\_file@{game\_create\_from\_file}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_create\_from\_file()}{game\_create\_from\_file()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+create\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Crea el juego en un fichero. 
+
+game\+\_\+create\+\_\+from\+\_\+file Primero se comprueba si se crea o no el juego y si se ejecuta correctamente la funcion game\+\_\+reader\+\_\+load\+\_\+spaces y establece la posición del jugador y del objeto a 0
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego que se ha a creado \\
+\hline
+{\em filename} & el nombre del fichero \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a0736924a1235c0e6fe9b6d91c2a12af8}\label{game_8h_a0736924a1235c0e6fe9b6d91c2a12af8}} 
+\index{game.h@{game.h}!game\_destroy@{game\_destroy}}
+\index{game\_destroy@{game\_destroy}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_destroy()}{game\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Destruye el fichero. 
+
+game\+\_\+destroy comienza con un bucle para establecer a N\+U\+LL todas las casillas del juego que no lo estén
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego que se va a \char`\"{}vaciar\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_acbfd3de0a2da3c05dc099c1062889f93}\label{game_8h_acbfd3de0a2da3c05dc099c1062889f93}} 
+\index{game.h@{game.h}!game\_get\_command@{game\_get\_command}}
+\index{game\_get\_command@{game\_get\_command}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_command()}{game\_get\_command()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}}$\ast$ game\+\_\+get\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Controla la estructura command dentro de game. 
+
+game\+\_\+get\+\_\+command Controla la estructura command dentro de game
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a sacar command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el último comando introducido 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a5753a09313b092a52c0cea742c40f3cf}\label{game_8h_a5753a09313b092a52c0cea742c40f3cf}} 
+\index{game.h@{game.h}!game\_get\_die@{game\_get\_die}}
+\index{game\_get\_die@{game\_get\_die}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_die()}{game\_get\_die()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}}$\ast$ game\+\_\+get\+\_\+die (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Identifica el dado. 
+
+game\+\_\+get\+\_\+die Sirve para obtener el dado del juego
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a identificar el espacio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el dado del juego 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_aaa58a379e2decab27af682c0c1054a5f}\label{game_8h_aaa58a379e2decab27af682c0c1054a5f}} 
+\index{game.h@{game.h}!game\_get\_last\_descripcion@{game\_get\_last\_descripcion}}
+\index{game\_get\_last\_descripcion@{game\_get\_last\_descripcion}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_last\_descripcion()}{game\_get\_last\_descripcion()}}
+{\footnotesize\ttfamily const char$\ast$ game\+\_\+get\+\_\+last\+\_\+descripcion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Devueve la ultima descripcion pedida. 
+
+game\+\_\+get\+\_\+descripcion devuelve la descripcion del ultimo objeto pedido
+
+\begin{DoxyDate}{Date}
+11-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lo que guarda la el campo last\+\_\+descripcion 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a1064ec927b8c33cf55982b73845db7d3}\label{game_8h_a1064ec927b8c33cf55982b73845db7d3}} 
+\index{game.h@{game.h}!game\_get\_link@{game\_get\_link}}
+\index{game\_get\_link@{game\_get\_link}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_link()}{game\_get\_link()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ game\+\_\+get\+\_\+link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+Obtiene el link del id determinado. 
+
+game\+\_\+get\+\_\+link busca el link de id determinado
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego al que se va a añadir un link \\
+\hline
+{\em id} & el id del link que se va a devolver \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Se devuelve el link encontrado N\+U\+LL si no se encuentra nada. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a10298c790c9a9ca50b7090ef7e2029b7}\label{game_8h_a10298c790c9a9ca50b7090ef7e2029b7}} 
+\index{game.h@{game.h}!game\_get\_object@{game\_get\_object}}
+\index{game\_get\_object@{game\_get\_object}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_object()}{game\_get\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}}$\ast$ game\+\_\+get\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+devuelve un objeto dado su indice 
+
+game\+\_\+get\+\_\+object devuelve un objeto dado su indice
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a obtener el objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Object, el objeto a obtener. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_aa84eca5a1131daafd7acbf74263b6f82}\label{game_8h_aa84eca5a1131daafd7acbf74263b6f82}} 
+\index{game.h@{game.h}!game\_get\_object\_location@{game\_get\_object\_location}}
+\index{game\_get\_object\_location@{game\_get\_object\_location}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_object\_location()}{game\_get\_object\_location()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} game\+\_\+get\+\_\+object\+\_\+location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+Determina la posición del objeto. 
+
+game\+\_\+get\+\_\+objet\+\_\+location averigua la posición del objeto
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego donde se determian la posición del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la posición del objeto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_af46efd507d797aec6da90d08aa592e32}\label{game_8h_af46efd507d797aec6da90d08aa592e32}} 
+\index{game.h@{game.h}!game\_get\_player@{game\_get\_player}}
+\index{game\_get\_player@{game\_get\_player}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_player()}{game\_get\_player()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}}$\ast$ game\+\_\+get\+\_\+player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Identifica el jugador. 
+
+game\+\_\+get\+\_\+player Sirve para obtener el jugador del juego
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a identificar el espacio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el jugador del juego 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_ac6a628f2106f81c37d0e83c67920615f}\label{game_8h_ac6a628f2106f81c37d0e83c67920615f}} 
+\index{game.h@{game.h}!game\_get\_player\_location@{game\_get\_player\_location}}
+\index{game\_get\_player\_location@{game\_get\_player\_location}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_player\_location()}{game\_get\_player\_location()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} game\+\_\+get\+\_\+player\+\_\+location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Determina la posición del jugador. 
+
+game\+\_\+get\+\_\+player\+\_\+location averigua la posición del jugador
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego donde se determian la posición del jugador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la posición del jugador 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a69d94da9d27b542d3ebdeb8b60f1f2dc}\label{game_8h_a69d94da9d27b542d3ebdeb8b60f1f2dc}} 
+\index{game.h@{game.h}!game\_get\_space@{game\_get\_space}}
+\index{game\_get\_space@{game\_get\_space}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_space()}{game\_get\_space()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}}$\ast$ game\+\_\+get\+\_\+space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+Identifica un espacio del juego. 
+
+game\+\_\+get\+\_\+space Comprueba si el segundo parametro es menor a 0 o mayor o igual al espacio máximo, en el caso de que se cumpla una de estas dos cosas la función retorna -\/1
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a identificar el espacio \\
+\hline
+{\em position} & la posición del espacio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la función space\+\_\+get\+\_\+space con la posición position del juego 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a7b7096dba6df39271160bdf387d9049f}\label{game_8h_a7b7096dba6df39271160bdf387d9049f}} 
+\index{game.h@{game.h}!game\_get\_total\_objects@{game\_get\_total\_objects}}
+\index{game\_get\_total\_objects@{game\_get\_total\_objects}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_get\_total\_objects()}{game\_get\_total\_objects()}}
+{\footnotesize\ttfamily int game\+\_\+get\+\_\+total\+\_\+objects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Obtiene el total de objetos dentro del juego. 
+
+game\+\_\+get\+\_\+total\+\_\+objects obtiene cuantos objetos hay en el juego
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a sacar el numero de objetos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el numero de objetos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a830f6d56febb15af02c31d17ea19ebfc}\label{game_8h_a830f6d56febb15af02c31d17ea19ebfc}} 
+\index{game.h@{game.h}!game\_id\_object\_exists@{game\_id\_object\_exists}}
+\index{game\_id\_object\_exists@{game\_id\_object\_exists}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_id\_object\_exists()}{game\_id\_object\_exists()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} game\+\_\+id\+\_\+object\+\_\+exists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+Establece la posición del objeto. 
+
+game\+\_\+set\+\_\+objet\+\_\+location Comprueba si el segundo parametro es -\/1
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego donde se establece el objeto \\
+\hline
+{\em position} & la posición donde se establece el objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a057a83fa209fb1cca41eec8ab4e5776b}\label{game_8h_a057a83fa209fb1cca41eec8ab4e5776b}} 
+\index{game.h@{game.h}!game\_init@{game\_init}}
+\index{game\_init@{game\_init}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_init()}{game\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}}$\ast$ game\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa el juego. 
+
+game\+\_\+init Inicializa el juego
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+R1
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_aa6efe0650af110bbd84e742cc8046d93}\label{game_8h_aa6efe0650af110bbd84e742cc8046d93}} 
+\index{game.h@{game.h}!game\_is\_over@{game\_is\_over}}
+\index{game\_is\_over@{game\_is\_over}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_is\_over()}{game\_is\_over()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} game\+\_\+is\+\_\+over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Termina el juego. 
+
+game\+\_\+is\+\_\+over se encarga de poner fin al juego
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego que finaliza \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+F\+A\+L\+SE para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a33a5ed8937423f8c012df3cedad4fa4c}\label{game_8h_a33a5ed8937423f8c012df3cedad4fa4c}} 
+\index{game.h@{game.h}!game\_print\_data@{game\_print\_data}}
+\index{game\_print\_data@{game\_print\_data}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_print\_data()}{game\_print\_data()}}
+{\footnotesize\ttfamily void game\+\_\+print\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Escribe por pantalla los datos de la partida. 
+
+game\+\_\+print\+\_\+data se encarga de poner pon pantalla los datos de la partida
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del cual se escriben los datos \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_a29dae3874c7ea639e1ad13a1070bf814}\label{game_8h_a29dae3874c7ea639e1ad13a1070bf814}} 
+\index{game.h@{game.h}!game\_set\_last\_description@{game\_set\_last\_description}}
+\index{game\_set\_last\_description@{game\_set\_last\_description}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_set\_last\_description()}{game\_set\_last\_description()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+set\+\_\+last\+\_\+description (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{char $\ast$}]{descr }\end{DoxyParamCaption})}
+
+
+
+Determina la ultima descripcion pedida. 
+
+game\+\_\+set\+\_\+descripcion determina la descripcion del ultimo objeto pedido
+
+\begin{DoxyDate}{Date}
+11-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lo que guarda la el campo last\+\_\+descripcion 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a9b42bd6550bb1f3ce80e71eabdb6936c}\label{game_8h_a9b42bd6550bb1f3ce80e71eabdb6936c}} 
+\index{game.h@{game.h}!game\_set\_object\_location@{game\_set\_object\_location}}
+\index{game\_set\_object\_location@{game\_set\_object\_location}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_set\_object\_location()}{game\_set\_object\_location()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+set\+\_\+object\+\_\+location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{pos\+\_\+obj }\end{DoxyParamCaption})}
+
+
+
+Establece la posición del objeto. 
+
+game\+\_\+set\+\_\+objet\+\_\+location Comprueba si el segundo parametro es -\/1
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego donde se establece el objeto \\
+\hline
+{\em position} & la posición donde se establece el objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a492ca9fb594442dc43fc7d18a3820426}\label{game_8h_a492ca9fb594442dc43fc7d18a3820426}} 
+\index{game.h@{game.h}!game\_set\_player\_location@{game\_set\_player\_location}}
+\index{game\_set\_player\_location@{game\_set\_player\_location}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_set\_player\_location()}{game\_set\_player\_location()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+set\+\_\+player\+\_\+location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+Establece la posición del jugador. 
+
+game\+\_\+set\+\_\+player\+\_\+location Comienza comprobando si el segundo parametro es -\/1
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego donde se establece el jugador \\
+\hline
+{\em position} & la posición donde se establece el jugador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a005b4f436300333e7fff8fba2027337e}\label{game_8h_a005b4f436300333e7fff8fba2027337e}} 
+\index{game.h@{game.h}!game\_update@{game\_update}}
+\index{game\_update@{game\_update}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_update()}{game\_update()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}}}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Actualiza el juego. 
+
+game\+\_\+update el juego se actualiza en dependencia del comando introducido
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Profesores P\+Prog
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego que se actualiza \\
+\hline
+{\em cmd} & comando introducido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}

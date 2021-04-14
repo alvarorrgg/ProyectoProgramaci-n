@@ -1,0 +1,256 @@
+\hypertarget{die__test_8h}{}\doxysection{include/die\+\_\+test.h File Reference}
+\label{die__test_8h}\index{include/die\_test.h@{include/die\_test.h}}
+
+
+It declares the tests for the die module.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{die__test_8h_ac0b610468bd3d3b358051c966b771431}{test1\+\_\+die\+\_\+create}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_a2508c1329b5002e3830945dd9ad7f726}{test2\+\_\+die\+\_\+create}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_ac005cb42fa33b38a79896934a5a50001}{test1\+\_\+die\+\_\+roll}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_af7df60d905acf9505f1e434c6f75d027}{test2\+\_\+die\+\_\+roll}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_aca1dfa20f42a3a4360ac83b32284e11b}{test1\+\_\+die\+\_\+set\+\_\+\+Id}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_aba25cb59703baaefe0072882b847925d}{test2\+\_\+die\+\_\+set\+\_\+\+Id}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_a59002b3b047f105c24501a3350c183d3}{test3\+\_\+die\+\_\+set\+\_\+\+Id}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_a99e873ecce6a19186919e991876dadbe}{test1\+\_\+die\+\_\+get\+\_\+last\+\_\+roll}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_a0832aa306964705770b2f1240763d962}{test2\+\_\+die\+\_\+get\+\_\+last\+\_\+roll}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_ad27d80a80c4b4fa108337135d5633c90}{test1\+\_\+die\+\_\+get\+\_\+id}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_a9c76572bbb86ca9138b99a010e6a184a}{test2\+\_\+die\+\_\+get\+\_\+id}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_a4cd7590bbb2edca1414f083ba74ec542}{test1\+\_\+die\+\_\+print}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_a5bf5f30b38f256efc0c6e91ef538f5f1}{test2\+\_\+die\+\_\+print}} ()
+\item 
+void \mbox{\hyperlink{die__test_8h_a62332d2e0e931c7f9be50ae465157911}{test3\+\_\+die\+\_\+print}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It declares the tests for the die module. 
+
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{die__test_8h_ac0b610468bd3d3b358051c966b771431}\label{die__test_8h_ac0b610468bd3d3b358051c966b771431}} 
+\index{die\_test.h@{die\_test.h}!test1\_die\_create@{test1\_die\_create}}
+\index{test1\_die\_create@{test1\_die\_create}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test1\_die\_create()}{test1\_die\_create()}}
+{\footnotesize\ttfamily void test1\+\_\+die\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000022}{Test}}]Test function for die\+\_\+create \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+created die with id=5 and checked if last roll was correct 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==N\+O\+\_\+\+ID 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_ad27d80a80c4b4fa108337135d5633c90}\label{die__test_8h_ad27d80a80c4b4fa108337135d5633c90}} 
+\index{die\_test.h@{die\_test.h}!test1\_die\_get\_id@{test1\_die\_get\_id}}
+\index{test1\_die\_get\_id@{test1\_die\_get\_id}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test1\_die\_get\_id()}{test1\_die\_get\_id()}}
+{\footnotesize\ttfamily void test1\+\_\+die\+\_\+get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000031}{Test}}]Test function for die\+\_\+get\+\_\+id \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+pointer to die=N\+U\+LL 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==N\+O\+\_\+\+ID 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_a99e873ecce6a19186919e991876dadbe}\label{die__test_8h_a99e873ecce6a19186919e991876dadbe}} 
+\index{die\_test.h@{die\_test.h}!test1\_die\_get\_last\_roll@{test1\_die\_get\_last\_roll}}
+\index{test1\_die\_get\_last\_roll@{test1\_die\_get\_last\_roll}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test1\_die\_get\_last\_roll()}{test1\_die\_get\_last\_roll()}}
+{\footnotesize\ttfamily void test1\+\_\+die\+\_\+get\+\_\+last\+\_\+roll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000029}{Test}}]Test function for die\+\_\+get\+\_\+last\+\_\+roll \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+pointer to die=N\+U\+LL 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==-\/1 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_a4cd7590bbb2edca1414f083ba74ec542}\label{die__test_8h_a4cd7590bbb2edca1414f083ba74ec542}} 
+\index{die\_test.h@{die\_test.h}!test1\_die\_print@{test1\_die\_print}}
+\index{test1\_die\_print@{test1\_die\_print}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test1\_die\_print()}{test1\_die\_print()}}
+{\footnotesize\ttfamily void test1\+\_\+die\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000033}{Test}}]Test function for die\+\_\+print \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+pointer to die=N\+U\+LL 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==E\+R\+R\+OR 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_ac005cb42fa33b38a79896934a5a50001}\label{die__test_8h_ac005cb42fa33b38a79896934a5a50001}} 
+\index{die\_test.h@{die\_test.h}!test1\_die\_roll@{test1\_die\_roll}}
+\index{test1\_die\_roll@{test1\_die\_roll}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test1\_die\_roll()}{test1\_die\_roll()}}
+{\footnotesize\ttfamily void test1\+\_\+die\+\_\+roll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000024}{Test}}]Test function for die\+\_\+roll \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+pointer to die=N\+U\+LL 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==-\/1 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_aca1dfa20f42a3a4360ac83b32284e11b}\label{die__test_8h_aca1dfa20f42a3a4360ac83b32284e11b}} 
+\index{die\_test.h@{die\_test.h}!test1\_die\_set\_Id@{test1\_die\_set\_Id}}
+\index{test1\_die\_set\_Id@{test1\_die\_set\_Id}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test1\_die\_set\_Id()}{test1\_die\_set\_Id()}}
+{\footnotesize\ttfamily void test1\+\_\+die\+\_\+set\+\_\+\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000026}{Test}}]Test function for die\+\_\+set\+\_\+\+Id \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+pointer to die=N\+U\+LL 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==E\+R\+R\+OR 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_a2508c1329b5002e3830945dd9ad7f726}\label{die__test_8h_a2508c1329b5002e3830945dd9ad7f726}} 
+\index{die\_test.h@{die\_test.h}!test2\_die\_create@{test2\_die\_create}}
+\index{test2\_die\_create@{test2\_die\_create}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test2\_die\_create()}{test2\_die\_create()}}
+{\footnotesize\ttfamily void test2\+\_\+die\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000023}{Test}}]Test function for die\+\_\+roll \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+created die with id and checked if it had correct Id 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==5 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_a9c76572bbb86ca9138b99a010e6a184a}\label{die__test_8h_a9c76572bbb86ca9138b99a010e6a184a}} 
+\index{die\_test.h@{die\_test.h}!test2\_die\_get\_id@{test2\_die\_get\_id}}
+\index{test2\_die\_get\_id@{test2\_die\_get\_id}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test2\_die\_get\_id()}{test2\_die\_get\_id()}}
+{\footnotesize\ttfamily void test2\+\_\+die\+\_\+get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000032}{Test}}]Test function for die\+\_\+get\+\_\+id \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+created die with Id=5 and checked if die Id was correctly storaged 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==5 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_a0832aa306964705770b2f1240763d962}\label{die__test_8h_a0832aa306964705770b2f1240763d962}} 
+\index{die\_test.h@{die\_test.h}!test2\_die\_get\_last\_roll@{test2\_die\_get\_last\_roll}}
+\index{test2\_die\_get\_last\_roll@{test2\_die\_get\_last\_roll}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test2\_die\_get\_last\_roll()}{test2\_die\_get\_last\_roll()}}
+{\footnotesize\ttfamily void test2\+\_\+die\+\_\+get\+\_\+last\+\_\+roll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000030}{Test}}]Test function for die\+\_\+get\+\_\+last\+\_\+roll \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+created a die, rolled and checked if last roll was between correct value gaps. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output$>$0 \&\& $<$7 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_a5bf5f30b38f256efc0c6e91ef538f5f1}\label{die__test_8h_a5bf5f30b38f256efc0c6e91ef538f5f1}} 
+\index{die\_test.h@{die\_test.h}!test2\_die\_print@{test2\_die\_print}}
+\index{test2\_die\_print@{test2\_die\_print}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test2\_die\_print()}{test2\_die\_print()}}
+{\footnotesize\ttfamily void test2\+\_\+die\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000034}{Test}}]Test function for die\+\_\+print \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+correct pointer to die but incorrect file. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==E\+R\+R\+OR 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_af7df60d905acf9505f1e434c6f75d027}\label{die__test_8h_af7df60d905acf9505f1e434c6f75d027}} 
+\index{die\_test.h@{die\_test.h}!test2\_die\_roll@{test2\_die\_roll}}
+\index{test2\_die\_roll@{test2\_die\_roll}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test2\_die\_roll()}{test2\_die\_roll()}}
+{\footnotesize\ttfamily void test2\+\_\+die\+\_\+roll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000025}{Test}}]Test function for die\+\_\+roll \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+created a die, rolled and checked if last roll was between correct value gaps. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output$>$0 \&\& $<$7 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_aba25cb59703baaefe0072882b847925d}\label{die__test_8h_aba25cb59703baaefe0072882b847925d}} 
+\index{die\_test.h@{die\_test.h}!test2\_die\_set\_Id@{test2\_die\_set\_Id}}
+\index{test2\_die\_set\_Id@{test2\_die\_set\_Id}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test2\_die\_set\_Id()}{test2\_die\_set\_Id()}}
+{\footnotesize\ttfamily void test2\+\_\+die\+\_\+set\+\_\+\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000027}{Test}}]Test function for die\+\_\+set\+\_\+\+Id \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+given correct inputs with a correct Id value to set. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==OK 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_a62332d2e0e931c7f9be50ae465157911}\label{die__test_8h_a62332d2e0e931c7f9be50ae465157911}} 
+\index{die\_test.h@{die\_test.h}!test3\_die\_print@{test3\_die\_print}}
+\index{test3\_die\_print@{test3\_die\_print}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test3\_die\_print()}{test3\_die\_print()}}
+{\footnotesize\ttfamily void test3\+\_\+die\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000035}{Test}}]Test function for die\+\_\+print \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+Both file and pointer correctly given 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==OK 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{die__test_8h_a59002b3b047f105c24501a3350c183d3}\label{die__test_8h_a59002b3b047f105c24501a3350c183d3}} 
+\index{die\_test.h@{die\_test.h}!test3\_die\_set\_Id@{test3\_die\_set\_Id}}
+\index{test3\_die\_set\_Id@{test3\_die\_set\_Id}!die\_test.h@{die\_test.h}}
+\doxysubsubsection{\texorpdfstring{test3\_die\_set\_Id()}{test3\_die\_set\_Id()}}
+{\footnotesize\ttfamily void test3\+\_\+die\+\_\+set\+\_\+\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Test}
+\item[\mbox{\hyperlink{test__test000028}{Test}}]Test function for die\+\_\+set\+\_\+\+Id \end{DoxyRefDesc}
+\begin{DoxyPrecond}{Precondition}
+given correct inputs with a negative Id value to set. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Output==E\+R\+R\+OR 
+\end{DoxyPostcond}

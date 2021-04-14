@@ -247,9 +247,10 @@ void test1_command_get_user_input()
     Command *new_command = NULL;
     new_command = command_init();
     
-
+    printf("Escribe un comando:\n");
     aux=command_get_user_input();
     command_set_cmd(new_command, aux);
+    
     printf("Posicion de comando: %d\n", aux);
     PRINT_TEST_RESULT(command_get_cmd(new_command)==aux);
     command_destroy(new_command);

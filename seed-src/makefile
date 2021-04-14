@@ -169,10 +169,10 @@ command_test.o: command_test.c command_test.h command.h test.h
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
-docs:
+docs: OBJ
 	@doxygen ./Doxyfile
 
 .PHONY: clean 
 clean: 
 	@echo "Limpiando"
-	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test 
+	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test docs
