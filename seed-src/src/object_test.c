@@ -17,16 +17,16 @@
 
 #define MAX_TESTS 23 /*!<Numero maximo de tests*/
 
-/** 
- * @brief Main function for OBJECT unit tests. 
+
+int/** 
+ * @brief Función main para la unidad de pruebas de OBJECT. 
  * 
- * You may execute ALL or a SINGLE test
- *   1.- No parameter -> ALL test are executed 
- *   2.- A number means a particular test (the one identified by that number) 
- *       is executed
+ * Se puede ejecutar con ALL o SINGLE test
+ *   1.- Sin parámetros -> ALL todas las pruebas son ejecutadas 
+ *   2.- Un numero simboliza un número particular de una prueba (la que se identifica con dicho número) que
+ *       se ejecuta
  *  
- */
-int main(int argc, char** argv) {
+ */ main(int argc, char** argv) {
 
   int test = 0;
   int all = 1;

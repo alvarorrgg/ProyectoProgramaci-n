@@ -12,162 +12,162 @@
 #define OBJECT_TEST_H
 
 /**
- * @test Test function for object_create
- * @pre given correct inputs and looking if return diferent than NULL
+ * @test Función de prueba para object_create
+ * @pre Inputs correctos y comprueba si el return no es NULL
  * @post Output != NULL
  */
     void test1_object_create();  
 
 /**
- * @test Test function for object_create
- * @pre given correct inputs and looking if the object id is the correct
+ * @test Función de prueba para object_create
+ * @pre Inputs correctos y comprueba si el id del objeto es el correcto
  * @post Output == id
  */
     void test2_object_create();  
 
 /**
- * @test Test function for object_destroy
- * @pre given NULL object
+ * @test Función de prueba para object_destroy
+ * @pre Objeto=NULL
  * @post Output == ERRROR
  */
     void test1_object_destroy();  
 
 /**
- * @test Test function for object_destroy
- * @pre given a correct input
+ * @test Función de prueba para object_destroy
+ * @pre Inputs correctos
  * @post Output == OK
  */
     void test2_object_destroy();  
 
 /**
- * @test Test function for object_get_id
- * @pre given NULL object
+ * @test Función de prueba para object_get_id
+ * @pre Objeto=NULL
  * @post Output == NO_ID
  */
     void test1_object_get_id();  
 
 /**
- * @test Test function for object_get_id
- * @pre given correct input
+ * @test Función de prueba para object_get_id
+ * @pre given Inputs correctos
  * @post Output == 05
  */
     void test2_object_get_id(); 
 
 /**
- * @test Test function for object_set_name
- * @pre given a NULL object
+ * @test Función de prueba para object_set_name
+ * @pre Objeto=NULL
  * @post Output == ERROR
  */
     void test1_object_set_name();   
 
 /**
- * @test Test function for object_set_name
- * @pre given a NULL name
+ * @test Función de prueba para object_set_name
+ * @pre name=NULL
  * @post Output == ERROR
  */
     void test2_object_set_name();   
 
 /**
- * @test Test function for object_set_name
- * @pre given correct inputs
+ * @test Función de prueba para object_set_name
+ * @pre Inputs correctos
  * @post Output == OK
  */
     void test3_object_set_name();   
 
 /**
- * @test Test function for object_set_id
- * @pre given a NULL object
+ * @test Función de prueba para object_set_id
+ * @pre Objeto=NULL
  * @post Output == ERROR
  */
     void test1_object_set_id();   
 
 /**
- * @test Test function for object_set_id
- * @pre given correct inputs
+ * @test Función de prueba para object_set_id
+ * @pre Inputs correctos
  * @post Output == OK
  */
     void test2_object_set_id();  
 
 /**
- * @test Test function for object_get_name
- * @pre given a NULL object
+ * @test Función de prueba para object_get_name
+ * @pre Objeto=NULL
  * @post Output == NULL
  */
     void test1_object_get_name();  
 
 /**
- * @test Test function for object_get_name
- * @pre given a correct input
+ * @test Función de prueba para object_get_name
+ * @pre Inputs correctos
  * @post Output == Nombre
  */
     void test2_object_get_name();  
 
 /**
- * @test Test function for object_get_descripcion
- * @pre given a NULL object
+ * @test Función de prueba para object_get_descripcion
+ * @pre Objeto=NULL
  * @post Output == NULL
  */
     void test1_object_get_descripcion();  
 
 /**
- * @test Test function for object_get_descripcion
- * @pre given a correct input
+ * @test Función de prueba para object_get_descripcion
+ * @pre Inputs correctos
  * @post Output == Ejemplo descripcion
  */
     void test2_object_get_descripcion();  
 
 /**
- * @test Test function for object_set_descripcion
- * @pre given NULL object
+ * @test Función de prueba para object_set_descripcion
+ * @pre Objeto=NULL
  * @post Output == EERROR;
  */
     void test1_object_set_descripcion();  
 
 /**
- * @test Test function for object_set_descripcion
+ * @test Función de prueba para object_set_descripcion
  * @pre given a NULL descr
  * @post Output == EERROR;
  */
     void test2_object_set_descripcion();  
 
 /**
- * @test Test function for object_set_descripcion
- * @pre given corrects inputs
+ * @test Función de prueba para object_set_descripcion
+ * @pre Inputs correctos
  * @post Output == OK;
  */
     void test3_object_set_descripcion();
 
 /**
- * @test Test function for object_get_id_by_name
- * @pre given a NULL object
+ * @test Función de prueba para object_get_id_by_name
+ * @pre Objeto=NULL
  * @post Output == -1
  */
     void test1_object_get_id_by_name();   
 
 /**
- * @test Test function for object_get_id_by_name
- * @pre given a NULL name
+ * @test Función de prueba para object_get_id_by_name
+ * @pre name=NULL
  * @post Output == -1
  */
     void test2_object_get_id_by_name();   
 
 /**
- * @test Test function for object_get_id_by_name
- * @pre given correct inputs
+ * @test Función de prueba para object_get_id_by_name
+ * @pre Inputs correctos
  * @post Output == 05
  */
     void test3_object_get_id_by_name();
 
 /**
- * @test Test function for object_print
- * @pre given a NULL object
+ * @test Función de prueba para object_print
+ * @pre Objeto=NULL
  * @post Output == ERROR
  */
     void test1_object_print();
 
 /**
- * @test Test function for object_print
- * @pre given a correct input
+ * @test Función de prueba para object_print
+ * @pre Inputs correctos
  * @post Output == OK
  */
     void test2_object_print();

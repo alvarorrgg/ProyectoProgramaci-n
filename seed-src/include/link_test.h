@@ -12,204 +12,204 @@
 #define LINK_TEST_H
 
  /**
- * @test Test function for link_create
- * @pre created link and checked if it is diferent from NULL
+ * @test Función de prueba para link_create
+ * @pre crea un link y comprueba si es diferente a NULL
  * @post Output!=NULL
  */
 void test1_link_create();
 
 /**
- * @test Test function for link_create
- * @pre created link with id and checked if it had correct Id
+ * @test Función de prueba para link_create
+ * @pre crea un link with id y comprueba si tiene una id correcta
  * @post Output==5
  */
 void test2_link_create();
 
 /**
- * @test Test function for link_get_id
- * @pre created link with id and checked if it had correct Id
+ * @test Función de prueba para link_get_id
+ * @pre crea un link con id y comprueba si la id es correcta
  * @post Output==5
  */
 void test1_link_get_id();
 
 /**
- * @test Test function for link_get_id
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_get_id
+ * @pre Puntero a link=NULL
  * @post Output==NO_ID
  */
 void test2_link_get_id();
 
 /**
- * @test Test function for link_set_id
- * @pre given correct inputs with a correct Id value to set.
+ * @test Función de prueba para link_set_id
+ * @pre Inputs correctos con id valida
  * @post Output==OK
  */
 void test1_link_set_id();
 
 /**
- * @test Test function for link_set_id
- * @pre given wrong inputs with a wrong Id value to set.
+ * @test Función de prueba para link_set_id
+ * @pre Inputs incorrectos con id no valida
  * @post Output==ERROR
  */
 void test2_link_set_id();
 
 /**
- * @test Test function for link_set_id
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_set_id
+ * @pre Puntero a link=NULL
  * @post Output==ERROR
  */
 void test3_link_set_id();
 
 /**
- * @test Test function for link_get_name
- * @pre set a name to the link and check if it gets the same name
+ * @test Función de prueba para link_get_name
+ * @pre Comprueba que el nombre se establecio correctamente
  * @post Output==OK
  */
 void test1_link_get_name();
 
 /**
- * @test Test function for link_get_name
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_get_name
+ * @pre Puntero a link=NULL
  * @post Output==ERROR
  */
 void test2_link_get_name();
 
 /**
- * @test Test function for link_set_name
- * @pre given correct inputs with a correct char value to set.
+ * @test Función de prueba para link_set_name
+ * @pre Inputs correctos con char valido
  * @post Output==OK
  */
 void test1_link_set_name();
 
 /**
- * @test Test function for link_set_name
- * @pre given wrong inputs with a wrong char value to set.
+ * @test Función de prueba para link_set_name
+ * @pre Inputs incorrecots con char no valido
  * @post Output==ERROR
  */
 void test2_link_set_name();
 
 /**
- * @test Test function for link_set_name
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_set_name
+ * @pre Puntero a link=NULL
  * @post Output==ERROR
  */
 void test3_link_set_name();
 
 /**
- * @test Test function for link_get_id_from
- * @pre created link with id and checked if it had correct Id
+ * @test Función de prueba para link_get_id_from
+ * @pre Crea un link con id y comprueba si la id es correcta
  * @post Output==6
  */
 void test1_link_get_id_from();
 
 /**
- * @test Test function for link_get_id_from
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_get_id_from
+ * @pre Puntero a link=NULL
  * @post Output==NO_ID
  */
 void test2_link_get_id_from();
 
 /**
- * @test Test function for link_set_id_from
- * @pre given correct inputs with a correct Id value to set.
+ * @test Función de prueba para link_set_id_from
+ * @pre Inputs correctos con id valida
  * @post Output==OK
  */
 void test1_link_set_id_from();
 
 /**
- * @test Test function for link_set_id_from
- * @pre given wrong inputs with a wrong Id value to set.
+ * @test Función de prueba para link_set_id_from
+ * @pre Inputs incorrectos con id no valida
  * @post Output==ERROR
  */
 void test2_link_set_id_from();
 
 /**
- * @test Test function for link_set_id_from
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_set_id_from
+ * @pre puntero a link=NULL
  * @post Output==ERROR
  */
 void test3_link_set_id_from();
 
 /**
- * @test Test function for link_get_id_to
- * @pre created link with id and checked if it had correct Id
+ * @test Función de prueba para link_get_id_to
+ * @pre crea un link with id y comprueba if it had correct Id
  * @post Output==6
  */
 void test1_link_get_id_to();
 
 /**
- * @test Test function for link_get_id_to
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_get_id_to
+ * @pre puntero a link=NULL
  * @post Output==NO_ID
  */
 void test2_link_get_id_to();
 
 /**
- * @test Test function for link_set_id_to
- * @pre given correct inputs with a correct Id value to set.
+ * @test Función de prueba para link_set_id_to
+ * @pre Inputs correctos con id valida
  * @post Output==OK
  */
 void test1_link_set_id_to();
 
 /**
- * @test Test function for link_set_id_to
- * @pre given wrong inputs with a wrong Id value to set.
+ * @test Función de prueba para link_set_id_to
+ * @pre Inputs incorrectos con id no valida
  * @post Output==ERROR
  */
 void test2_link_set_id_to();
 
 /**
- * @test Test function for link_set_id_to
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_set_id_to
+ * @pre Puntero a link=NULL
  * @post Output==ERROR
  */
 void test3_link_set_id_to();
 
 /**
- * @test Test function for link_get_type
- * @pre given correct inputs with a correct Id value to set.
+ * @test Función de prueba para link_get_type
+ * @pre Inputs correctos con id valida
  * @post Output==OPEN
  */
 void test1_link_get_type();
 
 /**
- * @test Test function for link_get_type
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_get_type
+ * @pre Puntero a link=NULL
  * @post Output==CLOSE
  */
 void test2_link_get_type();
 
 /**
- * @test Test function for link_get_type
- * @pre given correct inputs with a correct Id value to set.
+ * @test Función de prueba para link_get_type
+ * @pre Inputs correctos con id valida
  * @post Output==OK
  */
 void test1_link_set_type();
 
 /**
- * @test Test function for link_get_type
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_get_type
+ * @pre Puntero a link=NULL
  * @post Output==ERROR
  */
 void test2_link_set_type();
 
 /**
- * @test Test function for link_print
- * @pre pointer to link=NULL
+ * @test Función de prueba para link_print
+ * @pre Puntero a link=NULL
  * @post Output==ERROR
  */
 void test1_link_print();
 
 /**
- * @test Test function for link_print
- * @pre correct pointer to link but incorrect file.
+ * @test Función de prueba para link_print
+ * @pre  Puntero a link valido pero fichero no valido
  * @post Output==ERROR
  */
 void test2_link_print();
 
 /**
- * @test Test function for link_print
- * @pre Both file and pointer correctly given
+ * @test Función de prueba para link_print
+ * @pre Fichero y puntero correctos
  * @post Output==OK
  */
 void test3_link_print();
