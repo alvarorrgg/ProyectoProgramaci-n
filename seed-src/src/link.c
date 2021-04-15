@@ -1,7 +1,7 @@
 /** 
  * @brief Define los enlaces entre espacios
  * 
- * @file link.h
+ * @file link.c
  * @author Alberto Vicente
  * @version 1.0 
  * @date 11-04-2021
@@ -11,12 +11,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
 #include "link.h"
 #include "types.h"
 
 /**
- * @brief Define la estructura del link
+ * @brief Define la estructura de los enlaces
  * 
  * Estructura del link
  */

@@ -1,5 +1,6 @@
 /** 
- * @brief Archivo cabecera del modulo set.h, en el se define la estructura de datos Object y sus funciones.
+ * @brief Archivo cabecera de set.c en el se encuentra definidas los datos y funciones de set.c
+ * 
  * 
  * @file set.h
  * @author Álvaro Rodríguez

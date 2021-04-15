@@ -1,5 +1,5 @@
 /** 
- * @brief It declares the tests for the set module
+ * @brief Archivo cabecera de set_test.c en el se encuentra definidas los datos y funciones de set_test.c
  * 
  * @file set_test.h
  * @author Álvaro Rodríguez

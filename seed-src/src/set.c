@@ -1,5 +1,5 @@
 /** 
- * @brief Implementa la estructura de datos abstractos Set y sus funciones que se encargan del manejo de conjuntos.
+ * @brief Archivo para el manejo de conjuntos de datos ya sean espacios u objetos.
  * 
  * @file set.c
  * @author Álvaro Rodríguez
@@ -21,8 +21,8 @@
  */
 struct _Set {
 
-  Id id[MAX_IDS];	/*!< array de ids */		
-  int total_ids;	/*!< total de ids */	
+  Id id[MAX_IDS];	/*!< Donde se almacenan los Ids */		
+  int total_ids;	/*!< Numero total de ids en el array */	
 };
 
 Set* set_create() { 
@@ -30,7 +30,7 @@ Set* set_create() {
   Set *new_set= NULL;
   new_set = (Set *) malloc(sizeof (Set));
 
-  if (new_set == NULL) return NULL;
+  if (!new_set) return NULL;
   
   for(i =0;i<MAX_IDS;i++){
   	new_set->id[i]=NO_ID;

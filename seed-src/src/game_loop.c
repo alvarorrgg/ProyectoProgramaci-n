@@ -66,7 +66,7 @@ void game_loop_cleanup(Game *game, Graphic_engine *gengine);
  * main es la función con la que comienza el programa
  *
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param argc cantidad de argumentos necesarios para que el programa funcione
  * @param argv array donde se guarda cada uno de los argumentos
@@ -103,12 +103,11 @@ int main(int argc, char *argv[])
     }
   }
   game = game_init();
-  if (!game_loop_init(game, &gengine, argv[1]))
-  {                                  /*Inicio del juego*/
+  if (!game_loop_init(game, &gengine, argv[1])) /*Inicio del juego*/
+  {                                 
     game_loop_run(game, gengine, f); /*Bucle donde se desarrolla el juego*/
     game_loop_cleanup(game, gengine);
-    if (argc > 2)
-      fclose(f); /*Necesaria esta comprobación para no cerrar el archivo en caso de que no se hubiera abierto*/
+    if (argc > 2) fclose(f); /*Necesaria esta comprobación para no cerrar el archivo en caso de que no se hubiera abierto*/
   }
 
   return 0;

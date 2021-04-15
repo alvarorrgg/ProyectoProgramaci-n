@@ -1,5 +1,5 @@
 /** 
- * @brief Implementa la estructura de datos abstractos Object, y las funciones que estan relacionadas con esta.
+ * @brief Sirve para el manejo de objetos.
  * 
  * @file object.c
  * @author Álvaro Rodríguez
@@ -33,7 +33,7 @@ Object* object_create(Id id) {
 
   new_object = (Object *) malloc(sizeof (Object));
 
-  if (new_object == NULL) return NULL;
+  if (!new_object) return NULL;
   
   new_object->id = id;
   new_object->name[0] = (char)0;
@@ -84,7 +84,7 @@ const char* object_get_description(Object* object){
 }
 
 STATUS object_set_description(Object* object , char* descr){
-  if(!object || descr == NULL) return ERROR;
+  if(!object || !descr ) return ERROR;
 
   if (!strcpy(object->description, descr)) return ERROR;
 
@@ -93,7 +93,7 @@ STATUS object_set_description(Object* object , char* descr){
 
 
  Id object_get_id_by_name (Object *object , char *name){
-  if (!object || name == NULL) return -1;
+  if (!object || !name) return -1;
 
   if (strcmp (name , object_get_name (object)) == 0) return object->id;
 

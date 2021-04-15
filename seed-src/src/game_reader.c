@@ -1,5 +1,5 @@
 /** 
- * @brief Implementa el inicio de juego y obtiene los valores iniciales de data.dat
+ * @brief Implementa el inicio del juego y obtiene los valores iniciales de data.dat
  * 
  * @file game_reader.c
  * @author Álvaro Rodríguez Alberto Vicente
@@ -29,23 +29,22 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   STATUS status = OK;
 
   gdesc = (char **)malloc(3 * sizeof(char *));
-  if (gdesc == NULL)
-    return ERROR;
+  if (!gdesc) return ERROR;
+
   gdesc[0] = (char *)malloc(9 * sizeof(char));
-  if (gdesc[0] == NULL)
-    return ERROR;
+  if (!gdesc[0]) return ERROR;
+
   gdesc[1] = (char *)malloc(9 * sizeof(char));
-  if (gdesc[1] == NULL)
-    return ERROR;
+  if (!gdesc[1]) return ERROR;
+
   gdesc[2] = (char *)malloc(9 * sizeof(char));
-  if (gdesc[2] == NULL)
-    return ERROR;
+  if (!gdesc[2]) return ERROR;
 
   if (!filename)
     return ERROR;
 
   file = fopen(filename, "r");
-  if (file == NULL)
+  if (!file)
     return ERROR;
 
   while (fgets(line, WORD_SIZE, file))
@@ -112,12 +111,10 @@ STATUS game_reader_load_objects(Game *game, char *filename)
   Object *object = NULL;
   STATUS status = OK;
 
-  if (!filename)
-    return ERROR;
+  if (!filename) return ERROR;
 
   file = fopen(filename, "r");
-  if (file == NULL)
-    return ERROR;
+  if (!file) return ERROR;
 
   while (fgets(line, WORD_SIZE, file))
   {
@@ -175,12 +172,10 @@ STATUS game_reader_load_players(Game *game, char *filename)
   int max_objects=0;
   STATUS status = OK;
 
-  if (!filename)
-    return ERROR;
+  if (!filename) return ERROR;
 
   file = fopen(filename, "r");
-  if (file == NULL)
-    return ERROR;
+  if (file == NULL) return ERROR;
 
   while (fgets(line, WORD_SIZE, file))
   {
@@ -203,21 +198,20 @@ STATUS game_reader_load_players(Game *game, char *filename)
       if (player_pos != NO_ID)
       {
         player_set_name(player, name);
-        if(strlen(name)>7){
-          printf("El nombre del jugador no puede tener mas de 7 caracteres");
+        if(strlen(name)>10){
+          printf("El nombre del jugador no puede tener mas de 10 caracteres");
           return ERROR;
         }
-        if(player_pos==0) {
-          player_pos=1;
-        }
+        if(player_pos==0) player_pos=1;
+        
         player_set_location(player,player_pos);
         player_set_inventory_max_capacity(player,max_objects);
         game_add_player(game,player);
       }
     }
   }
-  if (ferror(file))
-    status = ERROR;
+  if (ferror(file)) status = ERROR;
+
   fclose(file);
 
   return status;
@@ -236,14 +230,11 @@ STATUS game_reader_load_links(Game* game, char* filename) {
   Link *link2=NULL;
   
 
-  if (!filename) 
-    return ERROR;
+  if (!filename) return ERROR;
   
-
   file = fopen(filename, "r");
 
-  if (file == NULL) 
-    return ERROR;
+  if (!file) return ERROR;
   
 
   while (fgets(line, WORD_SIZE, file)) {
@@ -269,15 +260,12 @@ STATUS game_reader_load_links(Game* game, char* filename) {
 
 
       if (id != NO_ID) {
-        if(id_space1 + 1 == id_space2){
-          flag=1;
-        } 
-        else if(id_space1 +8 == id_space2){ 
-           flag=2;
-        }       
-        else{                      
-            flag=3;
-        }
+        if(id_space1 + 1 == id_space2)flag=1;
+        
+        else if(id_space1 +8 == id_space2) flag=2;      
+
+        else flag=3;
+
       }
       else{
         return ERROR;

@@ -1,5 +1,5 @@
 /**
- * @brief Define un motor gráfico textual
+ * @brief Archivo cabecera de graphic_engine.c en el se encuentra definidas los datos y funciones de graphic_engine.c
  *
  * @file graphic_engine.h
  * @author Profesores PPROG

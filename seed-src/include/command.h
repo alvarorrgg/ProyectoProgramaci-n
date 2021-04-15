@@ -1,16 +1,16 @@
 /**
- * @brief Implementa el intérprete de comandos
+ * @brief Archivo cabecera de command.c en el se encuentra definidas los datos y funciones de command.c
  *
  * @file command.h
  * @author Álvaro Rodríguez, Profesores PPRog
  * @version 2.0
- * @date 13-01-2020
+ * @date 15-04-2021
  * @copyright GNU Public License
  */
 
 #ifndef COMMAND_H
 #define COMMAND_H
-#define N_CMDT 2 /*!<Variable global*/
+#define N_CMDT 2 /*!<Tipos de representación de los comandos*/
 #define N_CMD 12 /*!<Numero de comandos*/
 #include "types.h"
 /**
@@ -26,8 +26,8 @@ typedef struct _Command Command;
  * Se declaran dos variables referentes al tipo de comando
  */
 typedef enum enum_CmdType {
-  CMDS,		/*!< Comando ... */
-  CMDL			/*!< Comando ... */
+  CMDS,		/*!< CMDS=0 Cuerpo del comando de forma abreviada */
+  CMDL			/*!< CMDL=1 Cuerpo del comando en su forma original */
   } T_CmdType;	
 
 /**

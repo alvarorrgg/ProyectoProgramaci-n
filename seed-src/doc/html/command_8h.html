@@ -75,7 +75,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Implementa el intérprete de comandos.  
+<p>Archivo cabecera de <a class="el" href="command_8c.html" title="Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos.">command.c</a> en el se encuentra definidas los datos y funciones de <a class="el" href="command_8c.html" title="Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos.">command.c</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="types_8h_source.html">types.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -83,8 +83,8 @@ Include dependency graph for command.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="command_8h__incl.png" border="0" usemap="#include_2command_8h" alt=""/></div>
 <map name="include_2command_8h" id="include_2command_8h">
-<area shape="rect" title="Implementa el intérprete de comandos." alt="" coords="5,5,156,32"/>
-<area shape="rect" href="types_8h.html" title="Definde tipos comunes." alt="" coords="45,80,116,107"/>
+<area shape="rect" title="Archivo cabecera de command.c en el se encuentra definidas los datos y funciones de command...." alt="" coords="5,5,156,32"/>
+<area shape="rect" href="types_8h.html" title="Archivo cabecera types.h, en el se definen tipos de datos utiles para el juego." alt="" coords="45,80,116,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -92,14 +92,15 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="command_8h__dep__incl.png" border="0" usemap="#include_2command_8hdep" alt=""/></div>
 <map name="include_2command_8hdep" id="include_2command_8hdep">
-<area shape="rect" title="Implementa el intérprete de comandos." alt="" coords="410,5,561,32"/>
-<area shape="rect" href="game_8h.html" title="Archivo cabecera de game.c contiene la estructura de datos game en la que se almacenan algunas caract..." alt="" coords="300,80,423,107"/>
-<area shape="rect" href="game__loop_8c.html" title="Define el ciclo del juego." alt="" coords="5,229,133,256"/>
-<area shape="rect" href="graphic__engine_8c.html" title="Define un motor gráfico textual." alt="" coords="345,229,500,256"/>
-<area shape="rect" href="command_8c.html" title="Implementa el intérprete de comandos." alt="" coords="649,80,770,107"/>
-<area shape="rect" href="graphic__engine_8h.html" title="Define un motor gráfico textual." alt="" coords="107,155,291,181"/>
-<area shape="rect" href="game_8c.html" title="Implementa la interfaz del juego y todas las devoluciones de llamada asociadas para cada comando." alt="" coords="315,155,408,181"/>
-<area shape="rect" href="game__reader_8c.html" title="Implementa el inicio de juego y obtiene los valores iniciales de data.dat." alt="" coords="432,155,573,181"/>
+<area shape="rect" title="Archivo cabecera de command.c en el se encuentra definidas los datos y funciones de command...." alt="" coords="502,5,653,32"/>
+<area shape="rect" href="game_8h.html" title="Archivo cabecera de game.c en el se encuentra definidas los datos y funciones de game...." alt="" coords="258,80,380,107"/>
+<area shape="rect" href="game__loop_8c.html" title="Define el ciclo del juego." alt="" coords="255,229,383,256"/>
+<area shape="rect" href="graphic__engine_8c.html" title="Define un motor gráfico textual." alt="" coords="454,229,608,256"/>
+<area shape="rect" href="command_8c.html" title="Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos." alt="" coords="616,80,737,107"/>
+<area shape="rect" href="command__test_8c.html" title="It tests the command module." alt="" coords="761,80,914,107"/>
+<area shape="rect" href="graphic__engine_8h.html" title="Archivo cabecera de graphic_engine.c en el se encuentra definidas los datos y funciones de graphic_en..." alt="" coords="356,155,540,181"/>
+<area shape="rect" href="game_8c.html" title="Implementa la interfaz del juego y todas las devoluciones de llamada asociadas para cada comando." alt="" coords="23,155,116,181"/>
+<area shape="rect" href="game__reader_8c.html" title="Implementa el inicio del juego y obtiene los valores iniciales de data.dat." alt="" coords="140,155,282,181"/>
 </map>
 </div>
 </div>
@@ -181,10 +182,10 @@ Functions</h2></td></tr>
 <tr class="separator:aaf952301625a0fbdefceb2a5a9dcc35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementa el intérprete de comandos. </p>
+<div class="textblock"><p>Archivo cabecera de <a class="el" href="command_8c.html" title="Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos.">command.c</a> en el se encuentra definidas los datos y funciones de <a class="el" href="command_8c.html" title="Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos.">command.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Álvaro Rodríguez, Profesores PPRog </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>13-01-2020 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>15-04-2021 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ae180fe89f0ae48ce5c80ffaa18de9271"></a>
@@ -213,7 +214,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Variable global </p>
+<p>Tipos de representación de los comandos </p>
 
 </div>
 </div>
@@ -285,9 +286,9 @@ Functions</h2></td></tr>
 <p>Tipos de comandos. </p>
 <p>Se declaran dos variables referentes al tipo de comando </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a096a001f895e218ffb74047e101e6225a7de95771d46ecb64bd2344ef74bbec41"></a>CMDS&#160;</td><td class="fielddoc"><p>Comando ... </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a096a001f895e218ffb74047e101e6225a7de95771d46ecb64bd2344ef74bbec41"></a>CMDS&#160;</td><td class="fielddoc"><p>CMDS=0 Cuerpo del comando de forma abreviada </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a096a001f895e218ffb74047e101e6225a65653f75f2b3c4edc251be55e26b3ca3"></a>CMDL&#160;</td><td class="fielddoc"><p>Comando ... </p>
+<tr><td class="fieldname"><a id="a096a001f895e218ffb74047e101e6225a65653f75f2b3c4edc251be55e26b3ca3"></a>CMDL&#160;</td><td class="fielddoc"><p>CMDL=1 Cuerpo del comando en su forma original </p>
 </td></tr>
 </table>
 

@@ -1,8 +1,9 @@
 /** 
- * @brief It declares the tests for the space module
+ * @brief Archivo cabecera de space_test.c en el se encuentra definidas los datos y funciones de space_test.c
+ * 
  * 
  * @file space_test.h
- * @author Profesores Pprog
+ * @author Profesores Pprog, Álvaro Rodríguez, Gonzalo Martín
  * @version 2.0 
  * @date 19-01-2016
  * @copyright GNU Public License

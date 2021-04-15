@@ -1,5 +1,5 @@
 /** 
- * @brief Archivo cabecera del modulo die.h en el que se definen las funciones de die.c
+ * @brief Archivo cabecera de die.c en el se encuentra definidas los datos y funciones de die.c
  * 
  * @file die.h
  * @author Alberto Vicente

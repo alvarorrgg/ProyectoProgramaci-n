@@ -1,8 +1,8 @@
 /** 
- * @brief Define un espacio
+ * @brief Archivo cabecera de space.c en el se encuentra definidas los datos y funciones de space.c
  * 
  * @file space.h
- * @author Profesores PPROG
+ * @author Profesores PPROG, Álvaro Rodríguez, Gonzalo Martín
  * @version 1.0 
  * @date 13-01-2015
  * @copyright GNU Public License
@@ -95,7 +95,7 @@ const char* space_get_name(Space* space);
  * space_set_north fija la coordenada norte
  * 
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @param link marca el link norte
@@ -109,7 +109,7 @@ STATUS space_set_north(Space* space, Link *link);
  * space_get_north consigue la coordenada norte del espacio
  * 
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @return Link devuelve el link norte
@@ -122,7 +122,7 @@ Link *space_get_north(Space* space);
  * space_set_south fija la coordenada sur
  * 
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @param link marca el link sur
@@ -136,7 +136,7 @@ STATUS space_set_south(Space* space, Link *link);
  * space_get_south consigue la coordenada sur del espacio
  * 
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @return Link devuelve el link sur
@@ -149,7 +149,7 @@ Link* space_get_south(Space* space);
  * space_set_east fija la coordenada este
  * 
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @param link marca el link este
@@ -162,7 +162,7 @@ STATUS space_set_east(Space* space, Link *link);
  * space_get_east consigue la coordenada este del espacio
  * 
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @return Link devuelve el link este
@@ -175,7 +175,7 @@ Link *space_get_east(Space* space);
  * space_set_west fija la coordenada oeste
  * 
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @param link marca el link oeste
@@ -188,7 +188,7 @@ STATUS space_set_west(Space* space, Link *link);
  * space_get_west consigue la coordenada oeste del espacio
  * 
  * @date 18-02-2021
- * @author Profesores PPROG
+ * @author Álvaro Rodríguez
  *
  * @param space el espacio que se trabaja
  * @return Link devuelve el link oeste

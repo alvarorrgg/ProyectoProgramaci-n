@@ -1,5 +1,5 @@
 /** 
- * @brief Define los enlaces entre espacios
+ * @brief Archivo cabecera de link.c en el se encuentra definidas los datos y funciones de link.c
  * 
  * @file link.h
  * @author Alberto Vicente

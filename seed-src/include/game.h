@@ -1,8 +1,8 @@
 /** 
- * @brief Archivo cabecera de game.c contiene la estructura de datos game en la que se almacenan algunas caracteristicas del juego y algunas de las funciones publicas del programa.
+ * @brief Archivo cabecera de game.c en el se encuentra definidas los datos y funciones de game.c. Además también se definen otros datos útiles para otros módulos.
  * 
  * @file game.h
- * @author Profesores PPROG
+ * @author Profesores PPROG, Álvaro Rodríguez, Gonzalo Martín.
  * @version 1.0 
  * @date 13-01-2015 
  * @copyright GNU Public License
@@ -45,7 +45,7 @@ STATUS game_create(Game* game);
  * game_init Inicializa el juego 
  *
  * @date 18-02-2021
- * @author R1
+ * @author Álvaro Rodríguez
  *
  * @return Puntero a la estructura Game si todo ha ido bien, NULL si ha ocurrido un error
  */
@@ -287,7 +287,8 @@ Link *game_get_link(Game *game, Id id);
  *
  * game_set_player_location Comienza comprobando si el segundo parametro es -1
  *
-
+ * @date  18-02-2021
+ * @author Álvaro Rodríguez
  *
  * @param game el juego donde se establece el jugador
  * @param id la posición donde se establece el jugador
@@ -301,7 +302,7 @@ STATUS game_set_player_location(Game* game, Id id);
  * game_set_objet_location Comprueba si el segundo parametro es -1
  *
  * @date 18-02-2021
- * @author Profesores PProg
+ * @author Álvaro Rodríguez
  *
  * @param game el juego donde se establece el objeto
  * @param pos_obj la posición donde se establece el objeto

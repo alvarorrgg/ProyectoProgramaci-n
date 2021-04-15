@@ -1,10 +1,10 @@
 /** 
- * @brief It declares the tests for the space module
+ * @brief Archivo cabecera de command_test.c en el se encuentra definidas los datos y funciones de command_test.c
  * 
  * @file command_test.h
- * @author Profesores Pprog
+ * @author Alexandru Marius
  * @version 2.0 
- * @date 19-01-2016
+ * @date 15-04-2021
  * @copyright GNU Public License
  */
 
@@ -131,8 +131,8 @@ void test3_command_set_arg();
  */
 void test1_command_get_arg();
 /**
- * @test Test function for space_get_arg
- * @pre Checks that thearg from an uninitialized command is NULL
+ * @test Test function for command_get_arg
+ * @pre Checks that the arg from an uninitialized command is NULL
  * @post Output==NULL
  */
 void test2_command_get_arg();

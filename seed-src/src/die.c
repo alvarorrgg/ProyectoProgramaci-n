@@ -23,7 +23,7 @@ struct _Die {
   Id id;		   /*!< Id del dado */
   int min;	/*!< minimo del dado */
   int max; /*!< maximo del dado */
-  int last_roll;	/*!< ultimo roll del dado */
+  int last_roll;	/*!< ultima tirada del dado */
 };
 
 Die *die_create(Id id){

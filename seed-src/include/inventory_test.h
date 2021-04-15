@@ -1,5 +1,5 @@
 /** 
- * @brief It declares the tests for the inventory module
+ * @brief Archivo cabecera de inventory_test.c en el se encuentra definidas los datos y funciones de inventory_test.c
  * 
  * @file inventory_test.h
  * @author Gonzalo Martín

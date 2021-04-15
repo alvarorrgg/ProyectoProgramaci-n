@@ -1,3 +1,13 @@
+/** 
+ * @brief Se encarga de definir el modulo inventario que sirve para recoger varios objetos
+ * 
+ * @file inventory.c
+ * @author Gonzalo Martín
+ * @version 2.0 
+ * @date 31-03-2021
+ * @copyright GNU Public License
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "inventory.h"
@@ -62,7 +72,7 @@ int inventory_get_number_of_objects(Inventory *inventory){
 
 STATUS inventory_print (Inventory *inventory , FILE *pf){
     STATUS st;
-    if(! inventory || pf == NULL) return ERROR;
+    if(! inventory || !pf ) return ERROR;
     
 
     st = set_print( pf , inventory->objects);

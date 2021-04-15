@@ -1,5 +1,5 @@
 /** 
- * @brief Archivo de cabecera de game_reader.c con las definiciones de funciones publicas.
+ * @brief Archivo cabecera de game_reader.c en el se encuentra definidas los datos y funciones de game_reader_test.c
  * 
  * @file game_reader.h
  * @author Álvaro Rodríguez,Alberto Vicente

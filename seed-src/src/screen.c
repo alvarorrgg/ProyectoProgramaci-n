@@ -1,5 +1,5 @@
 /**
- * @brief Define una pantalla
+ * @brief Define la pantalla donde transcurrirá el juego
  *
  * @file screen.c
  * @author Profesores PPROG
@@ -31,8 +31,8 @@
  * Estructura de área
  */
 struct _Area{
-  int x;/*!<x*/
-  int y;/*!<y*/
+  int x;/*!<x del area en cuestion */
+  int y;/*!<y del area en cuestion*/
   int width; /*!<Anchura*/
   int height; /*!<Altura*/
   char *cursor;/*!<Cursor*/

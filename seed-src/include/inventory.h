@@ -1,5 +1,5 @@
 /** 
- * @brief Define el inventario del jugador
+ * @brief Archivo cabecera de inventory.c en el se encuentra definidas los datos y funciones de inventory.c
  * 
  * @file inventory.h
  * @author Gonzalo Martín

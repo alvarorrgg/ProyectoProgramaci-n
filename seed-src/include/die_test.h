@@ -1,5 +1,5 @@
 /** 
- * @brief It declares the tests for the die module
+ * @brief Archivo cabecera de die_test.c en el se encuentra definidas los datos y funciones de die_test.c
  * 
  * @file die_test.h
  * @author Álvaro Rodríguez

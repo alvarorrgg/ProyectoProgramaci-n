@@ -1,10 +1,10 @@
 /** 
- * @brief Implementa el intérprete de comandos
+ * @brief Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos.
  * 
  * @file command.c
  * @author Álvaro Rodríguez
  * @version 2.0 
- * @date 13-01-2020 
+ * @date 01-04-2021
  * @copyright GNU Public License
  */
 
@@ -15,7 +15,6 @@
 #include "command.h"
 
 #define CMD_LENGHT 30 /*!<Numero maximo de letras de cada cmando*/
-/* @brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
 
 /**
  @brief tipo de comandos
@@ -32,26 +31,28 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"l", "Left"},	/** !< l <=> left*/
     {"r", "Right"}, /** !< r <=> right*/
     {"m", "Move"}, /** !< m <=> move*/
-    {"i" , "Inspect"}};	/** !< i <=> inspect*/
+    {"i" , "Inspect"}	/** !< i <=> inspect*/
+    };
 
 /**
- * @brief Define las partes de comando
+ * @brief Define las partes del comando
  * 
- * Estructura de comando
+ * Define todas las partes que tiene un comando
  */
 struct _Command {
 
-  T_Command cmd; /*!< comando*/
+  T_Command cmd;             /*!< Parte principal del comando*/
   char arg[CMD_LENGHT];     /*!<Segunda parte del comando*/
-  STATUS st;    /*!< status del comando*/
+  STATUS st;                /*!< Status del comando ERROR o OK segun si el comando se ha ejecutado bien o no*/
 };
-/*EJEMPLO*/
+
+
 Command* command_init(){
   Command * new_command =NULL;
 	  
   new_command=(Command *) malloc(sizeof(Command));
 	  
-  if (new_command==NULL) return NULL;
+  if (!new_command) return NULL;
 	  
   new_command->cmd = NO_CMD;
   new_command->st = ERROR;
@@ -69,7 +70,7 @@ STATUS command_destroy(Command *command){
 
 STATUS command_set_status(Command *command,STATUS st){
 
-  if(command==NULL || (st!=0 && st!=1))return ERROR;
+  if(!command || (st!=0 && st!=1))return ERROR;
 
   command->st = st;
   return OK;
@@ -81,13 +82,13 @@ STATUS command_get_status(Command *command){
 }
 
 STATUS command_set_cmd(Command *command,T_Command cmd){
-  if(command==NULL ) return ERROR;
+  if(!command ) return ERROR;
   command->cmd = cmd;
   return OK;
 }
 
 T_Command command_get_cmd(Command *command){
-  if(command==NULL) return NO_CMD;
+  if(!command) return NO_CMD;
   return command->cmd;
 }
 
@@ -98,7 +99,7 @@ STATUS command_set_arg(Command *command,char *arg){
 }
 
 char* command_get_arg(Command *command){
-  if(command==NULL) return NULL;
+  if(!command) return NULL;
   return command->arg;
 }
 
@@ -111,15 +112,11 @@ T_Command command_get_user_input()
   cmd = UNKNOWN;
    while (cmd == UNKNOWN && i < N_CMD)
    {
-     if (!strcasecmp(input, cmd_to_str[i][CMDS]) || !strcasecmp(input, cmd_to_str[i][CMDL])) /*compara el input convirtiendolo con la función cmd_to_str con los comandos posibles*/
-     {
-       cmd = i + NO_CMD; /*iguala cmd al comando detectado*/
-     }
-     else
-     {
-       i++;
-     }
+     if (!strcasecmp(input, cmd_to_str[i][CMDS]) || !strcasecmp(input, cmd_to_str[i][CMDL]))  cmd = i + NO_CMD; /*compara el input convirtiendolo con la función cmd_to_str con los comandos posibles e iguala cmd al comando detectado*/
+     
+     else i++; /*Busca el siguiente comando*/
+     
     }
   }
-  return cmd;
+  return cmd; /*Devuelve el comando, NO_COMMAND si no encuentra ningun comando*/
 }

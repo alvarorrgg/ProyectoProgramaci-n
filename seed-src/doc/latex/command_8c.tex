@@ -2,7 +2,7 @@
 \label{command_8c}\index{src/command.c@{src/command.c}}
 
 
-Implementa el intérprete de comandos.  
+Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos.  
 
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
@@ -21,7 +21,7 @@ Include dependency graph for command.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct__Command}{\+\_\+\+Command}}
-\begin{DoxyCompactList}\small\item\em Define las partes de comando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Define las partes del comando. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,7 +56,7 @@ char $\ast$ \mbox{\hyperlink{command_8c_a3574ce85761f52cf9b70d061831533ee}{cmd\+
 
 
 \doxysubsection{Detailed Description}
-Implementa el intérprete de comandos. 
+Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos. 
 
 \begin{DoxyAuthor}{Author}
 Álvaro Rodríguez 
@@ -65,7 +65,7 @@ Implementa el intérprete de comandos.
 2.\+0 
 \end{DoxyVersion}
 \begin{DoxyDate}{Date}
-13-\/01-\/2020 
+01-\/04-\/2021 
 \end{DoxyDate}
 \begin{DoxyCopyright}{Copyright}
 G\+NU Public License 
@@ -335,7 +335,8 @@ S\+T\+A\+T\+US OK o E\+R\+R\+OR segun si se ha hecho todo correctamente.
 \DoxyCodeLine{    \{\textcolor{stringliteral}{"l"}, \textcolor{stringliteral}{"Left"}\},  }
 \DoxyCodeLine{    \{\textcolor{stringliteral}{"r"}, \textcolor{stringliteral}{"Right"}\}, }
 \DoxyCodeLine{    \{\textcolor{stringliteral}{"m"}, \textcolor{stringliteral}{"Move"}\}, }
-\DoxyCodeLine{    \{\textcolor{stringliteral}{"i"} , \textcolor{stringliteral}{"Inspect"}\}\}}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"i"} , \textcolor{stringliteral}{"Inspect"}\}   }
+\DoxyCodeLine{    \}}
 
 \end{DoxyCode}
 

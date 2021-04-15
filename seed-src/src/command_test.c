@@ -1,10 +1,10 @@
 /** 
- * @brief It tests set module
+ * @brief It tests the command module
  * 
- * @file set_test.c
- * @author Ãlvaro RodrÃ­guez
+ * @file command_test.c
+ * @author Alexandru Marius
  * @version 2.0 
- * @date 16-01-2015
+ * @date 15-04-2021
  * @updated 18-02-2021
  * @copyright GNU Public License
  */
@@ -19,7 +19,7 @@
 #define MAX_TESTS 21 /*!<Numero maximo de tests*/
 
 /** 
- * @brief Main function for SET unit tests. 
+ * @brief Main function for COMMAND unit tests. 
  * 
  * You may execute ALL or a SINGLE test
  *   1.- No parameter -> ALL test are executed 
@@ -33,10 +33,7 @@ int main(int argc, char **argv)
     int test = 0;
     int all = 1;
 
-    if (argc < 2)
-    {
-        printf("Running all test for module Command:\n");
-    }
+    if (argc < 2)  printf("Running all test for module Command:\n");
     else
     {
         test = atoi(argv[1]);

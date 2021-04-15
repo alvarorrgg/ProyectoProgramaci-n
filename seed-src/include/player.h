@@ -1,5 +1,5 @@
 /** 
- * @brief Archivo cabecera de la función player.h, en el se define la estructura de datos Player y sus funciones.
+ * @brief Archivo cabecera de player.c en el se encuentra definidas los datos y funciones de player.c
  * 
  * @file player.h
  * @author Álvaro Rodríguez

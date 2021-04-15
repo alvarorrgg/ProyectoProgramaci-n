@@ -1,5 +1,5 @@
 /** 
- * @brief Se encarga del jugador
+ * @brief Se encarga de todo lo relacionado con el jugador.
  * 
  * @file player.c
  * @author Alberto Garcia.
@@ -25,7 +25,7 @@ struct _Player {
   Id id;		                /*!< Id del jugador */
   char name[WORD_SIZE + 1];	/*!< nombre del jugador */
   Id location;	          	/*!< localización del jugador */
-  Inventory *inventory;	    /*!< Id del objeto del jugador */
+  Inventory *inventory;	    /*!< Inventario con los objetos del jugador */
 };
 
 Player* player_create(Id id) {
@@ -36,7 +36,7 @@ Player* player_create(Id id) {
 
   new_player = (Player *) malloc(sizeof (Player));
 
-  if (new_player == NULL) return NULL;
+  if (!new_player ) return NULL;
   
   new_player->id = id;
   new_player->name[0] = '\0';

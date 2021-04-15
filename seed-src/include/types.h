@@ -1,8 +1,8 @@
 /**
- * @brief Definde tipos comunes
+ * @brief Archivo cabecera types.h, en el se definen tipos de datos utiles para el juego.
  *
  * @file types.h
- * @author Profesores PPROG
+ * @author Profesores PPROG, Álexandru Marius
  * @version 1.0
  * @date 13-01-2015
  * @copyright GNU Public License

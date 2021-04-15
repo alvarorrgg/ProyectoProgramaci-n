@@ -1,5 +1,5 @@
 /**
- * @brief Definde el tipo test.h
+ * @brief Archivo de cabecera test.h en el se definen utiles para el funcionamiento de los modulos tests.
  *
  * @file test.h
  * @author Profesores PPROG

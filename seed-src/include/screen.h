@@ -1,5 +1,5 @@
 /**
- * @brief Define una pantalla
+ * @brief Archivo cabecera de screen.c en el se encuentra definidas los datos y funciones de screen.c
  *
  * @file screen.h
  * @author Profesores PPROG

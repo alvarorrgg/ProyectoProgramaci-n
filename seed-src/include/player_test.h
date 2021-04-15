@@ -1,5 +1,5 @@
 /** 
- * @brief It declares the tests for the player module
+ * @brief Archivo cabecera de player_test.c en el se encuentra definidas los datos y funciones de player_test.c
  * 
  * @file player_test.h
  * @author Álvaro Rodríguez

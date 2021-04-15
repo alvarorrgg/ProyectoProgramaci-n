@@ -1,5 +1,5 @@
 #makefile de juego OCA
-target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test docs
+target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test docs tests
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
 TEST = set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o
@@ -173,32 +173,42 @@ command_test.o: command_test.c command_test.h command.h test.h
 
 docs: $(OBJ)
 	@doxygen ./Doxyfile
+	
+tests: set_test space_test die_test inventory_test player_test link_test command_test object_test
 
-.PHONY: clean run runv runl runj
+.PHONY: clean cleanDocs cleanGame cleanTests cleanObjs run runv runl runj 
 
 clean: 
-	@echo "Limpiando"
-	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test link_test command_test object_test docs
+	@echo "Limpiando Todo"
+	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test link_test command_test object_test doc
 
-run: 
+cleanDocs: 
+	@echo "Limpiando Documentación"
+	rm -rf doc
+
+cleanGame: 
+	@echo "Limpiando Todo"
+	rm -rf  ocaEXE 
+
+cleanTests: 
+	@echo "Limpiando Todo"
+	rm -rf  set_test space_test die_test inventory_test player_test link_test command_test object_test 
+
+cleanObjs: 
+	@echo "Limpiando Todo"
+	rm -rf obj/* 
+
+run: ocaEXE
 	./ocaEXE data.dat
 
-runv: 
+runv: ocaEXE
 	valgrind --leak-check=full ./ocaEXE data.dat
 
-runl:
+runl: ocaEXE
 	./ocaEXE data.dat -l log.txt
 
-runj:
+runj: ocaEXE
 	./ocaEXE data.dat < juego1
 
-runt: $(TEST)
-	@echo "#####################"
-	@echo "Creando $@"
-	$(CC) -o $@ $(SET_TESTDIR) 
-	$(CC) -o $@ $(DIE_TESTDIR) 
-	$(CC) -o $@ $(INVENTORY_TESTDIR)
-	$(CC) -o $@ $(PLAYER_TESTDIR) 
-	$(CC) -o $@ $(SPACE_TESTDIR) 
-	$(CC) -o $@ $(OBJECT_TESTDIR) 
-	$(CC) -o $@ $(COMMAND_TESTDIR)
+
+

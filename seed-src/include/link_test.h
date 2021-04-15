@@ -1,5 +1,5 @@
 /** 
- * @brief It declares the tests for the link module
+ * @brief Archivo cabecera de link_test.c en el se encuentra definidas los datos y funciones de link_test.c
  * 
  * @file link_test.h
  * @author Alberto Vicente

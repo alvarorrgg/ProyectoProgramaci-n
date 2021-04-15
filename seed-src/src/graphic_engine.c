@@ -26,11 +26,11 @@
  */
 struct _Graphic_engine
 {
-  Area *map;      /*!< el mapa */
-  Area *descript; /*!< la descripción */
-  Area *banner;   /*!< el banner */
-  Area *help;     /*!< la ayuda */
-  Area *feedback; /*!< los comentarios */
+  Area *map;      /*!< Donde se representa el mapa de la oca */
+  Area *descript; /*!< Descripción de los objetos y información importante */
+  Area *banner;   /*!< The game of the Goose */
+  Area *help;     /*!< Donde se muestran los posibles comandos */
+  Area *feedback; /*!< Donde se muestra los ultimos comandos utilizados */
 };
 
 Graphic_engine *graphic_engine_create()
@@ -42,7 +42,7 @@ Graphic_engine *graphic_engine_create()
 
   screen_init();
   ge = (Graphic_engine *)malloc(sizeof(Graphic_engine));
-  if (ge == NULL)
+  if (!ge)
     return NULL;
 
   ge->map = screen_area_init(1, 1, 48, 35);       /*mapa de la oca*/

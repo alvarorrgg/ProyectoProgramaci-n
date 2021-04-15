@@ -1,0 +1,388 @@
+\hypertarget{inventory_8c}{}\doxysection{src/inventory.c File Reference}
+\label{inventory_8c}\index{src/inventory.c@{src/inventory.c}}
+
+
+Se encarga de definir el modulo inventario que sirve para recoger varios objetos.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}inventory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}set.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+Include dependency graph for inventory.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inventory_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Inventory}{\+\_\+\+Inventory}}
+\begin{DoxyCompactList}\small\item\em Define el inventario del jugador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$ \mbox{\hyperlink{inventory_8c_a5d6b47f7a727932c56d66a65fb540910}{inventory\+\_\+create}} ()
+\begin{DoxyCompactList}\small\item\em crea el inventario del jugador \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{inventory_8c_a690c5b171251c27a628f0ecaaaf6b9ce}{inventory\+\_\+destroy}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory)
+\begin{DoxyCompactList}\small\item\em destruye el inventario \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{inventory_8c_aa5ba67cea05058440df02a1af975bbb3}{inventory\+\_\+set\+\_\+object}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em añade al inventario del jugador un elemento \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} $\ast$ \mbox{\hyperlink{inventory_8c_a6eb2947bd366b9134b9eeac7f3047b4d}{inventory\+\_\+get\+\_\+inventory}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory)
+\begin{DoxyCompactList}\small\item\em devuelve el inventario \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{inventory_8c_a26b470bd17ccc648d2609b0e8ff2e946}{inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory)
+\begin{DoxyCompactList}\small\item\em devuelve el numero de objetos en el inventario \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{inventory_8c_a7abd99b568d066b91c9a1dea95c872eb}{inventory\+\_\+print}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory, F\+I\+LE $\ast$pf)
+\begin{DoxyCompactList}\small\item\em printea el inventario \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{inventory_8c_ae6a60f8ff5fc365a11922fd7e92ac92c}{inventory\+\_\+delete\+\_\+object}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em elimina un objeto \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{inventory_8c_a04e5f8d90bd7100bde89318c41614114}{inventory\+\_\+is\+\_\+empty}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory)
+\begin{DoxyCompactList}\small\item\em chequea si la mochila esta vacia \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{inventory_8c_a31ce870d22db2381928f052c77b28288}{inventory\+\_\+is\+\_\+full}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory)
+\begin{DoxyCompactList}\small\item\em chequea si la mochila esta llena \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{inventory_8c_afe0ef918e90931dd56646b20d983895d}{inventory\+\_\+search\+\_\+object}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em chequea hay hay un cierto objecto en la mochila \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{inventory_8c_af2cb3d0e2ee14cb942e791b08c029399}{inventory\+\_\+set\+\_\+max\+\_\+objects}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory, int max)
+\begin{DoxyCompactList}\small\item\em establece el numero maximo de objectos \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{inventory_8c_a5d14f02b30e26c8cfb70f1c1ee45a853}{inventory\+\_\+get\+\_\+max\+\_\+objects}} (\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$inventory)
+\begin{DoxyCompactList}\small\item\em devuelve el numero maximo de objectos \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Se encarga de definir el modulo inventario que sirve para recoger varios objetos. 
+
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{inventory_8c_a5d6b47f7a727932c56d66a65fb540910}\label{inventory_8c_a5d6b47f7a727932c56d66a65fb540910}} 
+\index{inventory.c@{inventory.c}!inventory\_create@{inventory\_create}}
+\index{inventory\_create@{inventory\_create}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_create()}{inventory\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}}$\ast$ inventory\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+crea el inventario del jugador 
+
+inventory\+\_\+create crea el inventario del jugador
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+\begin{DoxyReturn}{Returns}
+el inventario creado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_ae6a60f8ff5fc365a11922fd7e92ac92c}\label{inventory_8c_ae6a60f8ff5fc365a11922fd7e92ac92c}} 
+\index{inventory.c@{inventory.c}!inventory\_delete\_object@{inventory\_delete\_object}}
+\index{inventory\_delete\_object@{inventory\_delete\_object}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_delete\_object()}{inventory\_delete\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} inventory\+\_\+delete\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+elimina un objeto 
+
+inventory\+\_\+delete\+\_\+object elmina un objecto del inventario del jugador
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario y el id del elemento \\
+\hline
+{\em id} & id del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a690c5b171251c27a628f0ecaaaf6b9ce}\label{inventory_8c_a690c5b171251c27a628f0ecaaaf6b9ce}} 
+\index{inventory.c@{inventory.c}!inventory\_destroy@{inventory\_destroy}}
+\index{inventory\_destroy@{inventory\_destroy}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_destroy()}{inventory\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} inventory\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+destruye el inventario 
+
+inventory\+\_\+destroy destruye el inventario del jugador
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario a destruir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a6eb2947bd366b9134b9eeac7f3047b4d}\label{inventory_8c_a6eb2947bd366b9134b9eeac7f3047b4d}} 
+\index{inventory.c@{inventory.c}!inventory\_get\_inventory@{inventory\_get\_inventory}}
+\index{inventory\_get\_inventory@{inventory\_get\_inventory}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_inventory()}{inventory\_get\_inventory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}$\ast$ inventory\+\_\+get\+\_\+inventory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+devuelve el inventario 
+
+inventory\+\_\+get\+\_\+inventory delvuelve el inventario del jugador
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+los ids de los objetos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a5d14f02b30e26c8cfb70f1c1ee45a853}\label{inventory_8c_a5d14f02b30e26c8cfb70f1c1ee45a853}} 
+\index{inventory.c@{inventory.c}!inventory\_get\_max\_objects@{inventory\_get\_max\_objects}}
+\index{inventory\_get\_max\_objects@{inventory\_get\_max\_objects}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_max\_objects()}{inventory\_get\_max\_objects()}}
+{\footnotesize\ttfamily int inventory\+\_\+get\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+devuelve el numero maximo de objectos 
+
+inventory\+\_\+get\+\_\+max\+\_\+objects devuelve el numero maximo de objectos de la mochila
+
+\begin{DoxyDate}{Date}
+01-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el numero maximo de objectos que caben en la mochila, -\/1 si ha avido un error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a26b470bd17ccc648d2609b0e8ff2e946}\label{inventory_8c_a26b470bd17ccc648d2609b0e8ff2e946}} 
+\index{inventory.c@{inventory.c}!inventory\_get\_number\_of\_objects@{inventory\_get\_number\_of\_objects}}
+\index{inventory\_get\_number\_of\_objects@{inventory\_get\_number\_of\_objects}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_get\_number\_of\_objects()}{inventory\_get\_number\_of\_objects()}}
+{\footnotesize\ttfamily int inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+devuelve el numero de objetos en el inventario 
+
+inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects devuelve el numero de objetos dentro del inventario
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int el numero de objetos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a04e5f8d90bd7100bde89318c41614114}\label{inventory_8c_a04e5f8d90bd7100bde89318c41614114}} 
+\index{inventory.c@{inventory.c}!inventory\_is\_empty@{inventory\_is\_empty}}
+\index{inventory\_is\_empty@{inventory\_is\_empty}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_is\_empty()}{inventory\_is\_empty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} inventory\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+chequea si la mochila esta vacia 
+
+inventory\+\_\+is\+\_\+empty chequea si la mochila del jugador esta vacia
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE si esta vacia, F\+A\+L\+SE si no lo esta 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a31ce870d22db2381928f052c77b28288}\label{inventory_8c_a31ce870d22db2381928f052c77b28288}} 
+\index{inventory.c@{inventory.c}!inventory\_is\_full@{inventory\_is\_full}}
+\index{inventory\_is\_full@{inventory\_is\_full}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_is\_full()}{inventory\_is\_full()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} inventory\+\_\+is\+\_\+full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+chequea si la mochila esta llena 
+
+inventory\+\_\+is\+\_\+full chequea si la mochila del jugador esta llena
+
+\begin{DoxyDate}{Date}
+01-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE si esta llena, F\+A\+L\+SE si no lo esta 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a7abd99b568d066b91c9a1dea95c872eb}\label{inventory_8c_a7abd99b568d066b91c9a1dea95c872eb}} 
+\index{inventory.c@{inventory.c}!inventory\_print@{inventory\_print}}
+\index{inventory\_print@{inventory\_print}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_print()}{inventory\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} inventory\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory,  }\item[{F\+I\+LE $\ast$}]{pf }\end{DoxyParamCaption})}
+
+
+
+printea el inventario 
+
+inventory\+\_\+print printea el inventario del jugador
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario y un puntero a un F\+I\+LE \\
+\hline
+{\em pf} & puntero al archivo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_afe0ef918e90931dd56646b20d983895d}\label{inventory_8c_afe0ef918e90931dd56646b20d983895d}} 
+\index{inventory.c@{inventory.c}!inventory\_search\_object@{inventory\_search\_object}}
+\index{inventory\_search\_object@{inventory\_search\_object}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_search\_object()}{inventory\_search\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} inventory\+\_\+search\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+chequea hay hay un cierto objecto en la mochila 
+
+inventory\+\_\+serach\+\_\+object chequea si hay un determinado objecto en la mochila del jugador
+
+\begin{DoxyDate}{Date}
+01-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario y el Id del objeto a buscar \\
+\hline
+{\em id} & del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE si esta el objeto en la mochila, F\+A\+L\+SE si no lo esta 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_af2cb3d0e2ee14cb942e791b08c029399}\label{inventory_8c_af2cb3d0e2ee14cb942e791b08c029399}} 
+\index{inventory.c@{inventory.c}!inventory\_set\_max\_objects@{inventory\_set\_max\_objects}}
+\index{inventory\_set\_max\_objects@{inventory\_set\_max\_objects}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_set\_max\_objects()}{inventory\_set\_max\_objects()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} inventory\+\_\+set\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+establece el numero maximo de objectos 
+
+inventory\+\_\+set\+\_\+max\+\_\+objects establece el numero maximo de objectos de la mochila
+
+\begin{DoxyDate}{Date}
+01-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario y el nuevo numero maximo de objetos \\
+\hline
+{\em max} & numero maximo de objetos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ok si se ha establecido bien, E\+R\+R\+OR si no fue asi 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_aa5ba67cea05058440df02a1af975bbb3}\label{inventory_8c_aa5ba67cea05058440df02a1af975bbb3}} 
+\index{inventory.c@{inventory.c}!inventory\_set\_object@{inventory\_set\_object}}
+\index{inventory\_set\_object@{inventory\_set\_object}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_set\_object()}{inventory\_set\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} inventory\+\_\+set\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inventory_8h_a2253bf64ac4ce6a9c1d6f39c0b0d32a3}{Inventory}} $\ast$}]{inventory,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+añade al inventario del jugador un elemento 
+
+inventory\+\_\+set\+\_\+object añade al inventario del jugador un elemento
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & el inventario y el Id del elemento \\
+\hline
+{\em id} & id del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}

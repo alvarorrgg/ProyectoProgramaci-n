@@ -2,7 +2,7 @@
  * @brief Se encarga de los espacios del juego
  * 
  * @file space.c
- * @author Profesores Pprog,Álvaro Rodríguez
+ * @author Profesores Pprog,Álvaro Rodríguez, Gonzalo Martín
  * @version 2.0 
  * @date 18-02-2021
  * @copyright GNU Public License
@@ -20,7 +20,7 @@
  * Estructura de espacio
  */
 struct _Space {
-  Id id;		/*!< coordenadas */
+  Id id;		/*!< Id del espacio */
   char name[WORD_SIZE + 1];	/*!< nombre del espacio */
   Link *north;		/*!< coordenada norte */
   Link *south;		/*!< coordenada sur */
@@ -39,7 +39,7 @@ Space* space_create(Id id) {
 
   new_space = (Space *) malloc(sizeof (Space));
 
-  if (new_space == NULL) return NULL;
+  if (!new_space ) return NULL;
   new_space->objects=set_create();
   new_space->id = id;
   new_space->name[0] = '\0';
@@ -78,7 +78,7 @@ STATUS space_set_name(Space* space, char* name) {
 }
 
 STATUS space_set_north(Space* space, Link *link) {
-  if (!space || link == NULL) return ERROR;
+  if (!space || !link) return ERROR;
   
   space->north = link;
   
@@ -86,7 +86,7 @@ STATUS space_set_north(Space* space, Link *link) {
 }
 
 STATUS space_set_south(Space* space, Link *link) {
-  if (!space || link == NULL) return ERROR;
+  if (!space || !link  ) return ERROR;
   
   space->south = link;
   
@@ -94,7 +94,7 @@ STATUS space_set_south(Space* space, Link *link) {
 }
 
 STATUS space_set_east(Space* space, Link *link) {
-  if (!space || link == NULL) return ERROR;
+  if (!space || !link  ) return ERROR;
   
   space->east = link;
   
@@ -102,7 +102,7 @@ STATUS space_set_east(Space* space, Link *link) {
 }
 
 STATUS space_set_west(Space* space, Link *link) {
-  if (!space || link == NULL) return ERROR;
+  if (!space || !link  ) return ERROR;
   
   space->west = link;
   
@@ -190,7 +190,7 @@ BOOL space_has_object_id(Space* space, Id id){
 
 
 STATUS space_set_description(Space* space , char* descr){
-  if(!space || descr == NULL) return ERROR;
+  if(!space || !descr  ) return ERROR;
 
   if (!strcpy(space->description, descr)) return ERROR;
 
@@ -230,7 +230,7 @@ STATUS space_print(Space* space) {
   
    else fprintf(stdout, "---> No west link.\n");
 
-  if ( space_get_objects(space)== NULL) fprintf(stdout, "---> No hay objetos en este espacio\n");
+  if ( !space_get_objects(space) ) fprintf(stdout, "---> No hay objetos en este espacio\n");
     else {
     fprintf(stdout, "---> Los objetos del espacio son:\n");
     set_print(stdout, space->objects);

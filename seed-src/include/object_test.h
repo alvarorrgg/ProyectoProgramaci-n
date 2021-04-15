@@ -1,5 +1,5 @@
 /** 
- * @brief It declares the tests for the object module
+ * @brief Archivo cabecera de object_test.c en el se encuentra definidas los datos y funciones de object_test.c
  * 
  * @file object_test.h
  * @author Gonzalo MArtin

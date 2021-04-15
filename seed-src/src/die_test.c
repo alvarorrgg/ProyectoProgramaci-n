@@ -4,7 +4,7 @@
  * @file die_test.c
  * @author Álvaro Rodríguez
  * @version 2.0 
- * @date 16-01-2015
+ * @date 10-03-2021
  * @copyright GNU Public License
  */
 
