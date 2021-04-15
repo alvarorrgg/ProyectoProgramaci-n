@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['objects_923',['objects',['../struct__Game.html#aa669bb857944c6c3b53504d179640af0',1,'_Game::objects()'],['../struct__Inventory.html#a478e4b50a62b9e7d5b17e335319faa97',1,'_Inventory::objects()'],['../struct__Space.html#a661ed8b0fc8085b6db70188aa5085625',1,'_Space::objects()']]]
+  ['name_1028',['name',['../struct__Link.html#a020ee863120055b29609157b9de3c84d',1,'_Link::name()'],['../struct__Object.html#a03fb9b8d91f071e8e30d669be79cc040',1,'_Object::name()'],['../struct__Player.html#ac89715f913cc607b75eb7236765c41f5',1,'_Player::name()'],['../struct__Space.html#aa1c9c994c2d16ecf3ef46138685fdfdc',1,'_Space::name()']]],
+  ['north_1029',['north',['../struct__Space.html#a156a0efd4f35884b90dd3526a4a54b3e',1,'_Space']]]
 ];

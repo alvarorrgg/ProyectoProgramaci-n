@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['screen_5fmax_5fstr_985',['SCREEN_MAX_STR',['../screen_8h.html#aab63df3ae7b979d59ea0188055ea0763',1,'screen.h']]]
+  ['print_5fpassed_5fpercentage_1103',['PRINT_PASSED_PERCENTAGE',['../test_8h.html#a4a5b9a0026e80b1cfbfbbc3fa700ed31',1,'test.h']]],
+  ['print_5ftest_5fresult_1104',['PRINT_TEST_RESULT',['../test_8h.html#a6c00863b1d44e38839b1f4b49d04f403',1,'test.h']]],
+  ['prompt_1105',['PROMPT',['../screen_8c.html#accdbea14ea06c15e271784368bd993e8',1,'screen.c']]]
 ];

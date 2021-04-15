@@ -22,7 +22,7 @@
 /**
  * @brief Define la estructura del dado
  * 
- * Estructura de dado
+ * Estructura del juego
  */
 struct _Game{
   Player *player;			/*!< Modulo player*/
@@ -31,7 +31,7 @@ struct _Game{
   Die *die;               /*!< Dado del juego*/
   Command *command;       /*!< comando que se recibe del jugador*/
   char last_descripcion[LEN_DES]; /*!< Ultima descripcion */
-  Link *link[MAX_LINKS+1]; /*Tabla de links del juego*/
+  Link *link[MAX_LINKS+1]; /*!<Tabla de links del juego*/
 };
 /**
  * Define el tipo de funciones para las devoluciones de llamada

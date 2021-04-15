@@ -81,13 +81,28 @@ $(function() {
 Include dependency graph for object.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="object_8h__incl.png" border="0" usemap="#include_2object_8h" alt=""/></div>
-<!-- MAP 0 -->
+<map name="include_2object_8h" id="include_2object_8h">
+<area shape="rect" title="Archivo cabecera del modulo object.h, en el se define la estructura de datos Object y sus funciones." alt="" coords="5,5,131,32"/>
+<area shape="rect" href="types_8h.html" title="Definde tipos comunes." alt="" coords="33,80,103,107"/>
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="object_8h__dep__incl.png" border="0" usemap="#include_2object_8hdep" alt=""/></div>
-<!-- MAP 1 -->
+<map name="include_2object_8hdep" id="include_2object_8hdep">
+<area shape="rect" title="Archivo cabecera del modulo object.h, en el se define la estructura de datos Object y sus funciones." alt="" coords="572,5,697,32"/>
+<area shape="rect" href="game_8h.html" title="Archivo cabecera de game.c contiene la estructura de datos game en la que se almacenan algunas caract..." alt="" coords="300,80,423,107"/>
+<area shape="rect" href="game__reader_8c.html" title="Implementa el inicio de juego y obtiene los valores iniciales de data.dat." alt="" coords="432,155,573,181"/>
+<area shape="rect" href="object_8c.html" title="Implementa la estructura de datos abstractos Object, y las funciones que estan relacionadas con esta." alt="" coords="519,80,615,107"/>
+<area shape="rect" href="object__test_8c.html" title="It tests object module." alt="" coords="639,80,767,107"/>
+<area shape="rect" href="player_8c.html" title="Se encarga del jugador." alt="" coords="791,80,887,107"/>
+<area shape="rect" href="space_8c.html" title="Se encarga de los espacios del juego." alt="" coords="911,80,1006,107"/>
+<area shape="rect" href="graphic__engine_8h.html" title="Define un motor gráfico textual." alt="" coords="107,155,291,181"/>
+<area shape="rect" href="game__loop_8c.html" title="Define el ciclo del juego." alt="" coords="5,229,133,256"/>
+<area shape="rect" href="game_8c.html" title="Implementa la interfaz del juego y todas las devoluciones de llamada asociadas para cada comando." alt="" coords="315,155,408,181"/>
+<area shape="rect" href="graphic__engine_8c.html" title="Define un motor gráfico textual." alt="" coords="157,229,312,256"/>
+</map>
 </div>
 </div>
 <p><a href="object_8h_source.html">Go to the source code of this file.</a></p>
@@ -96,8 +111,7 @@ This graph shows which files directly or indirectly include this file:</div>
 Macros</h2></td></tr>
 <tr class="memitem:ae5fa57f1598b5789019d91786a54d3bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#ae5fa57f1598b5789019d91786a54d3bd">LEN_DES</a>&#160;&#160;&#160;30</td></tr>
 <tr class="separator:ae5fa57f1598b5789019d91786a54d3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5618e894ee26a87ff4100613baf38f62"><td class="memItemLeft" align="right" valign="top"><a id="a5618e894ee26a87ff4100613baf38f62"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>FIRST_OBJECT</b>&#160;&#160;&#160;1  /*Posición del primer objeto*/</td></tr>
+<tr class="memitem:a5618e894ee26a87ff4100613baf38f62"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#a5618e894ee26a87ff4100613baf38f62">FIRST_OBJECT</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a5618e894ee26a87ff4100613baf38f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -146,6 +160,21 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>18-02-2021 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a5618e894ee26a87ff4100613baf38f62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5618e894ee26a87ff4100613baf38f62">&#9670;&nbsp;</a></span>FIRST_OBJECT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIRST_OBJECT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Posición del primer objeto </p>
+
+</div>
+</div>
 <a id="ae5fa57f1598b5789019d91786a54d3bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5fa57f1598b5789019d91786a54d3bd">&#9670;&nbsp;</a></span>LEN_DES</h2>
 
@@ -333,6 +362,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">object</td><td>recibe un puntero a la estructura de datos objeto y un nombre char </td></tr>
+    <tr><td class="paramname">name</td><td>nombre del objeto </td></tr>
   </table>
   </dd>
 </dl>
@@ -433,6 +463,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">object</td><td>recibe un puntero a la estructura de datos objeto y la propia descripcion </td></tr>
+    <tr><td class="paramname">descr</td><td>descripción del objeto </td></tr>
   </table>
   </dd>
 </dl>

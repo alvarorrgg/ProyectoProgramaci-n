@@ -5,7 +5,6 @@
  * @author Gonzalo Martin
  * @version 2.0 
  * @date 13-04-2021
- * @updated 13-04-2021
  * @copyright GNU Public License
  */
 

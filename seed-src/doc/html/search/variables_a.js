@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['map_918',['map',['../struct__Graphic__engine.html#a1ea06bb881d335da8c31d63b3e834bdb',1,'_Graphic_engine']]],
-  ['max_5fobjets_919',['Max_Objets',['../struct__Inventory.html#a4df25be28f0f69a64276ebf1012bdb42',1,'_Inventory']]],
-  ['min_920',['min',['../struct__Die.html#ae45145b3f41842ec4e141e334760cc0a',1,'_Die']]]
+  ['last_5fdescripcion_1020',['last_descripcion',['../struct__Game.html#ae4f099fba5306ebba4a8b8145a65cd8e',1,'_Game']]],
+  ['last_5froll_1021',['last_roll',['../struct__Die.html#a522e4527bd70cf87afcbabd9d9dede34',1,'_Die']]],
+  ['link_1022',['link',['../struct__Game.html#ac0b7120da2aad265b1c9ca894ce31413',1,'_Game']]],
+  ['location_1023',['location',['../struct__Player.html#adbb6195d15b88f3f658e74274eff52d8',1,'_Player']]]
 ];

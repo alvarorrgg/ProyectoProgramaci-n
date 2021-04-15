@@ -10,8 +10,13 @@ Implementa la interfaz del juego y todas las devoluciones de llamada asociadas p
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}game\+\_\+reader.\+h\char`\"{}}\newline
-Include dependency graph for game.\+c\+:
-% FIG 0
+Include dependency graph for game.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -68,9 +73,9 @@ void \mbox{\hyperlink{game_8c_aa4e4f958e69b85fc4ddbb1c44a0bfce7}{game\+\_\+callb
 \begin{DoxyCompactList}\small\item\em Añade un nuevo objeto al juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8c_a4280b7ee7ac0d4575d0aa88e8b7f921b}{game\+\_\+add\+\_\+player}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$player)
 \begin{DoxyCompactList}\small\item\em Añade un nuevo jugador al juego. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8c_a4691bee17d5784ad6eb257dfbb252c27}{game\+\_\+add\+\_\+link}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8c_a4691bee17d5784ad6eb257dfbb252c27}{game\+\_\+add\+\_\+link}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em Añade un nuevo link al juego. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{game_8c_a1064ec927b8c33cf55982b73845db7d3}{game\+\_\+get\+\_\+link}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{game_8c_a1064ec927b8c33cf55982b73845db7d3}{game\+\_\+get\+\_\+link}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em Obtiene el link del id determinado. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$ \mbox{\hyperlink{game_8c_a69d94da9d27b542d3ebdeb8b60f1f2dc}{game\+\_\+get\+\_\+space}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em Identifica un espacio del juego. \end{DoxyCompactList}\item 
@@ -146,7 +151,7 @@ Define el tipo de funciones para las devoluciones de llamada
 \index{game.c@{game.c}!game\_add\_link@{game\_add\_link}}
 \index{game\_add\_link@{game\_add\_link}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{game\_add\_link()}{game\_add\_link()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+add\+\_\+link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} game\+\_\+add\+\_\+link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -164,7 +169,7 @@ game\+\_\+add\+\_\+link Añade un link a la lista de links.
 \begin{DoxyParams}{Parameters}
 {\em game} & el juego al que se va a añadir un link \\
 \hline
-{\em player} & el link que se va a añadir \\
+{\em link} & el link que se va a añadir \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -659,7 +664,7 @@ Gonzalo Martín
 \end{DoxyAuthor}
 
 \begin{DoxyParams}{Parameters}
-{\em game} & \\
+{\em game} & el juego donde se establece el objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -669,7 +674,7 @@ lo que guarda la el campo last\+\_\+descripcion
 \index{game.c@{game.c}!game\_get\_link@{game\_get\_link}}
 \index{game\_get\_link@{game\_get\_link}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{game\_get\_link()}{game\_get\_link()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ game\+\_\+get\+\_\+link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}}$\ast$ game\+\_\+get\+\_\+link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -715,6 +720,8 @@ game\+\_\+get\+\_\+object devuelve un objeto dado su indice
 \begin{DoxyParams}{Parameters}
 {\em game} & el juego del que se va a obtener el objeto \\
 \hline
+{\em index} & indice del objeto \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Object, el objeto a obtener. 
@@ -740,6 +747,8 @@ Profesores P\+Prog
 
 \begin{DoxyParams}{Parameters}
 {\em game} & el juego donde se determian la posición del objeto \\
+\hline
+{\em id} & id del objeto a buscar \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -819,7 +828,7 @@ Profesores P\+Prog
 \begin{DoxyParams}{Parameters}
 {\em game} & el juego del que se va a identificar el espacio \\
 \hline
-{\em position} & la posición del espacio \\
+{\em id} & la posición del espacio \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -901,7 +910,7 @@ Profesores P\+Prog
 \begin{DoxyParams}{Parameters}
 {\em game} & el juego donde se establece el objeto \\
 \hline
-{\em position} & la posición donde se establece el objeto \\
+{\em id} & la posición donde se establece el objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -925,11 +934,9 @@ game\+\_\+init Inicializa el juego
 \begin{DoxyAuthor}{Author}
 R1
 \end{DoxyAuthor}
-
-\begin{DoxyParams}{Parameters}
-{\em } & \\
-\hline
-\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero a la estructura Game si todo ha ido bien, N\+U\+LL si ha ocurrido un error 
+\end{DoxyReturn}
 \mbox{\Hypertarget{game_8c_aa6efe0650af110bbd84e742cc8046d93}\label{game_8c_aa6efe0650af110bbd84e742cc8046d93}} 
 \index{game.c@{game.c}!game\_is\_over@{game\_is\_over}}
 \index{game\_is\_over@{game\_is\_over}!game.c@{game.c}}
@@ -999,7 +1006,9 @@ Gonzalo Martín
 \end{DoxyAuthor}
 
 \begin{DoxyParams}{Parameters}
-{\em game} & \\
+{\em game} & el juego donde se establece el objeto \\
+\hline
+{\em descr} & descripcion del objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -1027,7 +1036,9 @@ Profesores P\+Prog
 \begin{DoxyParams}{Parameters}
 {\em game} & el juego donde se establece el objeto \\
 \hline
-{\em position} & la posición donde se establece el objeto \\
+{\em pos\+\_\+obj} & la posición donde se establece el objeto \\
+\hline
+{\em id} & id del objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -1049,7 +1060,7 @@ game\+\_\+set\+\_\+player\+\_\+location Comienza comprobando si el segundo param
 \begin{DoxyParams}{Parameters}
 {\em game} & el juego donde se establece el jugador \\
 \hline
-{\em position} & la posición donde se establece el jugador \\
+{\em id} & la posición donde se establece el jugador \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

@@ -10,8 +10,13 @@ Implementa el intérprete de comandos.
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}command.\+h\char`\"{}}\newline
-Include dependency graph for command.\+c\+:
-% FIG 0
+Include dependency graph for command.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{command_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,8 +51,8 @@ char $\ast$ \mbox{\hyperlink{command_8c_aaf952301625a0fbdefceb2a5a9dcc35d}{comma
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-char $\ast$ {\bfseries cmd\+\_\+to\+\_\+str} \mbox{[}\mbox{\hyperlink{command_8h_ae180fe89f0ae48ce5c80ffaa18de9271}{N\+\_\+\+C\+MD}}\mbox{]}\mbox{[}\mbox{\hyperlink{command_8h_a8d93932dcdc527c13e06b688b68c7ffc}{N\+\_\+\+C\+M\+DT}}\mbox{]}
-\end{DoxyCompactItemize}
+char $\ast$ \mbox{\hyperlink{command_8c_a3574ce85761f52cf9b70d061831533ee}{cmd\+\_\+to\+\_\+str}} \mbox{[}\mbox{\hyperlink{command_8h_ae180fe89f0ae48ce5c80ffaa18de9271}{N\+\_\+\+C\+MD}}\mbox{]}\mbox{[}\mbox{\hyperlink{command_8h_a8d93932dcdc527c13e06b688b68c7ffc}{N\+\_\+\+C\+M\+DT}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em tipo de comandos \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -333,3 +338,7 @@ S\+T\+A\+T\+US OK o E\+R\+R\+OR segun si se ha hecho todo correctamente.
 \DoxyCodeLine{    \{\textcolor{stringliteral}{"i"} , \textcolor{stringliteral}{"Inspect"}\}\}}
 
 \end{DoxyCode}
+
+
+tipo de comandos 
+

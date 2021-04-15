@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['south_925',['south',['../struct__Space.html#a2ada102349bd1c6c81e230b601dc0274',1,'_Space']]],
-  ['spaces_926',['spaces',['../struct__Game.html#ab4180417d9148f8abb2233ca6c4ecfe5',1,'_Game']]],
-  ['st_927',['st',['../struct__Command.html#a4c6f1ed56b0d4366f93a42b3148f47f9',1,'_Command']]]
+  ['player_1031',['player',['../struct__Game.html#a31406605782d71ec00c4bf258ea76267',1,'_Game']]]
 ];

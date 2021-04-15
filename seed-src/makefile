@@ -12,7 +12,7 @@ SPACE_TESTDIR = $(addprefix obj/, space_test.o space.o set.o link.o)
 OBJECT_TESTDIR = $(addprefix obj/, object_test.o object.o)
 LINK_TESTDIR = $(addprefix obj/, link_test.o link.o)
 COMMAND_TESTDIR = $(addprefix obj/, command_test.o command.o)
-
+FULL_TEST = $(addprefix obj/, set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o)
 CC = gcc
 
 vpath %.c src:include
@@ -192,14 +192,13 @@ runl:
 runj:
 	./ocaEXE data.dat < juego1
 
-tests: $(TEST)
+runt: $(TEST)
 	@echo "#####################"
 	@echo "Creando $@"
-	$(CC) -o set_test $(SET_TESTDIR) 
-	$(CC) -o die_test $(DIE_TESTDIR) 
-	$(CC) -o inventory_test $(INVENTORY_TESTDIR)
-	$(CC) -o player_test $(PLAYER_TESTDIR) 
-	$(CC) -o space_test $(SPACE_TESTDIR) 
-	$(CC) -o object_test $(OBJECT_TESTDIR) 
-	$(CC) -o link_test $(LINK_TESTDIR) 
-	$(CC) -o command_test $(COMMAND_TESTDIR)
+	$(CC) -o $@ $(SET_TESTDIR) 
+	$(CC) -o $@ $(DIE_TESTDIR) 
+	$(CC) -o $@ $(INVENTORY_TESTDIR)
+	$(CC) -o $@ $(PLAYER_TESTDIR) 
+	$(CC) -o $@ $(SPACE_TESTDIR) 
+	$(CC) -o $@ $(OBJECT_TESTDIR) 
+	$(CC) -o $@ $(COMMAND_TESTDIR)

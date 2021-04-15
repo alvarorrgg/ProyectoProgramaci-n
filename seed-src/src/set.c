@@ -20,8 +20,9 @@
  * contiene las variables del conjunto de objetos
  */
 struct _Set {
-  Id id[MAX_IDS];	/** !< array de ids */		
-  int total_ids;	/** !< total de ids */	
+
+  Id id[MAX_IDS];	/*!< array de ids */		
+  int total_ids;	/*!< total de ids */	
 };
 
 Set* set_create() { 

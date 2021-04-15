@@ -1,15 +1,15 @@
 /** 
  * @brief It declares the tests for the space module
  * 
- * @file space_test_en.h
+ * @file command_test.h
  * @author Profesores Pprog
  * @version 2.0 
  * @date 19-01-2016
  * @copyright GNU Public License
  */
 
-#ifndef SPACE_TEST_H
-#define SPACE_TEST_H
+#ifndef COMMAND_TEST_H
+#define COMMAND_TEST_H
 
 /**
  * @test Test funtion for command_init

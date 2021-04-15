@@ -21,9 +21,9 @@
 
 #define BG_CHAR '~' /*!<BG char*/
 #define FG_CHAR ' '/*!<FG char*/
-#define PROMPT " prompt:> "/*!<FG char*/
+#define PROMPT " prompt:> "/*!<Prompt*/
 
-#define ACCESS(d, x, y) (d + ((y) * COLUMNS) + (x))
+#define ACCESS(d, x, y) (d + ((y) * COLUMNS) + (x)) /*!<Acceso*/
 
 /**
  * @brief Define un área
@@ -31,11 +31,14 @@
  * Estructura de área
  */
 struct _Area{
-  int x, y, width, height; /*!<Medidas pantalla*/
+  int x;/*!<x*/
+  int y;/*!<y*/
+  int width; /*!<Anchura*/
+  int height; /*!<Altura*/
   char *cursor;/*!<Cursor*/
 };
 
-char *__data;
+char *__data; /*!<cadena datos*/
 
 /****************************/
 /*     Private functions    */
@@ -89,6 +92,16 @@ void screen_paint(){
   }
 }
 
+/**
+ * @brief Obtiene una cadena de caracteres
+ *
+ * screen_area_destroy Obtiene una cadena de caracteres
+ * 
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param str cadena de caracteres 
+ */
 void screen_gets(char *str){
   fprintf(stdout, PROMPT);
   if (fgets(str, COLUMNS, stdin))
@@ -147,12 +160,32 @@ void screen_area_puts(Area* area, char *str){
   }
 }
 
+/**
+ * @brief Controla que el cursor este en los limites del area
+ *
+ * screen_area_destroy Controla que el cursor este en los limites del area
+ * 
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param area de la pantalla 
+ */
 int screen_area_cursor_is_out_of_bounds(Area* area){
   return area->cursor > ACCESS(__data,
 			       area->x + area->width,
 			       area->y + area->height - 1);
 }
 
+/**
+ * @brief Controla el despalamiento hacia arriba en el area
+ *
+ * screen_area_destroy Controla el despalamiento hacia arriba en el area
+ * 
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param area de la pantalla 
+ */
 void screen_area_scroll_up(Area* area){
   for(area->cursor = ACCESS(__data, area->x, area->y);
       area->cursor < ACCESS(__data, area->x + area->width, area->y + area->height - 2);
@@ -160,7 +193,16 @@ void screen_area_scroll_up(Area* area){
     memcpy(area->cursor, area->cursor+COLUMNS, area->width);
   }
 }
-
+/**
+ * @brief Reemplaza los caracteres especiales
+ *
+ * screen_area_destroy Reemplaza los caracteres especiales
+ * 
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param str caracteres especiales
+ */
 void screen_utils_replaces_special_chars(char* str){
   char *pch = NULL;
 

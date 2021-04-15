@@ -5,7 +5,6 @@
  * @author Alberto Vicente
  * @version 2.0 
  * @date 02-03-2021
- * @updated 02-03-2021
  * @copyright GNU Public License
  */
  
@@ -20,9 +19,11 @@
  * Estructura de dado
  */
 struct _Die {
-  Id id;		/** !< Id del dado */
-  int min, max;	/** !< minimo y maximo del dado */
-  int last_roll;	/** !< ultimo roll del dado */
+
+  Id id;		   /*!< Id del dado */
+  int min;	/*!< minimo del dado */
+  int max; /*!< maximo del dado */
+  int last_roll;	/*!< ultimo roll del dado */
 };
 
 Die *die_create(Id id){

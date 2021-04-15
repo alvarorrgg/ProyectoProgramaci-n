@@ -6,17 +6,26 @@ Archivo cabecera del modulo \mbox{\hyperlink{object_8h}{object.\+h}}, en el se d
 
 
 {\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
-Include dependency graph for object.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+Include dependency graph for object.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{object_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{object_8h_ae5fa57f1598b5789019d91786a54d3bd}{L\+E\+N\+\_\+\+D\+ES}}~30
 \item 
-\mbox{\Hypertarget{object_8h_a5618e894ee26a87ff4100613baf38f62}\label{object_8h_a5618e894ee26a87ff4100613baf38f62}} 
-\#define {\bfseries F\+I\+R\+S\+T\+\_\+\+O\+B\+J\+E\+CT}~1  /$\ast$Posición del primer objeto$\ast$/
+\#define \mbox{\hyperlink{object_8h_a5618e894ee26a87ff4100613baf38f62}{F\+I\+R\+S\+T\+\_\+\+O\+B\+J\+E\+CT}}~1
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -66,7 +75,13 @@ G\+NU Public License
 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{object_8h_ae5fa57f1598b5789019d91786a54d3bd}\label{object_8h_ae5fa57f1598b5789019d91786a54d3bd}} 
+\mbox{\Hypertarget{object_8h_a5618e894ee26a87ff4100613baf38f62}\label{object_8h_a5618e894ee26a87ff4100613baf38f62}} 
+\index{object.h@{object.h}!FIRST\_OBJECT@{FIRST\_OBJECT}}
+\index{FIRST\_OBJECT@{FIRST\_OBJECT}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{FIRST\_OBJECT}{FIRST\_OBJECT}}
+{\footnotesize\ttfamily \#define F\+I\+R\+S\+T\+\_\+\+O\+B\+J\+E\+CT~1}
+
+Posición del primer objeto \mbox{\Hypertarget{object_8h_ae5fa57f1598b5789019d91786a54d3bd}\label{object_8h_ae5fa57f1598b5789019d91786a54d3bd}} 
 \index{object.h@{object.h}!LEN\_DES@{LEN\_DES}}
 \index{LEN\_DES@{LEN\_DES}!object.h@{object.h}}
 \doxysubsubsection{\texorpdfstring{LEN\_DES}{LEN\_DES}}
@@ -214,6 +229,8 @@ Gonzalo Martín
 \begin{DoxyParams}{Parameters}
 {\em object} & recibe un puntero a la estructura de datos objeto y un nombre char \\
 \hline
+{\em name} & nombre del objeto \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 el Id del objeto con el nobre pasado por argumento 
@@ -291,6 +308,8 @@ Gonzalo Martín
 
 \begin{DoxyParams}{Parameters}
 {\em object} & recibe un puntero a la estructura de datos objeto y la propia descripcion \\
+\hline
+{\em descr} & descripción del objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

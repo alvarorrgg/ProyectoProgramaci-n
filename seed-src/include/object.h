@@ -21,7 +21,7 @@
  */
 typedef struct _Object Object;
 
-#define FIRST_OBJECT 1  /*Posición del primer objeto*/
+#define FIRST_OBJECT 1  /*!<Posición del primer objeto*/
 /**
  * @brief Crea un objeto
  *
@@ -136,6 +136,7 @@ STATUS object_set_name(Object* object, char* name);
  * @author Gonzalo Martín
  *
  * @param object recibe un puntero a la estructura de datos objeto y la propia descripcion
+ * @param descr descripción del objeto
  * @return STATUS devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
  */
  STATUS object_set_description(Object* object , char* descr);
@@ -150,6 +151,7 @@ STATUS object_set_name(Object* object, char* name);
  * @author Gonzalo Martín
  *
  * @param object recibe un puntero a la estructura de datos objeto y un nombre char
+ * @param name nombre del objeto
  * @return el Id del objeto con el nobre pasado por argumento 
  */
  Id object_get_id_by_name (Object *object , char *name);

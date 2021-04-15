@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['last_5fdescripcion_915',['last_descripcion',['../struct__Game.html#ae4f099fba5306ebba4a8b8145a65cd8e',1,'_Game']]],
-  ['last_5froll_916',['last_roll',['../struct__Die.html#a522e4527bd70cf87afcbabd9d9dede34',1,'_Die']]],
-  ['location_917',['location',['../struct__Player.html#adbb6195d15b88f3f658e74274eff52d8',1,'_Player']]]
+  ['id_1018',['id',['../struct__Die.html#a0887af562dda760409957f13619d36f1',1,'_Die::id()'],['../struct__Link.html#a151212e7a8e8274c2a1ee991ba95878b',1,'_Link::id()'],['../struct__Object.html#a3cff7a0e8dc4e9d23895ed9af1b7653a',1,'_Object::id()'],['../struct__Player.html#a60d635cd063816a9c1bd873f4868bb90',1,'_Player::id()'],['../struct__Set.html#a2f96cef7e83d5a8496d9ef1f0f03894a',1,'_Set::id()'],['../struct__Space.html#a70cb461deb9ac073e401b607339b567f',1,'_Space::id()']]],
+  ['inventory_1019',['inventory',['../struct__Player.html#a5e02924cb82ca61f74ba414d190aa29b',1,'_Player']]]
 ];

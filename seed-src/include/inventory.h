@@ -31,7 +31,6 @@ typedef struct _Inventory Inventory;
  * @date 30-03-2021
  * @author Gonzalo Martín
  *
- * @param 
  * @return el inventario creado
  */
 Inventory* inventory_create();

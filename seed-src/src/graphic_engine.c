@@ -400,12 +400,12 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 
   if (inventory_get_number_of_objects(player_get_inventory(game_get_player(game))) == 0)
   {
-    sprintf(str, "Player has no objects");
+    sprintf(str, "Player %s has no objects", player_get_name(game_get_player(game)));
     screen_area_puts(ge->descript, str);
   }
   else
   {
-    sprintf(str, "This is the inventory of the player: ");
+    sprintf(str, "This is the inventory of the player %s: ", player_get_name(game_get_player(game)));
     screen_area_puts(ge->descript, str);
     id_objetos = inventory_get_inventory(player_get_inventory(game_get_player(game)));
     for (i = 0; i < inventory_get_number_of_objects(player_get_inventory(game_get_player(game))); i++)

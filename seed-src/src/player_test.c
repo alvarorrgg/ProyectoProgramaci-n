@@ -5,7 +5,6 @@
  * @author Álvaro Rodríguez
  * @version 2.0 
  * @date 31-03-2021
- * @updated 31-03-2021
  * @copyright GNU Public License
  */
 

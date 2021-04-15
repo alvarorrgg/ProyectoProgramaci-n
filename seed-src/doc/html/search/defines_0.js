@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bg_5fchar_963',['BG_CHAR',['../screen_8c.html#a5e7c78a2c827b39d4464f2fc84058f87',1,'screen.c']]]
+  ['access_1076',['ACCESS',['../screen_8c.html#a28b37557462b06fbb08e707dc0ba2136',1,'screen.c']]]
 ];

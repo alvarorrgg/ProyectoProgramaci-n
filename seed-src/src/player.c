@@ -21,6 +21,7 @@
  * Almacena información del jugador.
  */
 struct _Player {
+  
   Id id;		                /*!< Id del jugador */
   char name[WORD_SIZE + 1];	/*!< nombre del jugador */
   Id location;	          	/*!< localización del jugador */

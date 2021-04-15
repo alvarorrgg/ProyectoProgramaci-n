@@ -42,6 +42,7 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name);
  *
  * @param game juego que continúa
  * @param gengine motor que se utiliza en el juego
+ * @param f puntero al fichero que se va a usar
  */
 void game_loop_run(Game *game, Graphic_engine *gengine, FILE *f);
 /**

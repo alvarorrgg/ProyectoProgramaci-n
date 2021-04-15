@@ -20,9 +20,10 @@
  * Almacena información del objeto.
  */
 struct _Object {
-  Id id;			/** !< id del objeto*/
-  char name[WORD_SIZE + 1];	/**!< nombre del objeto*/
-  char description[LEN_DES]; /**!!< descripción de cada objecto*/
+
+  Id id;			/*!< id del objeto*/
+  char name[WORD_SIZE + 1];	/*!< nombre del objeto*/
+  char description[LEN_DES]; /*!< descripción de cada objecto*/
 };
 
 Object* object_create(Id id) {

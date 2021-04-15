@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['arg_901',['arg',['../struct__Command.html#a755946ec5bdd3b30cce144140b01d971',1,'_Command']]]
+  ['_5f_5fdata_1002',['__data',['../screen_8c.html#a34a5b96f7a2aa5db335b9fd09706cf0a',1,'screen.c']]]
 ];

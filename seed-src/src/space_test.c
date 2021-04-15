@@ -5,7 +5,6 @@
  * @author Profesores Pprog, Álvaro Rodríguez
  * @version 2.0 
  * @date 16-01-2015
- * @updated 19-01-2016
  * @copyright GNU Public License
  */
 

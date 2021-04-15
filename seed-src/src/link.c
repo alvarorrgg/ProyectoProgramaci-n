@@ -15,12 +15,18 @@
 #include "link.h"
 #include "types.h"
 
+/**
+ * @brief Define la estructura del link
+ * 
+ * Estructura del link
+ */
 struct _Link{
-    Id id;
-    char name [WORD_SIZE +1];
-    Id from;
-    Id to;
-    TYPES type;
+
+    Id id;     /*!< Id del link */
+    char name [WORD_SIZE +1]; /*!< Nombre del link */
+    Id from; /*!< Id donde empieza */
+    Id to; /*!< Id donde acaba */
+    TYPES type; /*!< Tipo de link */
 };
 
 Link* link_create(Id id){

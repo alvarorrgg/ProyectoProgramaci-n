@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['word_5fsize_987',['WORD_SIZE',['../types_8h.html#a92ed8507d1cd2331ad09275c5c4c1c89',1,'types.h']]]
+  ['screen_5fmax_5fstr_1108',['SCREEN_MAX_STR',['../screen_8h.html#aab63df3ae7b979d59ea0188055ea0763',1,'screen.h']]]
 ];

@@ -74,7 +74,17 @@ $(function() {
 Collaboration diagram for _Game:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct__Game__coll__graph.png" border="0" usemap="#__Game_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 0 -->
+<map name="__Game_coll__map" id="__Game_coll__map">
+<area shape="rect" title="Define la estructura del dado." alt="" coords="221,317,289,344"/>
+<area shape="rect" href="struct__Link.html" title="Define la estructura del link." alt="" coords="5,95,61,121"/>
+<area shape="rect" href="struct__Space.html" title="Define un espacio." alt="" coords="81,228,149,255"/>
+<area shape="rect" href="struct__Die.html" title="Define la estructura del dado." alt="" coords="268,228,319,255"/>
+<area shape="rect" href="struct__Command.html" title="Define las partes de comando." alt="" coords="343,228,439,255"/>
+<area shape="rect" href="struct__Set.html" title="Estructura set." alt="" coords="117,5,168,32"/>
+<area shape="rect" href="struct__Inventory.html" title="Define el inventario del jugador." alt="" coords="197,95,288,121"/>
+<area shape="rect" href="struct__Object.html" title="La estructura Object." alt="" coords="463,228,534,255"/>
+<area shape="rect" href="struct__Player.html" title="La estructura Player." alt="" coords="173,228,243,255"/>
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -91,13 +101,12 @@ Data Fields</h2></td></tr>
 <tr class="separator:ab9fbb3ff590ad61f4c85c0cd0870f1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f099fba5306ebba4a8b8145a65cd8e"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Game.html#ae4f099fba5306ebba4a8b8145a65cd8e">last_descripcion</a> [<a class="el" href="object_8h.html#ae5fa57f1598b5789019d91786a54d3bd">LEN_DES</a>]</td></tr>
 <tr class="separator:ae4f099fba5306ebba4a8b8145a65cd8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0b7120da2aad265b1c9ca894ce31413"><td class="memItemLeft" align="right" valign="top"><a id="ac0b7120da2aad265b1c9ca894ce31413"></a>
-<a class="el" href="struct__Link.html">Link</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>link</b> [<a class="el" href="link_8h.html#a660ed1ec8604982002a0d6eced0e0367">MAX_LINKS</a>+1]</td></tr>
+<tr class="memitem:ac0b7120da2aad265b1c9ca894ce31413"><td class="memItemLeft" align="right" valign="top"><a class="el" href="link_8h.html#ae3b299941e67be6971bfd64a25505eff">Link</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Game.html#ac0b7120da2aad265b1c9ca894ce31413">link</a> [<a class="el" href="link_8h.html#a660ed1ec8604982002a0d6eced0e0367">MAX_LINKS</a>+1]</td></tr>
 <tr class="separator:ac0b7120da2aad265b1c9ca894ce31413"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Define la estructura del dado. </p>
-<p>Estructura de dado </p>
+<p>Estructura del juego </p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="ab9fbb3ff590ad61f4c85c0cd0870f1c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9fbb3ff590ad61f4c85c0cd0870f1c0">&#9670;&nbsp;</a></span>command</h2>
@@ -141,6 +150,21 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Ultima descripcion </p>
+
+</div>
+</div>
+<a id="ac0b7120da2aad265b1c9ca894ce31413"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b7120da2aad265b1c9ca894ce31413">&#9670;&nbsp;</a></span>link</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="link_8h.html#ae3b299941e67be6971bfd64a25505eff">Link</a>* _Game::link[<a class="el" href="link_8h.html#a660ed1ec8604982002a0d6eced0e0367">MAX_LINKS</a>+1]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tabla de links del juego </p>
 
 </div>
 </div>

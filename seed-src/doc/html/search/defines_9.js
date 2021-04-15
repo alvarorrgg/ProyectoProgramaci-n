@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['total_5fdata_986',['TOTAL_DATA',['../screen_8c.html#afba5c5b9f73273ce653f890bb64740b0',1,'screen.c']]]
+  ['reset_1106',['RESET',['../test_8h.html#ab702106cf3b3e96750b6845ded4e0299',1,'test.h']]],
+  ['rows_1107',['ROWS',['../screen_8c.html#a3cfd3aa62338d12609f6d65bce97e9cd',1,'screen.c']]]
 ];

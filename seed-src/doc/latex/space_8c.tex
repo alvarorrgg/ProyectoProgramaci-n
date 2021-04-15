@@ -11,8 +11,13 @@ Se encarga de los espacios del juego.
 {\ttfamily \#include \char`\"{}object.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}space.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}set.\+h\char`\"{}}\newline
-Include dependency graph for space.\+c\+:
-% FIG 0
+Include dependency graph for space.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{space_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,13 +32,13 @@ struct \mbox{\hyperlink{struct__Space}{\+\_\+\+Space}}
 \begin{DoxyCompactList}\small\item\em destruye un espacio \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_aab5b468f9822ab78dbe16d1321870d93}{space\+\_\+set\+\_\+name}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, char $\ast$name)
 \begin{DoxyCompactList}\small\item\em da nombre a un espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a7bb471624e34ada843337a3f7a9fc48d}{space\+\_\+set\+\_\+north}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a7bb471624e34ada843337a3f7a9fc48d}{space\+\_\+set\+\_\+north}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada norte \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_ad286442d3000046a0704d08c9bb018ce}{space\+\_\+set\+\_\+south}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_ad286442d3000046a0704d08c9bb018ce}{space\+\_\+set\+\_\+south}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada sur \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a187b52d1c27494b6de5767ffc4a90a59}{space\+\_\+set\+\_\+east}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a187b52d1c27494b6de5767ffc4a90a59}{space\+\_\+set\+\_\+east}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada este \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a8a6ba364ae5ac698023c840cd794e7ea}{space\+\_\+set\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{struct__Link}{Link}} $\ast$link)
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a8a6ba364ae5ac698023c840cd794e7ea}{space\+\_\+set\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada oeste \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a2ce3d38954acd26a39b0f0ffa4900c35}{space\+\_\+set\+\_\+objects}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em establece el objeto a T\+R\+UE o F\+A\+L\+SE \end{DoxyCompactList}\item 
@@ -47,13 +52,13 @@ const char $\ast$ \mbox{\hyperlink{space_8c_a310c540cd6e11073f7328add1f927001}{s
 \begin{DoxyCompactList}\small\item\em obtiene el nombre del espacio \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{space_8c_ac8ddfd0d8692fd852ee49698c446cb50}{space\+\_\+get\+\_\+id}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la id del espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{space_8c_adbc010984595d103f79919e7bd41edca}{space\+\_\+get\+\_\+north}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{space_8c_adbc010984595d103f79919e7bd41edca}{space\+\_\+get\+\_\+north}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada norte del espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{space_8c_ac14710031471b5c593f8f269478d2d73}{space\+\_\+get\+\_\+south}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{space_8c_ac14710031471b5c593f8f269478d2d73}{space\+\_\+get\+\_\+south}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada sur del espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a7ce7daa8152786d85cca4ab04d698f76}{space\+\_\+get\+\_\+east}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a7ce7daa8152786d85cca4ab04d698f76}{space\+\_\+get\+\_\+east}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada este del espacio \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct__Link}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a3dfc6c3c3ff571a4fe168383bb8ef6e5}{space\+\_\+get\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a3dfc6c3c3ff571a4fe168383bb8ef6e5}{space\+\_\+get\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada oeste del espacio \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} $\ast$ \mbox{\hyperlink{space_8c_a9cd5617c6cb1789172fdb315ab002f4b}{space\+\_\+get\+\_\+objects}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene los ids de los objetos en el set \end{DoxyCompactList}\item 
@@ -169,7 +174,7 @@ const char devuelve la descrpicion del objeto
 \index{space.c@{space.c}!space\_get\_east@{space\_get\_east}}
 \index{space\_get\_east@{space\_get\_east}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_east()}{space\_get\_east()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ space\+\_\+get\+\_\+east (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}}$\ast$ space\+\_\+get\+\_\+east (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -273,7 +278,7 @@ space-\/$>$name el nombre del espacio
 \index{space.c@{space.c}!space\_get\_north@{space\_get\_north}}
 \index{space\_get\_north@{space\_get\_north}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_north()}{space\_get\_north()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ space\+\_\+get\+\_\+north (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}}$\ast$ space\+\_\+get\+\_\+north (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -351,7 +356,7 @@ los ids de los objetos
 \index{space.c@{space.c}!space\_get\_south@{space\_get\_south}}
 \index{space\_get\_south@{space\_get\_south}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_south()}{space\_get\_south()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ space\+\_\+get\+\_\+south (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}}$\ast$ space\+\_\+get\+\_\+south (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -377,7 +382,7 @@ Link devuelve el link sur
 \index{space.c@{space.c}!space\_get\_west@{space\_get\_west}}
 \index{space\_get\_west@{space\_get\_west}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_get\_west()}{space\_get\_west()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__Link}{Link}}$\ast$ space\+\_\+get\+\_\+west (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}}$\ast$ space\+\_\+get\+\_\+west (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
 
 
 
@@ -513,7 +518,7 @@ OK o E\+R\+R\+OR segun si se ha cambiado la descripción o no.
 \index{space.c@{space.c}!space\_set\_east@{space\_set\_east}}
 \index{space\_set\_east@{space\_set\_east}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_east()}{space\_set\_east()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+east (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+east (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -597,7 +602,7 @@ OK para saber que se ha ejecutado la función correctamente
 \index{space.c@{space.c}!space\_set\_north@{space\_set\_north}}
 \index{space\_set\_north@{space\_set\_north}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_north()}{space\_set\_north()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+north (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+north (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -653,7 +658,7 @@ OK para saber que se ha ejecutado la función correctamente
 \index{space.c@{space.c}!space\_set\_south@{space\_set\_south}}
 \index{space\_set\_south@{space\_set\_south}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_south()}{space\_set\_south()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+south (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+south (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 
@@ -681,7 +686,7 @@ OK para saber que se ha ejecutado la función correctamente
 \index{space.c@{space.c}!space\_set\_west@{space\_set\_west}}
 \index{space\_set\_west@{space\_set\_west}!space.c@{space.c}}
 \doxysubsubsection{\texorpdfstring{space\_set\_west()}{space\_set\_west()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+west (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{struct__Link}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+west (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
 
 
 

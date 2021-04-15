@@ -37,7 +37,6 @@ typedef struct _Game Game;
  * @param game el juego que se va a crear
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-
 STATUS game_create(Game* game);
 
 /**
@@ -48,7 +47,6 @@ STATUS game_create(Game* game);
  * @date 18-02-2021
  * @author R1
  *
- * @param 
  * @return Puntero a la estructura Game si todo ha ido bien, NULL si ha ocurrido un error
  */
 Game *game_init();
@@ -103,7 +101,7 @@ STATUS game_update(Game* game, T_Command cmd);
  * @param game el juego que finaliza
  * @return FALSE para saber que se ha ejecutado la función correctamente 
  */
-BOOL   game_is_over(Game* game);
+BOOL game_is_over(Game* game);
 
 /**
  * @brief Escribe por pantalla los datos de la partida
@@ -115,7 +113,7 @@ BOOL   game_is_over(Game* game);
  *
  * @param game el juego del cual se escriben los datos
  */
-void   game_print_data(Game* game);
+void game_print_data(Game* game);
 /**
  * @brief Identifica un espacio del juego
  *
@@ -125,7 +123,7 @@ void   game_print_data(Game* game);
  * @author Profesores PProg
  *
  * @param game el juego del que se va a identificar el espacio
- * @param position la posición del espacio
+ * @param id la posición del espacio
  * @return la función space_get_space con la posición position del juego
  */
 Space* game_get_space(Game* game, Id id);
@@ -175,6 +173,7 @@ Id game_get_player_location(Game* game);
  * @author Profesores PProg
  *
  * @param game el juego donde se determian la posición del objeto
+ * @param id id del objeto a buscar
  * @return la posición del objeto
  */
 Id game_get_object_location(Game* game,Id id);
@@ -213,6 +212,7 @@ int game_get_total_objects(Game *game);
  * @author Álvaro Rodríguez 
  *
  * @param game el juego del que se va a obtener el objeto
+ * @param index indice del objeto
  * @return Object, el objeto a obtener.
  */
 Object *game_get_object(Game *game, int index);
@@ -265,7 +265,7 @@ STATUS game_add_player(Game* game, Player* player);
  * @author Álvaro Rodríguez
  *
  * @param game el juego al que se va a añadir un link
- * @param player el link que se va a añadir
+ * @param link el link que se va a añadir
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_add_link(Game *game, Link *link);
@@ -290,7 +290,7 @@ Link *game_get_link(Game *game, Id id);
 
  *
  * @param game el juego donde se establece el jugador
- * @param position la posición donde se establece el jugador
+ * @param id la posición donde se establece el jugador
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_set_player_location(Game* game, Id id);
@@ -304,7 +304,8 @@ STATUS game_set_player_location(Game* game, Id id);
  * @author Profesores PProg
  *
  * @param game el juego donde se establece el objeto
- * @param position la posición donde se establece el objeto
+ * @param pos_obj la posición donde se establece el objeto
+ * @param id id del objeto
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_set_object_location(Game* game, Id id,Id pos_obj);
@@ -318,7 +319,7 @@ STATUS game_set_object_location(Game* game, Id id,Id pos_obj);
  * @author Profesores PProg
  *
  * @param game el juego donde se establece el objeto
- * @param position la posición donde se establece el objeto
+ * @param id la posición donde se establece el objeto
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 BOOL game_id_object_exists(Game* game, Id id);
@@ -331,7 +332,8 @@ BOOL game_id_object_exists(Game* game, Id id);
  * @date 11-04-2021
  * @author Gonzalo Martín
  *
- * @param game 
+ * @param game el juego donde se establece el objeto
+ * @param descr descripcion del objeto
  * @return lo que guarda la el campo last_descripcion
  */
 STATUS game_set_last_description(Game* game , char* descr);
@@ -344,7 +346,7 @@ STATUS game_set_last_description(Game* game , char* descr);
  * @date 11-04-2021
  * @author Gonzalo Martín
  *
- * @param game 
+ * @param game el juego donde se establece el objeto
  * @return lo que guarda la el campo last_descripcion
  */
 const char* game_get_last_descripcion(Game* game);

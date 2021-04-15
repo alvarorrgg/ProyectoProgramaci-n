@@ -16,6 +16,10 @@
 
 #define CMD_LENGHT 30 /*!<Numero maximo de letras de cada cmando*/
 /* @brief Convierte un comando introducido por el usuario a una cadena de caracteres*/
+
+/**
+ @brief tipo de comandos
+ */
 char *cmd_to_str[N_CMD][N_CMDT] = {
     {"", "No command"}, /** !< NO COMMAND*/
     {"", "Unknown"},	/** !< UNKNOWN*/
@@ -36,9 +40,10 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
  * Estructura de comando
  */
 struct _Command {
-  T_Command cmd; /** !< comando*/
-  char arg[CMD_LENGHT];     /** !<Segunda parte del comando*/
-  STATUS st;    /**  !< status del comando*/
+
+  T_Command cmd; /*!< comando*/
+  char arg[CMD_LENGHT];     /*!<Segunda parte del comando*/
+  STATUS st;    /*!< status del comando*/
 };
 /*EJEMPLO*/
 Command* command_init(){
