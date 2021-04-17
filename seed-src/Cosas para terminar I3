@@ -4,19 +4,15 @@
 *****NO SE QUIEN TIENE QUE HACER ESTO PERO LOS COMENTARIOS DE LOS TESTS QUE ESTEN TODOS EN ESPAÑOL*****
  
 -----------------------------------------------------------------------------------------------------
-Álvaro Rodriguez
-Organización con actas y diagramas de Gantt.
-cambiar el makefile para que al hace make clean no se borre la carpeta sino lo de dentro.
+
 
 
 Gonzalo Martín
-Revisar descripciones de los objetos y de los espacios (Objeto Rojo: Token Rojo) (Casilla X: Estas en la casilla X)(Oca: De oca a oca y tiro por que me toca) (Puente: De puente a puente y tiro por que me
 Revisa argumentos, entrada de funciones, salida de funciones (Estilo y Documentación (B)(c))
 
 
 
 Alexandru Marius
-Revisar valgrind de space_test
 Revisar doxygen
 
 
