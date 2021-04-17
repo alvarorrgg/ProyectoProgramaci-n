@@ -32,13 +32,13 @@ int main(int argc, char** argv) {
   int test = 0;
   int all = 1;
 
-  if (argc < 2)  printf("Running all test for module Die:\n");
+  if (argc < 2)  printf("Ejecutando todas las pruebas para el modulo Die:\n");
  else {
     test = atoi(argv[1]);
     all = 0;
-    printf("Running test %d:\t", test);
+    printf("Ejecutando prueba %d:\t", test);
     if (test < 1 && test > MAX_TESTS) {
-      printf("Error: unknown test %d\t", test);
+      printf("Error: prueba desconocida %d\t", test);
       exit(EXIT_SUCCESS);
     }
   }

@@ -2,7 +2,7 @@
  * @brief It tests space module
  * 
  * @file space_test.c
- * @author Profesores Pprog, Álvaro Rodríguez, Gonzalo Martín
+ * @author Profesores Pprog, Álvaro Rodríguez
  * @version 2.0 
  * @date 16-01-2015
  * @copyright GNU Public License
@@ -32,13 +32,13 @@ int main(int argc, char** argv) {
   int all = 1;
 
   if (argc < 2) {
-    printf("Running all test for module Space:\n");
+    printf("Ejecutando todas las pruebas para el modulo Space:\n");
   } else {
     test = atoi(argv[1]);
     all = 0;
-    printf("Running test %d:\t", test);
+    printf("Ejecutando prueba %d:\t", test);
     if (test < 1 && test > MAX_TESTS) {
-      printf("Error: unknown test %d\t", test);
+      printf("Error: prueba desconocida %d\t", test);
       exit(EXIT_SUCCESS);
     }
   }
@@ -95,8 +95,10 @@ int main(int argc, char** argv) {
 }
 
 void test1_space_create() {
-  int result = space_create(5)!=NULL ;
-  PRINT_TEST_RESULT(result);
+  Space *s ;
+  s=space_create(2);
+  PRINT_TEST_RESULT(s!=NULL);
+  space_destroy(s);
 }
 
 void test2_space_create() {
@@ -139,6 +141,7 @@ void test2_space_set_north() {
   Link *l=NULL;
   l=link_create(5);
   PRINT_TEST_RESULT(space_set_north(s, l) == ERROR);
+  link_destroy(l);
 }
 
 void test1_space_set_south() {
@@ -148,6 +151,7 @@ void test1_space_set_south() {
   l=link_create(5);
   PRINT_TEST_RESULT(space_set_south(s, l) == OK);
   space_destroy(s);
+  
 }
 
 void test2_space_set_south() {
@@ -155,6 +159,7 @@ void test2_space_set_south() {
   Link *l=NULL;
   l=link_create(5);
   PRINT_TEST_RESULT(space_set_south(s, l) == ERROR);
+  link_destroy(l);
 }
 
 void test1_space_set_east() {
@@ -164,6 +169,7 @@ void test1_space_set_east() {
   l=link_create(5);
   PRINT_TEST_RESULT(space_set_east(s, l) == OK);
   space_destroy(s);
+  
 }
 
 void test2_space_set_east() {
@@ -171,6 +177,7 @@ void test2_space_set_east() {
   Link *l=NULL;
   l=link_create(5);
   PRINT_TEST_RESULT(space_set_east(s, l) == ERROR);
+  link_destroy(l);
 }
 
 void test1_space_set_west() {
@@ -180,6 +187,7 @@ void test1_space_set_west() {
   l=link_create(5);
   PRINT_TEST_RESULT(space_set_west(s, l) == OK);
   space_destroy(s);
+  
 }
 
 void test2_space_set_west() {
@@ -187,6 +195,7 @@ void test2_space_set_west() {
   Link *l=NULL;
   l=link_create(5);
   PRINT_TEST_RESULT(space_set_west(s, l) == ERROR);
+  link_destroy(l);
 }
 
 void test1_space_set_objects() {
@@ -350,7 +359,8 @@ void test1_space_set_gdesc() {
   gdesc[0] = (char *)malloc(9*sizeof(char));
   gdesc[1] = (char *)malloc(9*sizeof(char));
   gdesc[2] = (char *)malloc(9*sizeof(char));
-  PRINT_TEST_RESULT(space_set_gdesc(s,gdesc) == ERROR);
+  
+  PRINT_TEST_RESULT(space_set_gdesc(s, gdesc) == ERROR);
   free(gdesc[0]);
   free(gdesc[1]);
   free(gdesc[2]);
@@ -358,16 +368,24 @@ void test1_space_set_gdesc() {
 }
 
 void test2_space_set_gdesc() {
-  char **gdesc;
-  Space *s;
+  char **gdesc=NULL;
+  Space *s=space_create(25);
   gdesc = (char **)malloc(3*sizeof(char *));
   gdesc[0] = (char *)malloc(9*sizeof(char));
   gdesc[1] = (char *)malloc(9*sizeof(char));
   gdesc[2] = (char *)malloc(9*sizeof(char));
-  s = space_create(25);
-  PRINT_TEST_RESULT(space_set_gdesc(s,gdesc) == OK);
+  strcpy(gdesc[0], "ej1");
+  strcpy(gdesc[1], "ej2");
+  strcpy(gdesc[2], "ej3");
 
+  
+  PRINT_TEST_RESULT(space_set_gdesc(s, gdesc) == OK);
+  free(gdesc[0]);
+  free(gdesc[1]);
+  free(gdesc[2]);
+  free(gdesc);
   space_destroy(s);
+  
 }
 
 void test1_space_get_gdesc() {
@@ -386,15 +404,27 @@ void test2_space_get_gdesc() {
   gdesc[0] = (char *)malloc(9*sizeof(char));
   gdesc[1] = (char *)malloc(9*sizeof(char));
   gdesc[2] = (char *)malloc(9*sizeof(char));
-  gdesc[0]="Hola";
-  gdesc[1]="Hola";
-  gdesc[2]="Hola";
+  strcpy(gdesc[0], "Hola");
+  strcpy(gdesc[1], "Adios");
+  strcpy(gdesc[2], "Hola");
+
   s = space_create(25);
   space_set_gdesc(s,gdesc);
-  gdesc2=space_get_gdesc(s);
+  strcpy(gdesc2[0], space_get_gdesc(s)[0]);
+  strcpy(gdesc2[1], space_get_gdesc(s)[1]);
+  strcpy(gdesc2[2], space_get_gdesc(s)[2]);
   PRINT_TEST_RESULT(strcmp(gdesc[0],gdesc2[0])==0);
-
+  free(gdesc[0]);
+  free(gdesc[1]);
+  free(gdesc[2]);
+  free(gdesc);
+  free(gdesc2[0]);
+  free(gdesc2[1]);
+  free(gdesc2[2]);
+  free(gdesc2);
+  
   space_destroy(s);
+  
 }
 
 void test1_space_set_description(){
