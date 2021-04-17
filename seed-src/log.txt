@@ -12,3 +12,5 @@
  Drop (d) Verde: OK
  Drop (d) Azul: OK
  Exit (e): OK
+ La prueba era que el player termina 
+ 

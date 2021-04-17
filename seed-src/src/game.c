@@ -244,6 +244,7 @@ STATUS game_create(Game *game)
    for (i = 0; i < MAX_LINKS; i++) game->link[i] = NULL; /*Se inicializan todos los links con un valor NULL*/
   
   game->die = die_create(1);
+  if(!game->die) return ERROR;
   game->command = command_init();
   game->last_descripcion[0] = '\0';
 
@@ -431,10 +432,9 @@ STATUS game_update(Game *game, T_Command cmd)
   command_set_cmd(game->command,cmd);
 
   fgets(arg, WORD_SIZE, stdin);
-  for (j = 0; arg[j + 1] != (char)0; j++){
-    arg[j] = arg[j + 1]; 
-    j--;
-  } 
+  for (j = 0; arg[j + 1] != (char)0; j++) arg[j] = arg[j + 1]; 
+  
+  j--;
   arg[j] =(char)0;
   command_set_arg(game->command,arg);
 

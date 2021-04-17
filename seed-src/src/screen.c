@@ -19,9 +19,9 @@
 #define COLUMNS 80 /*!<Numero maximo de columnas*/
 #define TOTAL_DATA (ROWS * COLUMNS) + 1 /*!<Area de la pantalla*/
 
-#define BG_CHAR '~' /*!<BG char*/
-#define FG_CHAR ' '/*!<FG char*/
-#define PROMPT " prompt:> "/*!<Prompt*/
+#define BG_CHAR '~' /*!<Caracter para crear la visualizacion de la pantalla*/
+#define FG_CHAR ' ' /*!<Caracter espacio*/
+#define PROMPT " prompt:> "/*!<Lugar donde se escribe en la terminal*/
 
 #define ACCESS(d, x, y) (d + ((y) * COLUMNS) + (x)) /*!<Acceso*/
 
@@ -84,7 +84,7 @@ void screen_paint(){
 	if (dest[i] == BG_CHAR){
 	  printf("\033[0;34;44m%c\033[0m", dest[i]); /* fg:blue(34);bg:blue(44) */
 	}else{
-	  printf("\033[0;33;40m%c\033[0m", dest[i]); /* fg:black(30);bg:white(47)*/
+	  printf("\033[0;33;40m%c\033[0m", dest[i]); /* fg:yellow(33);bg:black(40)*/
 	}
       }
       printf("\n");

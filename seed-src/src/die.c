@@ -32,7 +32,7 @@ Die *die_create(Id id){
   new_die=(Die *) malloc(sizeof(Die));
   
   if (new_die==NULL) return NULL;
-
+  srand(time(NULL));
   new_die->id=id;
   new_die->min=1;
   new_die->max=6;

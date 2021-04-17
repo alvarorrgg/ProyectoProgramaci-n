@@ -208,7 +208,7 @@ runl: ocaEXE
 	./ocaEXE data.dat -l log.txt
 
 runj: ocaEXE
-	./ocaEXE data.dat < juego1
+	./ocaEXE data.dat < partida1.oca
 
 
 

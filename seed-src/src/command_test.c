@@ -5,7 +5,6 @@
  * @author Alexandru Marius
  * @version 2.0 
  * @date 15-04-2021
- * @updated 18-02-2021
  * @copyright GNU Public License
  */
 
