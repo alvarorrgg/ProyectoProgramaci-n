@@ -10,241 +10,241 @@
 #ifndef PLAYER_TEST_H
 #define PLAYER_TEST_H
  /**
- * @test Test function for player_create
- * @pre created player and checked if it is diferent from NULL
+ * @test Función de prueba para player_create
+ * @pre crea un player y comprueba si es diferente a NULL
  * @post Output!=NULL
  */
 void test1_player_create();
  /**
- * @test Test function for player_create
- * @pre created player and checked if it's id was the given when created
+ * @test Función de prueba para player_create
+ * @pre crea un player con id y comprueba si tiene una id correcta
  * @post Output==5
  */
 void test2_player_create();
 
 
  /**
- * @test Test function for player_destroy
- * @pre given NULL player and checked if output was ERROR
+ * @test Función de prueba para player_destroy
+ * @pre dado un player con valor NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test1_player_destroy();
  /**
- * @test Test function for player_destroy
- * @pre given correct player and checked if output is OK
+ * @test Función de prueba para player_destroy
+ * @pre crea un player con id y comprueba si la salida es OK
  * @post Output==OK
  */
 void test2_player_destroy();
 
  /**
- * @test Test function for player_set_name
- * @pre given NULL player and checked if output was ERROR
+ * @test Función de prueba para player_set_name
+ * @pre dado un player con valor NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test1_player_set_name();
  /**
- * @test Test function for player_set_name
- * @pre given NULL name and checked if output was ERROR
+ * @test Función de prueba para player_set_name
+ * @pre dado un char con valor NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test2_player_set_name();
  /**
- * @test Test function for player_set_name
- * @pre given correct name and player and checked if output when calling player_get_name was the name given with player_set_name
+ * @test Función de prueba para player_set_name
+ * @pre crea un player y le da un nombre válido comprueba si la salida es el nombre llamando a la función player_get_name
  * @post Output=="Alvaro"
  */
 void test3_player_set_name();
 
 
  /**
- * @test Test function for player_get_name
- * @pre given NULL player and checked if output was NULL
+ * @test Función de prueba para player_get_name
+ * @pre dado un player con valor NULL comprueba si la salida es NULL
  * @post Output==NULL
  */
 void test1_player_get_name();
  /**
- * @test Test function for player_get_name
- * @pre created a player and checked if name was different from NULL
+ * @test Función de prueba para player_get_name
+ * @pre crea un player y comprueba si su nombre es diferente a NULL
  * @post Output!=NULL
  */
 void test2_player_get_name();
  /**
- * @test Test function for player_get_name
- * @pre given correct name and player and checked if output when calling player_get_name was the name given with player_set_name
+ * @test Función de prueba para player_get_name
+ * @pre crea un player y le da un nombre válido comprueba si la salida es el nombre llamando a la función player_get_name
  * @post Output=="Alvaro"
  */
 void test3_player_get_name();
 
 
  /**
- * @test Test function for player_get_id
- * @pre given NULL player and checked if output was NO_ID
+ * @test Función de prueba para player_get_id
+ * @pre dado un player con valor NULL comprueba si la salida es NO_ID
  * @post Output==NO_ID
  */
 void test1_player_get_id();
  /**
- * @test Test function for player_get_id
- * @pre created player and checked if output was the correct id
+ * @test Función de prueba para player_get_id
+ * @pre crea un player y comprueba si la salida es el id dado
  * @post Output==5
  */
 void test2_player_get_id();
 
 
  /**
- * @test Test function for player_get_objects
- * @pre given NULL player and checked if output was NULL
+ * @test Función de prueba para player_get_objects
+ * @pre dado un player con valor NULL comprueba si la salida es NULL
  * @post Output==NULL
  */
 void test1_player_get_objects();
  /**
- * @test Test function for player_get_objects
- * @pre creating player and adding an object, then checking if output is different from NULL
+ * @test Función de prueba para player_get_objects
+ * @pre crea un player y añade un objeto, luego comprueba si la salida es diferente de NULL
  * @post Output!=NULL
  */
 void test2_player_get_objects();
 
 
  /**
- * @test Test function for player_add_object
- * @pre given NULL player and checked if output was ERROR
+ * @test Función de prueba para player_add_object
+ * @pre dado un player con valor NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test1_player_add_object();
  /**
- * @test Test function for player_add_object
- * @pre creating a player, adding an object, then trying to add the same object once again.
+ * @test Función de prueba para player_add_object
+ * @pre crea un player y añade un objeto, luego intenta añadir el mismo objeto otra vez
  * @post Output==ERROR
  */
 void test2_player_add_object();
  /**
- * @test Test function for player_add_object
- * @pre created a player and trying to add a object
+ * @test Función de prueba para player_add_object
+ * @pre crea un player e intenta añadir un objeto
  * @post Output==OK
  */
 void test3_player_add_object();
 
  /**
- * @test Test function for player_remove_object
- * @pre given NULL player and checked if output was ERROR
+ * @test Función de prueba para player_remove_object
+ * @pre dado un player con valor NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test1_player_remove_object();
  /**
- * @test Test function for player_remove_object
- * @pre creating a player, adding an object, then trying to remove a different object
+ * @test Función de prueba para player_remove_object
+ * @pre crea un player y añade un objeto, luego intenta retirar otro objeto
  * @post Output==ERROR
  */
 void test2_player_remove_object();
  /**
- * @test Test function for player_remove_object
- * @pre created a player adding an object then removing the same object
+ * @test Función de prueba para player_remove_object
+ * @pre crea un player y añade un objeto, luego intenta retirar el mismo objeto
  * @post Output==OK
  */
 void test3_player_remove_object();
 
 
  /**
- * @test Test function for player_set_location
- * @pre given NULL player and checked if output was ERROR
+ * @test Función de prueba para player_set_location
+ * @pre dado un player con valor NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test1_player_set_location();
  /**
- * @test Test function for player_set_location
- * @pre created a player and tried to set its position to NO_ID
+ * @test Función de prueba para player_set_location
+ * @pre crea un player e intenta establecer su posición a NO_ID
  * @post Output==ERROR
  */
 void test2_player_set_location();
  /**
- * @test Test function for player_set_location
- * @pre created a player and tried to gave a normal position
+ * @test Función de prueba para player_set_location
+ * @pre crea un player e intenta darle una posición válida
  * @post Output==OK
  */
 void test3_player_set_location();
 
 
  /**
- * @test Test function for player_get_location
- * @pre given NULL player and checked if output was NO_ID
+ * @test Función de prueba para player_get_location
+ * @pre dado un player con valor NULL comprueba si la salida es NO_ID
  * @post Output==NO_ID
  */
 void test1_player_get_location();
  /**
- * @test Test function for player_get_location
- * @pre created a player changed its location with player_set_location then calling player_get_location
+ * @test Función de prueba para player_get_location
+ * @pre cra un player y cambia su posición con player_set_location, luego llama a player_get_location
  * @post Output==10
  */
 void test2_player_get_location();
 
  /**
- * @test Test function for player_has_object
- * @pre given NULL player and checked if output was FALSE
+ * @test Función de prueba para player_has_object
+ * @pre dado un player con valor NULL comprueba si la salida es FALSE
  * @post Output==FALSE
  */
 void test1_player_has_object();
  /**
- * @test Test function for player_has_object
- * @pre created a player and checked if it has a non added object
+ * @test Función de prueba para player_has_object
+ * @pre crea un player y comprueba si no tiene añadido ningún objeto
  * @post Output==FALSE
  */
 void test2_player_has_object();
  /**
- * @test Test function for player_has_object
- * @pre created a player added a object and checked if it had the object.
+ * @test Función de prueba para player_has_object
+ * @pre crea un player, le añade un objeto y comprueba si tiene el miso objeto
  * @post Output==TRUE
  */
 void test3_player_has_object();
 
 
  /**
- * @test Test function for player_get_inventory
- * @pre given NULL player and checked if output=NULL
+ * @test Función de prueba para player_get_inventory
+ * @pre dado un player con valor NULL comprueba si la salida es NULL
  * @post Output==NULL
  */
 void test1_player_get_inventory();
  /**
- * @test Test function for player_get_inventory
- * @pre given correct player and added an object then checking if ouput is different from NULL
+ * @test Función de prueba para player_get_inventory
+ * @pre crea un player y añade un objeto, luego comprueba si la salida es diferente de NULL
  * @post Output!=NULL
  */
 void test2_player_get_inventory();
 
 
  /**
- * @test Test function for player_set_inventory_max_capacity
- * @pre given NULL player and checking if output is ERROR
+ * @test Función de prueba para player_set_inventory_max_capacity
+ * @pre dado un player con valor NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test1_player_set_inventory_max_capacity();
  /**
- * @test Test function for player_set_inventory_max_capacity
- * @pre Trying to change the capacity to a negative level
+ * @test Función de prueba para player_set_inventory_max_capacity
+ * @pre crea a un player e intenta cambiar la capacidad máxima a una negativa
  * @post Output==ERROR
  */
 void test2_player_set_inventory_max_capacity();
  /**
- * @test Test function for player_set_inventory_max_capacity
- * @pre given correct player and trying to change capacity to correct number
+ * @test Función de prueba para player_set_inventory_max_capacity
+ * @pre crea un player e intenta cambiar la capacidad máxima a un número válido
  * @post Output==OK
  */
 void test3_player_set_inventory_max_capacity();
 
 
  /**
- * @test Test function for player_has_object
- * @pre given NULL player and checked if output was ERROR
+ * @test Función de prueba para player_has_object
+ * @pre dado un player con valor NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test1_player_print();
  /**
- * @test Test function for player_has_object
- * @pre given NULL file and checked if output was ERROR
+ * @test Función de prueba para player_has_object
+ * @pre dado un fichero NULL comprueba si la salida es ERROR
  * @post Output==ERROR
  */
 void test2_player_print();
  /**
- * @test Test function for player_has_object
- * @pre given correct input and checked if output was OK
+ * @test Función de prueba para player_has_object
+ * @pre dada una entrada válida comprueba si la salida es OK
  * @post Output==OK
  */
 void test3_player_print();
