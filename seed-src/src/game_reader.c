@@ -2,7 +2,7 @@
  * @brief Implementa el inicio del juego y obtiene los valores iniciales de data.dat
  * 
  * @file game_reader.c
- * @author Álvaro Rodríguez, Alberto Vicente
+ * @author Álvaro Rodríguez, Alberto Vicente, Gonzalo Martin
  * @version 1.0 
  * @date 18-02-2021  
  * @copyright GNU Public License
@@ -40,7 +40,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   gdesc[2] = (char *)malloc(9 * sizeof(char));
   if (!gdesc[2]) return ERROR;
 
-  if (!filename)
+  if (!game || !filename)
     return ERROR;
 
   file = fopen(filename, "r");
@@ -111,7 +111,7 @@ STATUS game_reader_load_objects(Game *game, char *filename)
   Object *object = NULL;
   STATUS status = OK;
 
-  if (!filename) return ERROR;
+  if (!game || !filename) return ERROR;
 
   file = fopen(filename, "r");
   if (!file) return ERROR;
@@ -124,6 +124,10 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       id = atol(toks);
       toks = strtok(NULL, "|");
       strcpy(name, toks);
+      if(strcmp(name , "space") == 0 || strcmp(name , "Space") == 0 || strcmp(name , "s") == 0){/*comprobar que no sea un nombre de objeto incorrecto*/
+        printf("No puede haber un objeto llamado 'space' , 'Space' o 's'\n");
+        return ERROR;
+      }
       toks = strtok(NULL, "|");
       pos_obj = atol(toks);
       toks = strtok(NULL, "|");
@@ -172,7 +176,7 @@ STATUS game_reader_load_players(Game *game, char *filename)
   int max_objects=0;
   STATUS status = OK;
 
-  if (!filename) return ERROR;
+  if (!game || !filename) return ERROR;
 
   file = fopen(filename, "r");
   if (file == NULL) return ERROR;
@@ -230,7 +234,7 @@ STATUS game_reader_load_links(Game* game, char* filename) {
   Link *link2=NULL;
   
 
-  if (!filename) return ERROR;
+  if (!game || !filename) return ERROR;
   
   file = fopen(filename, "r");
 

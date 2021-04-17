@@ -26,9 +26,13 @@ struct _Inventory{
 
 
 Inventory* inventory_create(){
-    Inventory *new_invetory = (Inventory*) malloc(sizeof(Inventory));    
+    Inventory *new_invetory = NULL;
+    new_invetory = (Inventory*) malloc(sizeof(Inventory));    
+    if(!new_invetory) return NULL;
 
     new_invetory->objects = set_create();
+    if(!new_invetory->objects) return NULL;
+
     new_invetory->Max_Objets = MAX_OBJECTS;
 
     return new_invetory;
@@ -49,7 +53,7 @@ STATUS inventory_destroy(Inventory* inventory){
 
 STATUS inventory_set_object (Inventory *inventory , Id id){
      STATUS st;
-    if (!inventory  || id<0 || !id || inventory_is_full (inventory) == TRUE) {
+    if (!inventory  || id<0 || !id || id == NO_ID||inventory_is_full (inventory) == TRUE) {
         return ERROR;
     }
 
@@ -83,7 +87,7 @@ STATUS inventory_print (Inventory *inventory , FILE *pf){
 
 STATUS inventory_delete_object (Inventory* inventory , Id id){
     STATUS st;
-    if(!inventory || !id || id<0 || inventory_is_empty(inventory) == TRUE || set_has_id(inventory->objects , id) == FALSE) return ERROR;
+    if(!inventory || !id || id<0 || id == NO_ID||inventory_is_empty(inventory) == TRUE || set_has_id(inventory->objects , id) == FALSE) return ERROR;
 
     st = set_id_delete (inventory->objects , id);
 

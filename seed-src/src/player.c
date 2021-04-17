@@ -48,6 +48,7 @@ Player* player_create(Id id) {
 
 STATUS player_destroy(Player* player) {
   if (!player) return ERROR;
+  
   inventory_destroy(player->inventory);
   free(player);
   return OK;

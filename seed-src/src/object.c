@@ -26,13 +26,12 @@ struct _Object {
   char description[LEN_DES]; /*!< descripción de cada objecto*/
 };
 
-Object* object_create(Id id) {
-
+Object* object_create(Id id) {  
   Object *new_object = NULL;
 
+  if(id == NO_ID) return NULL;
 
   new_object = (Object *) malloc(sizeof (Object));
-
   if (!new_object) return NULL;
   
   new_object->id = id;
@@ -57,6 +56,7 @@ Id object_get_id(Object* object) {
 
 STATUS object_set_name(Object* object, char* name) {
   if (!object || !name) return ERROR;
+  
   if (!strcpy(object->name, name)) return ERROR;
   
   return OK;

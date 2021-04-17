@@ -50,8 +50,7 @@ struct _Command {
 Command* command_init(){
   Command * new_command =NULL;
 	  
-  new_command=(Command *) malloc(sizeof(Command));
-	  
+  new_command=(Command *) malloc(sizeof(Command));	  
   if (!new_command) return NULL;
 	  
   new_command->cmd = NO_CMD;
@@ -93,7 +92,7 @@ T_Command command_get_cmd(Command *command){
 }
 
 STATUS command_set_arg(Command *command,char *arg){
-  if(command==NULL ) return ERROR;
+  if(!command || !arg) return ERROR;
   strcpy(command->arg, arg);
   return OK;
 }

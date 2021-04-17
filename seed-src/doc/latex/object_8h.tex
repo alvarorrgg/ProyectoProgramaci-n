@@ -1,0 +1,375 @@
+\hypertarget{object_8h}{}\doxysection{include/object.h File Reference}
+\label{object_8h}\index{include/object.h@{include/object.h}}
+
+
+Archivo cabecera de \mbox{\hyperlink{object_8c}{object.\+c}} en el se encuentra definidas los datos y funciones de \mbox{\hyperlink{object_8c}{object.\+c}}.  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+Include dependency graph for object.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{object_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{object_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{object_8h_ae5fa57f1598b5789019d91786a54d3bd}{L\+E\+N\+\_\+\+D\+ES}}~100
+\item 
+\#define \mbox{\hyperlink{object_8h_a5618e894ee26a87ff4100613baf38f62}{F\+I\+R\+S\+T\+\_\+\+O\+B\+J\+E\+CT}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct__Object}{\+\_\+\+Object}} \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}}
+\begin{DoxyCompactList}\small\item\em La estructura Object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$ \mbox{\hyperlink{object_8h_abb0cd30fca5fbddf137c6c04df66bbc7}{object\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em Crea un objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8h_a19d6d51fee809e3801893eefc789f4b4}{object\+\_\+destroy}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Destruye un objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{object_8h_ac5af152381a21853c6a28cc120e8e7fe}{object\+\_\+get\+\_\+id}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Obtiene el id de un objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8h_ac15dc062c857503ec0ca66037caffd80}{object\+\_\+set\+\_\+name}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object, char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Nombrar a un objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8h_a8c03688ce63530d822523f23066960ee}{object\+\_\+set\+\_\+id}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em cambiar la posición de un objeto \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8h_adebb77fb5d33fc70616ab3b2b64c27ce}{object\+\_\+print}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Escribe los atributos del objeto. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{object_8h_a19320eebcbbd38533a18c741b804b584}{object\+\_\+get\+\_\+name}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Obtiene el nombre del objeto. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{object_8h_a4b26ef1ec7057673899b58a5bf55f06a}{object\+\_\+get\+\_\+description}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Obtiene la descrpicion del objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8h_a55c469922a093f9e0e07bbb46bc0acde}{object\+\_\+set\+\_\+description}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object, char $\ast$descr)
+\begin{DoxyCompactList}\small\item\em Determina la descrpicion del objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{object_8h_a3ed4f296d6c0307c0865a35739c16313}{object\+\_\+get\+\_\+id\+\_\+by\+\_\+name}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object, char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Devuelve el Id de un objeto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Archivo cabecera de \mbox{\hyperlink{object_8c}{object.\+c}} en el se encuentra definidas los datos y funciones de \mbox{\hyperlink{object_8c}{object.\+c}}. 
+
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez, Gonzalo Martín 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{object_8h_a5618e894ee26a87ff4100613baf38f62}\label{object_8h_a5618e894ee26a87ff4100613baf38f62}} 
+\index{object.h@{object.h}!FIRST\_OBJECT@{FIRST\_OBJECT}}
+\index{FIRST\_OBJECT@{FIRST\_OBJECT}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{FIRST\_OBJECT}{FIRST\_OBJECT}}
+{\footnotesize\ttfamily \#define F\+I\+R\+S\+T\+\_\+\+O\+B\+J\+E\+CT~1}
+
+Posición del primer objeto \mbox{\Hypertarget{object_8h_ae5fa57f1598b5789019d91786a54d3bd}\label{object_8h_ae5fa57f1598b5789019d91786a54d3bd}} 
+\index{object.h@{object.h}!LEN\_DES@{LEN\_DES}}
+\index{LEN\_DES@{LEN\_DES}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{LEN\_DES}{LEN\_DES}}
+{\footnotesize\ttfamily \#define L\+E\+N\+\_\+\+D\+ES~100}
+
+Numero maximo de caracteres en la descrpicion del objeto 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}\label{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}} 
+\index{object.h@{object.h}!Object@{Object}}
+\index{Object@{Object}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{Object}{Object}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__Object}{\+\_\+\+Object}} \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}}}
+
+
+
+La estructura Object. 
+
+Almacena información del objeto. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{object_8h_abb0cd30fca5fbddf137c6c04df66bbc7}\label{object_8h_abb0cd30fca5fbddf137c6c04df66bbc7}} 
+\index{object.h@{object.h}!object\_create@{object\_create}}
+\index{object\_create@{object\_create}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_create()}{object\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}}$\ast$ object\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+Crea un objeto. 
+
+object\+\_\+create crea un objeto y le da atributos sin valor, es la inicialización del objeto.
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & recibe un tipo id que es equivalente a recibir un long \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object devuelve un puntero a objeto, N\+U\+LL en caso de detectar algun error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_a19d6d51fee809e3801893eefc789f4b4}\label{object_8h_a19d6d51fee809e3801893eefc789f4b4}} 
+\index{object.h@{object.h}!object\_destroy@{object\_destroy}}
+\index{object\_destroy@{object\_destroy}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_destroy()}{object\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} object\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+
+Destruye un objeto. 
+
+object\+\_\+destroy destruye un objeto y todo lo relacionado con este, tanto su id como su nombre.
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+US devuelve un tipo de dato S\+T\+A\+T\+US que es OK si se ejecuta la función sin errores y E\+R\+R\+OR si detecta algun error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_a4b26ef1ec7057673899b58a5bf55f06a}\label{object_8h_a4b26ef1ec7057673899b58a5bf55f06a}} 
+\index{object.h@{object.h}!object\_get\_description@{object\_get\_description}}
+\index{object\_get\_description@{object\_get\_description}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_get\_description()}{object\_get\_description()}}
+{\footnotesize\ttfamily const char$\ast$ object\+\_\+get\+\_\+description (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+
+Obtiene la descrpicion del objeto. 
+
+object\+\_\+get\+\_\+description sirve para obtener la descrpicion del objeto
+
+\begin{DoxyDate}{Date}
+10-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const char devuelve la descrpicion del objeto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_ac5af152381a21853c6a28cc120e8e7fe}\label{object_8h_ac5af152381a21853c6a28cc120e8e7fe}} 
+\index{object.h@{object.h}!object\_get\_id@{object\_get\_id}}
+\index{object\_get\_id@{object\_get\_id}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_get\_id()}{object\_get\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+
+Obtiene el id de un objeto. 
+
+object\+\_\+get\+\_\+id sirve para obtener el id de un objeto.
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & un puntero a la estructura de datos objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Id devuelve el id del objeto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_a3ed4f296d6c0307c0865a35739c16313}\label{object_8h_a3ed4f296d6c0307c0865a35739c16313}} 
+\index{object.h@{object.h}!object\_get\_id\_by\_name@{object\_get\_id\_by\_name}}
+\index{object\_get\_id\_by\_name@{object\_get\_id\_by\_name}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_get\_id\_by\_name()}{object\_get\_id\_by\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} object\+\_\+get\+\_\+id\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Devuelve el Id de un objeto. 
+
+object\+\_\+get\+\_\+id\+\_\+by\+\_\+name devuelve el Id de un objeto dependiendo del nombre
+
+\begin{DoxyDate}{Date}
+10-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto y un nombre char \\
+\hline
+{\em name} & nombre del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el Id del objeto con el nobre pasado por argumento 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_a19320eebcbbd38533a18c741b804b584}\label{object_8h_a19320eebcbbd38533a18c741b804b584}} 
+\index{object.h@{object.h}!object\_get\_name@{object\_get\_name}}
+\index{object\_get\_name@{object\_get\_name}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_get\_name()}{object\_get\_name()}}
+{\footnotesize\ttfamily const char$\ast$ object\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+
+Obtiene el nombre del objeto. 
+
+object\+\_\+get\+\_\+name sirve para obtener el nombre de un objeto.
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const char devuelve el nombre del objeto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_adebb77fb5d33fc70616ab3b2b64c27ce}\label{object_8h_adebb77fb5d33fc70616ab3b2b64c27ce}} 
+\index{object.h@{object.h}!object\_print@{object\_print}}
+\index{object\_print@{object\_print}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_print()}{object\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} object\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+
+Escribe los atributos del objeto. 
+
+object\+\_\+print sirve para escribir los atributos de el objeto como su id o su nombre.
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+US devuelve un tipo de dato S\+T\+A\+T\+US que es OK si se ejecuta la función sin errores y E\+R\+R\+OR si detecta algun error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_a55c469922a093f9e0e07bbb46bc0acde}\label{object_8h_a55c469922a093f9e0e07bbb46bc0acde}} 
+\index{object.h@{object.h}!object\_set\_description@{object\_set\_description}}
+\index{object\_set\_description@{object\_set\_description}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_set\_description()}{object\_set\_description()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} object\+\_\+set\+\_\+description (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object,  }\item[{char $\ast$}]{descr }\end{DoxyParamCaption})}
+
+
+
+Determina la descrpicion del objeto. 
+
+object\+\_\+set\+\_\+description sirve para determinar la descrpicion del objeto
+
+\begin{DoxyDate}{Date}
+10-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto y la propia descripcion \\
+\hline
+{\em descr} & descripción del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+US devuelve un tipo de dato S\+T\+A\+T\+US que es OK si se ejecuta la función sin errores y E\+R\+R\+OR si detecta algun error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_a8c03688ce63530d822523f23066960ee}\label{object_8h_a8c03688ce63530d822523f23066960ee}} 
+\index{object.h@{object.h}!object\_set\_id@{object\_set\_id}}
+\index{object\_set\_id@{object\_set\_id}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_set\_id()}{object\_set\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} object\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+cambiar la posición de un objeto 
+
+object\+\_\+set\+\_\+id sirve para cambiar la posición de un objeto
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+{\em id} & recibe el nuevo lugar del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+US devuelve un tipo de dato S\+T\+A\+T\+US que es OK si se ejecuta la función sin errores y E\+R\+R\+OR si detecta algun error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8h_ac15dc062c857503ec0ca66037caffd80}\label{object_8h_ac15dc062c857503ec0ca66037caffd80}} 
+\index{object.h@{object.h}!object\_set\_name@{object\_set\_name}}
+\index{object\_set\_name@{object\_set\_name}!object.h@{object.h}}
+\doxysubsubsection{\texorpdfstring{object\_set\_name()}{object\_set\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} object\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Nombrar a un objeto. 
+
+object\+\_\+set\+\_\+name sirve para cambiar el nombre del objeto
+
+\begin{DoxyDate}{Date}
+18-\/02-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+{\em name} & recibe el nombre que se le va a poner al objeto. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+US devuelve un tipo de dato S\+T\+A\+T\+US que es OK si se ejecuta la función sin errores y E\+R\+R\+OR si detecta algun error. 
+\end{DoxyReturn}

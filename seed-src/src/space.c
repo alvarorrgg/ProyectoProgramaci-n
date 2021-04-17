@@ -38,39 +38,45 @@ Space* space_create(Id id) {
   if (id == NO_ID) return NULL;
 
   new_space = (Space *) malloc(sizeof (Space));
-
   if (!new_space ) return NULL;
-  new_space->objects=set_create();
+
+  new_space->objects = set_create();
   new_space->id = id;
   new_space->name[0] = '\0';
   new_space->north = NULL;
   new_space->south = NULL;
   new_space->east = NULL;
   new_space->west = NULL; 
-  new_space->gdesc = (char **)malloc(3*sizeof(char *)); /*Se reserva memoria para la descripcion grafica*/
+  new_space->gdesc = (char **)malloc(3*sizeof(char *)); 
   new_space->gdesc[0] = (char *)malloc(9*sizeof(char)); 
   new_space->gdesc[1] = (char *)malloc(9*sizeof(char));
   new_space->gdesc[2] = (char *)malloc(9*sizeof(char));
-  return new_space;
+
+  return new_space; /*Se devuelve el nuevo espacio creado*/
 }
 
 STATUS space_destroy(Space* space) {
-  if (!space) return ERROR;
+  if (!space) return ERROR; 
+
   set_destroy(space->objects); 
+
   if(space_get_north(space)!=NULL) link_destroy(space->north);
   if(space_get_south(space)!=NULL) link_destroy(space->south);
   if(space_get_west(space)!=NULL) link_destroy(space->west);
   if(space_get_east(space)!=NULL) link_destroy(space->east);
+
+  
   free(space->gdesc[0]);
   free(space->gdesc[1]);
   free(space->gdesc[2]);
   free(space->gdesc);
   free(space);
+
   return OK;
 }
 
 STATUS space_set_name(Space* space, char* name) {
-  if (!space || !name) return ERROR;
+  if (!space || !name) return ERROR; 
   
   if (!strcpy(space->name, name))  return ERROR;
  
