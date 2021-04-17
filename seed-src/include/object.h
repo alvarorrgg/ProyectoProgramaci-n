@@ -2,7 +2,7 @@
  * @brief Archivo cabecera de object.c en el se encuentra definidas los datos y funciones de object.c
  * 
  * @file object.h
- * @author Álvaro Rodríguez
+ * @author Álvaro Rodríguez, Gonzalo Martín
  * @version 1.0 
  * @date 18-02-2021 
  * @copyright GNU Public License

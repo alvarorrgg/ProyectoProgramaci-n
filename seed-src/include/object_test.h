@@ -2,7 +2,7 @@
  * @brief Archivo cabecera de object_test.c en el se encuentra definidas los datos y funciones de object_test.c
  * 
  * @file object_test.h
- * @author Gonzalo MArtin
+ * @author Gonzalo Martín
  * @version 2.0 
  * @date 13-04-2021
  * @copyright GNU Public License

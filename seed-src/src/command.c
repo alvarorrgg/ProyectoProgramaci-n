@@ -2,7 +2,7 @@
  * @brief Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos.
  * 
  * @file command.c
- * @author Álvaro Rodríguez
+ * @author Álvaro Rodríguez, Profesores PPRog
  * @version 2.0 
  * @date 01-04-2021
  * @copyright GNU Public License

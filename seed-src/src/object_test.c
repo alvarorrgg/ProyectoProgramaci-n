@@ -2,7 +2,7 @@
  * @brief It tests object module
  * 
  * @file object_test.c
- * @author Gonzalo Martin
+ * @author Gonzalo Martín
  * @version 2.0 
  * @date 13-04-2021
  * @copyright GNU Public License

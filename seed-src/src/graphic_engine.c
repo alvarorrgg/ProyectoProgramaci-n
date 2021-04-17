@@ -2,7 +2,7 @@
  * @brief Define un motor gráfico textual
  *
  * @file graphic_engine.c
- * @author Álvaro Rodríguez Profesores PPROG
+ * @author Profesores PPROG
  * @version 2.0
  * @date 07-02-2021
  * @copyright GNU Public License

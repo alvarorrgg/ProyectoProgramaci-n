@@ -2,7 +2,7 @@
  * @brief Implementa el inicio del juego y obtiene los valores iniciales de data.dat
  * 
  * @file game_reader.c
- * @author Álvaro Rodríguez Alberto Vicente
+ * @author Álvaro Rodríguez, Alberto Vicente
  * @version 1.0 
  * @date 18-02-2021  
  * @copyright GNU Public License
@@ -47,7 +47,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   if (!file)
     return ERROR;
 
-  while (fgets(line, WORD_SIZE, file))
+  while (fgets(line, WORD_SIZE, file)) /*Mientras haya información del espacio para leer, se leerá*/
   {
     if (strncmp("#s:", line, 3) == 0)
     {
@@ -75,7 +75,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       printf("Leido: %ld|%s|%ld|%ld|%ld|%ld\n", id, name, north, east, south, west);
 #endif
       space = space_create(id);
-      if (space != NULL)
+      if (space != NULL) /*Si el space es válido implementa al espacio del juego todo lo leido y añade un espacio*/
       {
         space_set_name(space, name);
         space_set_north(space, NULL);
@@ -116,7 +116,7 @@ STATUS game_reader_load_objects(Game *game, char *filename)
   file = fopen(filename, "r");
   if (!file) return ERROR;
 
-  while (fgets(line, WORD_SIZE, file))
+  while (fgets(line, WORD_SIZE, file)) /*Mientras haya información del objeto para leer, se leerá*/
   {
     if (strncmp("#o:", line, 3) == 0)
     {
@@ -133,22 +133,22 @@ STATUS game_reader_load_objects(Game *game, char *filename)
 #endif
       object = object_create(id);
       if(!object) return ERROR;
-      if (pos_obj != NO_ID)
+      if (pos_obj != NO_ID) /*Si la posición del object es válida implementa al objeto todo lo leido*/
       {
         object_set_description (object , descr);
         object_set_name(object, name);
-        if(strlen(name)>7){
+        if(strlen(name)>7){ /*Comprueba si el nombre del objeto se pasa del límite*/
           printf("El nombre de un objeto no puede tener mas de 7 caracteres");
           return ERROR;
         }
         while ((i < MAX_OBJECTS) && (game_get_object(game,i) != NULL)) i++;
         for (j = 0; j < i;j++){
-          if(strcmp(name,object_get_name(game_get_object(game,j)))==0){
+          if(strcmp(name,object_get_name(game_get_object(game,j)))==0){ /*Comprueba si hay dos objetos con el mismo nombre*/
             printf("Has creado dos objetos con el mismo nombre: Cambia el nombre de los objetos");
             return ERROR;
           }
-        }
-          game_add_object(game, object);
+        } /*Se implementa el objeto al juego*/
+        game_add_object(game, object);
         game_set_object_location(game, id, pos_obj);
       }
     }
@@ -177,7 +177,7 @@ STATUS game_reader_load_players(Game *game, char *filename)
   file = fopen(filename, "r");
   if (file == NULL) return ERROR;
 
-  while (fgets(line, WORD_SIZE, file))
+  while (fgets(line, WORD_SIZE, file)) /*Mientras haya información del jugador para leer, se leerá*/
   {
     if (strncmp("#p:", line, 3) == 0)
     {
@@ -195,10 +195,10 @@ STATUS game_reader_load_players(Game *game, char *filename)
 #endif
       player=player_create(id);
       if(!player) return ERROR;
-      if (player_pos != NO_ID)
+      if (player_pos != NO_ID)  /*Si la posición del player es válida implementa al jugador todo lo leido*/
       {
         player_set_name(player, name);
-        if(strlen(name)>10){
+        if(strlen(name)>10){ /*Comprueba si el nombre del player se pasa del límite*/
           printf("El nombre del jugador no puede tener mas de 10 caracteres");
           return ERROR;
         }
@@ -206,7 +206,7 @@ STATUS game_reader_load_players(Game *game, char *filename)
         
         player_set_location(player,player_pos);
         player_set_inventory_max_capacity(player,max_objects);
-        game_add_player(game,player);
+        game_add_player(game,player); /*Se implementa el jugador al juego*/
       }
     }
   }
@@ -237,7 +237,7 @@ STATUS game_reader_load_links(Game* game, char* filename) {
   if (!file) return ERROR;
   
 
-  while (fgets(line, WORD_SIZE, file)) {
+  while (fgets(line, WORD_SIZE, file)) { /*Mientras haya información del enlacé para leer, se leerá*/
     if (strncmp("#l:", line, 3) == 0) {
       toks = strtok(line + 3, "|");
       id = atol(toks);
@@ -259,7 +259,7 @@ STATUS game_reader_load_links(Game* game, char* filename) {
       Y asi se hacen las uniones.*/
 
 
-      if (id != NO_ID) {
+      if (id != NO_ID) { 
         if(id_space1 + 1 == id_space2)flag=1;
         
         else if(id_space1 +8 == id_space2) flag=2;      
@@ -270,7 +270,7 @@ STATUS game_reader_load_links(Game* game, char* filename) {
       else{
         return ERROR;
       }
-        if(flag==1 || flag==2){
+        if(flag==1 || flag==2){  /*en el caso de que se cumpla lo anterior, se implementa la información leida*/
           space1=game_get_space(game,id_space1);
           space2=game_get_space(game,id_space2);
           link1=link_create(id);

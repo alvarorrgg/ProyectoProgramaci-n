@@ -2,7 +2,7 @@
  * @brief It tests link module
  * 
  * @file link_test.c
- * @author Alberto Vicente García
+ * @author Alberto Vicente
  * @version 2.0 
  * @date 13-04-2021
  * @copyright GNU Public License

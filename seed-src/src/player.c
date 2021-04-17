@@ -2,7 +2,7 @@
  * @brief Se encarga de todo lo relacionado con el jugador.
  * 
  * @file player.c
- * @author Alberto Garcia.
+ * @author Álvaro Rodriguez
  * @version 2.0 
  * @date 18-02-2021
  * @copyright GNU Public License

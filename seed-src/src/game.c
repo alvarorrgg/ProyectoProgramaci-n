@@ -3,7 +3,7 @@
  * 
  * 
  * @file game.c
- * @author Álvaro Rodríguez, Alberto Vicente, Alexandru Marius, Gonzalo Martín y ProfesoresPProg
+ * @author Álvaro Rodríguez, Gonzalo Martín y ProfesoresPProg
  * @version 1.0 
  * @date 13-01-2015 
  * @copyright GNU Public License
@@ -449,7 +449,7 @@ void game_print_data(Game *game)
   int i = 0;
   printf("\n\n-------------\n\n");
   printf("=> Spaces: \n");
-  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++) space_print(game->spaces[i]);
+  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++) space_print(game->spaces[i]); /*mientras haya espacios en el juego se imprimirán*/
 
   printf("=> Object location: %d\n", (int)game_get_object_location(game, 1));
   printf("=> Player location: %d\n", (int)game_get_player_location(game));
@@ -516,7 +516,7 @@ void game_callback_next(Game *game)
     return ;
   }
 
-  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++)
+  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++) /*comprueba que no se pase de los espacios que hay en el juego*/
   {
     current_id = space_get_id(game->spaces[i]);
 
@@ -555,7 +555,7 @@ void game_callback_back(Game *game)
     return ;
   }
 
-  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++)
+  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++) /*comprueba que no se pase de los espacios que hay en el juego*/
   {
     current_id = space_get_id(game->spaces[i]);
 
@@ -593,13 +593,13 @@ void game_callback_right(Game *game)
     return ;
   }
 
-  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++)
+  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++)  /*comprueba que no se pase de los espacios que hay en el juego*/
   {
     current_id = space_get_id(game->spaces[i]);
 
     if (current_id == space_id)
     {
-      current_id = link_get_id_to(space_get_west(game->spaces[i]));
+      current_id = link_get_id_to(space_get_west(game->spaces[i]));  /*consigue el enlaze del espacio por la derecha*/
       printf("%li",current_id);
       if (current_id != NO_ID)
       {
@@ -631,13 +631,13 @@ void game_callback_left(Game *game)
     return ;
   }
 
-  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++)
+  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++)  /*comprueba que no se pase de los espacios que hay en el juego*/
   {
     current_id = space_get_id(game->spaces[i]);
 
     if (current_id == space_id)
     {
-      current_id = link_get_id_to(space_get_east(game->spaces[i]));
+      current_id = link_get_id_to(space_get_east(game->spaces[i]));  /*consigue el enlaze del espacio por la izquierda*/
       printf("%li",current_id);
 
       if (current_id != NO_ID)
@@ -670,7 +670,6 @@ void game_callback_take(Game *game)
   strcpy(objeto,command_get_arg(game->command));
   if(inventory_is_full(player_get_inventory(game->player))) { /*Se verifica que el inventario del player no este lleno*/
     command_set_status(game->command, ERROR);
-    printf("pito\n");
     return;
   }
   while (game->objects[i] != NULL)
@@ -784,28 +783,28 @@ void game_callback_move(Game *game)
     command_set_status(game->command, ERROR);
     return;
   }
-  if(strcmp(direction, "north")==0 || strcmp(direction, "n")==0){
+  if(strcmp(direction, "north")==0 || strcmp(direction, "n")==0){  /*se mueve el jugador al norte*/
 
     game_callback_back(game);
     command_set_status(game->command, command_get_status(game->command));
 
     return;
   }
-  else if(strcmp(direction, "south")==0 || strcmp(direction, "s")==0){
+  else if(strcmp(direction, "south")==0 || strcmp(direction, "s")==0){  /*se mueve el jugador al sur*/
 
     game_callback_next(game);
     command_set_status(game->command, command_get_status(game->command));
 
     return;
   }
-  else if(strcmp(direction, "west")==0 || strcmp(direction, "w")==0){
+  else if(strcmp(direction, "west")==0 || strcmp(direction, "w")==0){  /*se mueve el jugador al oeste*/
 
     game_callback_right(game);
     command_set_status(game->command, command_get_status(game->command));
 
     return;
   }
-  else if(strcmp(direction, "east")==0 || strcmp(direction, "e")==0){
+  else if(strcmp(direction, "east")==0 || strcmp(direction, "e")==0){  /*se mueve el jugador al este*/
     game_callback_left(game);
     command_set_status(game->command, command_get_status(game->command));
 

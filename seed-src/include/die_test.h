@@ -16,7 +16,7 @@
  */
 void test1_die_create();
  /**
- * @test Función de prueba para die_roll
+ * @test Función de prueba para die_create
  * @pre Crea un dado con una id determinada y comprueba que esa id sea valida
  * @post Output==5
  */

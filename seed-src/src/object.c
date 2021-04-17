@@ -2,7 +2,7 @@
  * @brief Sirve para el manejo de objetos.
  * 
  * @file object.c
- * @author Álvaro Rodríguez
+ * @author Álvaro Rodríguez, Gonzalo Martín
  * @version 1.0 
  * @date 18-02-2021 
  * @copyright GNU Public License
