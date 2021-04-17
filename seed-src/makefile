@@ -178,23 +178,24 @@ tests: set_test space_test die_test inventory_test player_test link_test command
 .PHONY: clean cleanDocs cleanGame cleanTests cleanObjs run runv runl runj 
 
 clean: 
-	@echo "Limpiando Todo"
-	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test link_test command_test object_test doc
+	@echo "Limpiando Todo documentacion incluida"
+	rm -rf obj/* ocaEXE set_test space_test die_test inventory_test player_test link_test command_test object_test 
+	rm -rf doc/*
 
 cleanDocs: 
 	@echo "Limpiando Documentación"
-	rm -rf doc
+	rm -r doc/*
 
 cleanGame: 
-	@echo "Limpiando Todo"
+	@echo "Limpiando unicamente el ejecutable de la oca"
 	rm -rf  ocaEXE 
 
 cleanTests: 
-	@echo "Limpiando Todo"
+	@echo "Limpiando los tests"
 	rm -rf  set_test space_test die_test inventory_test player_test link_test command_test object_test 
 
 cleanObjs: 
-	@echo "Limpiando Todo"
+	@echo "Limpiando los objetos"
 	rm -rf obj/* 
 
 run: ocaEXE
