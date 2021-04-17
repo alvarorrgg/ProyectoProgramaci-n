@@ -12,7 +12,6 @@ SPACE_TESTDIR = $(addprefix obj/, space_test.o space.o set.o link.o)
 OBJECT_TESTDIR = $(addprefix obj/, object_test.o object.o)
 LINK_TESTDIR = $(addprefix obj/, link_test.o link.o)
 COMMAND_TESTDIR = $(addprefix obj/, command_test.o command.o)
-FULL_TEST = $(addprefix obj/, set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o)
 CC = gcc
 
 vpath %.c src:include

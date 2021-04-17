@@ -10,96 +10,96 @@
 #ifndef DIE_TEST_H
 #define DIE_TEST_H
  /**
- * @test Test function for die_create
- * @pre created die with id=5 and checked if last roll was correct
+ * @test Función de prueba para die_create
+ * @pre Crea un dado con id=5 y comprueba que el ultimo tiro fue correcto
  * @post Output==NO_ID
  */
 void test1_die_create();
  /**
- * @test Test function for die_roll
- * @pre created die with id and checked if it had correct Id
+ * @test Función de prueba para die_roll
+ * @pre Crea un dado con una id determinada y comprueba que esa id sea valida
  * @post Output==5
  */
 void test2_die_create();
 
 
  /**
- * @test Test function for die_roll
- * @pre pointer to die=NULL
+ * @test Función de prueba paradie_roll
+ * @pre Puntero a die=NULL
  * @post Output==-1
  */
 void test1_die_roll();
  /**
- * @test Test function for die_roll
- * @pre created a die, rolled and checked if last roll was between correct value gaps.
+ * @test Función de prueba para die_roll
+ * @pre Crea un dado, lo tira y comprueba que el resultado esta en el intervalo asignado.
  * @post Output>0 && <7
  */
 void test2_die_roll();
 
 
  /**
- * @test Test function for die_set_Id
- * @pre pointer to die=NULL
+ * @test Función de prueba para die_set_Id
+ * @pre Puntero a die=NULL
  * @post Output==ERROR
  */
 void test1_die_set_Id();
  /**
- * @test Test function for die_set_Id
- * @pre given correct inputs with a correct Id value to set.
+ * @test Función de prueba para die_set_Id
+ * @pre Inputs correctos con Id valida para ser establecida
  * @post Output==OK
  */
 void test2_die_set_Id();
  /**
- * @test Test function for die_set_Id
- * @pre given correct inputs with a negative Id value to set.
+ * @test Función de prueba para die_set_Id
+ * @pre Given correct inputs with a negative Id value to set.
  * @post Output==ERROR
  */
 void test3_die_set_Id();
 
 
  /**
- * @test Test function for die_get_last_roll
- * @pre pointer to die=NULL
+ * @test Función de prueba para die_get_last_roll
+ * @pre Puntero a die==NULL
  * @post Output==-1
  */
 void test1_die_get_last_roll();
  /**
- * @test Test function for die_get_last_roll
- * @pre created a die, rolled and checked if last roll was between correct value gaps.
+ * @test Función de prueba para die_get_last_roll
+ * @pre Crea un dado, lo tira y comprueba que el valor esta en el intervalo asignado.
  * @post Output>0 && <7
  */
 void test2_die_get_last_roll();
 
 
  /**
- * @test Test function for die_get_id
- * @pre pointer to die=NULL
+ * @test Función de prueba para die_get_id
+ * @pre Puntero a die==NULL
  * @post Output==NO_ID
  */
 void test1_die_get_id();
  /**
- * @test Test function for die_get_id
- * @pre created die with Id=5 and checked if die Id was correctly storaged
+ * @test Función de prueba paradie_get_id
+ * @pre Crea un dado con Id=5 y comprueba que la id se almacenó correctamente
  * @post Output==5
  */
 void test2_die_get_id();
 
 
  /**
- * @test Test function for die_print
- * @pre pointer to die=NULL
+ * @test Función de prueba para die_print
+ * @pre Puntero a die==NULL
  * @post Output==ERROR
  */
 void test1_die_print();
  /**
- * @test Test function for die_print
- * @pre correct pointer to die but incorrect file.
+ * @test Función de prueba paradie_print
+ * @pre Puntero correcto pero fichero incorrecto
  * @post Output==ERROR
  */
 void test2_die_print();
  /**
- * @test Test function for die_print
- * @pre Both file and pointer correctly given
+ * @test Función de prueba para die_print
+ * @pre Tanto el fichero como el puntero son correctos
  * @post Output==OK
  */
 void test3_die_print();

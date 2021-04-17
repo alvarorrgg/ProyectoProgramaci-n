@@ -11,7 +11,8 @@ It tests object module.
 {\ttfamily \#include \char`\"{}object.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}object\+\_\+test.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}test.\+h\char`\"{}}\newline
-Include dependency graph for object\+\_\+test.\+c\+:\nopagebreak
+Include dependency graph for object\+\_\+test.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +28,7 @@ Include dependency graph for object\+\_\+test.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{object__test_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
-\begin{DoxyCompactList}\small\item\em Main function for O\+B\+J\+E\+CT unit tests. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Función main para la unidad de pruebas de O\+B\+J\+E\+CT. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{object__test_8c_a3836d69f92ce7149d56bafcaec83f516}{test1\+\_\+object\+\_\+create}} ()
 \item 
 void \mbox{\hyperlink{object__test_8c_add54ab5e33a1b0a93e9ddcf73591bd9f}{test2\+\_\+object\+\_\+create}} ()
@@ -111,18 +112,18 @@ Numero maximo de tests
 
 
 
-Main function for O\+B\+J\+E\+CT unit tests. 
+Función main para la unidad de pruebas de O\+B\+J\+E\+CT. 
 
-You may execute A\+LL or a S\+I\+N\+G\+LE test 1.-\/ No parameter -\/$>$ A\+LL test are executed 2.-\/ A number means a particular test (the one identified by that number) is executed \mbox{\Hypertarget{object__test_8c_a3836d69f92ce7149d56bafcaec83f516}\label{object__test_8c_a3836d69f92ce7149d56bafcaec83f516}} 
+Se puede ejecutar con A\+LL o S\+I\+N\+G\+LE test 1.-\/ Sin parámetros -\/$>$ A\+LL todas las pruebas son ejecutadas 2.-\/ Un numero simboliza un número particular de una prueba (la que se identifica con dicho número) que se ejecuta \mbox{\Hypertarget{object__test_8c_a3836d69f92ce7149d56bafcaec83f516}\label{object__test_8c_a3836d69f92ce7149d56bafcaec83f516}} 
 \index{object\_test.c@{object\_test.c}!test1\_object\_create@{test1\_object\_create}}
 \index{test1\_object\_create@{test1\_object\_create}!object\_test.c@{object\_test.c}}
 \doxysubsubsection{\texorpdfstring{test1\_object\_create()}{test1\_object\_create()}}
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000101}{Test}}]Test function for object\+\_\+create \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000101}{Test}}]Función de prueba para object\+\_\+create \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given correct inputs and looking if return diferent than N\+U\+LL 
+Inputs correctos y comprueba si el return no es N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output != N\+U\+LL 
@@ -134,9 +135,9 @@ Output != N\+U\+LL
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000103}{Test}}]Test function for object\+\_\+destroy \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000103}{Test}}]Función de prueba para object\+\_\+destroy \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == E\+R\+R\+R\+OR 
@@ -148,9 +149,9 @@ Output == E\+R\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+get\+\_\+descripcion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000114}{Test}}]Test function for object\+\_\+get\+\_\+descripcion \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000114}{Test}}]Función de prueba para object\+\_\+get\+\_\+descripcion \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == N\+U\+LL 
@@ -162,9 +163,9 @@ Output == N\+U\+LL
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000105}{Test}}]Test function for object\+\_\+get\+\_\+id \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000105}{Test}}]Función de prueba para object\+\_\+get\+\_\+id \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == N\+O\+\_\+\+ID 
@@ -176,9 +177,9 @@ Output == N\+O\+\_\+\+ID
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+get\+\_\+id\+\_\+by\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000119}{Test}}]Test function for object\+\_\+get\+\_\+id\+\_\+by\+\_\+name \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000119}{Test}}]Función de prueba para object\+\_\+get\+\_\+id\+\_\+by\+\_\+name \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == -\/1 
@@ -190,9 +191,9 @@ Output == -\/1
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000112}{Test}}]Test function for object\+\_\+get\+\_\+name \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000112}{Test}}]Función de prueba para object\+\_\+get\+\_\+name \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == N\+U\+LL 
@@ -204,9 +205,9 @@ Output == N\+U\+LL
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000122}{Test}}]Test function for object\+\_\+print \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000122}{Test}}]Función de prueba para object\+\_\+print \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == E\+R\+R\+OR 
@@ -218,9 +219,9 @@ Output == E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+set\+\_\+descripcion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000116}{Test}}]Test function for object\+\_\+set\+\_\+descripcion \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000116}{Test}}]Función de prueba para object\+\_\+set\+\_\+descripcion \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == E\+E\+R\+R\+OR; 
@@ -232,9 +233,9 @@ Output == E\+E\+R\+R\+OR;
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+set\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000110}{Test}}]Test function for object\+\_\+set\+\_\+id \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000110}{Test}}]Función de prueba para object\+\_\+set\+\_\+id \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == E\+R\+R\+OR 
@@ -246,9 +247,9 @@ Output == E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+object\+\_\+set\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000107}{Test}}]Test function for object\+\_\+set\+\_\+name \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000107}{Test}}]Función de prueba para object\+\_\+set\+\_\+name \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a N\+U\+LL object 
+Objeto=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == E\+R\+R\+OR 
@@ -260,9 +261,9 @@ Output == E\+R\+R\+OR
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000102}{Test}}]Test function for object\+\_\+create \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000102}{Test}}]Función de prueba para object\+\_\+create \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given correct inputs and looking if the object id is the correct 
+Inputs correctos y comprueba si el id del objeto es el correcto 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == id 
@@ -274,9 +275,9 @@ Output == id
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000104}{Test}}]Test function for object\+\_\+destroy \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000104}{Test}}]Función de prueba para object\+\_\+destroy \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a correct input 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == OK 
@@ -288,9 +289,9 @@ Output == OK
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+get\+\_\+descripcion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000115}{Test}}]Test function for object\+\_\+get\+\_\+descripcion \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000115}{Test}}]Función de prueba para object\+\_\+get\+\_\+descripcion \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a correct input 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == Ejemplo descripcion 
@@ -302,9 +303,9 @@ Output == Ejemplo descripcion
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000106}{Test}}]Test function for object\+\_\+get\+\_\+id \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000106}{Test}}]Función de prueba para object\+\_\+get\+\_\+id \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given correct input 
+given Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == 05 
@@ -316,9 +317,9 @@ Output == 05
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+get\+\_\+id\+\_\+by\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000120}{Test}}]Test function for object\+\_\+get\+\_\+id\+\_\+by\+\_\+name \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000120}{Test}}]Función de prueba para object\+\_\+get\+\_\+id\+\_\+by\+\_\+name \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a N\+U\+LL name 
+name=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == -\/1 
@@ -330,9 +331,9 @@ Output == -\/1
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000113}{Test}}]Test function for object\+\_\+get\+\_\+name \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000113}{Test}}]Función de prueba para object\+\_\+get\+\_\+name \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a correct input 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == Nombre 
@@ -344,9 +345,9 @@ Output == Nombre
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000123}{Test}}]Test function for object\+\_\+print \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000123}{Test}}]Función de prueba para object\+\_\+print \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a correct input 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == OK 
@@ -358,7 +359,7 @@ Output == OK
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+set\+\_\+descripcion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000117}{Test}}]Test function for object\+\_\+set\+\_\+descripcion \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000117}{Test}}]Función de prueba para object\+\_\+set\+\_\+descripcion \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
 given a N\+U\+LL descr 
 \end{DoxyPrecond}
@@ -372,9 +373,9 @@ Output == E\+E\+R\+R\+OR;
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+set\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000111}{Test}}]Test function for object\+\_\+set\+\_\+id \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000111}{Test}}]Función de prueba para object\+\_\+set\+\_\+id \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given correct inputs 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == OK 
@@ -386,9 +387,9 @@ Output == OK
 {\footnotesize\ttfamily void test2\+\_\+object\+\_\+set\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000108}{Test}}]Test function for object\+\_\+set\+\_\+name \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000108}{Test}}]Función de prueba para object\+\_\+set\+\_\+name \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given a N\+U\+LL name 
+name=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == E\+R\+R\+OR 
@@ -400,9 +401,9 @@ Output == E\+R\+R\+OR
 {\footnotesize\ttfamily void test3\+\_\+object\+\_\+get\+\_\+id\+\_\+by\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000121}{Test}}]Test function for object\+\_\+get\+\_\+id\+\_\+by\+\_\+name \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000121}{Test}}]Función de prueba para object\+\_\+get\+\_\+id\+\_\+by\+\_\+name \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given correct inputs 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == 05 
@@ -414,9 +415,9 @@ Output == 05
 {\footnotesize\ttfamily void test3\+\_\+object\+\_\+set\+\_\+descripcion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000118}{Test}}]Test function for object\+\_\+set\+\_\+descripcion \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000118}{Test}}]Función de prueba para object\+\_\+set\+\_\+descripcion \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given corrects inputs 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == OK; 
@@ -428,9 +429,9 @@ Output == OK;
 {\footnotesize\ttfamily void test3\+\_\+object\+\_\+set\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000109}{Test}}]Test function for object\+\_\+set\+\_\+name \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000109}{Test}}]Función de prueba para object\+\_\+set\+\_\+name \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given correct inputs 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == OK 

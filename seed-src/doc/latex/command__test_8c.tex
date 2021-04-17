@@ -11,7 +11,8 @@ It tests the command module.
 {\ttfamily \#include \char`\"{}command.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}command\+\_\+test.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}test.\+h\char`\"{}}\newline
-Include dependency graph for command\+\_\+test.\+c\+:\nopagebreak
+Include dependency graph for command\+\_\+test.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +28,7 @@ Include dependency graph for command\+\_\+test.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{command__test_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
-\begin{DoxyCompactList}\small\item\em Main function for C\+O\+M\+M\+A\+ND unit tests. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Función main para la unidad de pruebas de C\+O\+M\+M\+A\+ND. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{command__test_8c_af91aeb3bc73f994f5214b8954f3c4797}{test1\+\_\+command\+\_\+init}} ()
 \item 
 void \mbox{\hyperlink{command__test_8c_a084363877b09c47c4167fb675ba0a6c5}{test2\+\_\+command\+\_\+init}} ()
@@ -107,18 +108,18 @@ Numero maximo de tests
 
 
 
-Main function for C\+O\+M\+M\+A\+ND unit tests. 
+Función main para la unidad de pruebas de C\+O\+M\+M\+A\+ND. 
 
-You may execute A\+LL or a S\+I\+N\+G\+LE test 1.-\/ No parameter -\/$>$ A\+LL test are executed 2.-\/ A number means a particular test (the one identified by that number) is executed \mbox{\Hypertarget{command__test_8c_aadf731a98e5122e70ede7cdc68ba621f}\label{command__test_8c_aadf731a98e5122e70ede7cdc68ba621f}} 
+Se puede ejecutar con A\+LL o S\+I\+N\+G\+LE test 1.-\/ Sin parámetros -\/$>$ A\+LL todas las pruebas son ejecutadas 2.-\/ Un numero simboliza un número particular de una prueba (la que se identifica con dicho número) que se ejecuta \mbox{\Hypertarget{command__test_8c_aadf731a98e5122e70ede7cdc68ba621f}\label{command__test_8c_aadf731a98e5122e70ede7cdc68ba621f}} 
 \index{command\_test.c@{command\_test.c}!test1\_command\_destroy@{test1\_command\_destroy}}
 \index{test1\_command\_destroy@{test1\_command\_destroy}!command\_test.c@{command\_test.c}}
 \doxysubsubsection{\texorpdfstring{test1\_command\_destroy()}{test1\_command\_destroy()}}
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000004}{Test}}]Test funtion for command\+\_\+destroy \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000004}{Test}}]Función de prueba para command\+\_\+destroy \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that it can\textquotesingle{}t destroy an unitialized command 
+Comprueba que no se pueda borrar un comando no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -130,9 +131,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+get\+\_\+arg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000019}{Test}}]Test function for command\+\_\+get\+\_\+arg \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000019}{Test}}]Función de prueba para command\+\_\+get\+\_\+arg \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the lenght of an arg of an uninitialized command is 0 
+Comprueba que la longitud del arg de un comando inicializado es 0 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==0 
@@ -144,9 +145,9 @@ Output==0
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+get\+\_\+cmd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000013}{Test}}]Test function for command\+\_\+get\+\_\+cmd \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000013}{Test}}]Función de prueba para command\+\_\+get\+\_\+cmd \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the cmd has been obtained properly 
+Comprueba que el comando se ha obtenido correctamente 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==T\+A\+KE 
@@ -158,9 +159,9 @@ Output==T\+A\+KE
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+get\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000008}{Test}}]Test function for command\+\_\+get\+\_\+status \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000008}{Test}}]Función de prueba para command\+\_\+get\+\_\+status \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the status is obtained properly 
+Comprueba que el status se ha obtenido correctamente 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -172,9 +173,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+get\+\_\+user\+\_\+input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000021}{Test}}]Test function for command\+\_\+get\+\_\+user\+\_\+input \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000021}{Test}}]Función de prueba para command\+\_\+get\+\_\+user\+\_\+input \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that command\+\_\+get\+\_\+user\+\_\+input obtains the user input properly 
+Comprueba que el input del usuario se ha obtenido correctamente 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==aux 
@@ -186,9 +187,9 @@ Output==aux
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000001}{Test}}]Test funtion for command\+\_\+init \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000001}{Test}}]Función de prueba para command\+\_\+init \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Creates command and checks that is not N\+U\+LL 
+Crea un comando y comprueba que no sea N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output!=N\+U\+LL 
@@ -200,9 +201,9 @@ Output!=N\+U\+LL
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+set\+\_\+arg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000016}{Test}}]Test function for command\+\_\+set\+\_\+arg \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000016}{Test}}]Función de prueba para command\+\_\+set\+\_\+arg \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the arg is set properly 
+Comprueba que el arg se ha esatblecido correctamente 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==0 
@@ -214,9 +215,9 @@ Output==0
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+set\+\_\+cmd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000010}{Test}}]Test function for command\+\_\+set\+\_\+cmd \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000010}{Test}}]Función de prueba para command\+\_\+set\+\_\+cmd \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks if the cmd has been set properly 
+Comprueba que el comando ha sido establecido correctamente 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==OK 
@@ -228,9 +229,9 @@ Output==OK
 {\footnotesize\ttfamily void test1\+\_\+command\+\_\+set\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000006}{Test}}]Test function for command\+\_\+set\+\_\+status \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000006}{Test}}]Función de prueba para command\+\_\+set\+\_\+status \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks if the status has been set properly 
+Comprueba que el status ha sido establecido correctamente 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==OK 
@@ -242,9 +243,9 @@ Output==OK
 {\footnotesize\ttfamily void test2\+\_\+command\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000005}{Test}}]Test funtion for command\+\_\+destroy \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000005}{Test}}]Función de prueba para command\+\_\+destroy \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks if it destroyed the command 
+Comprueba que el comando se haya destruido 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==OK 
@@ -256,9 +257,9 @@ Output==OK
 {\footnotesize\ttfamily void test2\+\_\+command\+\_\+get\+\_\+arg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000020}{Test}}]Test function for command\+\_\+get\+\_\+arg \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000020}{Test}}]Función de prueba para command\+\_\+get\+\_\+arg \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the arg from an uninitialized command is N\+U\+LL 
+Comprueba que el arg de un comando no inicializado es N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==N\+U\+LL 
@@ -270,9 +271,9 @@ Output==N\+U\+LL
 {\footnotesize\ttfamily void test2\+\_\+command\+\_\+get\+\_\+cmd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000014}{Test}}]Test function for command\+\_\+get\+\_\+cmd \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000014}{Test}}]Función de prueba para command\+\_\+get\+\_\+cmd \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the cmd from an initialized command is N\+O\+\_\+\+C\+MD 
+Comprueba que el cmd de un comando inicializado es N\+O\+\_\+\+C\+MD 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==N\+O\+\_\+\+C\+MD 
@@ -284,12 +285,12 @@ Output==N\+O\+\_\+\+C\+MD
 {\footnotesize\ttfamily void test2\+\_\+command\+\_\+get\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000009}{Test}}]Test function for command\+\_\+get\+\_\+status \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000009}{Test}}]Función de prueba para command\+\_\+get\+\_\+status \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks the status from an initialized command 
+Comprueba el status de un comando inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-Output==N\+E\+XT 
+Output==E\+R\+R\+OR 
 \end{DoxyPostcond}
 \mbox{\Hypertarget{command__test_8c_a084363877b09c47c4167fb675ba0a6c5}\label{command__test_8c_a084363877b09c47c4167fb675ba0a6c5}} 
 \index{command\_test.c@{command\_test.c}!test2\_command\_init@{test2\_command\_init}}
@@ -298,9 +299,9 @@ Output==N\+E\+XT
 {\footnotesize\ttfamily void test2\+\_\+command\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000002}{Test}}]Test funtion for command\+\_\+init \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000002}{Test}}]Función de prueba para command\+\_\+init \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Creates command and checks that the cmd has been initialized to N\+O\+\_\+\+C\+MD 
+Crea un comando y comprueba que el cmd se haya inicializado en N\+O\+\_\+\+C\+MD 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==N\+O\+\_\+\+C\+MD 
@@ -312,9 +313,9 @@ Output==N\+O\+\_\+\+C\+MD
 {\footnotesize\ttfamily void test2\+\_\+command\+\_\+set\+\_\+arg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000017}{Test}}]Test function for command\+\_\+set\+\_\+arg \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000017}{Test}}]Función de prueba para command\+\_\+set\+\_\+arg \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the arg is set properly 
+Comprueba que el arg se ha esatblecido correctamente 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==0 
@@ -326,9 +327,9 @@ Output==0
 {\footnotesize\ttfamily void test2\+\_\+command\+\_\+set\+\_\+cmd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000011}{Test}}]Test function for command\+\_\+set\+\_\+cmd \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000011}{Test}}]Función de prueba para command\+\_\+set\+\_\+cmd \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the cmd can\textquotesingle{}t be set to a N\+U\+LL command 
+Comprueba que no se puede establecer un cmd a un comando no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -340,9 +341,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test2\+\_\+command\+\_\+set\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000007}{Test}}]Test function for command\+\_\+set\+\_\+status \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000007}{Test}}]Función de prueba para command\+\_\+set\+\_\+status \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the state can\textquotesingle{}t be set to a N\+U\+LL command 
+Comprueba que no se puede establecer un estado a un comando no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -354,9 +355,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test3\+\_\+command\+\_\+get\+\_\+cmd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000015}{Test}}]Test function for command\+\_\+get\+\_\+cmd \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000015}{Test}}]Función de prueba para command\+\_\+get\+\_\+cmd \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the cmd from an uninitialized command is N\+O\+\_\+\+C\+MD 
+Comprueba que el cmd de un comando no inicializado es N\+O\+\_\+\+C\+MD 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==N\+O\+\_\+\+C\+MD 
@@ -368,9 +369,9 @@ Output==N\+O\+\_\+\+C\+MD
 {\footnotesize\ttfamily void test3\+\_\+command\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000003}{Test}}]Test funtion for command\+\_\+init \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000003}{Test}}]Función de prueba para command\+\_\+init \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Creates command and checks that the status has been initialized to E\+R\+R\+OR 
+Crea un comando ycomprueba que el status se haya inicializado en E\+R\+R\+OR 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Ouput==E\+R\+R\+OR 
@@ -382,9 +383,9 @@ Ouput==E\+R\+R\+OR
 {\footnotesize\ttfamily void test3\+\_\+command\+\_\+set\+\_\+arg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000018}{Test}}]Test function for command\+\_\+set\+\_\+arg \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000018}{Test}}]Función de prueba parar command\+\_\+set\+\_\+arg \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks that the arg can\textquotesingle{}t be set to a N\+U\+LL command 
+Comprueba que arg no puede ser esatblecido para un comando sin inicializar 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -396,9 +397,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test3\+\_\+command\+\_\+set\+\_\+cmd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000012}{Test}}]Test function for command\+\_\+set\+\_\+cmd \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000012}{Test}}]Función de prueba para command\+\_\+set\+\_\+cmd \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-Checks if the cmd has been set properly 
+Comprueba que el cmd ha sido esatblecido correctamnte 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==OK 

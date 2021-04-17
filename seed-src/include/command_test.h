@@ -12,134 +12,134 @@
 #define COMMAND_TEST_H
 
 /**
- * @test Test funtion for command_init
- * @pre Creates command and checks that is not NULL
+ * @test Función de prueba para command_init
+ * @pre Crea un comando y comprueba que no sea NULL
  * @post Output!=NULL 
  */
 void test1_command_init();
 
 /**
- * @test Test funtion for command_init
- * @pre Creates command and checks that the cmd has been initialized to NO_CMD
+ * @test Función de prueba para command_init
+ * @pre Crea un comando y comprueba que el cmd se haya inicializado en NO_CMD
  * @post Output==NO_CMD
  */
 void test2_command_init();
 
 /**
- * @test Test funtion for command_init
- * @pre Creates command and checks that the status has been initialized to ERROR
+ * @test Función de prueba para command_init
+ * @pre Crea un comando ycomprueba que el status se haya inicializado en ERROR
  * @post Ouput==ERROR
  */
 void test3_command_init();
 
 /**
- * @test Test funtion for command_destroy
- * @pre Checks that it can't destroy an unitialized command 
+ * @test Función de prueba para command_destroy
+ * @pre Comprueba que no se pueda borrar un comando no inicializado
  * @post Output==ERROR
  */
 void test1_command_destroy();
 
 /**
- * @test Test funtion for command_destroy
- * @pre Checks if it destroyed the command 
+ * @test Función de prueba para command_destroy
+ * @pre Comprueba que el comando se haya destruido
  * @post Output==OK
  */
 void test2_command_destroy();
 /**
- * @test Test function for command_set_status
- * @pre Checks if the status has been set properly
+ * @test Función de prueba para command_set_status
+ * @pre Comprueba que el status ha sido establecido correctamente
  * @post Output==OK
  */
 void test1_command_set_status();
 /**
- * @test Test function for command_set_status
- * @pre Checks that the state can't be set to a NULL command
+ * @test Función de prueba para command_set_status
+ * @pre Comprueba que no se puede establecer un estado a un comando no inicializado
  * @post Output==ERROR
  */
 void test2_command_set_status();
 
 /**
- * @test Test function for command_get_status
- * @pre Checks that the status is obtained properly
+ * @test Función de prueba para command_get_status
+ * @pre Comprueba que el status se ha obtenido correctamente
  * @post Output==ERROR
  */
 void test1_command_get_status();
 /**
- * @test Test function for command_get_status
- * @pre Checks the status from an initialized command
- * @post Output==NEXT
+ * @test Función de prueba para command_get_status
+ * @pre Comprueba el status de un comando inicializado
+ * @post Output==ERROR
  */
 void test2_command_get_status();
 /**
- * @test Test function for command_set_cmd
- * @pre Checks if the cmd has been set properly
+ * @test Función de prueba para command_set_cmd
+ * @pre Comprueba que el comando ha sido establecido correctamente
  * @post Output==OK
  */
 void test1_command_set_cmd();
 /**
- * @test Test function for command_set_cmd
- * @pre Checks that the cmd can't be set to a NULL command
+ * @test Función de prueba para command_set_cmd
+ * @pre Comprueba que no se puede establecer un cmd a un comando no inicializado
  * @post Output==ERROR
  */
 void test2_command_set_cmd();
 /**
- * @test Test function for command_set_cmd
- * @pre Checks if the cmd has been set properly
+ * @test Función de prueba para command_set_cmd
+ * @pre Comprueba que el cmd ha sido esatblecido correctamnte 
  * @post Output==OK
  */
 void test3_command_set_cmd();
 /**
- * @test Test function for command_get_cmd
- * @pre Checks that the cmd has been obtained properly
+ * @test Función de prueba para command_get_cmd
+ * @pre Comprueba que el comando se ha obtenido correctamente
  * @post Output==TAKE
  */
 void test1_command_get_cmd();
 /**
- * @test Test function for command_get_cmd
- * @pre Checks that the cmd from an initialized command is NO_CMD
+ * @test Función de prueba para command_get_cmd
+ * @pre Comprueba que el cmd de un comando inicializado es NO_CMD
  * @post Output==NO_CMD
  */
 void test2_command_get_cmd();
 /**
- * @test Test function for command_get_cmd
- * @pre Checks that the cmd from an uninitialized command is NO_CMD
+ * @test Función de prueba para command_get_cmd
+ * @pre Comprueba que el cmd de un comando no inicializado es NO_CMD
  * @post Output==NO_CMD
  */
 void test3_command_get_cmd();
 /**
- * @test Test function for command_set_arg
- * @pre Checks that the arg is set properly
+ * @test Función de prueba para command_set_arg
+ * @pre Comprueba que el arg se ha esatblecido correctamente
  * @post Output==0
  */
 void test1_command_set_arg();
 /**
- * @test Test function for command_set_arg
- * @pre Checks that the arg is set properly
+ * @test Función de prueba para command_set_arg
+ * @pre Comprueba que el arg se ha esatblecido correctamente
  * @post Output==0
  */
 void test2_command_set_arg();
 /**
- * @test Test function for command_set_arg
- * @pre Checks that the arg can't be set to a NULL command
+ * @test Función de prueba parar command_set_arg
+ * @pre Comprueba que arg no puede ser esatblecido para un comando sin inicializar
  * @post Output==ERROR
  */
 void test3_command_set_arg();
 /**
- * @test Test function for command_get_arg
- * @pre Checks that the lenght of an arg of an uninitialized command is 0
+ * @test Función de prueba para command_get_arg
+ * @pre Comprueba que la longitud del arg de un comando inicializado es 0
  * @post Output==0
  */
 void test1_command_get_arg();
 /**
- * @test Test function for command_get_arg
- * @pre Checks that the arg from an uninitialized command is NULL
+ * @test Función de prueba para command_get_arg
+ * @pre Comprueba que el arg de un comando no inicializado es NULL
  * @post Output==NULL
  */
 void test2_command_get_arg();
 
 /**
- * @test Test function for command_get_user_input
- * @pre Checks that command_get_user_input obtains the user input properly
+ * @test Función de prueba para command_get_user_input
+ * @pre Comprueba que el input del usuario se ha obtenido correctamente
  * @post Output==aux
  */
 void test1_command_get_user_input();

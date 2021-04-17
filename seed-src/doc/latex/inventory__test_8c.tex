@@ -11,7 +11,8 @@ It tests inventory module.
 {\ttfamily \#include \char`\"{}inventory.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}inventory\+\_\+test.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}test.\+h\char`\"{}}\newline
-Include dependency graph for inventory\+\_\+test.\+c\+:\nopagebreak
+Include dependency graph for inventory\+\_\+test.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +28,7 @@ Include dependency graph for inventory\+\_\+test.\+c\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{inventory__test_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
-\begin{DoxyCompactList}\small\item\em Main function for I\+N\+V\+E\+N\+T\+O\+TY unit tests. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Función main para la unidad de pruebas de I\+N\+V\+E\+N\+T\+O\+RY. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8}{test1\+\_\+inventory\+\_\+create}} ()
 \item 
 void \mbox{\hyperlink{inventory__test_8c_a73a6080c360a8870c4ffc734e989c8b3}{test2\+\_\+inventory\+\_\+create}} ()
@@ -137,18 +138,18 @@ Numero maximo de tests
 
 
 
-Main function for I\+N\+V\+E\+N\+T\+O\+TY unit tests. 
+Función main para la unidad de pruebas de I\+N\+V\+E\+N\+T\+O\+RY. 
 
-You may execute A\+LL or a S\+I\+N\+G\+LE test 1.-\/ No parameter -\/$>$ A\+LL test are executed 2.-\/ A number means a particular test (the one identified by that number) is executed \mbox{\Hypertarget{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8}\label{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8}} 
+Se puede ejecutar con A\+LL o S\+I\+N\+G\+LE test 1.-\/ Sin parámetros -\/$>$ A\+LL todas las pruebas son ejecutadas 2.-\/ Un numero simboliza un número particular de una prueba (la que se identifica con dicho número) que se ejecuta \mbox{\Hypertarget{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8}\label{inventory__test_8c_a33638f1a88ae16ab8d6bee00145b82b8}} 
 \index{inventory\_test.c@{inventory\_test.c}!test1\_inventory\_create@{test1\_inventory\_create}}
 \index{test1\_inventory\_create@{test1\_inventory\_create}!inventory\_test.c@{inventory\_test.c}}
 \doxysubsubsection{\texorpdfstring{test1\_inventory\_create()}{test1\_inventory\_create()}}
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000036}{Test}}]Test function for inventory\+\_\+create \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000036}{Test}}]Función de prueba para inventory\+\_\+create \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-created inventory and checked if it is diferent from N\+U\+LL 
+Crea un inventario y comprueba si es diferente a N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output!=N\+U\+LL 
@@ -160,9 +161,9 @@ Output!=N\+U\+LL
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+delete\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000051}{Test}}]Test function for inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000051}{Test}}]Función de prueba para inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to delete an object in a N\+U\+LL Inventory 
+Intenta borrar un objeto de un inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -174,9 +175,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000038}{Test}}]Test function for inventory\+\_\+destroy \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000038}{Test}}]Función de prueba para inventory\+\_\+destroy \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to destroy a N\+U\+LL inventory 
+Intenta destruir un inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -188,9 +189,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+get\+\_\+inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000046}{Test}}]Test function for inventory\+\_\+get\+\_\+inventory \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000046}{Test}}]Función de prueba para inventory\+\_\+get\+\_\+inventory \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to get the objects of a N\+U\+LL inventory 
+Intenta obtener los objetos de un inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==N\+U\+LL 
@@ -202,9 +203,9 @@ Output==N\+U\+LL
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+get\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000070}{Test}}]Test function for inventory\+\_\+get\+\_\+max\+\_\+objects \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000070}{Test}}]Función de prueba para inventory\+\_\+get\+\_\+max\+\_\+objects \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a N\+U\+LL inventory 
+Un inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==-\/1 
@@ -216,9 +217,9 @@ Output==-\/1
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000044}{Test}}]Test function for inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000044}{Test}}]Función de prueba para inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-given N\+U\+LL inventory trying to see how many object does the inventory have 
+Dado un inventario no inicializado intenta ver cuantos objetos hay 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==-\/1 
@@ -230,9 +231,9 @@ Output==-\/1
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000056}{Test}}]Test function for inventory\+\_\+is\+\_\+empty \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000056}{Test}}]Función de prueba para inventory\+\_\+is\+\_\+empty \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-N\+U\+LL inventory 
+Inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -244,9 +245,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+is\+\_\+full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000059}{Test}}]Test function for inventory\+\_\+is\+\_\+full \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000059}{Test}}]Función de prueba para inventory\+\_\+is\+\_\+full \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-an N\+U\+LL inventory 
+Un inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==F\+A\+L\+SE 
@@ -258,9 +259,9 @@ Output==F\+A\+L\+SE
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000048}{Test}}]Test function for inventory\+\_\+print \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000048}{Test}}]Función de prueba para inventory\+\_\+print \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to print a N\+U\+LL 
+Intenta imprimir un N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -272,9 +273,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+search\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000062}{Test}}]Test function for inventory\+\_\+serach\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000062}{Test}}]Función de prueba para inventory\+\_\+serach\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a N\+U\+LL inventory 
+Un inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==F\+A\+L\+SE 
@@ -286,9 +287,9 @@ Output==F\+A\+L\+SE
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+set\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000067}{Test}}]Test function for inventory\+\_\+set\+\_\+max\+\_\+objects \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000067}{Test}}]Función de prueba para inventory\+\_\+set\+\_\+max\+\_\+objects \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a N\+U\+LL inventory 
+Un inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -300,9 +301,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test1\+\_\+inventory\+\_\+set\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000039}{Test}}]Test function for inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000039}{Test}}]Función de prueba para inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try add an object in a N\+U\+LL inventory 
+Intenta añadir un objeto a inventario no inicializado 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -314,9 +315,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000037}{Test}}]Test function for inventory\+\_\+create \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000037}{Test}}]Función de prueba para inventory\+\_\+create \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-created inventory and checked if the inventory is empty 
+Crea un inventario y comprueba si está vacio 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==T\+R\+UE 
@@ -328,9 +329,9 @@ Output==T\+R\+UE
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+delete\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000052}{Test}}]Test function for inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000052}{Test}}]Función de prueba para inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to delete an object with N\+U\+LL id 
+Intenta borrar un objeto con id=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -342,9 +343,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+get\+\_\+inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000047}{Test}}]Test function for inventory\+\_\+get\+\_\+inventory \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000047}{Test}}]Función de prueba para inventory\+\_\+get\+\_\+inventory \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to get the objects of a inventory with 0 objects 
+Intenta obtener los objetos de un inventario con 0 objetos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==N\+U\+LL 
@@ -356,9 +357,9 @@ Output==N\+U\+LL
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+get\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000071}{Test}}]Test function for inventory\+\_\+get\+\_\+max\+\_\+objects \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000071}{Test}}]Función de prueba para inventory\+\_\+get\+\_\+max\+\_\+objects \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a correct inventory 
+Un inventario correcto 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output == 15 
@@ -370,9 +371,9 @@ Output == 15
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000045}{Test}}]Test function for inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000045}{Test}}]Función de prueba para inventory\+\_\+get\+\_\+number\+\_\+of\+\_\+objects \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-adding an object and seeing how many objects the inventory has 
+Añade un objeto y comprueba el número de objetos que hay 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==1 
@@ -384,9 +385,9 @@ Output==1
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000057}{Test}}]Test function for inventory\+\_\+is\+\_\+empty \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000057}{Test}}]Función de prueba para inventory\+\_\+is\+\_\+empty \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a non empty inventory 
+Un inventario no vacio 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==F\+A\+L\+SE 
@@ -398,9 +399,9 @@ Output==F\+A\+L\+SE
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+is\+\_\+full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000060}{Test}}]Test function for inventory\+\_\+is\+\_\+full \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000060}{Test}}]Función de prueba para inventory\+\_\+is\+\_\+full \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a non full inventory 
+Un inventario no lleno 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==F\+A\+L\+SE 
@@ -412,9 +413,9 @@ Output==F\+A\+L\+SE
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000049}{Test}}]Test function for inventory\+\_\+print \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000049}{Test}}]Función de prueba para inventory\+\_\+print \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to print with a N\+U\+LL file 
+Intenta printear con un fichero=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -426,9 +427,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+search\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000063}{Test}}]Test function for inventory\+\_\+search\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000063}{Test}}]Función de prueba para inventory\+\_\+search\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a N\+O\+\_\+\+ID id 
+Una id=N\+O\+\_\+\+ID 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==F\+A\+L\+SE 
@@ -440,9 +441,9 @@ Output==F\+A\+L\+SE
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+set\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000068}{Test}}]Test function for inventory\+\_\+set\+\_\+max\+\_\+objects \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000068}{Test}}]Función de prueba para inventory\+\_\+set\+\_\+max\+\_\+objects \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a negative number 
+Un numero negativo 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -454,9 +455,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test2\+\_\+inventory\+\_\+set\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000040}{Test}}]Test function for inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000040}{Test}}]Función de prueba para inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try add an existing object 
+Intenta añadir un objeto que ya existe 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -468,9 +469,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test3\+\_\+inventory\+\_\+delete\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000053}{Test}}]Test function for inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000053}{Test}}]Función de prueba para inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to delete an object with negative id 
+Intenta borrar un objeto con id negativa 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -482,9 +483,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test3\+\_\+inventory\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000058}{Test}}]Test function for inventory\+\_\+is\+\_\+empty \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000058}{Test}}]Función de prueba para inventory\+\_\+is\+\_\+empty \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-an empty inventory 
+Un inventario vacio 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==T\+R\+UE 
@@ -496,9 +497,9 @@ Output==T\+R\+UE
 {\footnotesize\ttfamily void test3\+\_\+inventory\+\_\+is\+\_\+full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000061}{Test}}]Test function for inventory\+\_\+is\+\_\+full \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000061}{Test}}]Función de prueba para inventory\+\_\+is\+\_\+full \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a full inventory 
+Un inventario lleno 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==T\+R\+UE 
@@ -510,9 +511,9 @@ Output==T\+R\+UE
 {\footnotesize\ttfamily void test3\+\_\+inventory\+\_\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000050}{Test}}]Test function for inventory\+\_\+print \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000050}{Test}}]Función de prueba para inventory\+\_\+print \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to print with a corrects inputs 
+Intenta printear con inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==OK 
@@ -524,9 +525,9 @@ Output==OK
 {\footnotesize\ttfamily void test3\+\_\+inventory\+\_\+search\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000064}{Test}}]Test function for inventory\+\_\+search\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000064}{Test}}]Función de prueba para inventory\+\_\+search\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-a negative inventory 
+Un inventario negativo 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==F\+A\+L\+SE 
@@ -538,12 +539,12 @@ Output==F\+A\+L\+SE
 {\footnotesize\ttfamily void test3\+\_\+inventory\+\_\+set\+\_\+max\+\_\+objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000069}{Test}}]Test function for inventory\+\_\+set\+\_\+max\+\_\+objects \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000069}{Test}}]Función de prueba para inventory\+\_\+set\+\_\+max\+\_\+objects \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-corrects inputs 
+Inputs correctos 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-Output==previous set number 
+Output==numero anterior del set 
 \end{DoxyPostcond}
 \mbox{\Hypertarget{inventory__test_8c_afeec9d3504d3663c7fb8884e1bb1562d}\label{inventory__test_8c_afeec9d3504d3663c7fb8884e1bb1562d}} 
 \index{inventory\_test.c@{inventory\_test.c}!test3\_inventory\_set\_object@{test3\_inventory\_set\_object}}
@@ -552,9 +553,9 @@ Output==previous set number
 {\footnotesize\ttfamily void test3\+\_\+inventory\+\_\+set\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000041}{Test}}]Test function for inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000041}{Test}}]Función de prueba para inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try add an object with a negative id 
+Intenta añadir un objeto con Id negativa 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -566,9 +567,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test4\+\_\+inventory\+\_\+delete\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000054}{Test}}]Test function for inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000054}{Test}}]Función de prueba para inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to delete an object in a empty inventory 
+Intenta borrar un objeto de un inventario vacio 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -580,9 +581,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test4\+\_\+inventory\+\_\+search\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000065}{Test}}]Test function for inventory\+\_\+search\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000065}{Test}}]Función de prueba para inventory\+\_\+search\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to search a object that is not in the inventory 
+Intenta buscar un objeto que no está en el inventario 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==F\+A\+L\+SE 
@@ -594,9 +595,9 @@ Output==F\+A\+L\+SE
 {\footnotesize\ttfamily void test4\+\_\+inventory\+\_\+set\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000042}{Test}}]Test function for inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000042}{Test}}]Función de prueba para inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try add an object with a N\+U\+LL id 
+Intenta añadir un objeto con id=N\+U\+LL 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -608,9 +609,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test5\+\_\+inventory\+\_\+delete\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000055}{Test}}]Test function for inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000055}{Test}}]Función de prueba para inventory\+\_\+delete\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to delete an object that is not in the Inventory 
+Intenta borrar un objeto que no está en el inventario 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 
@@ -622,9 +623,9 @@ Output==E\+R\+R\+OR
 {\footnotesize\ttfamily void test5\+\_\+inventory\+\_\+search\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000066}{Test}}]Test function for inventory\+\_\+search\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000066}{Test}}]Función de prueba para inventory\+\_\+search\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-try to search a object that is in the inventory 
+Intenta un objeto que no está en el inventario 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==T\+R\+UE 
@@ -636,9 +637,9 @@ Output==T\+R\+UE
 {\footnotesize\ttfamily void test5\+\_\+inventory\+\_\+set\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyRefDesc}{Test}
-\item[\mbox{\hyperlink{test__test000043}{Test}}]Test function for inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{test__test000043}{Test}}]Función de prueba para inventory\+\_\+set\+\_\+object \end{DoxyRefDesc}
 \begin{DoxyPrecond}{Precondition}
-set the number of objects to 15 and trying to add one more object 
+Establece el numero de objetos a 15 e intenta añadir uno mas 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 Output==E\+R\+R\+OR 

@@ -10,250 +10,250 @@
 #ifndef INVENTORY_TEST_H
 #define INVENTORY_TEST_H
  /**
- * @test Test function for inventory_create
- * @pre created inventory and checked if it is diferent from NULL
+ * @test Función de prueba para inventory_create
+ * @pre Crea un inventario y comprueba si es diferente a NULL
  * @post Output!=NULL
  */
 void test1_inventory_create();
 
  /**
- * @test Test function for inventory_create
- * @pre created inventory and checked if the  inventory is empty
+ * @test Función de prueba para inventory_create
+ * @pre Crea un inventario y comprueba si está vacio
  * @post Output==TRUE
  */
 void test2_inventory_create();
 
  /**
- * @test Test function for inventory_destroy
- * @pre try to destroy a NULL inventory
+ * @test Función de prueba para inventory_destroy
+ * @pre Intenta destruir un inventario no inicializado
  * @post Output==ERROR
  */
 void test1_inventory_destroy();
 
  /**
- * @test Test function for inventory_set_object
- * @pre try add an object in a NULL inventory
+ * @test Función de prueba para inventory_set_object
+ * @pre Intenta añadir un objeto a inventario no inicializado
  * @post Output==ERROR
  */
 void test1_inventory_set_object();
 
  /**
- * @test Test function for inventory_set_object
- * @pre try add an existing object
+ * @test Función de prueba para inventory_set_object
+ * @pre Intenta añadir un objeto que ya existe
  * @post Output==ERROR
  */
 void test2_inventory_set_object();
 
  /**
- * @test Test function for inventory_set_object
- * @pre try add an  object with a negative id
+ * @test Función de prueba para inventory_set_object
+ * @pre Intenta añadir un objeto con Id negativa
  * @post Output==ERROR
  */
 void test3_inventory_set_object();
 
 /**
- * @test Test function for inventory_set_object
- * @pre try add an  object with a NULL id
+ * @test Función de prueba para inventory_set_object
+ * @pre Intenta añadir un objeto con id=NULL
  * @post Output==ERROR
  */
 void test4_inventory_set_object();
 
 /**
- * @test Test function for inventory_set_object
- * @pre set the number of objects to 15 and trying to add one more object
+ * @test Función de prueba para inventory_set_object
+ * @pre Establece el numero de objetos a 15 e intenta añadir uno mas
  * @post Output==ERROR
  */
 void test5_inventory_set_object();
 /**
- * @test Test function for inventory_get_number_of_objects
- * @pre given NULL inventory trying to see how many object does the inventory have
+ * @test Función de prueba para inventory_get_number_of_objects
+ * @pre Dado un inventario no inicializado intenta ver cuantos objetos hay
  * @post Output==-1
  */
 void test1_inventory_get_number_of_objects();
 /**
- * @test Test function for inventory_get_number_of_objects
- * @pre adding an object and seeing how many objects the inventory has
+ * @test Función de prueba para inventory_get_number_of_objects
+ * @pre Añade un objeto y comprueba el número de objetos que hay
  * @post Output==1
  */
 void test2_inventory_get_number_of_objects();
 /**
- * @test Test function for inventory_get_inventory
- * @pre try to get the objects of a NULL inventory
+ * @test Función de prueba para inventory_get_inventory
+ * @pre Intenta obtener los objetos de un inventario no inicializado
  * @post Output==NULL
  */
 void test1_inventory_get_inventory();
 
 /**
- * @test Test function for inventory_get_inventory
- * @pre try to get the objects of a inventory with 0 objects
+ * @test Función de prueba para inventory_get_inventory
+ * @pre Intenta obtener los objetos de un inventario con 0 objetos
  * @post Output==NULL
  */
 void test2_inventory_get_inventory();
 
 /**
- * @test Test function for inventory_print
- * @pre try to print a NULL
+ * @test Función de prueba para inventory_print
+ * @pre Intenta imprimir un NULL
  * @post Output==ERROR
  */
 void test1_inventory_print();
 
 /**
- * @test Test function for inventory_print
- * @pre try to print with a NULL file
+ * @test Función de prueba para inventory_print
+ * @pre Intenta printear con un fichero=NULL
  * @post Output==ERROR
  */
 void test2_inventory_print();
 
 /**
- * @test Test function for inventory_print
- * @pre try to print with a corrects inputs
+ * @test Función de prueba para inventory_print
+ * @pre Intenta printear con inputs correctos
  * @post Output==OK
  */
 void test3_inventory_print();
 
 /**
- * @test Test function for inventory_delete_object
- * @pre try to delete an object in a NULL Inventory
+ * @test Función de prueba para inventory_delete_object
+ * @pre Intenta borrar un objeto de un inventario no inicializado
  * @post Output==ERROR
  */
 void test1_inventory_delete_object();
 
 /**
- * @test Test function for inventory_delete_object
- * @pre try to delete an object with NULL id
+ * @test Función de prueba para inventory_delete_object
+ * @pre Intenta borrar un objeto con id=NULL
  * @post Output==ERROR
  */
 void test2_inventory_delete_object();
 
 /**
- * @test Test function for inventory_delete_object
- * @pre try to delete an object with negative id
+ * @test Función de prueba para inventory_delete_object
+ * @pre Intenta borrar un objeto con id negativa
  * @post Output==ERROR
  */
 void test3_inventory_delete_object();
 
 /**
- * @test Test function for inventory_delete_object
- * @pre try to delete an object in a empty inventory
+ * @test Función de prueba para inventory_delete_object
+ * @pre Intenta borrar un objeto de un inventario vacio
  * @post Output==ERROR
  */
 void test4_inventory_delete_object();
 
 /**
- * @test Test function for inventory_delete_object
- * @pre try to delete an object that is not in the Inventory
+ * @test Función de prueba para inventory_delete_object
+ * @pre Intenta borrar un objeto que no está en el inventario
  * @post Output==ERROR
  */
 void test5_inventory_delete_object();
 
 /**
- * @test Test function for inventory_is_empty
- * @pre NULL inventory
+ * @test Función de prueba para inventory_is_empty
+ * @pre Inventario no inicializado
  * @post Output==ERROR
  */
 void test1_inventory_is_empty();
 
 /**
- * @test Test function for inventory_is_empty
- * @pre a non empty inventory
+ * @test Función de prueba para inventory_is_empty
+ * @pre Un inventario no vacio
  * @post Output==FALSE
  */
 void test2_inventory_is_empty();
 
 /**
- * @test Test function for inventory_is_empty
- * @pre an empty inventory
+ * @test Función de prueba para inventory_is_empty
+ * @pre Un inventario vacio
  * @post Output==TRUE
  */
 void test3_inventory_is_empty();
 
 /**
- * @test Test function for inventory_is_full
- * @pre an NULL inventory
+ * @test Función de prueba para inventory_is_full
+ * @pre Un inventario no inicializado
  * @post Output==FALSE
  */
 void test1_inventory_is_full();
 
 /**
- * @test Test function for inventory_is_full
- * @pre a non full inventory
+ * @test Función de prueba para inventory_is_full
+ * @pre Un inventario no lleno
  * @post Output==FALSE
  */
 void test2_inventory_is_full();
 
 /**
- * @test Test function for inventory_is_full
- * @pre a full inventory
+ * @test Función de prueba para inventory_is_full
+ * @pre Un inventario lleno
  * @post Output==TRUE
  */
 void test3_inventory_is_full();
 
 /**
- * @test Test function for inventory_serach_object
- * @pre a NULL inventory
+ * @test Función de prueba para inventory_serach_object
+ * @pre Un inventario no inicializado
  * @post Output==FALSE
  */
 void test1_inventory_search_object();
 
 /**
- * @test Test function for inventory_search_object
- * @pre a NO_ID id
+ * @test Función de prueba para inventory_search_object
+ * @pre Una id=NO_ID
  * @post Output==FALSE
  */
 void test2_inventory_search_object();
 
 /**
- * @test Test function for inventory_search_object
- * @pre a negative inventory
+ * @test Función de prueba para inventory_search_object
+ * @pre Un inventario negativo
  * @post Output==FALSE
  */
 void test3_inventory_search_object();
 
 /**
- * @test Test function for inventory_search_object
- * @pre try to search a object that is not in the inventory
+ * @test Función de prueba para inventory_search_object
+ * @pre Intenta buscar un objeto que no está en el inventario
  * @post Output==FALSE
  */
 void test4_inventory_search_object();
 
 /**
- * @test Test function for inventory_search_object
- * @pre try to search a object that is  in the inventory
+ * @test Función de prueba para inventory_search_object
+ * @pre Intenta un objeto que no está en el inventario 
  * @post Output==TRUE
  */
 void test5_inventory_search_object();
 
 /**
- * @test Test function for inventory_set_max_objects
- * @pre a NULL inventory
+ * @test Función de prueba para inventory_set_max_objects
+ * @pre Un inventario no inicializado
  * @post Output==ERROR
  */
 void test1_inventory_set_max_objects();
 
 /**
- * @test Test function for inventory_set_max_objects
- * @pre a negative number
+ * @test Función de prueba para inventory_set_max_objects
+ * @pre Un numero negativo
  * @post Output==ERROR
  */
 void test2_inventory_set_max_objects();
 
 /**
- * @test Test function for inventory_set_max_objects
- * @pre corrects inputs
- * @post Output==previous set number
+ * @test Función de prueba para inventory_set_max_objects
+ * @pre Inputs correctos
+ * @post Output==numero anterior del set
  */
 void test3_inventory_set_max_objects();
 
 /**
- * @test Test function for inventory_get_max_objects
- * @pre a NULL inventory
+ * @test Función de prueba para inventory_get_max_objects
+ * @pre Un inventario no inicializado
  * @post Output==-1
  */
 void test1_inventory_get_max_objects();
 
 /**
- * @test Test function for inventory_get_max_objects
- * @pre a correct inventory
+ * @test Función de prueba para inventory_get_max_objects
+ * @pre Un inventario correcto
  * @post Output == 15 
  */
 void test2_inventory_get_max_objects();
