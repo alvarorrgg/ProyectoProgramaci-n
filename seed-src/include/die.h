@@ -10,7 +10,9 @@
  
 #ifndef DIE_H
 #define DIE_H
+
 #define MAX_IDS 100 /*!<Numero maximo de ids*/
+
 #include "types.h"
 #include "time.h"
 /**

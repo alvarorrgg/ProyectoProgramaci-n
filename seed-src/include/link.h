@@ -13,6 +13,7 @@
 #define LINK_H
 
 #include "types.h"
+
 #define MAX_LINKS 100 /*!<Numero maximo de links*/
 
 /**

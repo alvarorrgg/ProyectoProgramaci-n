@@ -12,7 +12,9 @@
 #define __GRAPHIC_ENGINE__
 
 #include "game.h"
+
 #define MAX_CHARS 255 /*!<Numero maximo de caracteres*/
+
 /**
  * @brief carácteristicas del motor gráfico
  *

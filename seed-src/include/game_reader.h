@@ -2,7 +2,7 @@
  * @brief Archivo cabecera de game_reader.c en el se encuentra definidas los datos y funciones de game_reader_test.c
  * 
  * @file game_reader.h
- * @author Álvaro Rodríguez,Alberto Vicente
+ * @author Álvaro Rodríguez, Alberto Vicente
  * @version 1.0 
  * @date 18-02-2021 
  * @copyright GNU Public License

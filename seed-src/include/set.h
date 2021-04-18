@@ -1,7 +1,6 @@
 /** 
  * @brief Archivo cabecera de set.c en el se encuentra definidas los datos y funciones de set.c
  * 
- * 
  * @file set.h
  * @author Álvaro Rodríguez
  * @version 1.0 

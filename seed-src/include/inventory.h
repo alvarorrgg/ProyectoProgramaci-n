@@ -13,7 +13,6 @@
 
 #include "types.h"
 
-
 /**
  * @brief Define el inventario del jugador
  * 

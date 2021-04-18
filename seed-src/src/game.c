@@ -247,6 +247,7 @@ STATUS game_create(Game *game)
   game->die = die_create(1);
   if(!game->die) return ERROR;
   game->command = command_init();
+  if(!game->command) return ERROR;
   game->last_descripcion[0] = '\0';
 
   return OK;

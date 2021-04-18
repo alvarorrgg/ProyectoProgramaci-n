@@ -51,6 +51,7 @@ Space* space_create(Id id) {
   new_space->gdesc[0] = (char *)malloc(9*sizeof(char)); 
   new_space->gdesc[1] = (char *)malloc(9*sizeof(char));
   new_space->gdesc[2] = (char *)malloc(9*sizeof(char));
+  if(!new_space->gdesc || !new_space->gdesc[0] || !new_space->gdesc[1] || !new_space->gdesc[2]) return NULL;
 
   return new_space; /*Se devuelve el nuevo espacio creado*/
 }

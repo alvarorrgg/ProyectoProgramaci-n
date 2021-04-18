@@ -42,6 +42,7 @@ Player* player_create(Id id) {
   new_player->name[0] = '\0';
   new_player->location = NO_ID;
   new_player->inventory=inventory_create();
+  if(!new_player->inventory) return NULL;
 
   return new_player;
 }
