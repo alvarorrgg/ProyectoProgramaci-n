@@ -15,7 +15,7 @@
 #include "set.h"
 
 /**
- * @brief Estructura set
+ * @brief Define la estructura Set
  *
  * contiene las variables del conjunto de objetos
  */

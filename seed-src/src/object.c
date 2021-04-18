@@ -15,7 +15,7 @@
 #include "object.h"
 
 /**
- * @brief La estructura Object
+ * @brief Define la estructura Object
  *
  * Almacena información del objeto.
  */

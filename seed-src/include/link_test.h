@@ -13,21 +13,21 @@
 
  /**
  * @test Función de prueba para link_create
- * @pre crea un link y comprueba si es diferente a NULL
+ * @pre Crea un link y comprueba si es diferente a NULL
  * @post Output!=NULL
  */
 void test1_link_create();
 
 /**
  * @test Función de prueba para link_create
- * @pre crea un link with id y comprueba si tiene una id correcta
+ * @pre Crea un link with id y comprueba si tiene una id correcta
  * @post Output==5
  */
 void test2_link_create();
 
 /**
  * @test Función de prueba para link_get_id
- * @pre crea un link con id y comprueba si la id es correcta
+ * @pre Crea un link con id y comprueba si la id es correcta
  * @post Output==5
  */
 void test1_link_get_id();

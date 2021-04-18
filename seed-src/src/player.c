@@ -16,7 +16,7 @@
 #include "object.h"
 
 /**
- * @brief La estructura Player
+ * @brief Define la estructura Player
  *
  * Almacena información del jugador.
  */
