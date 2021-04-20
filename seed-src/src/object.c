@@ -24,6 +24,9 @@ struct _Object {
   Id id;			/*!< id del objeto*/
   char name[WORD_SIZE + 1];	/*!< nombre del objeto*/
   char description[LEN_DES]; /*!< descripción de cada objecto*/
+  BOOL movement;  /*!<Movimiento del objeto*/
+  Id dependency; /*!<Dependencia del objeto*/
+  Id open_link; /*!<Puede abrir o no un link*/
 };
 
 Object* object_create(Id id) {  
@@ -36,7 +39,9 @@ Object* object_create(Id id) {
   
   new_object->id = id;
   new_object->name[0] = (char)0;
-  
+  new_object->movement=FALSE;
+  new_object->dependency=NO_ID;
+  new_object->open_link=NO_ID;
   return new_object;
 }
 
@@ -100,6 +105,42 @@ STATUS object_set_description(Object* object , char* descr){
   return -1;
 
  }
+ BOOL object_get_movement(Object *object){
+   if(!object) return ERROR;
+     return object->movement;
+   
+ }
+
+ STATUS object_set_movement(Object *object,BOOL bol){
+   if(!object) return ERROR;
+   object->movement=bol;
+   return OK;
+ }
+
+Id object_get_dependency(Object *object){
+   if(!object) return ERROR;
+     return object->dependency;
+   
+ }
+
+ STATUS object_set_dependency(Object *object,Id id){
+   if(!object) return ERROR;
+   object->dependency=id;
+   return OK;
+ }
+
+ Id object_get_link_open(Object *object){
+   if(!object) return ERROR;
+     return object->open_link;
+   
+ }
+
+ STATUS object_set_link_open(Object *object,Id id){
+   if(!object) return ERROR;
+   object->open_link=id;
+   return OK;
+ }
+
 
 STATUS object_print(Object* object) {
   if (!object) return ERROR;

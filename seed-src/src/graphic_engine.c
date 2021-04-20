@@ -157,18 +157,18 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       gdesc = space_get_gdesc(space_back);
       link1 = space_get_west(space_back);
       sprintf(id_to1, " %ld", link_get_id_to(link1));
-      if (strcmp(id_to1, " -1") == 0)
+      if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id_to1, "      ");
       else
         strcat(id_to1, " <--");
       sprintf(id1, "%ld", link_get_id(link1));
-      if (strcmp(id1, "-1") == 0)
+      if (strcmp(id1, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id1, "  ");
 
       link2 = space_get_east(space_back);
 
       sprintf(id_to2, "%ld", link_get_id_to(link2));
-      if (strcmp(id_to2, "-1") == 0)
+      if (strcmp(id_to2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id_to2, "      ");
 
       else
@@ -179,7 +179,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
         strcpy(id_to1, "      ");
       }
       sprintf(id2, "%ld", link_get_id(link2));
-      if (strcmp(id2, "-1") == 0)
+      if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id2, "  ");
 
       sprintf(str, "           %s|                 %2d|%s", id1, (int)id_back, id2);
@@ -196,7 +196,12 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
       link2 = space_get_north(space_act);
       sprintf(id2, "%ld", link_get_id(link2));
-      sprintf(str, "                      ^ %s", id2);
+      if(link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE){
+        sprintf(str, "                      ^");
+      }
+      else{
+      sprintf(str, "                      ^%s", id2);
+      }
       screen_area_puts(ge->map, str);
     }
     sum = 0;
@@ -243,18 +248,18 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       gdesc = space_get_gdesc(space_act);
       link1 = space_get_west(space_act);
       sprintf(id_to1, " %ld", link_get_id_to(link1));
-      if (strcmp(id_to1, " -1") == 0)
+      if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id_to1, "      ");
       else
         strcat(id_to1, " <--");
       sprintf(id1, "%ld", link_get_id(link1));
-      if (strcmp(id1, "-1") == 0)
+      if (strcmp(id1, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id1, "  ");
 
       link2 = space_get_east(space_act);
 
       sprintf(id_to2, "%ld", link_get_id_to(link2));
-      if (strcmp(id_to2, "-1") == 0)
+      if (strcmp(id_to2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id_to2, "      ");
 
       else
@@ -265,7 +270,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
         strcpy(id_to1, "      ");
       }
       sprintf(id2, "%ld", link_get_id(link2));
-      if (strcmp(id2, "-1") == 0)
+      if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id2, "  ");
       sprintf(str, "           %s+-------------------+%s", id1, id2);
       screen_area_puts(ge->map, str);
@@ -325,18 +330,18 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       gdesc = space_get_gdesc(space_next);
       link1 = space_get_west(space_next);
       sprintf(id_to1, " %ld", link_get_id_to(link1));
-      if (strcmp(id_to1, " -1") == 0)
+      if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id_to1, "      ");
       else
         strcat(id_to1, " <--");
       sprintf(id1, "%ld", link_get_id(link1));
-      if (strcmp(id1, "-1") == 0)
+      if (strcmp(id1, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id1, "  ");
 
       link2 = space_get_east(space_next);
 
       sprintf(id_to2, "%ld", link_get_id_to(link2));
-      if (strcmp(id_to2, "-1") == 0)
+      if (strcmp(id_to2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id_to2, "      ");
 
       else
@@ -348,13 +353,17 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       }
       link2 = space_get_south(space_act);
       sprintf(id2, "%ld", link_get_id(link2));
-
-      sprintf(str, "                      v %s", id2);
+      if(link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE){
+        sprintf(str, "                      v");
+      }
+      else{
+          sprintf(str, "                      v %s", id2);
+      }
       screen_area_puts(ge->map, str);
 
       link2 = space_get_east(space_next);
       sprintf(id2, "%ld", link_get_id(link2));
-      if (strcmp(id2, "-1") == 0)
+      if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id2, "  ");
       sprintf(str, "           %s+-------------------+%s", id1, id2);
       screen_area_puts(ge->map, str);

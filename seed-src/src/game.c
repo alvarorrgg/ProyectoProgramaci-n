@@ -326,6 +326,7 @@ STATUS game_add_link(Game *game, Link *link)
 
   while ((i < MAX_LINKS) && (game->link[i] != NULL)) i++;
 
+  printf("El link con numero:%i tiene la puerta:%i",i,link_get_type(link));
   game->link[i] = link;
   return OK;
 }
@@ -334,9 +335,13 @@ Link *game_get_link(Game *game, Id id)
 {
   int i = 0;
 
-  if (game || id == NO_ID) return NULL;
+  if (!game || id == NO_ID) return NULL;
 
-  for (i = 0; i < MAX_LINKS && game->link[i] != NULL; i++) if (id == link_get_id(game->link[i])) return game->link[i];
+  for (i = 0; i < MAX_LINKS && game->link[i] != NULL; i++) {
+    if (id == link_get_id(game->link[i])) {
+      return game->link[i];
+    }
+  }
   
 
   return NULL;
@@ -542,6 +547,12 @@ void game_callback_next(Game *game)
 
     if (current_id == space_id)
     {
+      
+
+      if(link_get_type(game->link[link_get_id(space_get_south(game->spaces[i]))-1])==CLOSE){
+        command_set_status(game->command, ERROR);
+        return;
+      }
       current_id = link_get_id_to(space_get_south(game->spaces[i]));
 
       if (current_id != NO_ID)
@@ -581,6 +592,10 @@ void game_callback_back(Game *game)
 
     if (current_id == space_id)
     {
+       if(link_get_type(game->link[link_get_id(space_get_north(game->spaces[i]))-1])==CLOSE){
+        command_set_status(game->command, ERROR);
+        return;
+      }
       current_id = link_get_id_to(space_get_north(game->spaces[i]));
 
       if (current_id != NO_ID)
@@ -615,10 +630,15 @@ void game_callback_right(Game *game)
 
   for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++)  /*comprueba que no se pase de los espacios que hay en el juego*/
   {
+    
     current_id = space_get_id(game->spaces[i]);
 
     if (current_id == space_id)
     {
+      if(link_get_type(game->link[link_get_id(space_get_west(game->spaces[i]))-1])==CLOSE){
+        command_set_status(game->command, ERROR);
+        return;
+      }
       current_id = link_get_id_to(space_get_west(game->spaces[i]));  /*consigue el enlaze del espacio por la derecha*/
       printf("%li",current_id);
       if (current_id != NO_ID)
@@ -657,6 +677,10 @@ void game_callback_left(Game *game)
 
     if (current_id == space_id)
     {
+      if(link_get_type(game->link[link_get_id(space_get_east(game->spaces[i]))-1])==CLOSE){
+        command_set_status(game->command, ERROR);
+        return;
+      }
       current_id = link_get_id_to(space_get_east(game->spaces[i]));  /*consigue el enlaze del espacio por la izquierda*/
       printf("%li",current_id);
 
@@ -697,6 +721,7 @@ void game_callback_take(Game *game)
     if (strcmp(object_get_name(game->objects[i]), objeto) == 0) /*Se buscan los objetos que tengan el mismo nombre que el señalado*/
     {
       id = object_get_id(game->objects[i]);/*Se consigue el id del objeto*/
+      break;
     }
     i++;
     }
@@ -716,10 +741,28 @@ void game_callback_take(Game *game)
       }
       else
       {/*Se hacen las instrucciones necesarias: ponerle el objeto al jugador, borrarlo del espacio etc.*/
-        player_add_object(game->player,id);
-        space_remove_object(game->spaces[k], id);
-        command_set_status(game->command, OK);
-        return;
+      if(object_get_movement(game->objects[i])==TRUE){
+        if(object_get_dependency(game->objects[i])==-1 || player_has_object(game->player,object_get_dependency(game->objects[i]))){
+          player_add_object(game->player,id);
+          space_remove_object(game->spaces[k], id);
+          printf("%i",link_get_type(game_get_link(game,object_get_link_open(game->objects[i]))));
+          printf("%li",link_get_id(game_get_link(game,object_get_link_open(game->objects[i]))));
+          printf("%li",object_get_link_open(game->objects[i]));
+          if(object_get_link_open(game->objects[i])!=-1){
+            link_set_type(game->link[object_get_link_open(game->objects[i])-1],OPEN);
+          }
+            command_set_status(game->command, OK);
+            return;
+          }
+          else{
+            command_set_status(game->command, ERROR);
+            return;
+          }
+        }
+        else{
+          command_set_status(game->command, ERROR);
+          return;
+        }
       }
     }
     k++;
@@ -793,6 +836,8 @@ void game_callback_roll(Game *game)
   command_set_status(game->command, OK);
     return;
 }
+
+
 void game_callback_move(Game *game)
 
 {

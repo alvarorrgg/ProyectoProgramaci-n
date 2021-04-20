@@ -135,7 +135,7 @@ STATUS object_set_name(Object* object, char* name);
  * @date 10-04-2021
  * @author Gonzalo Martín
  *
- * @param object recibe un puntero a la estructura de datos objeto y la propia descripcion
+ * @param object recibe un puntero a la estructura de datos objeto 
  * @param descr descripción del objeto
  * @return STATUS devuelve un tipo de dato STATUS que es OK si se ejecuta la función sin errores y ERROR si detecta algun error. 
  */
@@ -150,10 +150,88 @@ STATUS object_set_name(Object* object, char* name);
  * @date 10-04-2021
  * @author Gonzalo Martín
  *
- * @param object recibe un puntero a la estructura de datos objeto y un nombre char
+ * @param object recibe un puntero a la estructura de datos objeto 
  * @param name nombre del objeto
  * @return el Id del objeto con el nobre pasado por argumento 
  */
  Id object_get_id_by_name (Object *object , char *name);
+ /**
+ * @brief Devuelve si el objeto se puede o no mover
+ *
+ * object_get_movement devuelve si el objeto puede alterar su movimiento
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @return TRUE O FALSE segun si se puede o no mover.
+ */
+ BOOL object_get_movement(Object *object);
+  /**
+ * @brief Cambia el movimiento del objeto
+ *
+ * object_set_movement cambia el movimiento del objeto
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @param bol nuevo valor del movimiento
+ * @return OK o ERROR segun si se ha realizado de manera correcta.
+ */
+STATUS object_set_movement(Object *object,BOOL bol);
+ /**
+ * @brief Devuelve si la dependencia del objeto
+ *
+ * object_get_movement devuelve la dependencia del objeto
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @return id, el id de la dependencia
+ */
+Id object_get_dependency(Object *object);
+  /**
+ * @brief Cambia la dependencia de un objeto
+ *
+ * object_set_movement cambia la dependencia de un objeto
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @param id nueva id del objeto del que depende
+ * @return OK o ERROR segun si se ha realizado de manera correcta.
+ */
+STATUS object_set_dependency(Object *object,Id id);
+  /**
+ * @brief Devuelve si el objeto abre algun link
+ *
+ * object_get_link_open devuelve que link abre el objeto
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @return id, el id del link que abre
+ */
+Id object_get_link_open(Object *object);
+  /**
+ * @brief Cambia el link que abre un objeto
+ *
+ * object_set_link_open cambia el id que abre un objeto
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @param id id del link que abre
+ * @return OK o ERROR segun si se ha realizado de manera correcta.
+ */
+STATUS object_set_link_open(Object *object,Id id);
+
+
+
 
 #endif
