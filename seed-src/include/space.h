@@ -14,6 +14,8 @@
 #include "types.h"
 #include "link.h"
 
+#define LEN_DETAIL_DESCR 200 /*Longitud maxima de la descripcion detallada*/
+
 /**
  * @brief Define un espacio
  * 
@@ -287,7 +289,7 @@ char** space_get_gdesc(Space *space);
 /**
  * @brief cambias la descripción de un espacio
  *
- * space_set_gdesc cambias la descripción un espacio
+ * space_set_descripcion cambias la descripción un espacio
  * 
  * @date 12-04-2021
  * @author Gonzalo Martin
@@ -376,5 +378,32 @@ Link *space_get_up(Space* space);
  * @return Link devuelve el link down
  */
 Link *space_get_down(Space* space);
+
+/**
+ * @brief cambias la descripción detallada de un espacio
+ *
+ * space_set_detailed_description cambias la descripción detallada un espacio
+ * 
+ * @date 20-04-2021
+ * @author Gonzalo Martin
+ *
+ * @param space el espacio que se trabaja
+ * @param descr descripcion detallada del espacio
+ * @return OK o ERROR segun si se ha cambiado la descripción o no.
+ */
+STATUS space_set_detailed_description(Space* space , char* descr);
+
+/**
+ * @brief Obtiene la descrpicion detallada del espacio
+ *
+ * object_get_detailed_descriptionsirve para obtener la descrpicion del espacio
+ *
+ * @date 20-04-2021
+ * @author Gonzalo Martín
+ *
+ * @param space recibe un puntero a la estructura de datos espacio
+ * @return const char devuelve la descrpicion detallada del objeto
+ */
+ const char* space_get_detailed_descriptionSpace* space);
 
 #endif

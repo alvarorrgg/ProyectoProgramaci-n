@@ -2,7 +2,7 @@
  * @brief Se encarga de los espacios del juego
  * 
  * @file space.c
- * @author Profesores Pprog,Álvaro Rodríguez, Gonzalo Martín
+ * @author Profesores Pprog,Álvaro Rodríguez, Gonzalo Martín, Alberto Vicente
  * @version 2.0 
  * @date 18-02-2021
  * @copyright GNU Public License
@@ -26,11 +26,13 @@ struct _Space {
   Link *south;		/*!< coordenada sur */
   Link *east;		/*!< coordenada este */
   Link *west;		/*!< coordenada oeste */
-  Link *up; /*!< coordenado hacia arriba */
-  Link *down; /*!< coordenado hacia abajo */
+  Link *up; /*!< coordenada hacia arriba */
+  Link *down; /*!< coordenada hacia abajo */
   Set* objects;	/*!< array de objetos */
   char **gdesc;	/*!< Descripción grafica */
   char description[LEN_DES]; /*!< Descripción del espacio */
+  char detailed_description[LEN_DETAIL_DESCR]; /*!< Descripción mas detallada del espacio*/
+  BOOL ilumination; /*!< Tipo de iluminación del espacio */
 };
 
 Space* space_create(Id id) {
@@ -53,6 +55,7 @@ Space* space_create(Id id) {
   new_space->gdesc[0] = (char *)malloc(9*sizeof(char)); 
   new_space->gdesc[1] = (char *)malloc(9*sizeof(char));
   new_space->gdesc[2] = (char *)malloc(9*sizeof(char));
+  new_space->ilumination = FALSE;
   if(!new_space->gdesc || !new_space->gdesc[0] || !new_space->gdesc[1] || !new_space->gdesc[2]) return NULL;
 
   return new_space; /*Se devuelve el nuevo espacio creado*/
@@ -271,3 +274,34 @@ STATUS space_print(Space* space) {
   return OK;
 }
 
+STATUS space_set_detailed_description(Space* space , char* descr){
+  if(!space || !descr) return ERROR;
+
+  if (!strcpy(space->detailed_description, descr)) return ERROR;
+
+  return OK;
+}
+
+
+ const char* space_get_detailed_description(Space* space){
+  if (!space) return NULL;
+
+  return space->detailed_description;
+ }
+
+
+
+
+BOOL space_get_ilumination(Space *s){
+  if(!s) return FALSE;
+
+  return s->ilumination;
+}
+
+STATUS space_set_ilumination(Space *s, BOOL bool){
+  if(!s || bool==NULL) return ERROR;
+
+  s->ilumination=bool;
+
+  return OK;
+}

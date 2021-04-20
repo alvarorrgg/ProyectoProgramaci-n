@@ -27,6 +27,9 @@ struct _Object {
   BOOL movement;  /*!<Movimiento del objeto*/
   Id dependency; /*!<Dependencia del objeto*/
   Id open_link; /*!<Puede abrir o no un link*/
+  BOOL illuminate; /*!< Ver si un objeto puede o no iluminar un espacio*/
+  BOOL turnedon; /*!<Ver si un objeto que puede iluminar esta iluminado*/
+  
 };
 
 Object* object_create(Id id) {  
@@ -42,6 +45,8 @@ Object* object_create(Id id) {
   new_object->movement=FALSE;
   new_object->dependency=NO_ID;
   new_object->open_link=NO_ID;
+  new_object->illuminate=FALSE;
+  new_object->turnedon=FALSE;
   return new_object;
 }
 
@@ -141,6 +146,30 @@ Id object_get_dependency(Object *object){
    return OK;
  }
 
+ BOOL object_get_iluminate(Object *object){
+   if(!object) return ERROR;
+     return object->illuminate;
+   
+ }
+
+ STATUS object_set_iluminate(Object *object,BOOL bol){
+   if(!object) return ERROR;
+   object->illuminate=bol;
+   return OK;
+ }
+
+
+ BOOL object_get_turnedon(Object *object){
+   if(!object) return ERROR;
+     return object->turnedon;
+   
+ }
+
+ STATUS object_set_turnedon(Object *object,BOOL bol){
+   if(!object) return ERROR;
+   object->turnedon=bol;
+   return OK;
+ }
 
 STATUS object_print(Object* object) {
   if (!object) return ERROR;

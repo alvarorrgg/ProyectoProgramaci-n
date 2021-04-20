@@ -1,28 +1,28 @@
-#s:1|Casilla 1|-1|-1|1|-1|       |       |       |Estas en la casilla 1|
-#s:2|Casilla 2|1|-1|2|-1|       |       |       |Estas en la casilla 2|
-#s:3|Casilla 3|2|-1|3|-1|       |       |       |Estas en la casilla 3|
-#s:4|Casilla 4|3|-1|4|-1|       |       |       |Estas en la casilla 4|
-#s:5|Casilla 5|4|9|5|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|
-#s:6|Casilla 6|5|-1|6|-1|       |       |       |Estas en la casilla 6|
-#s:7|Casilla 7|6|-1|7|-1|       |       |       |Estas en la casilla 7|
-#s:8|Casilla 8|7|16|8|-1|  ___  | /   \ |/ / \ \|De puente a puente y tiro    porque me llava la corriente|
-#s:9|Casilla 9|8|13|9|5|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|
-#s:10|Casilla 10|9|-1|10|-1|       |       |       |Estas en la casilla10|
-#s:11|Casilla 11|10|-1|11|-1|       |       |       |Estas en la casilla 11|
-#s:12|Casilla 12|11|-1|12|-1|       |       |       |Estas en la casilla 12|
-#s:13|Casilla 13|12|17|13|9|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|
-#s:14|Casilla 14|13|-1|14|-1|       |       |       |Estas en la casilla 14|
-#s:15|Casilla 15|14|-1|15|-1|       |       |       |Estas en la casilla 15|
-#s:16|Casilla 16|15|-1|16|8|  ___  | /   \ |/ / \ \|De puente a puente y tiro    porque me llava la corriente|
-#s:17|Casilla 17|16|21|17|13|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|
-#s:18|Casilla 18|17|-1|18|-1|       |       |       |Estas en la casilla 18|
-#s:19|Casilla 19|18|-1|19|-1|       |       |       |Estas en la casilla 19|
-#s:20|Casilla 20|19|-1|20|-1|       |       |       |Estas en la casilla 20|
-#s:21|Casilla 21|20|25|21|17|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|
-#s:22|Casilla 22|21|1|22|-1|^-----^|\O   O/|  \M/  |Casilla de la muerte|
-#s:23|Casilla 23|22|-1|23|-1|       |       |       |Estas en la casilla 23|
-#s:24|Casilla 24|23|-1|24|-1|       |       |       |Estas en la casilla24|
-#s:25|Casilla 25|24|-1|-1|17|       |<o)_// | \_#/  |LLegaste a la ultima casilla|
+#s:1|Casilla 1|-1|-1|1|-1|-1|-1|       |       |       |Estas en la casilla 1|Primera casilla de la oca. Es donde empieza el jugador el juego|
+#s:2|Casilla 2|1|-1|2|-1|-1|-1|      |       |       |Estas en la casilla 2|Segunda casilla de la oca. Sería la segunda casilla en la que estará el jugador| |
+#s:3|Casilla 3|2|-1|3|-1|-1|-1|       |       |       |Estas en la casilla 3|ubecubdcd|
+#s:4|Casilla 4|3|-1|4|-1|-1|-1|       |       |       |Estas en la casilla 4|bcdcdcdcd|
+#s:5|Casilla 5|4|9|5|-1|-1|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|icduciec|
+#s:6|Casilla 6|5|-1|6|-1|-1|-1|      |       |       |Estas en la casilla 6|ieufcekifc|
+#s:7|Casilla 7|6|-1|7|-1|-1|-1|       |       |       |Estas en la casilla 7|777777777|
+#s:8|Casilla 8|7|16|8|-1|-1|-1|  ___  | /   \ |/ / \ \|De puente a puente y tiro    porque me llava la corriente|88888888888|
+#s:9|Casilla 9|8|13|9|5|-1|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|999999|
+#s:10|Casilla 10|9|-1|10|-1|-1|-1|       |       |       |Estas en la casilla10|10101010|
+#s:11|Casilla 11|10|-1|11|-1|-1|-1|       |       |       |Estas en la casilla 11|11-11-11-11|
+#s:12|Casilla 12|11|-1|12|-1|-1|-1|       |       |       |Estas en la casilla 12|12-12-12|
+#s:13|Casilla 13|12|17|13|9|-1|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|13-13-13-13|
+#s:14|Casilla 14|13|-1|14|-1|-1|-1|       |       |       |Estas en la casilla 14|14-14-14-14|
+#s:15|Casilla 15|14|-1|15|-1|-1|-1|       |       |       |Estas en la casilla 15|15-15-15|
+#s:16|Casilla 16|15|-1|16|8|-1|-1|  ___  | /   \ |/ / \ \|De puente a puente y tiro    porque me llava la corriente|16-16-16|
+#s:17|Casilla 17|16|21|17|13|-1|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|17-17-17|
+#s:18|Casilla 18|17|-1|18|-1|-1|-1|       |       |       |Estas en la casilla 18|18-18-18-18|
+#s:19|Casilla 19|18|-1|19|-1|-1|-1|       |       |       |Estas en la casilla 19|19-19-19-19|
+#s:20|Casilla 20|19|-1|20|-1|-1|-1|       |       |       |Estas en la casilla 20|20-20-20|
+#s:21|Casilla 21|20|25|21|17|-1|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|21-21-21|
+#s:22|Casilla 22|21|1|22|-1|-1|-1|^-----^|\O   O/|  \M/  |Casilla de la muerte|22-22-22|
+#s:23|Casilla 23|22|-1|23|-1|-1|-1|       |       |       |Estas en la casilla 23|23-23-23|
+#s:24|Casilla 24|23|-1|24|-1|-1|-1|       |       |       |Estas en la casilla24|24-24-24|
+#s:25|Casilla 25|24|-1|-1|17|-1|-1|       |<o)_// | \_#/  |LLegaste a la ultima casilla|25-25-25|
 #o:1|Rojo|1|Token Rojo|1|2|1|
 #o:2|Azul|1|Token Azul|1|-1|30|
 #o:3|Verde|1|Token Verde|1|-1|2|

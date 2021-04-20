@@ -231,7 +231,57 @@ Id object_get_link_open(Object *object);
  */
 STATUS object_set_link_open(Object *object,Id id);
 
+ /**
+ * @brief Devuelve si el objeto puede iluminar o no
+ *
+ * object_get_iluminate devuelve si el objeto puede iluminar
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @return TRUE O FALSE segun si se puede o no mover.
+ */
+ BOOL object_get_iluminate(Object *object);
+  /**
+ * @brief Cambia la caracteristica de iluminar
+ *
+ * object_set_iluminate modfica la iluminación
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @param bol nuevo valor del movimiento
+ * @return OK o ERROR segun si se ha realizado de manera correcta.
+ */
+STATUS object_set_iluminate(Object *object,BOOL bol);
 
+ /**
+ * @brief Devuelve si el objeto puede iluminar o no
+ *
+ * object_get_turnedon devuelve si el objeto que puede iluminar esta iluminado
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @return TRUE O FALSE segun si se puede o no mover.
+ */
+ BOOL object_get_turnedon(Object *object);
+  /**
+ * @brief Cambia la caracteristica de iluminar
+ *
+ * object_set_turnedon modfica si el objeto que puede iluminarse esta iluminado
+ *
+ * @date 20-04-20
+ * @author Álvaro Rodríguez Rodrigo
+ *
+ * @param object recibe un puntero a la estructura de datos objeto 
+ * @param bol nuevo valor del movimiento
+ * @return OK o ERROR segun si se ha realizado de manera correcta.
+ */
+STATUS object_set_turnedon(Object *object,BOOL bol);
 
 
 #endif

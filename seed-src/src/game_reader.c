@@ -22,9 +22,10 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   char line[WORD_SIZE] = "";
   char name[WORD_SIZE] = "";
   char descr[LEN_DES] = "";
+  char detail_descr[LEN_DES] = "";
   char **gdesc = NULL;
   char *toks = NULL;
-  Id id = NO_ID, north = NO_ID, east = NO_ID, south = NO_ID, west = NO_ID;
+  Id id = NO_ID, north = NO_ID, east = NO_ID, south = NO_ID, west = NO_ID, up = NO_ID, down = NO_ID;
   Space *space = NULL;
   STATUS status = OK;
 
@@ -64,6 +65,10 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       toks = strtok(NULL, "|");
       west = atol(toks);
       toks = strtok(NULL, "|");
+      up = atol(toks);
+      toks = strtok(NULL, "|");
+      down = atol(toks);
+      toks = strtok(NULL, "|");
       strcpy(gdesc[0], toks);
       toks = strtok(NULL, "|");
       strcpy(gdesc[1], toks);
@@ -71,8 +76,11 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       strcpy(gdesc[2], toks);
       toks = strtok(NULL, "|");
       strcpy(descr, toks);
+      toks = strtok(NULL, "|");
+      strcpy(detail_descr, toks);
+
 #ifdef DEBUG
-      printf("Leido: %ld|%s|%ld|%ld|%ld|%ld\n", id, name, north, east, south, west);
+      printf("Leido: %ld|%s|%ld|%ld|%ld|%ld|%ld|%ld\n", id, name, north, east, south, west, up, down);
 #endif
       space = space_create(id);
       if (space != NULL) /*Si el space es válido implementa al espacio del juego todo lo leido y añade un espacio*/
@@ -82,9 +90,12 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
         space_set_east(space, NULL);
         space_set_south(space, NULL);
         space_set_west(space, NULL);
+        space_set_up(space, NULL);
+        space_set_down(space, NULL);
         space_set_gdesc(space, gdesc);
         game_add_space(game, space);
         space_set_description (space , descr);
+        space_set_detailed_description (space , detail_descr);
       }
     }
   }
