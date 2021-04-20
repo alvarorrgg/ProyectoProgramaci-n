@@ -26,6 +26,8 @@ struct _Space {
   Link *south;		/*!< coordenada sur */
   Link *east;		/*!< coordenada este */
   Link *west;		/*!< coordenada oeste */
+  Link *up; /*!< coordenado hacia arriba */
+  Link *down; /*!< coordenado hacia abajo */
   Set* objects;	/*!< array de objetos */
   char **gdesc;	/*!< Descripción grafica */
   char description[LEN_DES]; /*!< Descripción del espacio */
@@ -115,6 +117,20 @@ STATUS space_set_west(Space* space, Link *link) {
   
   return OK;
 }
+STATUS space_set_up(Space* space, Link *link) {
+  if (!space || !link  ) return ERROR;
+  
+  space->up = link;
+  
+  return OK;
+}
+STATUS space_set_down(Space* space, Link *link) {
+  if (!space || !link  ) return ERROR;
+  
+  space->down = link;
+  
+  return OK;
+}
 
 STATUS space_set_objects(Space* space, Id id) {
   if (!space || set_id_add(space->objects,id)==ERROR) return ERROR;
@@ -178,7 +194,16 @@ Link *space_get_west(Space* space) {
   
   return space->west;
 }
-
+Link *space_get_up(Space* space) {
+  if (!space) return NULL;
+  
+  return space->up;
+}
+Link *space_get_down(Space* space) {
+  if (!space) return NULL;
+  
+  return space->down;
+}
 
 Id* space_get_objects(Space* space) {
   if (!space) return NULL;

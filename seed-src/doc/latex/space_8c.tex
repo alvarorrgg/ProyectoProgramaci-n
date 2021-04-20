@@ -11,8 +11,7 @@ Se encarga de los espacios del juego.
 {\ttfamily \#include \char`\"{}object.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}space.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}set.\+h\char`\"{}}\newline
-Include dependency graph for space.\+c\+:
-\nopagebreak
+Include dependency graph for space.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -41,6 +40,10 @@ struct \mbox{\hyperlink{struct__Space}{\+\_\+\+Space}}
 \begin{DoxyCompactList}\small\item\em establece la coordenada este \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a8a6ba364ae5ac698023c840cd794e7ea}{space\+\_\+set\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$link)
 \begin{DoxyCompactList}\small\item\em establece la coordenada oeste \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a621479a6f3b3ae3d9ee848a01699a196}{space\+\_\+set\+\_\+up}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$link)
+\begin{DoxyCompactList}\small\item\em establece la coordenada up \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a95646af7e4774be1b9545cf68802376a}{space\+\_\+set\+\_\+down}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$link)
+\begin{DoxyCompactList}\small\item\em establece la coordenada down \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a2ce3d38954acd26a39b0f0ffa4900c35}{space\+\_\+set\+\_\+objects}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em establece el objeto a T\+R\+UE o F\+A\+L\+SE \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a32c4cd0dd27648e36422517091fe52a8}{space\+\_\+set\+\_\+gdesc}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, char $\ast$$\ast$desc)
@@ -61,6 +64,10 @@ const char $\ast$ \mbox{\hyperlink{space_8c_a310c540cd6e11073f7328add1f927001}{s
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada este del espacio \end{DoxyCompactList}\item 
 \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a3dfc6c3c3ff571a4fe168383bb8ef6e5}{space\+\_\+get\+\_\+west}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene la coordenada oeste del espacio \end{DoxyCompactList}\item 
+\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a506bc90b5b5a47719d6c32299b071511}{space\+\_\+get\+\_\+up}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\begin{DoxyCompactList}\small\item\em obtiene la coordenada up del espacio \end{DoxyCompactList}\item 
+\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{space_8c_a4d89aa2d83593a4aa00aa67fee6c05cf}{space\+\_\+get\+\_\+down}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\begin{DoxyCompactList}\small\item\em obtiene la coordenada down del espacio \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} $\ast$ \mbox{\hyperlink{space_8c_a9cd5617c6cb1789172fdb315ab002f4b}{space\+\_\+get\+\_\+objects}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em obtiene los ids de los objetos en el set \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{space_8c_acf12bc50824f01881abb273c22154069}{space\+\_\+get\+\_\+number\+\_\+of\+\_\+objects}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
@@ -170,6 +177,32 @@ Gonzalo Martín
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 const char devuelve la descrpicion del objeto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{space_8c_a4d89aa2d83593a4aa00aa67fee6c05cf}\label{space_8c_a4d89aa2d83593a4aa00aa67fee6c05cf}} 
+\index{space.c@{space.c}!space\_get\_down@{space\_get\_down}}
+\index{space\_get\_down@{space\_get\_down}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_down()}{space\_get\_down()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}}$\ast$ space\+\_\+get\+\_\+down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+
+
+
+obtiene la coordenada down del espacio 
+
+space\+\_\+get\+\_\+up consigue la coordenada down del espacio
+
+\begin{DoxyDate}{Date}
+20-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alexandru Marius Platon
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & el espacio que se trabaja \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Link devuelve el link down 
 \end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_a7ce7daa8152786d85cca4ab04d698f76}\label{space_8c_a7ce7daa8152786d85cca4ab04d698f76}} 
 \index{space.c@{space.c}!space\_get\_east@{space\_get\_east}}
@@ -379,6 +412,32 @@ space\+\_\+get\+\_\+south consigue la coordenada sur del espacio
 \begin{DoxyReturn}{Returns}
 Link devuelve el link sur 
 \end{DoxyReturn}
+\mbox{\Hypertarget{space_8c_a506bc90b5b5a47719d6c32299b071511}\label{space_8c_a506bc90b5b5a47719d6c32299b071511}} 
+\index{space.c@{space.c}!space\_get\_up@{space\_get\_up}}
+\index{space\_get\_up@{space\_get\_up}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_up()}{space\_get\_up()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}}$\ast$ space\+\_\+get\+\_\+up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+
+
+
+obtiene la coordenada up del espacio 
+
+space\+\_\+get\+\_\+up consigue la coordenada up del espacio
+
+\begin{DoxyDate}{Date}
+20-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alexandru Marius Platon
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & el espacio que se trabaja \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Link devuelve el link up 
+\end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_a3dfc6c3c3ff571a4fe168383bb8ef6e5}\label{space_8c_a3dfc6c3c3ff571a4fe168383bb8ef6e5}} 
 \index{space.c@{space.c}!space\_get\_west@{space\_get\_west}}
 \index{space\_get\_west@{space\_get\_west}!space.c@{space.c}}
@@ -514,6 +573,34 @@ Gonzalo Martin
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 OK o E\+R\+R\+OR segun si se ha cambiado la descripción o no. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{space_8c_a95646af7e4774be1b9545cf68802376a}\label{space_8c_a95646af7e4774be1b9545cf68802376a}} 
+\index{space.c@{space.c}!space\_set\_down@{space\_set\_down}}
+\index{space\_set\_down@{space\_set\_down}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_down()}{space\_set\_down()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
+
+
+
+establece la coordenada down 
+
+space\+\_\+set\+\_\+down fija la coordenada down
+
+\begin{DoxyDate}{Date}
+20-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alexandru Marius Platon
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & el espacio que se trabaja \\
+\hline
+{\em link} & marca el link down \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
 \end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_a187b52d1c27494b6de5767ffc4a90a59}\label{space_8c_a187b52d1c27494b6de5767ffc4a90a59}} 
 \index{space.c@{space.c}!space\_set\_east@{space\_set\_east}}
@@ -678,6 +765,34 @@ space\+\_\+set\+\_\+south fija la coordenada sur
 {\em space} & el espacio que se trabaja \\
 \hline
 {\em link} & marca el link sur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{space_8c_a621479a6f3b3ae3d9ee848a01699a196}\label{space_8c_a621479a6f3b3ae3d9ee848a01699a196}} 
+\index{space.c@{space.c}!space\_set\_up@{space\_set\_up}}
+\index{space\_set\_up@{space\_set\_up}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_up()}{space\_set\_up()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{link }\end{DoxyParamCaption})}
+
+
+
+establece la coordenada up 
+
+space\+\_\+set\+\_\+up fija la coordenada up
+
+\begin{DoxyDate}{Date}
+20-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alexandru Marius Platon
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & el espacio que se trabaja \\
+\hline
+{\em link} & marca el link up \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

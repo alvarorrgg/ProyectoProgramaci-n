@@ -15,5 +15,6 @@ var searchData=
   ['die_5ftest_2ec_53',['die_test.c',['../die__test_8c.html',1,'']]],
   ['die_5ftest_2eh_54',['die_test.h',['../die__test_8h.html',1,'']]],
   ['direction_55',['DIRECTION',['../types_8h.html#aa268a41a13430b18e933ed40207178d0',1,'types.h']]],
-  ['drop_56',['DROP',['../command_8h.html#ace19ba2296a74e4aef53304e0934c50ca8b0b0025af76a3d8f0b7b1d4758e51a6',1,'command.h']]]
+  ['down_56',['down',['../struct__Space.html#a4e267d349c11840d6db7f9dda3e1160d',1,'_Space']]],
+  ['drop_57',['DROP',['../command_8h.html#ace19ba2296a74e4aef53304e0934c50ca8b0b0025af76a3d8f0b7b1d4758e51a6',1,'command.h']]]
 ];

@@ -323,5 +323,58 @@ STATUS space_set_description(Space* space , char* descr);
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS space_print(Space* space);
+/**
+ * @brief establece la coordenada up
+ *
+ * space_set_up fija la coordenada up
+ * 
+ * @date 20-04-2021
+ * @author Alexandru Marius Platon
+ *
+ * @param space el espacio que se trabaja
+ * @param link marca el link up
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS space_set_up(Space* space, Link *link);
+
+/**
+ * @brief establece la coordenada down
+ *
+ * space_set_down fija la coordenada down
+ * 
+ * @date 20-04-2021
+ * @author Alexandru Marius Platon
+ *
+ * @param space el espacio que se trabaja
+ * @param link marca el link down
+ * @return OK para saber que se ha ejecutado la función correctamente
+ */
+STATUS space_set_down(Space* space, Link *link);
+
+/**
+ * @brief obtiene la coordenada up del espacio
+ *
+ * space_get_up consigue la coordenada up del espacio
+ * 
+ * @date 20-04-2021
+ * @author Alexandru Marius Platon
+ *
+ * @param space el espacio que se trabaja
+ * @return Link devuelve el link up
+ */
+Link *space_get_up(Space* space);
+
+/**
+ * @brief obtiene la coordenada down del espacio
+ *
+ * space_get_up consigue la coordenada down del espacio
+ * 
+ * @date 20-04-2021
+ * @author Alexandru Marius Platon
+ *
+ * @param space el espacio que se trabaja
+ * @return Link devuelve el link down
+ */
+Link *space_get_down(Space* space);
 
 #endif

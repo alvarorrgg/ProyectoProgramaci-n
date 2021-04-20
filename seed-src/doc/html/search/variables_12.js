@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x_1046',['x',['../struct__Area.html#a093b8c2929094bac88bbf5ee7db85573',1,'_Area']]]
+  ['west_1056',['west',['../struct__Space.html#ab52eea5dee1a0c22c0642d4e3ed44e46',1,'_Space']]],
+  ['width_1057',['width',['../struct__Area.html#aa2f753fc3d254821603ac4512db814f1',1,'_Area']]]
 ];
