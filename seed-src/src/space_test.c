@@ -2,7 +2,7 @@
  * @brief It tests space module
  * 
  * @file space_test.c
- * @author Profesores Pprog, Álvaro Rodríguez, Gonzalo Martín
+ * @author Profesores Pprog, Álvaro Rodríguez, Gonzalo Martín, Alberto Vicente
  * @version 2.0 
  * @date 16-01-2015
  * @copyright GNU Public License
@@ -15,7 +15,7 @@
 #include "space_test.h"
 
 
-#define MAX_TESTS 38 /*!<Numero maximo de tests*/
+#define MAX_TESTS 48 /*!<Numero maximo de tests*/
 
 /** 
  * @brief Función main para la unidad de pruebas de SPACE. 
@@ -87,6 +87,11 @@ int main(int argc, char** argv) {
   if (all || test == 41) test3_space_set_description();
   if (all || test == 42) test1_space_get_description();
   if (all || test == 43) test2_space_get_description();
+  if (all || test == 44) test1_space_set_ilumination();
+  if (all || test == 45) test2_space_set_ilumination();
+  if (all || test == 46) test3_space_set_ilumination();
+  if (all || test == 47) test1_space_get_ilumination();
+  if (all || test == 48) test2_space_get_ilumination();
 
   
 
@@ -467,4 +472,43 @@ void test2_space_get_description(){
   space_destroy (space);
 }
 
+void test1_space_set_ilumination(){
+  Space *space = NULL;
+
+  PRINT_TEST_RESULT(space_set_ilumination (space , 1) == ERROR);
+
+}
+
+
+void test2_space_set_ilumination(){
+  Space *space = space_create(05);
+
+  BOOL bool = -1;
+
+  PRINT_TEST_RESULT(space_set_ilumination (space , bool) == ERROR);
+  space_destroy (space);
+}
+
+
+void test3_space_set_ilumination(){
+  Space *space = space_create(05);
+
+  PRINT_TEST_RESULT(space_set_ilumination (space , 1) == OK);
+  space_destroy (space);
+}
+
+void test1_space_get_ilumination(){
+  Space *space = NULL;
+
+  PRINT_TEST_RESULT(space_get_ilumination (space) == FALSE);
+}
+
+
+void test2_space_get_ilumination(){
+  Space *space = space_create (05);
+  space_set_ilumination (space , 1);
+
+  PRINT_TEST_RESULT(space_get_ilumination (space)== 1);
+  space_destroy (space);
+}
 

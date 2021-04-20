@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['last_5fdescripcion_1053',['last_descripcion',['../struct__Game.html#ae4f099fba5306ebba4a8b8145a65cd8e',1,'_Game']]],
-  ['last_5froll_1054',['last_roll',['../struct__Die.html#a522e4527bd70cf87afcbabd9d9dede34',1,'_Die']]],
-  ['link_1055',['link',['../struct__Game.html#ac0b7120da2aad265b1c9ca894ce31413',1,'_Game']]],
-  ['location_1056',['location',['../struct__Player.html#adbb6195d15b88f3f658e74274eff52d8',1,'_Player']]]
+  ['last_5fdescripcion_1076',['last_descripcion',['../struct__Game.html#ae4f099fba5306ebba4a8b8145a65cd8e',1,'_Game']]],
+  ['last_5froll_1077',['last_roll',['../struct__Die.html#a522e4527bd70cf87afcbabd9d9dede34',1,'_Die']]],
+  ['link_1078',['link',['../struct__Game.html#ac0b7120da2aad265b1c9ca894ce31413',1,'_Game']]],
+  ['location_1079',['location',['../struct__Player.html#adbb6195d15b88f3f658e74274eff52d8',1,'_Player']]]
 ];

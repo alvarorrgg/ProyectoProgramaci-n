@@ -283,4 +283,10 @@ void test1_space_get_description();
  * @post Output=="Ejemplo descripcion"
  */
 void test2_space_get_description();
+
+void test1_space_set_ilumination();
+void test2_space_set_ilumination();
+void test3_space_set_ilumination();
+void test1_space_get_ilumination();
+void test2_space_get_ilumination();
 #endif

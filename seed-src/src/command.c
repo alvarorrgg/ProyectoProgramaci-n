@@ -31,7 +31,9 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"l", "Left"},	/** !< l <=> left*/
     {"r", "Right"}, /** !< r <=> right*/
     {"m", "Move"}, /** !< m <=> move*/
-    {"i" , "Inspect"}	/** !< i <=> inspect*/
+    {"i" , "Inspect"},	/** !< i <=> inspect*/
+    {"up" , "Up"}, /** !< up <=> up*/
+    {"dn" , "Down"} /** !< dn <=> down*/
     };
 
 /**

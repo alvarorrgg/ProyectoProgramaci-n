@@ -424,6 +424,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     }
   }
 
+  
   if (strlen(game_get_last_descripcion(game)) != 0)
   {
     sprintf(str, " ");

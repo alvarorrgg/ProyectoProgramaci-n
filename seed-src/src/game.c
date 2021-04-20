@@ -15,7 +15,7 @@
 #include "game.h"
 #include "game_reader.h"
 
-#define N_CALLBACK 11 /*!<Numero maximo de llamadas a comandos*/
+#define N_CALLBACK 13 /*!<Numero maximo de llamadas a comandos*/
 
 /**
  * @brief Define los elementos del juego
@@ -180,6 +180,8 @@ void game_callback_move(Game *game);
  * @param game el parametro sobre el que opera el comando con su respectiva accion
  */
 void game_callback_inspect(Game *game);
+void game_callback_up(Game *game);
+void game_callback_down(Game *game);
 
 
 /**
@@ -197,6 +199,8 @@ static callback_fn game_callback_fn_list[N_CALLBACK] = {
     game_callback_left,	/*LEFT=8*/
     game_callback_move, /*MOVE=9*/
     game_callback_inspect, /*INSPECT=10*/
+    game_callback_up, /*UP=11*/
+    game_callback_down,/*DOWN=12*/
 
 };
 
@@ -558,6 +562,7 @@ void game_callback_next(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
+        strcpy (game->last_descripcion , space_get_description (game->spaces[space_id]));
         command_set_status(game->command, OK);
         return ;
       }
@@ -601,6 +606,7 @@ void game_callback_back(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
+        strcpy (game->last_descripcion , space_get_description (game->spaces[space_id]));
         command_set_status(game->command, OK);
         return ;
       }
@@ -644,6 +650,7 @@ void game_callback_right(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
+        strcpy (game->last_descripcion , space_get_description (game->spaces[current_id]));
         command_set_status(game->command, OK);
         return ;
       }
@@ -687,6 +694,7 @@ void game_callback_left(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
+        strcpy (game->last_descripcion , space_get_description (game->spaces[current_id]));
         command_set_status(game->command, OK);
         return ;
       }
@@ -937,3 +945,92 @@ void game_callback_inspect(Game *game){
     return;
   }
 }
+void game_callback_up(Game *game)
+{
+  int i = 0;
+  Id current_id = NO_ID;
+  Id space_id = NO_ID;
+  space_id = game_get_player_location(game);
+  if(!game){
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  if (space_id == NO_ID){
+    command_set_status(game->command, ERROR);
+    return ;
+  }
+
+  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++) /*comprueba que no se pase de los espacios que hay en el juego*/
+  {
+    current_id = space_get_id(game->spaces[i]);
+
+    if (current_id == space_id)
+    {
+      
+
+      if(link_get_type(game->link[link_get_id(space_get_up(game->spaces[i]))-1])==CLOSE){
+        command_set_status(game->command, ERROR);
+        return;
+      }
+      current_id = link_get_id_to(space_get_up(game->spaces[i]));
+
+      if (current_id != NO_ID)
+      {
+        game_set_player_location(game, current_id);
+        command_set_status(game->command, OK);
+        return ;
+      }
+      else{
+        command_set_status(game->command, ERROR);
+        return;
+      }
+    }
+  }
+  command_set_status(game->command, OK);
+  return;
+}
+void game_callback_down(Game *game)
+{
+  int i = 0;
+  Id current_id = NO_ID;
+  Id space_id = NO_ID;
+  space_id = game_get_player_location(game);
+  if(!game){
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  if (space_id == NO_ID){
+    command_set_status(game->command, ERROR);
+    return ;
+  }
+
+  for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL; i++) /*comprueba que no se pase de los espacios que hay en el juego*/
+  {
+    current_id = space_get_id(game->spaces[i]);
+
+    if (current_id == space_id)
+    {
+      
+
+      if(link_get_type(game->link[link_get_id(space_get_down(game->spaces[i]))-1])==CLOSE){
+        command_set_status(game->command, ERROR);
+        return;
+      }
+      current_id = link_get_id_to(space_get_down(game->spaces[i]));
+
+      if (current_id != NO_ID)
+      {
+        game_set_player_location(game, current_id);
+        command_set_status(game->command, OK);
+        return ;
+      }
+      else{
+        command_set_status(game->command, ERROR);
+        return;
+      }
+    }
+  }
+  command_set_status(game->command, OK);
+  return;
+}
+

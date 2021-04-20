@@ -271,6 +271,11 @@ STATUS space_print(Space* space) {
     set_print(stdout, space->objects);
   }
 
+  if(space_get_ilumination(space)==TRUE)
+    fprintf(stdout,"El espacio está iluminado\n");
+  else
+    fprintf(stdout,"El espacio no está iluminado\n");
+
   return OK;
 }
 
@@ -289,9 +294,6 @@ STATUS space_set_detailed_description(Space* space , char* descr){
   return space->detailed_description;
  }
 
-
-
-
 BOOL space_get_ilumination(Space *s){
   if(!s) return FALSE;
 
@@ -299,7 +301,7 @@ BOOL space_get_ilumination(Space *s){
 }
 
 STATUS space_set_ilumination(Space *s, BOOL bool){
-  if(!s || bool==NULL) return ERROR;
+  if(!s || (bool!=0 && bool!=1)) return ERROR;
 
   s->ilumination=bool;
 

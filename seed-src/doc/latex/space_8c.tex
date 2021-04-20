@@ -11,7 +11,8 @@ Se encarga de los espacios del juego.
 {\ttfamily \#include \char`\"{}object.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}space.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}set.\+h\char`\"{}}\newline
-Include dependency graph for space.\+c\+:\nopagebreak
+Include dependency graph for space.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -79,14 +80,22 @@ int \mbox{\hyperlink{space_8c_acf12bc50824f01881abb273c22154069}{space\+\_\+get\
 const char $\ast$ \mbox{\hyperlink{space_8c_a51e854a2f9b35bd39e60c04ec5f03abd}{space\+\_\+get\+\_\+description}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
 \begin{DoxyCompactList}\small\item\em Obtiene la descrpicion del espacio. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a18eca058da6cdf20ae5eda9d122d992e}{space\+\_\+print}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
-\begin{DoxyCompactList}\small\item\em muestra por pantalla el espacio creado \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em muestra por pantalla el espacio creado \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_acde1618fb0086b38f8363f31daa1a0cf}{space\+\_\+set\+\_\+detailed\+\_\+description}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space, char $\ast$descr)
+\begin{DoxyCompactList}\small\item\em cambias la descripción detallada de un espacio \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{space_8c_a9e76e4ca150bc83e21229520da2b236a}{space\+\_\+get\+\_\+detailed\+\_\+description}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$space)
+\begin{DoxyCompactList}\small\item\em Obtiene la descrpicion detallada del espacio. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{space_8c_ac6aedea8ad09297f080a24c9c7bc1186}{space\+\_\+get\+\_\+ilumination}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$s)
+\begin{DoxyCompactList}\small\item\em Obtiene la iluminación del espacio. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{space_8c_a9a0dab394b1684ae209206e29aabf30c}{space\+\_\+set\+\_\+ilumination}} (\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$s, \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} bool)
+\begin{DoxyCompactList}\small\item\em Establece la iluminación del espacio. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Se encarga de los espacios del juego. 
 
 \begin{DoxyAuthor}{Author}
-Profesores Pprog,Álvaro Rodríguez, Gonzalo Martín 
+Profesores Pprog,Álvaro Rodríguez, Gonzalo Martín, Alberto Vicente 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
 2.\+0 
@@ -177,6 +186,32 @@ Gonzalo Martín
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 const char devuelve la descrpicion del objeto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{space_8c_a9e76e4ca150bc83e21229520da2b236a}\label{space_8c_a9e76e4ca150bc83e21229520da2b236a}} 
+\index{space.c@{space.c}!space\_get\_detailed\_description@{space\_get\_detailed\_description}}
+\index{space\_get\_detailed\_description@{space\_get\_detailed\_description}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_detailed\_description()}{space\_get\_detailed\_description()}}
+{\footnotesize\ttfamily const char$\ast$ space\+\_\+get\+\_\+detailed\+\_\+description (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space }\end{DoxyParamCaption})}
+
+
+
+Obtiene la descrpicion detallada del espacio. 
+
+object\+\_\+get\+\_\+detailed\+\_\+descriptionsirve para obtener la descrpicion del espacio
+
+\begin{DoxyDate}{Date}
+20-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martín
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & recibe un puntero a la estructura de datos espacio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const char devuelve la descrpicion detallada del objeto 
 \end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_a4d89aa2d83593a4aa00aa67fee6c05cf}\label{space_8c_a4d89aa2d83593a4aa00aa67fee6c05cf}} 
 \index{space.c@{space.c}!space\_get\_down@{space\_get\_down}}
@@ -281,6 +316,32 @@ Profesores P\+P\+R\+OG
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 space-\/$>$id la id del espacio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{space_8c_ac6aedea8ad09297f080a24c9c7bc1186}\label{space_8c_ac6aedea8ad09297f080a24c9c7bc1186}} 
+\index{space.c@{space.c}!space\_get\_ilumination@{space\_get\_ilumination}}
+\index{space\_get\_ilumination@{space\_get\_ilumination}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_get\_ilumination()}{space\_get\_ilumination()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} space\+\_\+get\+\_\+ilumination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Obtiene la iluminación del espacio. 
+
+space\+\_\+get\+\_\+ilumination sirve para obtener la iluminación del espacio
+
+\begin{DoxyDate}{Date}
+20-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & recibe un puntero a la estructura de datos espacio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+B\+O\+OL devuelve T\+R\+UE or F\+A\+L\+SE dependiendo si está iluminado o no el espacio 
 \end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_a310c540cd6e11073f7328add1f927001}\label{space_8c_a310c540cd6e11073f7328add1f927001}} 
 \index{space.c@{space.c}!space\_get\_name@{space\_get\_name}}
@@ -556,7 +617,7 @@ OK o E\+R\+R\+OR segun si se ha eliminado correctamente el objeto o no.
 
 cambias la descripción de un espacio 
 
-space\+\_\+set\+\_\+gdesc cambias la descripción un espacio
+space\+\_\+set\+\_\+descripcion cambias la descripción un espacio
 
 \begin{DoxyDate}{Date}
 12-\/04-\/2021 
@@ -569,6 +630,34 @@ Gonzalo Martin
 {\em space} & el espacio que se trabaja \\
 \hline
 {\em descr} & descripcion del espacio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK o E\+R\+R\+OR segun si se ha cambiado la descripción o no. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{space_8c_acde1618fb0086b38f8363f31daa1a0cf}\label{space_8c_acde1618fb0086b38f8363f31daa1a0cf}} 
+\index{space.c@{space.c}!space\_set\_detailed\_description@{space\_set\_detailed\_description}}
+\index{space\_set\_detailed\_description@{space\_set\_detailed\_description}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_detailed\_description()}{space\_set\_detailed\_description()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+detailed\+\_\+description (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{space,  }\item[{char $\ast$}]{descr }\end{DoxyParamCaption})}
+
+
+
+cambias la descripción detallada de un espacio 
+
+space\+\_\+set\+\_\+detailed\+\_\+description cambias la descripción detallada un espacio
+
+\begin{DoxyDate}{Date}
+20-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Gonzalo Martin
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em space} & el espacio que se trabaja \\
+\hline
+{\em descr} & descripcion detallada del espacio \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -657,6 +746,34 @@ space\+\_\+set\+\_\+gdesc cambias la descripción grafica de un espacio
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 OK o E\+R\+R\+OR segun si se ha cambiado la descripción o no. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{space_8c_a9a0dab394b1684ae209206e29aabf30c}\label{space_8c_a9a0dab394b1684ae209206e29aabf30c}} 
+\index{space.c@{space.c}!space\_set\_ilumination@{space\_set\_ilumination}}
+\index{space\_set\_ilumination@{space\_set\_ilumination}!space.c@{space.c}}
+\doxysubsubsection{\texorpdfstring{space\_set\_ilumination()}{space\_set\_ilumination()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} space\+\_\+set\+\_\+ilumination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} bool}]{ }\end{DoxyParamCaption})}
+
+
+
+Establece la iluminación del espacio. 
+
+space\+\_\+set\+\_\+ilumination sirve para establecer la iluminación del espacio
+
+\begin{DoxyDate}{Date}
+20-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & recibe un puntero a la estructura de datos espacio \\
+\hline
+{\em bool} & recibe el tipo booleano que se quiere implementar en space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK o E\+R\+R\+OR segun si se ha cambiado la iluminación o no. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{space_8c_aab5b468f9822ab78dbe16d1321870d93}\label{space_8c_aab5b468f9822ab78dbe16d1321870d93}} 
 \index{space.c@{space.c}!space\_set\_name@{space\_set\_name}}

@@ -12,7 +12,7 @@
 #define COMMAND_H
 
 #define N_CMDT 2 /*!<Tipos de representación de los comandos*/
-#define N_CMD 12 /*!<Numero de comandos*/
+#define N_CMD 14 /*!<Numero de comandos*/
 
 #include "types.h"
 /**
@@ -48,7 +48,9 @@ typedef enum enum_Command {
   ROLL,		/*!< ROLL = 6*/
   RIGHT,		/*!< RIGHT = 7*/
   LEFT,			/*!< LEFT = 8*/
-  INSPECT  /*!< INSPECT = 9*/
+  INSPECT,  /*!< INSPECT = 9*/
+  UP, /*!< UP = 10*/
+  DOWN /*!< DOWN = 11*/
   } T_Command;	
 /**
  * @brief obtiene la entrada del usuario.

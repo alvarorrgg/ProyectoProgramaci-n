@@ -21,7 +21,7 @@
 #s:21|Casilla 21|20|25|21|17|-1|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|21-21-21|
 #s:22|Casilla 22|21|1|22|-1|-1|-1|^-----^|\O   O/|  \M/  |Casilla de la muerte|22-22-22|
 #s:23|Casilla 23|22|-1|23|-1|-1|-1|       |       |       |Estas en la casilla 23|23-23-23|
-#s:24|Casilla 24|23|-1|24|-1|-1|-1|       |       |       |Estas en la casilla24|24-24-24|
+#s:24|Casilla 24|23|-1|24|-1|1|-1|       |       |       |Estas en la casilla24|24-24-24|
 #s:25|Casilla 25|24|-1|-1|17|-1|-1|       |<o)_// | \_#/  |LLegaste a la ultima casilla|25-25-25|
 #o:1|Rojo|1|Token Rojo|1|2|1|
 #o:2|Azul|1|Token Azul|1|-1|30|
@@ -67,6 +67,7 @@
 #l:29|Lnk 29|21|25|0|
 #l:30|Lnk 30|8|16|1|
 #l:31|Lnk 31|22|1|0|
+#l:32|Lnk 32|24|1|0|
 
 
 

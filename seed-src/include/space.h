@@ -2,7 +2,7 @@
  * @brief Archivo cabecera de space.c en el se encuentra definidas los datos y funciones de space.c
  * 
  * @file space.h
- * @author Profesores PPROG, Álvaro Rodríguez, Gonzalo Martín
+ * @author Profesores PPROG, Álvaro Rodríguez, Gonzalo Martín, Alberto Vicente
  * @version 1.0 
  * @date 13-01-2015
  * @copyright GNU Public License
@@ -404,6 +404,33 @@ STATUS space_set_detailed_description(Space* space , char* descr);
  * @param space recibe un puntero a la estructura de datos espacio
  * @return const char devuelve la descrpicion detallada del objeto
  */
- const char* space_get_detailed_descriptionSpace* space);
+ const char* space_get_detailed_description(Space* space);
+
+/**
+ * @brief Obtiene la iluminación del espacio
+ *
+ * space_get_ilumination sirve para obtener la iluminación del espacio
+ *
+ * @date 20-04-2021
+ * @author Alberto Vicente
+ *
+ * @param s recibe un puntero a la estructura de datos espacio
+ * @return BOOL devuelve TRUE or FALSE dependiendo si está iluminado o no el espacio
+ */
+ BOOL space_get_ilumination(Space *s);
+
+/**
+ * @brief Establece la iluminación del espacio
+ *
+ * space_set_ilumination sirve para establecer la iluminación del espacio
+ *
+ * @date 20-04-2021
+ * @author Alberto Vicente
+ *
+ * @param s recibe un puntero a la estructura de datos espacio
+ * @param bool recibe el tipo booleano que se quiere implementar en space
+ * @return OK o ERROR segun si se ha cambiado la iluminación o no.
+ */
+STATUS space_set_ilumination(Space *s, BOOL bool);
 
 #endif

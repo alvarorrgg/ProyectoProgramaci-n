@@ -10,7 +10,8 @@ Sirve para el manejo de objetos.
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}object.\+h\char`\"{}}\newline
-Include dependency graph for object.\+c\+:\nopagebreak
+Include dependency graph for object.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -55,6 +56,14 @@ const char $\ast$ \mbox{\hyperlink{object_8c_a4b26ef1ec7057673899b58a5bf55f06a}{
 \begin{DoxyCompactList}\small\item\em Devuelve si el objeto abre algun link. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8c_ab9cf5e665812bf96f81cdd65d4044fbf}{object\+\_\+set\+\_\+link\+\_\+open}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em Cambia el link que abre un objeto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{object_8c_acc6ae3dfd6f49bafd7d5d4574e346b62}{object\+\_\+get\+\_\+iluminate}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Devuelve si el objeto puede iluminar o no. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8c_aca0faa5f655962968edc4021b0d9cd9a}{object\+\_\+set\+\_\+iluminate}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object, \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} bol)
+\begin{DoxyCompactList}\small\item\em Cambia la caracteristica de iluminar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{object_8c_ad2fa3f15748ade7044ede1db75cc01fc}{object\+\_\+get\+\_\+turnedon}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
+\begin{DoxyCompactList}\small\item\em Devuelve si el objeto puede iluminar o no. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8c_a7ade2e36c7298e2952071ca15524ec13}{object\+\_\+set\+\_\+turnedon}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object, \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} bol)
+\begin{DoxyCompactList}\small\item\em Cambia la caracteristica de iluminar. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{object_8c_adebb77fb5d33fc70616ab3b2b64c27ce}{object\+\_\+print}} (\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$object)
 \begin{DoxyCompactList}\small\item\em Escribe los atributos del objeto. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -235,6 +244,32 @@ Gonzalo Martín
 \begin{DoxyReturn}{Returns}
 el Id del objeto con el nobre pasado por argumento 
 \end{DoxyReturn}
+\mbox{\Hypertarget{object_8c_acc6ae3dfd6f49bafd7d5d4574e346b62}\label{object_8c_acc6ae3dfd6f49bafd7d5d4574e346b62}} 
+\index{object.c@{object.c}!object\_get\_iluminate@{object\_get\_iluminate}}
+\index{object\_get\_iluminate@{object\_get\_iluminate}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_iluminate()}{object\_get\_iluminate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} object\+\_\+get\+\_\+iluminate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+
+Devuelve si el objeto puede iluminar o no. 
+
+object\+\_\+get\+\_\+iluminate devuelve si el objeto puede iluminar
+
+\begin{DoxyDate}{Date}
+20-\/04-\/20 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez Rodrigo
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE O F\+A\+L\+SE segun si se puede o no mover. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{object_8c_ad62b7abaa38827f6965e128b2fafdd7f}\label{object_8c_ad62b7abaa38827f6965e128b2fafdd7f}} 
 \index{object.c@{object.c}!object\_get\_link\_open@{object\_get\_link\_open}}
 \index{object\_get\_link\_open@{object\_get\_link\_open}!object.c@{object.c}}
@@ -312,6 +347,32 @@ object\+\_\+get\+\_\+name sirve para obtener el nombre de un objeto.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 const char devuelve el nombre del objeto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8c_ad2fa3f15748ade7044ede1db75cc01fc}\label{object_8c_ad2fa3f15748ade7044ede1db75cc01fc}} 
+\index{object.c@{object.c}!object\_get\_turnedon@{object\_get\_turnedon}}
+\index{object\_get\_turnedon@{object\_get\_turnedon}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_get\_turnedon()}{object\_get\_turnedon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} object\+\_\+get\+\_\+turnedon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object }\end{DoxyParamCaption})}
+
+
+
+Devuelve si el objeto puede iluminar o no. 
+
+object\+\_\+get\+\_\+turnedon devuelve si el objeto que puede iluminar esta iluminado
+
+\begin{DoxyDate}{Date}
+20-\/04-\/20 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez Rodrigo
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE O F\+A\+L\+SE segun si se puede o no mover. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{object_8c_adebb77fb5d33fc70616ab3b2b64c27ce}\label{object_8c_adebb77fb5d33fc70616ab3b2b64c27ce}} 
 \index{object.c@{object.c}!object\_print@{object\_print}}
@@ -423,6 +484,34 @@ object\+\_\+set\+\_\+id sirve para cambiar la posición de un objeto
 \begin{DoxyReturn}{Returns}
 S\+T\+A\+T\+US devuelve un tipo de dato S\+T\+A\+T\+US que es OK si se ejecuta la función sin errores y E\+R\+R\+OR si detecta algun error. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{object_8c_aca0faa5f655962968edc4021b0d9cd9a}\label{object_8c_aca0faa5f655962968edc4021b0d9cd9a}} 
+\index{object.c@{object.c}!object\_set\_iluminate@{object\_set\_iluminate}}
+\index{object\_set\_iluminate@{object\_set\_iluminate}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_iluminate()}{object\_set\_iluminate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} object\+\_\+set\+\_\+iluminate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object,  }\item[{\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}}}]{bol }\end{DoxyParamCaption})}
+
+
+
+Cambia la caracteristica de iluminar. 
+
+object\+\_\+set\+\_\+iluminate modfica la iluminación
+
+\begin{DoxyDate}{Date}
+20-\/04-\/20 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez Rodrigo
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+{\em bol} & nuevo valor del movimiento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK o E\+R\+R\+OR segun si se ha realizado de manera correcta. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{object_8c_ab9cf5e665812bf96f81cdd65d4044fbf}\label{object_8c_ab9cf5e665812bf96f81cdd65d4044fbf}} 
 \index{object.c@{object.c}!object\_set\_link\_open@{object\_set\_link\_open}}
 \index{object\_set\_link\_open@{object\_set\_link\_open}!object.c@{object.c}}
@@ -506,4 +595,32 @@ object\+\_\+set\+\_\+name sirve para cambiar el nombre del objeto
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 S\+T\+A\+T\+US devuelve un tipo de dato S\+T\+A\+T\+US que es OK si se ejecuta la función sin errores y E\+R\+R\+OR si detecta algun error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{object_8c_a7ade2e36c7298e2952071ca15524ec13}\label{object_8c_a7ade2e36c7298e2952071ca15524ec13}} 
+\index{object.c@{object.c}!object\_set\_turnedon@{object\_set\_turnedon}}
+\index{object\_set\_turnedon@{object\_set\_turnedon}!object.c@{object.c}}
+\doxysubsubsection{\texorpdfstring{object\_set\_turnedon()}{object\_set\_turnedon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} object\+\_\+set\+\_\+turnedon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$}]{object,  }\item[{\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}}}]{bol }\end{DoxyParamCaption})}
+
+
+
+Cambia la caracteristica de iluminar. 
+
+object\+\_\+set\+\_\+turnedon modfica si el objeto que puede iluminarse esta iluminado
+
+\begin{DoxyDate}{Date}
+20-\/04-\/20 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez Rodrigo
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & recibe un puntero a la estructura de datos objeto \\
+\hline
+{\em bol} & nuevo valor del movimiento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK o E\+R\+R\+OR segun si se ha realizado de manera correcta. 
 \end{DoxyReturn}
