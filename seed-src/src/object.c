@@ -111,7 +111,7 @@ STATUS object_set_description(Object* object , char* descr){
 
  }
  BOOL object_get_movement(Object *object){
-   if(!object) return ERROR;
+   if(!object) return FALSE;
      return object->movement;
    
  }
@@ -123,7 +123,7 @@ STATUS object_set_description(Object* object , char* descr){
  }
 
 Id object_get_dependency(Object *object){
-   if(!object) return ERROR;
+   if(!object) return -1;
      return object->dependency;
    
  }
@@ -135,7 +135,7 @@ Id object_get_dependency(Object *object){
  }
 
  Id object_get_link_open(Object *object){
-   if(!object) return ERROR;
+   if(!object) return -1;
      return object->open_link;
    
  }
@@ -147,7 +147,7 @@ Id object_get_dependency(Object *object){
  }
 
  BOOL object_get_iluminate(Object *object){
-   if(!object) return ERROR;
+   if(!object) return FALSE;
      return object->illuminate;
    
  }
@@ -160,7 +160,7 @@ Id object_get_dependency(Object *object){
 
 
  BOOL object_get_turnedon(Object *object){
-   if(!object) return ERROR;
+   if(!object) return FALSE;
      return object->turnedon;
    
  }

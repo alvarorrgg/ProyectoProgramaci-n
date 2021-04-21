@@ -270,7 +270,7 @@ STATUS object_set_iluminate(Object *object,BOOL bol);
  */
  BOOL object_get_turnedon(Object *object);
   /**
- * @brief Cambia la caracteristica de iluminar
+ * @brief Cambia la caracteristica de si un objeto esta o no iluminado
  *
  * object_set_turnedon modfica si el objeto que puede iluminarse esta iluminado
  *

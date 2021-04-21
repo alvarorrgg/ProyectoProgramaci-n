@@ -117,7 +117,9 @@ STATUS game_reader_load_objects(Game *game, char *filename)
   char line[WORD_SIZE] = "";
   char name[WORD_SIZE] = "";
   char descr[LEN_DES] = "";
-  BOOL bol=FALSE;
+  BOOL move=FALSE;
+  BOOL ilum=FALSE;
+  BOOL turnOn=FALSE;
   Id dependency=-1;
   Id link_open=-1;
   char *toks = NULL;
@@ -147,13 +149,18 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       toks = strtok(NULL, "|");
       strcpy (descr , toks);
       toks = strtok(NULL, "|");
-      bol=atol(toks);
+      move=atol(toks);
       toks = strtok(NULL, "|");
       dependency=atol(toks);
       toks = strtok(NULL, "|");
       link_open=atol(toks);
+      toks = strtok(NULL, "|");
+      ilum=atol(toks);
+      toks = strtok(NULL, "|");
+      turnOn=atol(toks);
+
 #ifdef DEBUG
-      printf("Leido: %ld|%s|%ld|%i|%li\n", id, name, pos_obj,bol,dependency);
+      printf("Leido: %ld|%s|%ld|%i|%li\n", id, name, pos_obj,move,dependency);
 #endif
       object = object_create(id);
       if(!object) return ERROR;
@@ -161,9 +168,11 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       {
         object_set_description (object , descr);
         object_set_name(object, name);
-        object_set_movement(object,bol);
+        object_set_movement(object,move);
         object_set_dependency(object,dependency);
         object_set_link_open(object,link_open);
+        object_set_iluminate(object,ilum);
+        object_set_turnedon(object,turnOn);
         if(strlen(name)>7){ /*Comprueba si el nombre del objeto se pasa del límite*/
           printf("El nombre de un objeto no puede tener mas de 7 caracteres");
           return ERROR;

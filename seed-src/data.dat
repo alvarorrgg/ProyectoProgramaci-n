@@ -1,9 +1,9 @@
 #s:1|Casilla 1|-1|-1|1|-1|-1|-1|       |       |       |Estas en la casilla 1|Primera casilla de la oca. Es donde empieza el jugador el juego|
-#s:2|Casilla 2|1|-1|2|-1|-1|-1|      |       |       |Estas en la casilla 2|Segunda casilla de la oca. Sería la segunda casilla en la que estará el jugador| |
+#s:2|Casilla 2|1|-1|2|-1|-1|-1|       |       |       |Estas en la casilla 2|Segunda casilla de la oca. Sería la segunda casilla en la que estará el jugador|
 #s:3|Casilla 3|2|-1|3|-1|-1|-1|       |       |       |Estas en la casilla 3|ubecubdcd|
 #s:4|Casilla 4|3|-1|4|-1|-1|-1|       |       |       |Estas en la casilla 4|bcdcdcdcd|
 #s:5|Casilla 5|4|9|5|-1|-1|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|icduciec|
-#s:6|Casilla 6|5|-1|6|-1|-1|-1|      |       |       |Estas en la casilla 6|ieufcekifc|
+#s:6|Casilla 6|5|-1|6|-1|-1|-1|       |       |       |Estas en la casilla 6|ieufcekifc|
 #s:7|Casilla 7|6|-1|7|-1|-1|-1|       |       |       |Estas en la casilla 7|777777777|
 #s:8|Casilla 8|7|16|8|-1|-1|-1|  ___  | /   \ |/ / \ \|De puente a puente y tiro    porque me llava la corriente|88888888888|
 #s:9|Casilla 9|8|13|9|5|-1|-1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|999999|
@@ -23,18 +23,18 @@
 #s:23|Casilla 23|22|-1|23|-1|-1|-1|       |       |       |Estas en la casilla 23|23-23-23|
 #s:24|Casilla 24|23|-1|24|-1|1|-1|       |       |       |Estas en la casilla24|24-24-24|
 #s:25|Casilla 25|24|-1|-1|17|-1|-1|       |<o)_// | \_#/  |LLegaste a la ultima casilla|25-25-25|
-#o:1|Rojo|1|Token Rojo|1|2|1|
-#o:2|Azul|1|Token Azul|1|-1|30|
-#o:3|Verde|1|Token Verde|1|-1|2|
-#o:4|Negro|1|Token Negro|1|-1|-1|
-#o:5|Ambar|3|Token Amabar|1|-1|25|
-#o:6|LLave|1|Token Llave|1|-1|-1|
-#o:7|Gris|1|Token Gris|1|-1|-1|
-#o:8|Silla|1|Token Silla|1|-1|-1|
-#o:9|Piedra|1|Token Piedra|1|-1|-1|
-#o:10|Lapiz|1|Token Lapiz|1|-1|-1|
-#o:11|Hoja|1|Token Hoja|1|-1|-1|
-#o:12|Dinero|1|Token Dinero|1|-1|-1|
+#o:1|Rojo|1|Token Rojo|1|2|1|0|0|
+#o:2|Azul|1|Token Azul|1|-1|-1|0|0|
+#o:3|Verde|1|Token Verde|1|-1|2|0|0|
+#o:4|Negro|1|Token Negro|1|-1|-1|0|0|
+#o:5|Ambar|3|Token Amabar|1|-1|25|0|0|
+#o:6|LLave|1|Token Llave|1|-1|-1|0|0|
+#o:7|Gris|1|Token Gris|1|-1|-1|0|0|
+#o:8|Silla|1|Token Silla|1|-1|-1|0|0|
+#o:9|Piedra|1|Token Piedra|1|-1|-1|0|0|
+#o:10|Lapiz|1|Token Lapiz|1|-1|-1|0|0|
+#o:11|Hoja|1|Token Hoja|1|-1|-1|0|0|
+#o:12|Dinero|1|Token Dinero|1|-1|-1|0|0|
 #p:1|ply1|1|15|
 #l:1|Lnk 1|1|2|1|
 #l:2|Lnk 2|2|3|1|

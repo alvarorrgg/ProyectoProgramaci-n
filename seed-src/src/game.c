@@ -552,7 +552,7 @@ void game_callback_next(Game *game)
     if (current_id == space_id)
     {
       
-
+      if(space_get_south(game->spaces[i])!=NULL){
       if(link_get_type(game->link[link_get_id(space_get_south(game->spaces[i]))-1])==CLOSE){
         command_set_status(game->command, ERROR);
         return;
@@ -562,7 +562,7 @@ void game_callback_next(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game->spaces[space_id]));
+        /*strcpy (game->last_descripcion , space_get_description (game->spaces[space_id]));*/
         command_set_status(game->command, OK);
         return ;
       }
@@ -571,6 +571,7 @@ void game_callback_next(Game *game)
         return;
       }
     }
+  }
   }
   command_set_status(game->command, OK);
   return;
@@ -597,6 +598,7 @@ void game_callback_back(Game *game)
 
     if (current_id == space_id)
     {
+      if(space_get_north(game->spaces[i])!=NULL){
        if(link_get_type(game->link[link_get_id(space_get_north(game->spaces[i]))-1])==CLOSE){
         command_set_status(game->command, ERROR);
         return;
@@ -606,7 +608,7 @@ void game_callback_back(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game->spaces[space_id]));
+        /*strcpy (game->last_descripcion , space_get_description (game->spaces[space_id]));*/
         command_set_status(game->command, OK);
         return ;
       }
@@ -615,6 +617,7 @@ void game_callback_back(Game *game)
         return;
       }
     }
+  }
   }
   command_set_status(game->command, OK);
   return;
@@ -650,7 +653,7 @@ void game_callback_right(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game->spaces[current_id]));
+        /*strcpy (game->last_descripcion , space_get_description (game->spaces[current_id]));*/
         command_set_status(game->command, OK);
         return ;
       }
@@ -694,7 +697,7 @@ void game_callback_left(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game->spaces[current_id]));
+        /*strcpy (game->last_descripcion , space_get_description (game->spaces[current_id]));*/
         command_set_status(game->command, OK);
         return ;
       }
@@ -895,7 +898,6 @@ void game_callback_move(Game *game)
 
 
 }
-
 void game_callback_inspect(Game *game){
   char name[WORD_SIZE];
   int i = 0;

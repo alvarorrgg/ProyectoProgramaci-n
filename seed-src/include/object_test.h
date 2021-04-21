@@ -171,5 +171,129 @@
  * @post Output == OK
  */
     void test2_object_print();
+ /**
+ * @test Función de prueba para object_get_movement
+ * @pre Inputs correctos
+ * @post Output == TRUE
+ */
+    void test1_object_get_movement();
+ /**
+ * @test Función de prueba para object_get_movement
+ * @pre object==NULL
+ * @post Output == FALSE
+ */
+    void test2_object_get_movement();
+/**
+ * @test Función de prueba para object_set_movement
+ * @pre object==NULL
+ * @post Output == ERROR
+ */
+    void test1_object_set_movement();
+/**
+ * @test Función de prueba para object_set_movement
+ * @pre Inputs correctos
+ * @post Output == OK
+ */
+    void test2_object_set_movement();
+
+/**
+ * @test Función de prueba para object_get_iluminate
+ * @pre Inputs correctos
+ * @post Output == TRUE
+ */
+    void test1_object_get_iluminate();
+ /**
+ * @test Función de prueba para object_get_iluminate
+ * @pre object==NULL
+ * @post Output == FALSE
+ */
+    void test2_object_get_iluminate();
+/**
+ * @test Función de prueba para object_set_iluminate
+ * @pre object==NULL
+ * @post Output == ERROR
+ */
+    void test1_object_set_iluminate();
+/**
+ * @test Función de prueba para object_set_iluminate
+ * @pre Inputs correctos
+ * @post Output == OK
+ */
+    void test2_object_set_iluminate();
+
+ /**
+ * @test Función de prueba para object_get_turnedon
+ * @pre Inputs correctos
+ * @post Output == TRUE
+ */
+    void test1_object_get_turnedon();
+ /**
+ * @test Función de prueba para object_get_turnedon
+ * @pre object==NULL
+ * @post Output == FALSE
+ */
+    void test2_object_get_turnedon();
+/**
+ * @test Función de prueba para object_set_turnedon
+ * @pre object==NULL
+ * @post Output == ERROR
+ */
+    void test1_object_set_turnedon();
+/**
+ * @test Función de prueba para object_set_turnedon
+ * @pre Inputs correctos
+ * @post Output == OK
+ */
+    void test2_object_set_turnedon();
+/**
+ * @test Función de prueba para object_set_dependency
+ * @pre object==NULL
+ * @post Output == ERROR
+ */
+    void test1_object_set_dependency();
+/**
+ * @test Función de prueba para object_set_dependency
+ * @pre Inputs correctos
+ * @post Output == OK
+ */
+    void test2_object_set_dependency();
+/**
+ * @test Función de prueba para object_get_dependency
+ * @pre Inputs correctos
+ * @post Output == 5
+ */
+    void test1_object_get_dependency();
+ /**
+ * @test Función de prueba para object_get_dependency
+ * @pre object==NULL
+ * @post Output == -1
+ */
+    void test2_object_get_dependency();
+
+/**
+ * @test Función de prueba para object_set_link_open
+ * @pre object==NULL
+ * @post Output == ERROR
+ */
+    void test1_object_set_link_open();
+/**
+ * @test Función de prueba para object_set_link_open
+ * @pre Inputs correctos
+ * @post Output == OK
+ */
+    void test2_object_set_link_open();
+/**
+ * @test Función de prueba para object_get_link_open
+ * @pre Inputs correctos
+ * @post Output == 5
+ */
+    void test1_object_get_link_open();
+ /**
+ * @test Función de prueba para object_get_link_open
+ * @pre object==NULL
+ * @post Output == -1
+ */
+    void test2_object_get_link_open();
+
 
 #endif

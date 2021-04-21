@@ -78,6 +78,31 @@ int/**
   if (all || test == 22) test1_object_print();
   if (all || test == 23) test2_object_print();
 
+  if (all || test == 24) test1_object_get_movement();
+  if (all || test == 25) test2_object_get_movement();
+  if (all || test == 26) test1_object_set_movement();
+  if (all || test == 27) test2_object_set_movement();
+
+  if (all || test == 28) test1_object_get_iluminate();
+  if (all || test == 29) test2_object_get_iluminate();
+  if (all || test == 30) test1_object_set_iluminate();
+  if (all || test == 31) test2_object_set_iluminate();
+
+  if (all || test == 32) test1_object_get_turnedon();
+  if (all || test == 33) test2_object_get_turnedon();
+  if (all || test == 34) test1_object_set_turnedon();
+  if (all || test == 35) test2_object_set_turnedon();
+
+  if (all || test == 36) test1_object_get_dependency();
+  if (all || test == 37) test2_object_get_dependency();
+  if (all || test == 38) test1_object_set_dependency();
+  if (all || test == 39) test2_object_set_dependency();
+
+  if (all || test == 40) test1_object_get_link_open();
+  if (all || test == 41) test2_object_get_link_open();
+  if (all || test == 42) test1_object_set_link_open();
+  if (all || test == 43) test2_object_set_link_open();
+
   PRINT_PASSED_PERCENTAGE;
 
   return 1;
@@ -269,4 +294,149 @@ void test2_object_print(){
 
     PRINT_TEST_RESULT(object_print(object) == OK);
     object_destroy(object);
+}
+
+
+void test1_object_get_movement(){
+    Object *object = object_create (05);
+    object_set_movement(object,TRUE) ;
+    
+    PRINT_TEST_RESULT(object_get_movement(object)==TRUE);
+    object_destroy (object);
+}
+void test2_object_get_movement(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_get_movement(object)==FALSE);
+    object_destroy (object);
+}
+
+void test1_object_set_movement(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_set_movement(object,TRUE)==ERROR);
+}
+
+void test2_object_set_movement(){
+   Object *object = object_create (05);
+    
+    PRINT_TEST_RESULT(object_set_movement(object,TRUE)==OK);
+    object_destroy (object);
+}
+
+void test1_object_get_iluminate(){
+    Object *object = object_create (05);
+    object_set_iluminate(object,TRUE) ;
+    
+    PRINT_TEST_RESULT(object_get_iluminate(object)==TRUE);
+    object_destroy (object);
+}
+
+void test2_object_get_iluminate(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_get_iluminate(object)==FALSE);
+    object_destroy (object);
+}
+
+void test1_object_set_iluminate(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_set_iluminate(object,TRUE)==ERROR);
+}
+
+void test2_object_set_iluminate(){
+   Object *object = object_create (05);
+    
+    PRINT_TEST_RESULT(object_set_iluminate(object,TRUE)==OK);
+    object_destroy (object);
+}
+
+
+
+void test1_object_get_turnedon(){
+    Object *object = object_create (05);
+    object_set_turnedon(object,TRUE) ;
+    
+    PRINT_TEST_RESULT(object_get_turnedon(object)==TRUE);
+    object_destroy (object);
+}
+
+void test2_object_get_turnedon(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_get_turnedon(object)==FALSE);
+    object_destroy (object);
+}
+
+void test1_object_set_turnedon(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_set_turnedon(object,TRUE)==ERROR);
+}
+
+void test2_object_set_turnedon(){
+   Object *object = object_create (05);
+    
+    PRINT_TEST_RESULT(object_set_turnedon(object,TRUE)==OK);
+    object_destroy (object);
+}
+
+
+
+void test1_object_set_dependency(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_set_dependency (object , 05) == ERROR);
+} 
+void test2_object_set_dependency(){
+    Object *object = object_create (05);
+
+    PRINT_TEST_RESULT(object_set_dependency (object , 5) == OK);
+    object_destroy (object);
+}  
+
+void test1_object_get_dependency(){
+    Object *object = object_create (05);
+    object_set_dependency(object,5) ;
+    
+    PRINT_TEST_RESULT(object_get_dependency(object)==5);
+    object_destroy (object);
+}
+
+void test2_object_get_dependency(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_get_dependency(object)==-1);
+    object_destroy (object);
+}
+
+
+
+void test1_object_set_link_open(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_set_link_open (object , 05) == ERROR);
+} 
+
+void test2_object_set_link_open(){
+    Object *object = object_create (05);
+
+    PRINT_TEST_RESULT(object_set_link_open (object , 5) == OK);
+    object_destroy (object);
+}  
+
+void test1_object_get_link_open(){
+    Object *object = object_create (05);
+    object_set_link_open(object,5) ;
+    
+    PRINT_TEST_RESULT(object_get_link_open(object)==5);
+    object_destroy (object);
+}
+
+void test2_object_get_link_open(){
+    Object *object = NULL;
+    
+    PRINT_TEST_RESULT(object_get_link_open(object)==-1);
+    object_destroy (object);
 }
