@@ -556,7 +556,7 @@ void game_callback_next(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        /*strcpy (game->last_descripcion , space_get_description (game->spaces[space_id]));*/
+        strcpy (game->last_descripcion , space_get_description (game->spaces[current_id - 01]));
         command_set_status(game->command, OK);
         return ;
       }
@@ -602,7 +602,7 @@ void game_callback_back(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        /*strcpy (game->last_descripcion , space_get_description (game->spaces[space_id]));*/
+        strcpy (game->last_descripcion , space_get_description (game->spaces[current_id - 01]));
         command_set_status(game->command, OK);
         return ;
       }
@@ -647,7 +647,7 @@ void game_callback_right(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        /*strcpy (game->last_descripcion , space_get_description (game->spaces[current_id]));*/
+        strcpy (game->last_descripcion , space_get_description (game->spaces[current_id - 01]));
         command_set_status(game->command, OK);
         return ;
       }
@@ -691,7 +691,7 @@ void game_callback_left(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        /*strcpy (game->last_descripcion , space_get_description (game->spaces[current_id]));*/
+        strcpy (game->last_descripcion , space_get_description (game->spaces[current_id - 01]));
         command_set_status(game->command, OK);
         return ;
       }
@@ -922,9 +922,15 @@ void game_callback_inspect(Game *game){
     for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL ; i++){
       space_id = space_get_id (game->spaces[i]);
       if (current_id == space_id){
-        strcpy (game->last_descripcion , space_get_description (game->spaces[i]));
-        command_set_status(game->command, OK);
-        return;
+        if(space_get_ilumination(game->spaces[i]) == TRUE){   
+          strcpy (game->last_descripcion , space_get_detailed_description (game->spaces[i]));
+          command_set_status(game->command, OK);
+          return;
+        }
+        else {
+          command_set_status(game->command, ERROR);
+          return;
+        }
       }
     }
     command_set_status(game->command, ERROR);
@@ -944,9 +950,15 @@ void game_callback_inspect(Game *game){
 
   /*Comprobamos si el objeto lo tenemos enn la mochila o esta en el mismo espacio en el que esta el jugador*/
   if (game_get_player_location (game) == game_get_object_location (game , id) || inventory_search_object (player_get_inventory(game->player) , id) ==TRUE){
-    game_set_last_description (game , (char *) object_get_description (game->objects[i])); /*Ponemos la ultima descripcion a la que tenga el objecto*/
-    command_set_status(game->command, OK);
-    return;
+    if(object_get_iluminate(game->objects[i]) == TRUE){  /*Comprobamos si el espacio esta iluminado*/
+      game_set_last_description (game , (char *) object_get_description (game->objects[i])); /*Ponemos la ultima descripcion a la que tenga el objecto*/
+      command_set_status(game->command, OK);
+      return;
+    }
+    else {
+      command_set_status(game->command, ERROR);
+      return;
+    }
   }
   else{
     command_set_status(game->command, ERROR);
