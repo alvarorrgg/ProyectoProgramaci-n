@@ -30,16 +30,20 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   STATUS status = OK;
 
   gdesc = (char **)malloc(3 * sizeof(char *));
-  if (!gdesc) return ERROR;
+  if (!gdesc)
+    return ERROR;
 
   gdesc[0] = (char *)malloc(9 * sizeof(char));
-  if (!gdesc[0]) return ERROR;
+  if (!gdesc[0])
+    return ERROR;
 
   gdesc[1] = (char *)malloc(9 * sizeof(char));
-  if (!gdesc[1]) return ERROR;
+  if (!gdesc[1])
+    return ERROR;
 
   gdesc[2] = (char *)malloc(9 * sizeof(char));
-  if (!gdesc[2]) return ERROR;
+  if (!gdesc[2])
+    return ERROR;
 
   if (!game || !filename)
     return ERROR;
@@ -94,8 +98,8 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
         space_set_down(space, NULL);
         space_set_gdesc(space, gdesc);
         game_add_space(game, space);
-        space_set_description (space , descr);
-        space_set_detailed_description (space , detail_descr);
+        space_set_description(space, descr);
+        space_set_detailed_description(space, detail_descr);
       }
     }
   }
@@ -113,24 +117,26 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
 STATUS game_reader_load_objects(Game *game, char *filename)
 {
   FILE *file = NULL;
-  int i = 0,j=0;
+  int i = 0, j = 0;
   char line[WORD_SIZE] = "";
   char name[WORD_SIZE] = "";
   char descr[LEN_DES] = "";
-  BOOL move=FALSE;
-  BOOL ilum=FALSE;
-  BOOL turnOn=FALSE;
-  Id dependency=-1;
-  Id link_open=-1;
+  BOOL move = FALSE;
+  BOOL ilum = FALSE;
+  BOOL turnOn = FALSE;
+  Id dependency = -1;
+  Id link_open = -1;
   char *toks = NULL;
   Id id = NO_ID, pos_obj = NO_ID;
   Object *object = NULL;
   STATUS status = OK;
 
-  if (!game || !filename) return ERROR;
+  if (!game || !filename)
+    return ERROR;
 
   file = fopen(filename, "r");
-  if (!file) return ERROR;
+  if (!file)
+    return ERROR;
 
   while (fgets(line, WORD_SIZE, file)) /*Mientras haya información del objeto para leer, se leerá*/
   {
@@ -140,46 +146,52 @@ STATUS game_reader_load_objects(Game *game, char *filename)
       id = atol(toks);
       toks = strtok(NULL, "|");
       strcpy(name, toks);
-      if(strcmp(name , "space") == 0 || strcmp(name , "Space") == 0 || strcmp(name , "s") == 0){/*comprobar que no sea un nombre de objeto incorrecto*/
+      if (strcmp(name, "space") == 0 || strcmp(name, "Space") == 0 || strcmp(name, "s") == 0)
+      { /*comprobar que no sea un nombre de objeto incorrecto*/
         printf("No puede haber un objeto llamado 'space' , 'Space' o 's'\n");
         return ERROR;
       }
       toks = strtok(NULL, "|");
       pos_obj = atol(toks);
       toks = strtok(NULL, "|");
-      strcpy (descr , toks);
+      strcpy(descr, toks);
       toks = strtok(NULL, "|");
-      move=atol(toks);
+      move = atol(toks);
       toks = strtok(NULL, "|");
-      dependency=atol(toks);
+      dependency = atol(toks);
       toks = strtok(NULL, "|");
-      link_open=atol(toks);
+      link_open = atol(toks);
       toks = strtok(NULL, "|");
-      ilum=atol(toks);
+      ilum = atol(toks);
       toks = strtok(NULL, "|");
-      turnOn=atol(toks);
+      turnOn = atol(toks);
 
 #ifdef DEBUG
-      printf("Leido: %ld|%s|%ld|%i|%li\n", id, name, pos_obj,move,dependency);
+      printf("Leido: %ld|%s|%ld|%i|%li\n", id, name, pos_obj, move, dependency);
 #endif
       object = object_create(id);
-      if(!object) return ERROR;
+      if (!object)
+        return ERROR;
       if (pos_obj != NO_ID) /*Si la posición del object es válida implementa al objeto todo lo leido*/
       {
-        object_set_description (object , descr);
+        object_set_description(object, descr);
         object_set_name(object, name);
-        object_set_movement(object,move);
-        object_set_dependency(object,dependency);
-        object_set_link_open(object,link_open);
-        object_set_iluminate(object,ilum);
-        object_set_turnedon(object,turnOn);
-        if(strlen(name)>7){ /*Comprueba si el nombre del objeto se pasa del límite*/
+        object_set_movement(object, move);
+        object_set_dependency(object, dependency);
+        object_set_link_open(object, link_open);
+        object_set_iluminate(object, ilum);
+        object_set_turnedon(object, turnOn);
+        if (strlen(name) > 7)
+        { /*Comprueba si el nombre del objeto se pasa del límite*/
           printf("El nombre de un objeto no puede tener mas de 7 caracteres");
           return ERROR;
         }
-        while ((i < MAX_OBJECTS) && (game_get_object(game,i) != NULL)) i++;
-        for (j = 0; j < i;j++){
-          if(strcmp(name,object_get_name(game_get_object(game,j)))==0){ /*Comprueba si hay dos objetos con el mismo nombre*/
+        while ((i < MAX_OBJECTS) && (game_get_object(game, i) != NULL))
+          i++;
+        for (j = 0; j < i; j++)
+        {
+          if (strcmp(name, object_get_name(game_get_object(game, j))) == 0)
+          { /*Comprueba si hay dos objetos con el mismo nombre*/
             printf("Has creado dos objetos con el mismo nombre: Cambia el nombre de los objetos");
             return ERROR;
           }
@@ -196,22 +208,23 @@ STATUS game_reader_load_objects(Game *game, char *filename)
   return status;
 }
 
-
 STATUS game_reader_load_players(Game *game, char *filename)
 {
   FILE *file = NULL;
   char line[WORD_SIZE] = "";
   char name[WORD_SIZE] = "";
   char *toks = NULL;
-  Id id = NO_ID,player_pos=NO_ID;
-  Player *player=NULL;
-  int max_objects=0;
+  Id id = NO_ID, player_pos = NO_ID;
+  Player *player = NULL;
+  int max_objects = 0;
   STATUS status = OK;
 
-  if (!game || !filename) return ERROR;
+  if (!game || !filename)
+    return ERROR;
 
   file = fopen(filename, "r");
-  if (file == NULL) return ERROR;
+  if (file == NULL)
+    return ERROR;
 
   while (fgets(line, WORD_SIZE, file)) /*Mientras haya información del jugador para leer, se leerá*/
   {
@@ -222,59 +235,66 @@ STATUS game_reader_load_players(Game *game, char *filename)
       toks = strtok(NULL, "|");
       strcpy(name, toks);
       toks = strtok(NULL, "|");
-      player_pos=atol(toks);
+      player_pos = atol(toks);
       toks = strtok(NULL, "|");
-      max_objects=atoi(toks);
-      
+      max_objects = atoi(toks);
+
 #ifdef DEBUG
-      printf("Leido: %ld|%s|%ld|%i|\n", id, name, player_pos,max_objects);
+      printf("Leido: %ld|%s|%ld|%i|\n", id, name, player_pos, max_objects);
 #endif
-      player=player_create(id);
-      if(!player) return ERROR;
-      if (player_pos != NO_ID)  /*Si la posición del player es válida implementa al jugador todo lo leido*/
+      player = player_create(id);
+      if (!player)
+        return ERROR;
+      if (player_pos != NO_ID) /*Si la posición del player es válida implementa al jugador todo lo leido*/
       {
         player_set_name(player, name);
-        if(strlen(name)>10){ /*Comprueba si el nombre del player se pasa del límite*/
+        if (strlen(name) > 10)
+        { /*Comprueba si el nombre del player se pasa del límite*/
           printf("El nombre del jugador no puede tener mas de 10 caracteres");
           return ERROR;
         }
-        if(player_pos==0) player_pos=1;
-        
-        player_set_location(player,player_pos);
-        player_set_inventory_max_capacity(player,max_objects);
-        game_add_player(game,player); /*Se implementa el jugador al juego*/
+        if (player_pos == 0)
+          player_pos = 1;
+
+        player_set_location(player, player_pos);
+        player_set_inventory_max_capacity(player, max_objects);
+        game_add_player(game, player); /*Se implementa el jugador al juego*/
       }
     }
   }
-  if (ferror(file)) status = ERROR;
+  if (ferror(file))
+    status = ERROR;
 
   fclose(file);
 
   return status;
 }
 
-STATUS game_reader_load_links(Game* game, char* filename) {
-  FILE* file = NULL;
+STATUS game_reader_load_links(Game *game, char *filename)
+{
+  FILE *file = NULL;
   char name[WORD_SIZE] = "";
   char line[WORD_SIZE] = "";
-  char* toks = NULL;
-  Id id = NO_ID,id_space1=0,id_space2=0;
+  char *toks = NULL;
+  Id id = NO_ID, id_space1 = 0, id_space2 = 0;
   Space *space1, *space2;
-  int flag=-1;
+  int flag = -1;
   TYPES gate = CLOSE;
-  Link *link1=NULL;
-  Link *link2=NULL;
-  
+  Link *link1 = NULL;
+  Link *link2 = NULL;
 
-  if (!game || !filename) return ERROR;
-  
+  if (!game || !filename)
+    return ERROR;
+
   file = fopen(filename, "r");
 
-  if (!file) return ERROR;
-  
+  if (!file)
+    return ERROR;
 
-  while (fgets(line, WORD_SIZE, file)) { /*Mientras haya información del enlacé para leer, se leerá*/
-    if (strncmp("#l:", line, 3) == 0) {
+  while (fgets(line, WORD_SIZE, file))
+  { /*Mientras haya información del enlacé para leer, se leerá*/
+    if (strncmp("#l:", line, 3) == 0)
+    {
       toks = strtok(line + 3, "|");
       id = atol(toks);
       toks = strtok(NULL, "|");
@@ -285,62 +305,89 @@ STATUS game_reader_load_links(Game* game, char* filename) {
       id_space2 = atol(toks);
       toks = strtok(NULL, "|");
       gate = atol(toks);
-  
-  
+
 #ifdef DEBUG
       printf("Leido: %ld|%s|%ld|%ld|%d\n", id, name, id_space1, id_space2, gate);
 #endif
       /*Estas lineas sirven para comprobar de que tipo de enlace estamos hablando, normal, oca, puente o muerte 
       Primero comprobaremos que tipo de enlace es, y mediante un flag lo guardamos, luego segun el tipo de enlace creamos 1 link o 2 links
       Y asi se hacen las uniones.*/
+  space1 = game_get_space(game, id_space1);
+        space2 = game_get_space(game, id_space2);
+      if (id != NO_ID)
+      {
+        if (id_space1 + 1 == id_space2)
+        {
+          flag = 1;
+          printf("Flag 1\n");
+        }
 
+        else if (id_space1 + 8 == id_space2)
+        {
+          flag = 2;
+          printf("Flag 2\n");
+        }
 
-      if (id != NO_ID) { 
-        if(id_space1 + 1 == id_space2)flag=1;
-        
-        else if(id_space1 +8 == id_space2) flag=2;      
+        else if (strcmp(space_get_detailed_description(space1), space_get_detailed_description(space2)) == 0)
+        {
+          flag = 4;
+          printf("Flag 4\n");
+        }
 
-        else flag=3;
-
+        else
+        {
+          flag = 3;
+          printf("Flag 3\n");
+        }
       }
-      else{
+      else
+      {
         return ERROR;
       }
-        if(flag==1 || flag==2){  /*en el caso de que se cumpla lo anterior, se implementa la información leida*/
-          space1=game_get_space(game,id_space1);
-          space2=game_get_space(game,id_space2);
-          link1=link_create(id);
-          link2=link_create(id);
-          link_set_name(link1,name);
-          link_set_name(link2,name);
-          link_set_id_to(link1,id_space2);
-          link_set_id_from(link1,id_space1);
-          link_set_id_to(link2,id_space1);
-          link_set_id_from(link2,id_space2);
-          link_set_type(link1,gate);
-          link_set_type(link2,gate);
-          game_add_link(game,link1);
+      if (flag == 1 || flag == 2 || flag == 4)
+      { /*en el caso de que se cumpla lo anterior, se implementa la información leida*/
+        space1 = game_get_space(game, id_space1);
+        space2 = game_get_space(game, id_space2);
+        link1 = link_create(id);
+        link2 = link_create(id);
+        link_set_name(link1, name);
+        link_set_name(link2, name);
+        link_set_id_to(link1, id_space2);
+        link_set_id_from(link1, id_space1);
+        link_set_id_to(link2, id_space1);
+        link_set_id_from(link2, id_space2);
+        link_set_type(link1, gate);
+        link_set_type(link2, gate);
+        game_add_link(game, link1);
 
-          if(flag==1){
-            space_set_south(space1,link1);
-            space_set_north(space2,link2);
-          }
-          else{
-            space_set_east(space1,link1);
-            space_set_west(space2,link2);
-          }
+        if (flag == 1)
+        {
+          space_set_south(space1, link1);
+          space_set_north(space2, link2);
         }
-        else{
-          space1=game_get_space(game,id_space1);
-          link1=link_create(id);
-          link_set_name(link1,name);
-          link_set_id_from(link1,id_space1);
-          link_set_id_to(link1,id_space2);
-          link_set_type(link1,gate);
-          game_add_link(game,link1);
-          space_set_east(space1,link1);
+        else if (flag == 2)
+        {
+          space_set_east(space1, link1);
+          space_set_west(space2, link2);
         }
- 
+        else if (flag == 4)
+        {
+
+          space_set_up(space1, link1);
+          space_set_down(space2, link2);
+        }
+      }
+      else
+      {
+        space1 = game_get_space(game, id_space1);
+        link1 = link_create(id);
+        link_set_name(link1, name);
+        link_set_id_from(link1, id_space1);
+        link_set_id_to(link1, id_space2);
+        link_set_type(link1, gate);
+        game_add_link(game, link1);
+        space_set_east(space1, link1);
+      }
     }
   }
 

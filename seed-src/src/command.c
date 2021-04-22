@@ -23,17 +23,11 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"", "No command"}, /** !< NO COMMAND*/
     {"", "Unknown"},	/** !< UNKNOWN*/
     {"e", "Exit"},	/** !< e <=> exit*/
-    {"n", "Next"},	/** !< n <=> next*/
-    {"b", "Back"},	/** !< b <=> back*/
     {"t", "Take"},	/** !< t <=> take*/
     {"d", "Drop"},	/** !< d <=> drop*/
     {"rl", "Roll"},	/** !< rl <=> roll*/
-    {"l", "Left"},	/** !< l <=> left*/
-    {"r", "Right"}, /** !< r <=> right*/
     {"m", "Move"}, /** !< m <=> move*/
     {"i" , "Inspect"},	/** !< i <=> inspect*/
-    {"up" , "Up"}, /** !< up <=> up*/
-    {"dn" , "Down"} /** !< dn <=> down*/
     };
 
 /**

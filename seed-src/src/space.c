@@ -51,6 +51,8 @@ Space* space_create(Id id) {
   new_space->south = NULL;
   new_space->east = NULL;
   new_space->west = NULL; 
+  new_space->up = NULL; 
+  new_space->down = NULL; 
   new_space->gdesc = (char **)malloc(3*sizeof(char *)); 
   new_space->gdesc[0] = (char *)malloc(9*sizeof(char)); 
   new_space->gdesc[1] = (char *)malloc(9*sizeof(char));
@@ -70,6 +72,8 @@ STATUS space_destroy(Space* space) {
   if(space_get_south(space)!=NULL) link_destroy(space->south);
   if(space_get_west(space)!=NULL) link_destroy(space->west);
   if(space_get_east(space)!=NULL) link_destroy(space->east);
+  if(space_get_up(space)!=NULL) link_destroy(space->up);
+  if(space_get_down(space)!=NULL) link_destroy(space->down);
 
   
   free(space->gdesc[0]);

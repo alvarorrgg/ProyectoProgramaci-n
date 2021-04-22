@@ -15,7 +15,7 @@
 #include "game.h"
 #include "game_reader.h"
 
-#define N_CALLBACK 13 /*!<Numero maximo de llamadas a comandos*/
+#define N_CALLBACK 9 /*!<Numero maximo de llamadas a comandos*/
 
 /**
  * @brief Define los elementos del juego
@@ -190,17 +190,11 @@ void game_callback_down(Game *game);
 static callback_fn game_callback_fn_list[N_CALLBACK] = {
     game_callback_unknown,     /*UNKNOWN=0*/
     game_callback_exit,        /*EXIT=1*/
-    game_callback_next,	/*NEXT=2*/
-    game_callback_back,	/*BACK=3*/
-    game_callback_take,	/*TAKE=4*/
-    game_callback_drop,	/*DROP=5*/
-    game_callback_roll,	/*ROLL=6*/
-    game_callback_right,	/*RIGHT=7*/
-    game_callback_left,	/*LEFT=8*/
-    game_callback_move, /*MOVE=9*/
-    game_callback_inspect, /*INSPECT=10*/
-    game_callback_up, /*UP=11*/
-    game_callback_down,/*DOWN=12*/
+    game_callback_take,	/*TAKE=2*/
+    game_callback_drop,	/*DROP=3*/
+    game_callback_roll,	/*ROLL=4*/
+    game_callback_move, /*MOVE=5*/
+    game_callback_inspect, /*INSPECT=6*/
 
 };
 
@@ -552,7 +546,7 @@ void game_callback_next(Game *game)
     if (current_id == space_id)
     {
       
-      if(space_get_south(game->spaces[i])!=NULL){
+      
       if(link_get_type(game->link[link_get_id(space_get_south(game->spaces[i]))-1])==CLOSE){
         command_set_status(game->command, ERROR);
         return;
@@ -570,7 +564,7 @@ void game_callback_next(Game *game)
         command_set_status(game->command, ERROR);
         return;
       }
-    }
+    
   }
   }
   command_set_status(game->command, OK);
@@ -598,7 +592,7 @@ void game_callback_back(Game *game)
 
     if (current_id == space_id)
     {
-      if(space_get_north(game->spaces[i])!=NULL){
+      
        if(link_get_type(game->link[link_get_id(space_get_north(game->spaces[i]))-1])==CLOSE){
         command_set_status(game->command, ERROR);
         return;
@@ -616,7 +610,7 @@ void game_callback_back(Game *game)
         command_set_status(game->command, ERROR);
         return;
       }
-    }
+    
   }
   }
   command_set_status(game->command, OK);
@@ -886,6 +880,18 @@ void game_callback_move(Game *game)
 
     return;
   }
+  else if(strcmp(direction, "up")==0 || strcmp(direction, "u")==0){  /*se mueve el jugador al este*/
+    game_callback_up(game);
+    command_set_status(game->command, command_get_status(game->command));
+
+    return;
+  }
+  else if(strcmp(direction, "down")==0 || strcmp(direction, "dn")==0){  /*se mueve el jugador al este*/
+    game_callback_down(game);
+    command_set_status(game->command, command_get_status(game->command));
+
+    return;
+  }
   
   else {
 
@@ -1035,4 +1041,6 @@ void game_callback_down(Game *game)
   command_set_status(game->command, OK);
   return;
 }
+
+
 

@@ -154,8 +154,8 @@ void test1_command_set_cmd()
     Command *new_command = NULL;
     new_command = command_init();
 
-    command_set_cmd(new_command, NEXT);
-    PRINT_TEST_RESULT(command_get_cmd(new_command) == NEXT);
+    command_set_cmd(new_command, EXIT);
+    PRINT_TEST_RESULT(command_get_cmd(new_command) == EXIT);
     command_destroy(new_command);
 }
 void test2_command_set_cmd()
@@ -163,7 +163,7 @@ void test2_command_set_cmd()
     Command *new_command = NULL;
     
     
-    PRINT_TEST_RESULT(command_set_cmd(new_command, BACK)==ERROR);
+    PRINT_TEST_RESULT(command_set_cmd(new_command, INSPECT)==ERROR);
     
 }
 void test3_command_set_cmd()
