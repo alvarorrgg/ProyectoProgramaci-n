@@ -18,6 +18,7 @@
 #include "die.h"
 #include "inventory.h"
 #include "link.h"
+#include "dialogue.h"
 
 /**
  * @brief La estructura game
@@ -190,6 +191,18 @@ Id game_get_object_location(Game* game,Id id);
  * @return el último comando introducido
  */
 Command* game_get_command(Game* game);
+/**
+ * @brief Controla la estructura dialogue dentro de game
+ *
+ * game_get_dialogue Controla la estructura dialogue dentro de game
+ *
+ * @date  23-04-2021
+ * @author Álvaro Rodríguez 
+ *
+ * @param game el juego del que se va a sacar command
+ * @return el último dialogo 
+ */
+Dialogue *game_get_dialogue(Game *game);
 /**
  * @brief Obtiene el total de objetos dentro del juego
  *

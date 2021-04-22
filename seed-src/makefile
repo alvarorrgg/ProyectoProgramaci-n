@@ -1,9 +1,9 @@
 #makefile de juego OCA
 target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test docs tests
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
-OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o
+OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o dialogue.o
 TEST = set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o
-OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o)
+OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o dialogue.o)
 SET_TESTDIR = $(addprefix obj/,set_test.o set.o)
 DIE_TESTDIR = $(addprefix obj/,die_test.o die.o)
 INVENTORY_TESTDIR = $(addprefix obj/, inventory_test.o inventory.o set.o)
@@ -30,7 +30,7 @@ command.o: command.c command.h types.h
 	@echo "Creando $@"
 	$(CC) -c  $(FLAGS) $<
 
-game.o: game.c game.h player.h types.h object.h command.h space.h die.h game_reader.h
+game.o: game.c game.h player.h types.h object.h command.h space.h die.h game_reader.h dialogue.h
 	@echo "######################"
 	@echo "Creando $@"	
 	$(CC)  -c $(FLAGS) $<
@@ -40,7 +40,7 @@ game_loop.o: game_loop.c graphic_engine.h game.h player.h types.h object.h comma
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
         
-graphic_engine.o: graphic_engine.c screen.h graphic_engine.h command.h game.h player.h types.h object.h space.h die.h
+graphic_engine.o: graphic_engine.c screen.h graphic_engine.h command.h game.h player.h types.h object.h space.h die.h dialogue.h
 	@echo "######################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
@@ -86,6 +86,11 @@ inventory.o: inventory.c inventory.h set.h types.h
 	$(CC) -c $(FLAGS) $<
 
 link.o: link.c link.h types.h
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -c $(FLAGS) $<
+
+dialogue.o: dialogue.c dialogue.h types.h command.h player.h
 	@echo "#####################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<

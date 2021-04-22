@@ -30,6 +30,7 @@ struct _Game{
   Command *command;       /*!< comando que se recibe cada vez que se escribe por pantalla*/
   char last_descripcion[LEN_DES]; /*!< Ultima descripcion del comando inspect llamada */
   Link *link[MAX_LINKS+1]; /*!<Donde se almacenan los enlaces del juego*/
+  Dialogue *dialogue;     /*!<Dialogo del juego*/
 };
 /**
  * Define el tipo de funciones para las devoluciones de llamada
@@ -247,6 +248,8 @@ STATUS game_create(Game *game)
   game->command = command_init();
   if(!game->command) return ERROR;
   game->last_descripcion[0] = '\0';
+  game->dialogue=dialogue_new();
+  if(!game->dialogue) return ERROR;
 
   return OK;
 }
@@ -278,6 +281,7 @@ STATUS game_destroy(Game *game)
   player_destroy(game->player); /*Se destruye el jugador*/
   die_destroy(game->die);       /*Se destruye el dado*/
   command_destroy(game->command);
+  dialogue_destroy(game->dialogue);
   free(game);
 
   return OK;
@@ -494,6 +498,7 @@ STATUS game_update(Game *game, T_Command cmd)
   command_set_arg(game->command,arg);
 
  (*game_callback_fn_list[cmd])(game);
+  if(dialogue_change_interaction(game->dialogue,game->command,game->player)==ERROR) return ERROR;
   return OK;
 }
 
@@ -532,7 +537,10 @@ BOOL game_is_over(Game *game)
 {
   return FALSE;
 }
-
+Dialogue *game_get_dialogue(Game *game){
+  if(!game) return NULL;
+  return game->dialogue;
+}
 
 
 /**
@@ -581,7 +589,10 @@ void game_callback_next(Game *game)
     if (current_id == space_id)
     {
       
-      
+      if(link_get_id(space_get_south(game->spaces[i]))==-1){
+        command_set_status(game->command, ERROR);
+        return;
+      }
       if(link_get_type(game->link[link_get_id(space_get_south(game->spaces[i]))-1])==CLOSE){
         command_set_status(game->command, ERROR);
         return;
@@ -627,7 +638,10 @@ void game_callback_back(Game *game)
 
     if (current_id == space_id)
     {
-      
+      if(link_get_id(space_get_north(game->spaces[i]))==-1){
+        command_set_status(game->command, ERROR);
+        return;
+      }
        if(link_get_type(game->link[link_get_id(space_get_north(game->spaces[i]))-1])==CLOSE){
         command_set_status(game->command, ERROR);
         return;
@@ -673,6 +687,10 @@ void game_callback_right(Game *game)
 
     if (current_id == space_id)
     {
+      if(link_get_id(space_get_west(game->spaces[i]))==-1){
+        command_set_status(game->command, ERROR);
+        return;
+      }
       if(link_get_type(game->link[link_get_id(space_get_west(game->spaces[i]))-1])==CLOSE){
         command_set_status(game->command, ERROR);
         return;
@@ -716,6 +734,10 @@ void game_callback_left(Game *game)
 
     if (current_id == space_id)
     {
+      if(link_get_id(space_get_east(game->spaces[i]))==-1){
+        command_set_status(game->command, ERROR);
+        return;
+      }
       if(link_get_type(game->link[link_get_id(space_get_east(game->spaces[i]))-1])==CLOSE){
         command_set_status(game->command, ERROR);
         return;

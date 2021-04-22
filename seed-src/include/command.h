@@ -44,7 +44,8 @@ typedef enum enum_Command {
   TAKE,		/*!< TAKE = 2*/
   DROP,		/*!< DROP = 3*/
   ROLL,		/*!< ROLL = 4*/
-  INSPECT  /*!< INSPECT = 5*/
+  MOVE,   /*!< MOVE = 5*/
+  INSPECT  /*!< INSPECT = 6*/
   } T_Command;	
 /**
  * @brief obtiene la entrada del usuario.

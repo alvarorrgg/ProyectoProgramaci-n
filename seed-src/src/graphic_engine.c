@@ -14,6 +14,7 @@
 #include "graphic_engine.h"
 #include "command.h"
 #include "link.h"
+#include "dialogue.h"
 
 #define MAX_CHARS1 19 /*!<Numero maximo de caracteres que se pueden escribir en cada linea del espacio*/
 #define MAX_CHARS2 3  /*!<Numero maximo de caracteres que van a tener los links*/
@@ -432,7 +433,12 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     sprintf(str, "%s", game_get_last_descripcion(game));
     screen_area_puts(ge->descript, str);
   }
-
+  if(dialogue_get_num_tries(game_get_dialogue(game))!=-1){
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, "%s", dialogue_get_interaction(game_get_dialogue(game)));
+    screen_area_puts(ge->descript, str);
+  }
   /* Pinta en el área del banner */
   screen_area_puts(ge->banner, " The game of the Goose ");
 
