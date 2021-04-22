@@ -28,11 +28,11 @@
 #s:28|Casilla 28|27|-1|28|-1|-1|-1|       |<o)_// | \_#/  |LLegaste a la casilla especial3|Esdsaderasecreta|
 #s:29|Casilla 29|28|-1|29|-1|-1|-1|       |<o)_// | \_#/  |LLegaste a la casilla especial4|Esasrasecreta|
 #s:30|Casilla 30|29|-1|30|-1|-1|-1|       |<o)_// | \_#/  |LLegaste a la casilla especial5|wasdlerasecreta|
-#o:1|Rojo|1|Token Rojo|1|2|1|0|0|
-#o:2|Azul|1|Token Azul|1|-1|-1|0|0|
-#o:3|Verde|1|Token Verde|1|-1|2|0|0|
-#o:4|Negro|1|Token Negro|1|-1|-1|0|0|
-#o:5|Ambar|3|Token Amabar|1|-1|25|0|0|
+#o:1|Rojo|1|Token Rojo|1|3|1|0|0|
+#o:2|Azul|1|Token Azul|1|3|-1|0|0|
+#o:3|Verde|1|Token Verde|1|6|-1|0|0|
+#o:4|Negro|1|Token Negro|1|3|-1|0|0|
+#o:5|Ambar|1|Token Ambar|1|4|25|0|0|
 #o:6|LLave|1|Token Llave|1|-1|-1|0|0|
 #o:7|Gris|1|Token Gris|1|-1|-1|0|0|
 #o:8|Silla|1|Token Silla|1|-1|-1|0|0|

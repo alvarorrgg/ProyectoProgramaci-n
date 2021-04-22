@@ -283,6 +283,35 @@ STATUS game_add_link(Game *game, Link *link);
  */
 Link *game_get_link(Game *game, Id id);
 /**
+ * @brief devuelve un objeto dado su id
+ *
+ * game_get_object_by_id devuelve un objeto dado su id
+ *
+ * @date  22-04-2021
+ * @author Álvaro Rodríguez 
+ *
+ * @param game el juego del que se va a obtener el objeto
+ * @param id id del objeto
+ * @return Object, el objeto a obtener.
+ */
+Object *game_get_object_by_id(Game *game, Id id);
+
+/**
+ * @brief devuelve las dependencias del ObjId
+ *
+ * game_get_dependency devuelve un objeto dado su id y quita el anterior objeto del inventario
+ *
+ * @date  22-04-2021
+ * @author Álvaro Rodríguez 
+ *
+ * @param game el juego del que se va a obtener el objeto
+ * @param ObjId id del objeto cuyas dependencias se buscan
+ * @param id donde se guardan las dependencias
+ * @param space donde se dropean los objetos
+ * @return Id* de las dependencias
+ */
+Id* game_get_dependency(Game *game, Id ObjId, Id *id,int space);
+/**
  * @brief Establece la posición del jugador
  *
  * game_set_player_location Comienza comprobando si el segundo parametro es -1

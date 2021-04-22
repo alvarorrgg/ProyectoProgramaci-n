@@ -183,6 +183,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a1064ec927b8c33cf55982b73845db7d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="link_8h.html#ae3b299941e67be6971bfd64a25505eff">Link</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a1064ec927b8c33cf55982b73845db7d3">game_get_link</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> id)</td></tr>
 <tr class="memdesc:a1064ec927b8c33cf55982b73845db7d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el link del id determinado.  <a href="game_8h.html#a1064ec927b8c33cf55982b73845db7d3">More...</a><br /></td></tr>
 <tr class="separator:a1064ec927b8c33cf55982b73845db7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ca2ae962cbba287a65d71efdcd4ff93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="object_8h.html#a7f8bbcda919b65ce67f92fba08e0212f">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a7ca2ae962cbba287a65d71efdcd4ff93">game_get_object_by_id</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> id)</td></tr>
+<tr class="memdesc:a7ca2ae962cbba287a65d71efdcd4ff93"><td class="mdescLeft">&#160;</td><td class="mdescRight">devuelve un objeto dado su id  <a href="game_8h.html#a7ca2ae962cbba287a65d71efdcd4ff93">More...</a><br /></td></tr>
+<tr class="separator:a7ca2ae962cbba287a65d71efdcd4ff93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51608c600c274d085cccc4fa0ccf00f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a51608c600c274d085cccc4fa0ccf00f6">game_get_dependency</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> ObjId, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> *id, int space)</td></tr>
+<tr class="memdesc:a51608c600c274d085cccc4fa0ccf00f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">devuelve las dependencias del ObjId  <a href="game_8h.html#a51608c600c274d085cccc4fa0ccf00f6">More...</a><br /></td></tr>
+<tr class="separator:a51608c600c274d085cccc4fa0ccf00f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a492ca9fb594442dc43fc7d18a3820426"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a32c27cc471df37f4fc818d65de0a56c4">STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a492ca9fb594442dc43fc7d18a3820426">game_set_player_location</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> id)</td></tr>
 <tr class="memdesc:a492ca9fb594442dc43fc7d18a3820426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establece la posición del jugador.  <a href="game_8h.html#a492ca9fb594442dc43fc7d18a3820426">More...</a><br /></td></tr>
 <tr class="separator:a492ca9fb594442dc43fc7d18a3820426"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -519,6 +525,61 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a51608c600c274d085cccc4fa0ccf00f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51608c600c274d085cccc4fa0ccf00f6">&#9670;&nbsp;</a></span>game_get_dependency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a>* game_get_dependency </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a>&#160;</td>
+          <td class="paramname"><em>ObjId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> *&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>space</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>devuelve las dependencias del ObjId </p>
+<p>game_get_dependency devuelve un objeto dado su id y quita el anterior objeto del inventario</p>
+<dl class="section date"><dt>Date</dt><dd>22-04-2021 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Álvaro Rodríguez</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>el juego del que se va a obtener el objeto </td></tr>
+    <tr><td class="paramname">ObjId</td><td>id del objeto cuyas dependencias se buscan </td></tr>
+    <tr><td class="paramname">id</td><td>donde se guardan las dependencias </td></tr>
+    <tr><td class="paramname">space</td><td>donde se dropean los objetos </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Id* de las dependencias </dd></dl>
+
+</div>
+</div>
 <a id="a5753a09313b092a52c0cea742c40f3cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5753a09313b092a52c0cea742c40f3cf">&#9670;&nbsp;</a></span>game_get_die()</h2>
 
@@ -654,6 +715,47 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">game</td><td>el juego del que se va a obtener el objeto </td></tr>
     <tr><td class="paramname">index</td><td>indice del objeto </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Object, el objeto a obtener. </dd></dl>
+
+</div>
+</div>
+<a id="a7ca2ae962cbba287a65d71efdcd4ff93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ca2ae962cbba287a65d71efdcd4ff93">&#9670;&nbsp;</a></span>game_get_object_by_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="object_8h.html#a7f8bbcda919b65ce67f92fba08e0212f">Object</a>* game_get_object_by_id </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a>&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>devuelve un objeto dado su id </p>
+<p>game_get_object_by_id devuelve un objeto dado su id</p>
+<dl class="section date"><dt>Date</dt><dd>22-04-2021 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Álvaro Rodríguez</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>el juego del que se va a obtener el objeto </td></tr>
+    <tr><td class="paramname">id</td><td>id del objeto </td></tr>
   </table>
   </dd>
 </dl>

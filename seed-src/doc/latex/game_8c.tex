@@ -96,6 +96,10 @@ void {\bfseries game\+\_\+callback\+\_\+down} (\mbox{\hyperlink{game_8h_a57156d3
 \begin{DoxyCompactList}\small\item\em Determina la posición del jugador. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$ \mbox{\hyperlink{game_8c_a10298c790c9a9ca50b7090ef7e2029b7}{game\+\_\+get\+\_\+object}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, int index)
 \begin{DoxyCompactList}\small\item\em devuelve un objeto dado su indice \end{DoxyCompactList}\item 
+\mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}} $\ast$ \mbox{\hyperlink{game_8c_a7ca2ae962cbba287a65d71efdcd4ff93}{game\+\_\+get\+\_\+object\+\_\+by\+\_\+id}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em devuelve un objeto dado su id \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} $\ast$ \mbox{\hyperlink{game_8c_a51608c600c274d085cccc4fa0ccf00f6}{game\+\_\+get\+\_\+dependency}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} Obj\+Id, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} $\ast$id, int space)
+\begin{DoxyCompactList}\small\item\em devuelve las dependencias del Obj\+Id \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{game_8c_a7b7096dba6df39271160bdf387d9049f}{game\+\_\+get\+\_\+total\+\_\+objects}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
 \begin{DoxyCompactList}\small\item\em Obtiene el total de objetos dentro del juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8c_a9b42bd6550bb1f3ce80e71eabdb6936c}{game\+\_\+set\+\_\+object\+\_\+location}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} pos\+\_\+obj)
@@ -625,6 +629,38 @@ game\+\_\+get\+\_\+command Controla la estructura command dentro de game
 \begin{DoxyReturn}{Returns}
 el último comando introducido 
 \end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_a51608c600c274d085cccc4fa0ccf00f6}\label{game_8c_a51608c600c274d085cccc4fa0ccf00f6}} 
+\index{game.c@{game.c}!game\_get\_dependency@{game\_get\_dependency}}
+\index{game\_get\_dependency@{game\_get\_dependency}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_get\_dependency()}{game\_get\_dependency()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}$\ast$ game\+\_\+get\+\_\+dependency (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{Obj\+Id,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} $\ast$}]{id,  }\item[{int}]{space }\end{DoxyParamCaption})}
+
+
+
+devuelve las dependencias del Obj\+Id 
+
+game\+\_\+get\+\_\+dependency devuelve un objeto dado su id y quita el anterior objeto del inventario
+
+\begin{DoxyDate}{Date}
+22-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a obtener el objeto \\
+\hline
+{\em Obj\+Id} & id del objeto cuyas dependencias se buscan \\
+\hline
+{\em id} & donde se guardan las dependencias \\
+\hline
+{\em space} & donde se dropean los objetos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Id$\ast$ de las dependencias 
+\end{DoxyReturn}
 \mbox{\Hypertarget{game_8c_a5753a09313b092a52c0cea742c40f3cf}\label{game_8c_a5753a09313b092a52c0cea742c40f3cf}} 
 \index{game.c@{game.c}!game\_get\_die@{game\_get\_die}}
 \index{game\_get\_die@{game\_get\_die}!game.c@{game.c}}
@@ -728,6 +764,34 @@ game\+\_\+get\+\_\+object devuelve un objeto dado su indice
 {\em game} & el juego del que se va a obtener el objeto \\
 \hline
 {\em index} & indice del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Object, el objeto a obtener. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_a7ca2ae962cbba287a65d71efdcd4ff93}\label{game_8c_a7ca2ae962cbba287a65d71efdcd4ff93}} 
+\index{game.c@{game.c}!game\_get\_object\_by\_id@{game\_get\_object\_by\_id}}
+\index{game\_get\_object\_by\_id@{game\_get\_object\_by\_id}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_get\_object\_by\_id()}{game\_get\_object\_by\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{object_8h_a7f8bbcda919b65ce67f92fba08e0212f}{Object}}$\ast$ game\+\_\+get\+\_\+object\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+devuelve un objeto dado su id 
+
+game\+\_\+get\+\_\+object\+\_\+by\+\_\+id devuelve un objeto dado su id
+
+\begin{DoxyDate}{Date}
+22-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a obtener el objeto \\
+\hline
+{\em id} & id del objeto \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

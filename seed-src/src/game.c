@@ -390,6 +390,41 @@ Object *game_get_object(Game *game, int index){
     
     return game->objects[index];
 }
+
+Object *game_get_object_by_id(Game *game, Id id){
+  int i=0;
+  if(!game || id<0) return NULL;
+  while(game->objects[i]!=NULL){
+    if(object_get_id(game->objects[i])==id){
+      return game->objects[i];
+    }
+  i++;
+  }
+  return NULL;
+}
+
+Id* game_get_dependency(Game *game, Id ObjId, Id *id,int space){
+  int i=0,j=0,total=inventory_get_number_of_objects(player_get_inventory(game->player));
+  Id *id2;
+  if(!game || ObjId<0 || !id || space<0) return NULL;
+  while(id[i]!=NO_ID){
+    id[i]=id[i+1];
+    i++;
+  }
+  id2=inventory_get_inventory(player_get_inventory(game->player));
+  for(j=0;j<total;j++){
+    if(object_get_dependency(game_get_object_by_id(game,id2[j]))==ObjId){
+      id[i]=id2[j];
+      i++;
+      space_set_objects(game->spaces[space], id2[j]);
+      player_remove_object(game->player,id2[j]);
+      j=-1;
+      total=inventory_get_number_of_objects(player_get_inventory(game->player));
+    }
+  }
+  return id;
+
+}
 int game_get_total_objects(Game *game){
   int i = 0;
 
@@ -779,16 +814,21 @@ void game_callback_take(Game *game)
 
 void game_callback_drop(Game *game)
 {
+   
    char objeto[WORD_SIZE];
-  int k = 0, i = 0;
+  int k = 0, i = 0,j=0;
   Id id=NO_ID;
+  Id dependency=NO_ID;
+  Id *ids=(Id*)malloc(sizeof(Id)*MAX_OBJECTS);
   strcpy(objeto,command_get_arg(game->command));
   if(!game){
     command_set_status(game->command, ERROR);
+    free(ids);
     return;
   }
   if (inventory_is_empty(player_get_inventory(game->player))){/*Se verifica que el player tiene algun objeto*/
     command_set_status(game->command, ERROR);
+    free(ids);
     return;
   }
     while (game->objects[i] != NULL)
@@ -801,27 +841,42 @@ void game_callback_drop(Game *game)
     }
   if(id==NO_ID){
     command_set_status(game->command,ERROR);
+    free(ids);
     return ;
   }
 
   if(!player_has_object(game->player,id)){
     command_set_status(game->command,ERROR);
+    free(ids);
     return;
   }
+
 
   while (game->spaces[k] != NULL)/*Se busca el espacio*/
   {
     if (space_get_id(game->spaces[k]) == game_get_player_location(game))/*Se verifica que el jugador esta en el espacio*/
     {/*Se le quita el objeto al player y se pone en el objeto*/
-      space_set_objects(game->spaces[k], id);
-      player_remove_object(game->player,id);
+      for(j=0;j<MAX_OBJECTS;j++){
+        ids[j]=NO_ID;
+      }
+        space_set_objects(game->spaces[k], id);
+        player_remove_object(game->player,id);
+        ids=game_get_dependency(game,id,ids,k);
+        while(ids[0]!=NO_ID){
+          printf("Hollaaa");
+          dependency=ids[0];
+           ids=game_get_dependency(game,dependency,ids,k);
+        }
+
       break;
     }
     k++;
   }
   command_set_status(game->command, OK);
+  free(ids);
   return;
 }
+
 
 void game_callback_roll(Game *game)
 {

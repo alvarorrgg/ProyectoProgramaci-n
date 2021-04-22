@@ -60,9 +60,11 @@ STATUS set_id_delete(Set* set,Id id){
 		return ERROR;
 	} 
 	j=set_find_object_by_id(set,id);
-	set->id[j]=set->id[set->total_ids-1];
-	set->id[set->total_ids-1]=NO_ID;
+	for(;j<set->total_ids;j++){
+		set->id[j]=set->id[j+1];
+	}
 	set->total_ids--;
+	set->id[set->total_ids]=NO_ID;
 	return OK;
 }
 
