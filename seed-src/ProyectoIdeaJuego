@@ -1,0 +1,300 @@
+La idea para el juego será la siguiente:
+Se trata de una torre, el personaje intentará escapar de esta.
+He dividido la torre en un total de tres pisos con 3,3,4 espacios cada piso respectivamente.
+*************************************************************************
+Primer piso 
+                        ***********
+                                    |
+                                    |
+                        Espacio 3   |   
+                                    |
+                                    |
+                        ***********
+
+                        North link
+
+***********          ***********
+            |       |           |
+            |       |           |
+Espacio 1   |East   |Espacio 2  |   Up Link(Espacio 5)
+            |       |           |   
+            |       |           |
+***********          *********** 
+
+                        South Link
+
+                        ***********
+                                    |
+                                    |
+                        Espacio 4   |  
+                                    |
+                                    |
+                        ***********
+
+*************************************************************************
+Segundo piso
+***********          ***********
+            |       |           |
+            |       |           |
+Espacio 6   |East   |Espacio 7  |   
+            |       |           |   
+            |       |           |
+***********          *********** 
+North
+
+***********          ***********
+            |       |           |
+            |       |           |
+Espacio 5   |East   |Espacio 8  |   Up Link(Espacio 7)
+            |       |           |   
+            |       |           |
+***********          *********** 
+
+
+*************************************************************************
+Tercer piso
+***********          ***********     ***********         ***********
+            |       |           |   |           |       |           | 
+            |       |           |   |           |       |           | 
+Espacio 9   | Next  |Espacio 10 |Up |Espacio 11 |Up     |Espacio 12 | Down (tobogan hasta la salida)
+            |       |           |   |           |       |           | 
+            |       |           |   |           |       |           | 
+***********          ***********     ***********         *********** 
+
+
+Lore:
+
+Espacio 1:
+Parece que te encuentras encadenado y no puedes hacer nada, todas las acciones que intentas no funcionan. O no todas.
+En los objetos a coger, se encuentra un alambre. Usará ese alambre para abrir las cadenas.
+Obtiene el alambre y tiene que llamar a la función:
+    Open cadena with alambre
+    
+Espacio 2:
+Una vez abierto se podrá mover a la siguiente habitacion con un move East
+Entre la habitación hay tres objetos, un palo, algodón, y unas cerillas.
+El palo tendrá de dependencia, el alambre, el alambre, el algodón y el algodón las cerillas.
+    Una vez se tengan las tres,  se "iluminará" el espacio dejando ver una puerta (South Link)
+
+Espacio 3:
+Se encuentra en el espacio tres, dentro de este espacio se encuentra un estante con libros,
+ 
+Aqui el jugador tendrá que suponer que tiene que hacer un take libro para continuar,
+Una vez haga el take book, "sonará" un estruendo haciendo parecer que se ha abierto algo. Se habrá abierto el Link South
+Vuelve al Espacio 2 y se mueve al Espacio 4
+
+Espacio 4:
+     En este espacio habrá una baldosa suelta, el jugador tendrá que hacer take Baldosa para poder continuar, debajo de la baldosa habrá una llave, 
+     recibe la llave y tendrá que volver a el espacio 2 donde hará un open puerta with llave y se abrirá una escalerá hacia arriba.
+     Con un move up continuará hacía el espacio 5.
+
+Espacio 5 y Espacio 6:
+    En este caso, tanto el espacio 5 como el 6 estarán abiertos ya de por sí, en el espacio 5 no habrá aparentemente nada pero en el espacio 6 habrá una balanza en donde se deberá dejar caer la baldosa
+    que se ha cogido antes para que se habrá el camino hacia el espacio 7
+
+Espacio 7:
+    En este espacio se podrán obtener los materiales suficientes como para construir un C4 para poder explotar la pared del espacio 5 y asi poder llegar al espacio 8
+    Materiales.
+
+Espacio 8:
+    La explosión habrá dejado sin luz el sitio pero que casualidad que justo hay unas gafas de visión noctura en una mesa que nos permitiran ver cosas que antes no se veían 
+    como un palo que esta en el suelo bastante largo que te permite desplazar el techo usando :
+    open techo with palo 
+    Se abré el link hacia arriba y puede subir.(Espacio9)
+Espacio 9:
+    En el espacio 9 simplemente habrá un trozo de piedra, una especie de trozo de madera, una lijadora y una cortadora de piedras.
+    Una vez obtenga todos los objetos, se le dará la posiblidad de construir un pico.
+    Este pico lo utilizará para romper la pared que tiene delante lo que le llevará a la siguiente sale (Espacio 10)
+
+Espacio 10:
+    En este espacio todo lo que hay es una puerta metalica con un cartel y un teclado en ella, Tambíen encontraremos algo más de madera.
+    La idea es que en el cartel pone triangulo, cuadrado, pentagono
+    y para abrir la puerta tiene que poner
+    Primero ha de recoger el objeto 345 que en el juego no tendra el nombre 345 sino ("secreto"), para recogerlo tendra que adivinar que el nombre es 345 y hacer take 345.
+    Luego hará:
+    open puerta with 345
+    que son los lados de los poligonos respectivamente
+    Se abrirá el link Up hasta el espacio 11
+
+Espacio 11:
+
+    En este espacio se encontrara solo un trozo de cuerda. En el espacio habrá un agujero muy grande arriba 
+    Básicamente una vez que recoja la cuerda podrá hacer una escalera con la madera y el pico de antes y subir hasta el agujero lo que le llevará
+    al espacio 12.
+
+Espacio 12:
+    Por último y muy parecido a en el espacio 10,
+    Habrá una caja fuerte, la cual tendra una pegatina que pone: 
+    ¿cuantos espacios diferentes has recorrido hasta ahora?
+    Una vez ponga
+    Take 12 podrá usar la estructura open.
+    open caja with 12
+    Se abrirá la caja y dentro habrá un mando.
+    Hará open compuerta with mando
+    Se abrirá una puerta lo que le llevará a la salida y habrá ganado el juego.
+
+
+
+Descripciones de cada espacio(con y sin inspect):
+Espacio 1:
+    Sin:
+        Parece que te encuentras encadenado y sin poder moverte, te encuentras en un ambiente sucio y oscuro.
+    Con:
+        Si apuras la vista, puedes ver la silueta de una puerta.
+
+Espacio 2:
+    Sin:
+         Otro cuarto igual... estoy harto de esta humedad.
+    Con:
+        Parece que con este soplo de luz ahora veo que hay dos puertas, una de ellas esta abierta, vamos  a ver.
+
+Espacio 3:
+    Sin: 
+        Este cuarto sería aun más feo de no ser por la estantería.
+    Con:
+        Qué ha sido ese ruido, iré a investigar.
+
+Espacio 4:
+    Sin:
+        Parece que las baldosas se encuentran un poco sueltas.
+    Con:
+        Una llave aqui?, que hace esto aqui...  a no ser...
+
+Espacio 5:
+    Sin:
+        Parece que hay una puerta abierta a mi lado.
+    Con:
+        Parece que la pared de enfrente esta un poco hueca, me pregunto por que.
+
+Espacio 6:
+    Sin:
+        No puedo ver nada más que la balanza de encima de la mesa.
+    Con: 
+        A lo mejor tengo que colocar algo encima de ella.
+
+Espacio 7:
+    Sin:
+        Por aqui veo un cuarto un poco feo, pero hay muchos materiales útiles.
+    Con: 
+        Menos mal que soy ingeniero quimico y puedo construir bombas con poca cosa.
+
+Espacio 8:
+    Sin:
+        La explosión me ha apagado la antorcha, aunque algo puedo ver.
+    Con:
+        Parece que con estas gafas se pueden ver varios objetos más
+Espacio 9:
+    Sin:
+        Solo veo algunas herramientas y materiales en este cuarto tan lugubre.
+    Con:
+        Parece que al final ese cursillo de minero que hice valdrá sus frutos.
+
+Espacio 10:
+    Sin:
+        Puedo ver una especie de puerta con un cartel encima.
+    Con:
+        Parece que el cartel dice: "triangulo, cuadrado, pentagono".
+
+Espacio 11:
+    Sin: 
+        Este cuarto es una porquería solo veo un agujero muy alto y un trozo de cuerda.
+    Con:
+        Espera un momento, cuerda, madera, y herramientas...
+
+Espacio 12:
+    Sin:
+        Parece que aqui solo hay una caja fuerte. o tiene algo escrito?
+    Con: 
+        En el cartel pone "cuantos cuartos has visitado hasta ahora?"
+
+
+Objetos y sus dependencias:
+1: Alambre
+    No depende.
+2: Palo
+    No depende.
+3: Algodón
+    Depende de Palo
+4: Cerillas
+    Depende de Algodon
+5: Libro
+    No depende de nada
+6: Baldosa
+    No depende de nada
+7: LLave
+    No depende de nada.
+8:Polvora
+    No depende de nada
+9:Mecha 
+    No depende de nada
+10: Químicos
+    No depende de nada
+11: C-4
+    Solo funciona si se tienen los tres últimos objetos
+    No depende de nada
+11: Gafas
+    No depende de nada
+12: Baston
+    No depende de nada
+13: Piedra
+    No depende de nada
+14: Madera
+    No depende de nada
+15: Lijadora
+    No depende de nada
+16: Cortadora
+    No depende de nada
+17:Pico
+    Solo funciona si se tienen los cuatro últimos objetos
+    No depende de nada
+18: 345
+    No depende de nada.
+19: Maderax2
+    No depende de nada
+20: Cuerda
+    No depende de nada
+21: Escalera
+    Solo funciona si se tiene cortadora, madera, cuerda
+    No depende de nada
+22: Mando
+    No depende de nada
+23: 12
+    No depende de nada.
+
+
+Iluminación.
+    Espacio 1:
+        Se ilumina una vez se obtiene el Alambre
+
+    Espacio 2:
+        Se ilumina una vez se obtienen las cerillas.
+
+    Espacio 3:
+        Se ilumina una vez se obtiene el libro.
+
+    Espacio 4:
+        Se ilumina una vez se obtiene la llave
+    
+    Espacio 5:
+        Siempre iluminado
+
+    Espacio 6:
+        Siempre iluminado
+    
+    Espacio 7:
+        Se ilumina una vez se obtienen quimicos
+    
+    Espacio 8:
+        Se ilumina una vez se obtienen las gafas
+    
+    Espacio 9:
+        Se ilumina una vez se obtiene el pico
+
+    Espacio 10: 
+        Siempre iluminado
+    
+    Espacio 11:
+        Se ilumina una vez se obtiene la cuerda
+    
+    Espacio 12
+        Siempre iluminado.
