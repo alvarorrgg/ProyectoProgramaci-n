@@ -13,14 +13,16 @@ Archivo cabecera de \mbox{\hyperlink{game_8c}{game.\+c}} en el se encuentra defi
 {\ttfamily \#include \char`\"{}inventory.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}link.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}dialogue.\+h\char`\"{}}\newline
-Include dependency graph for game.\+h\+:\nopagebreak
+Include dependency graph for game.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{game_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -91,9 +93,8 @@ int \mbox{\hyperlink{game_8h_a7b7096dba6df39271160bdf387d9049f}{game\+\_\+get\+\
 \begin{DoxyCompactList}\small\item\em Determina la ultima descripcion pedida. \end{DoxyCompactList}\item 
 const char $\ast$ \mbox{\hyperlink{game_8h_aaa58a379e2decab27af682c0c1054a5f}{game\+\_\+get\+\_\+last\+\_\+descripcion}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
 \begin{DoxyCompactList}\small\item\em Devueve la ultima descripcion pedida. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{game_8h_a8a38db541e04de68d3e4347e923f25bd}\label{game_8h_a8a38db541e04de68d3e4347e923f25bd}} 
-\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} {\bfseries game\+\_\+player\+\_\+has\+Iluminated\+\_\+object} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$g, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{game_8h_a8a38db541e04de68d3e4347e923f25bd}{game\+\_\+player\+\_\+has\+Iluminated\+\_\+object}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$g, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em Busca si el jugador tiene un objeto iluminado. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -747,6 +748,34 @@ Profesores P\+Prog
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 F\+A\+L\+SE para saber que se ha ejecutado la función correctamente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a8a38db541e04de68d3e4347e923f25bd}\label{game_8h_a8a38db541e04de68d3e4347e923f25bd}} 
+\index{game.h@{game.h}!game\_player\_hasIluminated\_object@{game\_player\_hasIluminated\_object}}
+\index{game\_player\_hasIluminated\_object@{game\_player\_hasIluminated\_object}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_player\_hasIluminated\_object()}{game\_player\_hasIluminated\_object()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} game\+\_\+player\+\_\+has\+Iluminated\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{g,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+Busca si el jugador tiene un objeto iluminado. 
+
+game\+\_\+get\+\_\+descripcion devuelve la descripcion del ultimo objeto pedido
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alexandru Marius Platon
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego donde se establece el objeto \\
+\hline
+{\em id} & id del objeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE si el jugador tiene un objeto iluminado, F\+A\+L\+SE en caso contrario 
 \end{DoxyReturn}
 \mbox{\Hypertarget{game_8h_a33a5ed8937423f8c012df3cedad4fa4c}\label{game_8h_a33a5ed8937423f8c012df3cedad4fa4c}} 
 \index{game.h@{game.h}!game\_print\_data@{game\_print\_data}}

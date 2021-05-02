@@ -1026,11 +1026,12 @@ void game_callback_move(Game *game)
 
 }
 void game_callback_inspect(Game *game){
-  char name[WORD_SIZE];
+char name[WORD_SIZE];
   int i = 0;
   Id id;
   Id current_id = game_get_player_location (game);
   Id space_id;
+  Id object_id;
 
   if(!game || current_id == NO_ID){
     command_set_status(game->command, ERROR);
@@ -1069,22 +1070,33 @@ void game_callback_inspect(Game *game){
     return;
   }
 
-  /*Comprobamos si el objeto lo tenemos enn la mochila o esta en el mismo espacio en el que esta el jugador*/
-  if (game_get_player_location (game) == game_get_object_location (game , id) || inventory_search_object (player_get_inventory(game->player) , id) ==TRUE){
-    if(object_get_iluminate(game->objects[i]) == TRUE){  /*Comprobamos si el espacio esta iluminado*/
-      game_set_last_description (game , (char *) object_get_description (game->objects[i])); /*Ponemos la ultima descripcion a la que tenga el objecto*/
-      command_set_status(game->command, OK);
-      return;
-    }
-    else {
-      command_set_status(game->command, ERROR);
-      return;
-    }
-  }
-  else{
-    command_set_status(game->command, ERROR);
+  object_id = i;
+
+
+  if(inventory_search_object (player_get_inventory(game->player) , id) == TRUE){
+    game_set_last_description (game , (char *) object_get_description (game->objects[object_id])); /*Ponemos la ultima descripcion a la que tenga el objecto*/
+    command_set_status(game->command, OK);
     return;
   }
+  if(game_get_player_location (game) == game_get_object_location (game , id)){
+    for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL ; i++){
+      space_id = space_get_id (game->spaces[i]);
+      if(current_id == space_id){
+        if(space_get_ilumination (game->spaces[i]) == TRUE){
+          game_set_last_description (game , (char *) object_get_description (game->objects[object_id])); /*Ponemos la ultima descripcion a la que tenga el objecto*/
+          command_set_status(game->command, OK);
+          return;
+        }
+        else {
+          command_set_status(game->command, ERROR);
+          return;
+        }
+      }
+    }
+  }
+
+  command_set_status(game->command, ERROR);
+  return;
 }
 void game_callback_up(Game *game)
 {
