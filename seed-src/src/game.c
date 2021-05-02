@@ -15,7 +15,7 @@
 #include "game.h"
 #include "game_reader.h"
 
-#define N_CALLBACK 9 /*!<Numero maximo de llamadas a comandos*/
+#define N_CALLBACK 11 /*!<Numero maximo de llamadas a comandos*/
 
 /**
  * @brief Define los elementos del juego
@@ -181,8 +181,50 @@ void game_callback_move(Game *game);
  * @param game el parametro sobre el que opera el comando con su respectiva accion
  */
 void game_callback_inspect(Game *game);
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_move saltos del jugador hacia las posiciones especificadas
+ *
+ * @date 08-04-2021
+ * @author Alexandru Marius Platon	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ */
 void game_callback_up(Game *game);
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_move saltos del jugador hacia las posiciones especificadas
+ *
+ * @date 08-04-2021
+ * @author Alexandru Marius Platon	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ */
 void game_callback_down(Game *game);
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_move enciende un objeto
+ *
+ * @date 02-05-2021
+ * @author Alexandru Marius Platon	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ */
+void game_callback_turnon(Game *game);
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_move apaga un objeto
+ *
+ * @date 02-05-2021
+ * @author Alexandru Marius Platon	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ */
+void game_callback_turnoff(Game *game);
 
 
 /**
@@ -196,6 +238,8 @@ static callback_fn game_callback_fn_list[N_CALLBACK] = {
     game_callback_roll,	/*ROLL=4*/
     game_callback_move, /*MOVE=5*/
     game_callback_inspect, /*INSPECT=6*/
+    game_callback_turnon, /*TURNON=7*/
+    game_callback_turnoff, /*TURNOFF=8*/
 
 };
 
@@ -1129,6 +1173,122 @@ void game_callback_down(Game *game)
   }
   command_set_status(game->command, OK);
   return;
+}
+void game_callback_turnon(Game *game){
+
+  char objeto[WORD_SIZE];
+  int  ob_index, i=0;
+  Id obid;
+  
+  if(!game){
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  
+  strcpy(objeto,command_get_arg(game->command));
+  for(ob_index=0;ob_index<MAX_OBJECTS;ob_index++){
+  obid=object_get_id_by_name(game->objects[ob_index], objeto);
+  if(obid!=-1){
+    break;
+
+  }
+  
+  else{
+    command_set_status(game->command, ERROR);
+    return;
+
+  }
+  }
+  
+  
+  
+  
+  if(player_has_object(game->player, obid)==FALSE) { /*Se verifica que el jugador tenga el objeto*/
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  if(object_get_iluminate(game_get_object(game, ob_index))==FALSE){ /*Se verifica que el objeto pueda ser iliminado*/
+    command_set_status(game->command, ERROR);
+    return;
+
+  }
+  if(object_get_turnedon(game_get_object(game, ob_index))==TRUE){
+
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  object_set_turnedon(game_get_object(game, ob_index), TRUE);
+
+
+ 
+  command_set_status(game->command, OK);
+  return ;
+
+}
+void game_callback_turnoff(Game *game){
+
+  char objeto[WORD_SIZE];
+  int  ob_index ,i=0;
+  Id obid;
+  if(!game){
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  
+  strcpy(objeto,command_get_arg(game->command));
+  for(ob_index=0;ob_index<MAX_OBJECTS;ob_index++){
+  obid=object_get_id_by_name(game->objects[ob_index], objeto);
+  if(obid!=-1){
+    break;
+
+  }
+  
+  
+  else{
+    command_set_status(game->command, ERROR);
+    return;
+
+  }
+  }
+  
+  
+  
+  
+  if(player_has_object(game->player, obid)==FALSE) { /*Se verifica que el jugador tenga el objeto*/
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  if(object_get_turnedon(game_get_object(game, ob_index))==FALSE){
+
+    command_set_status(game->command, ERROR);
+    return;
+  }
+  
+  object_set_turnedon(game_get_object(game, ob_index), FALSE);
+ 
+ 
+  command_set_status(game->command, OK);
+  return;
+
+}
+BOOL game_player_hasIluminated_object(Game *g, Id id){
+
+  int i;
+  if(!g)return FALSE;
+
+  if(player_has_object(g->player, id)==FALSE)return FALSE;
+
+ 
+
+  if(object_get_turnedon(game_get_object_by_id(g, id))==TRUE)return TRUE;
+  
+  
+  
+  
+
+  return FALSE;
+
+
 }
 
 

@@ -25,7 +25,7 @@ struct \mbox{\hyperlink{struct__Game}{\+\_\+\+Game}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{game_8c_a8366e5ad74afbbea0cd0a414770c304a}{N\+\_\+\+C\+A\+L\+L\+B\+A\+CK}}~9
+\#define \mbox{\hyperlink{game_8c_a8366e5ad74afbbea0cd0a414770c304a}{N\+\_\+\+C\+A\+L\+L\+B\+A\+CK}}~11
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -62,6 +62,12 @@ void {\bfseries game\+\_\+callback\+\_\+up} (\mbox{\hyperlink{game_8h_a57156d39c
 \item 
 \mbox{\Hypertarget{game_8c_aead4a48b78ed48df1164bce3870694a8}\label{game_8c_aead4a48b78ed48df1164bce3870694a8}} 
 void {\bfseries game\+\_\+callback\+\_\+down} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\item 
+\mbox{\Hypertarget{game_8c_a0d129f4633cdfeae4332360ba00c0c6d}\label{game_8c_a0d129f4633cdfeae4332360ba00c0c6d}} 
+void {\bfseries game\+\_\+callback\+\_\+turnon} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\item 
+\mbox{\Hypertarget{game_8c_a3f840da3cd6ce1b3273dd5b83719503d}\label{game_8c_a3f840da3cd6ce1b3273dd5b83719503d}} 
+void {\bfseries game\+\_\+callback\+\_\+turnoff} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
 \item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{game_8c_ad2dfd865e2bd2c545a15d33f4d1cf3ae}{game\+\_\+get\+\_\+space\+\_\+id\+\_\+at}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, int position)
 \begin{DoxyCompactList}\small\item\em Identifica un espacio del juego. \end{DoxyCompactList}\item 
@@ -120,7 +126,10 @@ const char $\ast$ \mbox{\hyperlink{game_8c_aaa58a379e2decab27af682c0c1054a5f}{ga
 \mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} \mbox{\hyperlink{game_8c_aa6efe0650af110bbd84e742cc8046d93}{game\+\_\+is\+\_\+over}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
 \begin{DoxyCompactList}\small\item\em Termina el juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct__Dialogue}{Dialogue}} $\ast$ \mbox{\hyperlink{game_8c_aba890b1d796db361825e9eaaf900133e}{game\+\_\+get\+\_\+dialogue}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
-\begin{DoxyCompactList}\small\item\em Controla la estructura dialogue dentro de game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Controla la estructura dialogue dentro de game. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{game_8c_a8a38db541e04de68d3e4347e923f25bd}\label{game_8c_a8a38db541e04de68d3e4347e923f25bd}} 
+\mbox{\hyperlink{types_8h_a3e5b8192e7d9ffaf3542f1210aec18dd}{B\+O\+OL}} {\bfseries game\+\_\+player\+\_\+has\+Iluminated\+\_\+object} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$g, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -145,7 +154,7 @@ G\+NU Public License
 \index{game.c@{game.c}!N\_CALLBACK@{N\_CALLBACK}}
 \index{N\_CALLBACK@{N\_CALLBACK}!game.c@{game.c}}
 \doxysubsubsection{\texorpdfstring{N\_CALLBACK}{N\_CALLBACK}}
-{\footnotesize\ttfamily \#define N\+\_\+\+C\+A\+L\+L\+B\+A\+CK~9}
+{\footnotesize\ttfamily \#define N\+\_\+\+C\+A\+L\+L\+B\+A\+CK~11}
 
 Numero maximo de llamadas a comandos 
 

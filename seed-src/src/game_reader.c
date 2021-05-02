@@ -26,6 +26,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   char **gdesc = NULL;
   char *toks = NULL;
   Id id = NO_ID, north = NO_ID, east = NO_ID, south = NO_ID, west = NO_ID, up = NO_ID, down = NO_ID;
+  BOOL iluminate;
   Space *space = NULL;
   STATUS status = OK;
 
@@ -73,6 +74,8 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       toks = strtok(NULL, "|");
       down = atol(toks);
       toks = strtok(NULL, "|");
+      iluminate = atol(toks);
+      toks = strtok(NULL, "|");
       strcpy(gdesc[0], toks);
       toks = strtok(NULL, "|");
       strcpy(gdesc[1], toks);
@@ -82,9 +85,12 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       strcpy(descr, toks);
       toks = strtok(NULL, "|");
       strcpy(detail_descr, toks);
+      
+      
+      
 
 #ifdef DEBUG
-      printf("Leido: %ld|%s|%ld|%ld|%ld|%ld|%ld|%ld\n", id, name, north, east, south, west, up, down);
+      printf("Leido: %ld|%s|%ld|%ld|%ld|%ld|%ld|%ld|%d\n", id, name, north, east, south, west, up, down, iluminate);
 #endif
       space = space_create(id);
       if (space != NULL) /*Si el space es válido implementa al espacio del juego todo lo leido y añade un espacio*/
@@ -100,6 +106,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
         game_add_space(game, space);
         space_set_description(space, descr);
         space_set_detailed_description(space, detail_descr);
+        space_set_ilumination(space, iluminate);
       }
     }
   }
@@ -328,11 +335,12 @@ STATUS game_reader_load_links(Game *game, char *filename)
           printf("Flag 2\n");
         }
 
-        else if (strcmp(space_get_detailed_description(space1), space_get_detailed_description(space2)) == 0)
+        else if (id_space1 + 10 == id_space2)
         {
           flag = 4;
           printf("Flag 4\n");
         }
+
 
         else
         {

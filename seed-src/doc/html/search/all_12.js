@@ -266,7 +266,9 @@ var searchData=
   ['total_5fdata_594',['TOTAL_DATA',['../screen_8c.html#afba5c5b9f73273ce653f890bb64740b0',1,'screen.c']]],
   ['total_5fids_595',['total_ids',['../struct__Set.html#a4c6245578676e6466727cb6bc157699a',1,'_Set']]],
   ['turnedon_596',['turnedon',['../struct__Object.html#a402198da362af7d49255f7e749d438be',1,'_Object']]],
-  ['type_597',['type',['../struct__Link.html#a33333b5aaace22ae45e41737ccb4f572',1,'_Link']]],
-  ['types_598',['TYPES',['../types_8h.html#aacb79576e5cf053ee9c93cb9d665e32b',1,'types.h']]],
-  ['types_2eh_599',['types.h',['../types_8h.html',1,'']]]
+  ['turnoff_597',['TURNOFF',['../command_8h.html#ace19ba2296a74e4aef53304e0934c50ca564ee0e901bafdd34855cf0ad96ef60c',1,'command.h']]],
+  ['turnon_598',['TURNON',['../command_8h.html#ace19ba2296a74e4aef53304e0934c50ca141759a3bd88e1f969f53ce070705fcd',1,'command.h']]],
+  ['type_599',['type',['../struct__Link.html#a33333b5aaace22ae45e41737ccb4f572',1,'_Link']]],
+  ['types_600',['TYPES',['../types_8h.html#aacb79576e5cf053ee9c93cb9d665e32b',1,'types.h']]],
+  ['types_2eh_601',['types.h',['../types_8h.html',1,'']]]
 ];

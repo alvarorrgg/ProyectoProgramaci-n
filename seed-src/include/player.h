@@ -203,4 +203,6 @@ Inventory *player_get_inventory(Player* player);
  * @return TRUE o FALSE segun si tiene el objeto o no
  */
 BOOL player_has_object(Player* player,Id id);
+
+
 #endif

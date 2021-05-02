@@ -394,4 +394,18 @@ STATUS game_set_last_description(Game* game , char* descr);
  */
 const char* game_get_last_descripcion(Game* game);
 
+/**
+ * @brief Busca si el jugador tiene un objeto iluminado
+ *
+ * game_get_descripcion devuelve la descripcion del ultimo objeto pedido
+ *
+ * @date 02-05-2021
+ * @author Alexandru Marius Platon
+ *
+ * @param game el juego donde se establece el objeto
+ * @param id id del objeto
+ * @return TRUE si el jugador tiene un objeto iluminado, FALSE en caso contrario
+ */
+BOOL game_player_hasIluminated_object(Game *g, Id id);
+
 #endif

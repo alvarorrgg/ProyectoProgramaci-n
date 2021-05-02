@@ -28,6 +28,9 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"rl", "Roll"},	/** !< rl <=> roll*/
     {"m", "Move"}, /** !< m <=> move*/
     {"i" , "Inspect"},	/** !< i <=> inspect*/
+    {"ton" , "Turnon"},	/** !< ton <=> turnon*/
+    {"toff" , "Turnoff"},	/** !< toff<=> turnoff*/
+    
     };
 
 /**

@@ -114,7 +114,7 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a8366e5ad74afbbea0cd0a414770c304a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a8366e5ad74afbbea0cd0a414770c304a">N_CALLBACK</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memitem:a8366e5ad74afbbea0cd0a414770c304a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a8366e5ad74afbbea0cd0a414770c304a">N_CALLBACK</a>&#160;&#160;&#160;11</td></tr>
 <tr class="separator:a8366e5ad74afbbea0cd0a414770c304a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -163,6 +163,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>game_callback_up</b> 
 <tr class="memitem:aead4a48b78ed48df1164bce3870694a8"><td class="memItemLeft" align="right" valign="top"><a id="aead4a48b78ed48df1164bce3870694a8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>game_callback_down</b> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game)</td></tr>
 <tr class="separator:aead4a48b78ed48df1164bce3870694a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d129f4633cdfeae4332360ba00c0c6d"><td class="memItemLeft" align="right" valign="top"><a id="a0d129f4633cdfeae4332360ba00c0c6d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>game_callback_turnon</b> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game)</td></tr>
+<tr class="separator:a0d129f4633cdfeae4332360ba00c0c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f840da3cd6ce1b3273dd5b83719503d"><td class="memItemLeft" align="right" valign="top"><a id="a3f840da3cd6ce1b3273dd5b83719503d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>game_callback_turnoff</b> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game)</td></tr>
+<tr class="separator:a3f840da3cd6ce1b3273dd5b83719503d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2dfd865e2bd2c545a15d33f4d1cf3ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#ad2dfd865e2bd2c545a15d33f4d1cf3ae">game_get_space_id_at</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game, int position)</td></tr>
 <tr class="memdesc:ad2dfd865e2bd2c545a15d33f4d1cf3ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifica un espacio del juego.  <a href="game_8c.html#ad2dfd865e2bd2c545a15d33f4d1cf3ae">More...</a><br /></td></tr>
 <tr class="separator:ad2dfd865e2bd2c545a15d33f4d1cf3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,6 +256,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>game_callback_down</b
 <tr class="memitem:aba890b1d796db361825e9eaaf900133e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__Dialogue.html">Dialogue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#aba890b1d796db361825e9eaaf900133e">game_get_dialogue</a> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *game)</td></tr>
 <tr class="memdesc:aba890b1d796db361825e9eaaf900133e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controla la estructura dialogue dentro de game.  <a href="game_8c.html#aba890b1d796db361825e9eaaf900133e">More...</a><br /></td></tr>
 <tr class="separator:aba890b1d796db361825e9eaaf900133e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a38db541e04de68d3e4347e923f25bd"><td class="memItemLeft" align="right" valign="top"><a id="a8a38db541e04de68d3e4347e923f25bd"></a>
+<a class="el" href="types_8h.html#a3e5b8192e7d9ffaf3542f1210aec18dd">BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><b>game_player_hasIluminated_object</b> (<a class="el" href="game_8h.html#a57156d39c530aec3fba3a9dad8c2dc6a">Game</a> *g, <a class="el" href="types_8h.html#a845e604fb28f7e3d97549da3448149d3">Id</a> id)</td></tr>
+<tr class="separator:a8a38db541e04de68d3e4347e923f25bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementa la interfaz del juego y todas las devoluciones de llamada asociadas para cada comando. </p>
@@ -265,7 +274,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>game_callback_down</b
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define N_CALLBACK&#160;&#160;&#160;9</td>
+          <td class="memname">#define N_CALLBACK&#160;&#160;&#160;11</td>
         </tr>
       </table>
 </div><div class="memdoc">
