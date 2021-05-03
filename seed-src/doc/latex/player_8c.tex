@@ -11,8 +11,7 @@ Se encarga de todo lo relacionado con el jugador.
 {\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}object.\+h\char`\"{}}\newline
-Include dependency graph for player.\+c\+:
-\nopagebreak
+Include dependency graph for player.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -37,6 +36,8 @@ const char $\ast$ \mbox{\hyperlink{player_8c_a6622c02be2fe230a5c0df66385a13ece}{
 \begin{DoxyCompactList}\small\item\em Obtiene el nombre del jugador. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{player_8c_af5a101ec91427951c5875569a8709956}{player\+\_\+get\+\_\+id}} (\mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$player)
 \begin{DoxyCompactList}\small\item\em Obtiene el id de un jugador. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{player_8c_ada02b847ea53c402eeace777686f12b4}{player\+\_\+get\+\_\+inventory\+\_\+max\+\_\+capacity}} (\mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em obtiene la maxima capacidad del inventario \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{player_8c_a2816532c8e3e3350d26cb0401c7a76e6}{player\+\_\+set\+\_\+inventory\+\_\+max\+\_\+capacity}} (\mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$player, int max\+\_\+objects)
 \begin{DoxyCompactList}\small\item\em establece la nueva capacidad del inventario \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} $\ast$ \mbox{\hyperlink{player_8c_ab8efcd8a300b674453a4492635baa54b}{player\+\_\+get\+\_\+objects}} (\mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$player)
@@ -206,6 +207,34 @@ player\+\_\+get\+\_\+inventory obtiene el inventario del objeto
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Inventory el inventario del player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{player_8c_ada02b847ea53c402eeace777686f12b4}\label{player_8c_ada02b847ea53c402eeace777686f12b4}} 
+\index{player.c@{player.c}!player\_get\_inventory\_max\_capacity@{player\_get\_inventory\_max\_capacity}}
+\index{player\_get\_inventory\_max\_capacity@{player\_get\_inventory\_max\_capacity}!player.c@{player.c}}
+\doxysubsubsection{\texorpdfstring{player\_get\_inventory\_max\_capacity()}{player\_get\_inventory\_max\_capacity()}}
+{\footnotesize\ttfamily int player\+\_\+get\+\_\+inventory\+\_\+max\+\_\+capacity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+obtiene la maxima capacidad del inventario 
+
+player\+\_\+get\+\_\+inventory\+\_\+max\+\_\+capacity consigue la capacidad del inventario
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em player} & el jugador del juego \\
+\hline
+{\em max\+\_\+objects} & nueva capacidad del inventario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+US OK para saber que se ha ejecutado la función correctamente 
 \end{DoxyReturn}
 \mbox{\Hypertarget{player_8c_aa50ce77ab79af7166d749619fd60acfe}\label{player_8c_aa50ce77ab79af7166d749619fd60acfe}} 
 \index{player.c@{player.c}!player\_get\_location@{player\_get\_location}}

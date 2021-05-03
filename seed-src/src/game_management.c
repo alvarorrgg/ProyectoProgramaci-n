@@ -1,7 +1,7 @@
 /** 
  * @brief Implementa el inicio del juego y obtiene los valores iniciales de data.dat
  * 
- * @file game_reader.c
+ * @file game_management.c
  * @author Álvaro Rodríguez, Alberto Vicente, Gonzalo Martin
  * @version 1.0 
  * @date 18-02-2021  
@@ -12,11 +12,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "game.h"
-#include "game_reader.h"
+#include "game_management.h"
 #include "inventory.h"
 #include "object.h"
 
-STATUS game_reader_load_spaces(Game *game, char *filename)
+STATUS game_management_load_spaces(Game *game, char *filename)
 {
   FILE *file = NULL;
   char line[WORD_SIZE] = "";
@@ -26,7 +26,6 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   char **gdesc = NULL;
   char *toks = NULL;
   Id id = NO_ID, north = NO_ID, east = NO_ID, south = NO_ID, west = NO_ID, up = NO_ID, down = NO_ID;
-  BOOL iluminate;
   Space *space = NULL;
   STATUS status = OK;
 
@@ -74,8 +73,6 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       toks = strtok(NULL, "|");
       down = atol(toks);
       toks = strtok(NULL, "|");
-      iluminate = atol(toks);
-      toks = strtok(NULL, "|");
       strcpy(gdesc[0], toks);
       toks = strtok(NULL, "|");
       strcpy(gdesc[1], toks);
@@ -85,12 +82,9 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
       strcpy(descr, toks);
       toks = strtok(NULL, "|");
       strcpy(detail_descr, toks);
-      
-      
-      
 
 #ifdef DEBUG
-      printf("Leido: %ld|%s|%ld|%ld|%ld|%ld|%ld|%ld|%d\n", id, name, north, east, south, west, up, down, iluminate);
+      printf("Leido: %ld|%s|%ld|%ld|%ld|%ld|%ld|%ld\n", id, name, north, east, south, west, up, down);
 #endif
       space = space_create(id);
       if (space != NULL) /*Si el space es válido implementa al espacio del juego todo lo leido y añade un espacio*/
@@ -106,7 +100,6 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
         game_add_space(game, space);
         space_set_description(space, descr);
         space_set_detailed_description(space, detail_descr);
-        space_set_ilumination(space, iluminate);
       }
     }
   }
@@ -121,7 +114,7 @@ STATUS game_reader_load_spaces(Game *game, char *filename)
   return status;
 }
 
-STATUS game_reader_load_objects(Game *game, char *filename)
+STATUS game_management_load_objects(Game *game, char *filename)
 {
   FILE *file = NULL;
   int i = 0, j = 0;
@@ -215,7 +208,7 @@ STATUS game_reader_load_objects(Game *game, char *filename)
   return status;
 }
 
-STATUS game_reader_load_players(Game *game, char *filename)
+STATUS game_management_load_players(Game *game, char *filename)
 {
   FILE *file = NULL;
   char line[WORD_SIZE] = "";
@@ -277,7 +270,7 @@ STATUS game_reader_load_players(Game *game, char *filename)
   return status;
 }
 
-STATUS game_reader_load_links(Game *game, char *filename)
+STATUS game_management_load_links(Game *game, char *filename)
 {
   FILE *file = NULL;
   char name[WORD_SIZE] = "";
@@ -335,12 +328,11 @@ STATUS game_reader_load_links(Game *game, char *filename)
           printf("Flag 2\n");
         }
 
-        else if (id_space1 + 10 == id_space2)
+        else if (strcmp(space_get_detailed_description(space1), space_get_detailed_description(space2)) == 0)
         {
           flag = 4;
           printf("Flag 4\n");
         }
-
 
         else
         {
@@ -400,6 +392,72 @@ STATUS game_reader_load_links(Game *game, char *filename)
   }
 
   fclose(file);
+
+  return OK;
+}
+
+STATUS game_management_save(Game * game, char * filename){
+
+  FILE *f;
+  Space *s;
+  Object *o;
+  Player *p;
+  Link *l;
+  int i;
+  Id id;
+  char **gdesc;
+
+  if (!game || filename==NULL) return ERROR;
+
+  f=fopen(filename,"w");
+  if(f==NULL) return ERROR;
+
+  for (i=0;i<game_get_total_spaces(game);i++){
+    id=game_get_space_id_at(game,i);
+    s=game_get_space(game,id);
+    gdesc=space_get_gdesc(s);
+    fprintf(f,"#s:%ld|%s|%ld|%ld|%ld|%ld|%ld|%ld|%s|%s|%s|%s|%s|\n",id,space_get_name(s),link_get_id_to(space_get_north(s)),link_get_id_to(space_get_east(s)),link_get_id_to(space_get_south(s)),link_get_id_to(space_get_west(s)),link_get_id_to(space_get_up(s)),link_get_id_to(space_get_down(s)),gdesc[0],gdesc[1],gdesc[2],space_get_description(s),space_get_detailed_description(s));
+  }
+
+  for (i=0;i<game_get_total_objects(game);i++){
+    o=game_get_object(game,i);
+    fprintf(f,"#o:%ld|%s|%ld|%s|%d|%ld|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),game_get_object_location(game,object_get_id(o)),object_get_description(o),object_get_movement(o),object_get_dependency(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
+  }
+
+  p=game_get_player(game);
+  fprintf(f,"#p:%ld|%s|%ld|%d|\n",player_get_id(p),player_get_name(p),player_get_location(p),player_get_inventory_max_capacity(p));
+
+  for(i=0;i<game_get_total_links(game);i++){
+    id=game_get_link_id_at(game,i);
+    l=game_get_link(game,id);
+    fprintf(f,"#l:%ld|%s|%ld|%ld|%d|\n",link_get_id(l),link_get_name(l),link_get_id_from(l),link_get_id_to(l),link_get_type(l));
+  }
+
+  fprintf(f,"%s",game_get_last_descripcion(game));
+  
+  fclose(f);
+
+  return OK;
+}
+
+STATUS game_management_load(Game * game, char * filename){
+
+  FILE *f;
+  char *l_description=NULL;
+
+  if(!game || !filename) return ERROR;
+
+  if(game_destroy(game)==ERROR) return ERROR;
+
+  if(game_create_from_file(game,filename)==ERROR) return ERROR;
+
+  f=fopen(filename,"r");
+
+  fscanf(f,"%s",l_description);
+
+  game_set_last_description(game,l_description);
+
+  fclose(f);
 
   return OK;
 }

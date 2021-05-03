@@ -2,7 +2,7 @@
  * @brief Archivo cabecera de game.c en el se encuentra definidas los datos y funciones de game.c. Además también se definen otros datos útiles para otros módulos.
  * 
  * @file game.h
- * @author Profesores PPROG, Álvaro Rodríguez, Gonzalo Martín.
+ * @author Profesores PPROG, Álvaro Rodríguez, Gonzalo Martín, Alberto Vicente, Alexandru Marius Platon.
  * @version 1.0 
  * @date 13-01-2015 
  * @copyright GNU Public License
@@ -54,7 +54,7 @@ Game *game_init();
 /**
  * @brief Crea el juego en un fichero
  *
- * game_create_from_file Primero se comprueba si se crea o no el juego y si se ejecuta correctamente la funcion game_reader_load_spaces y establece la posición del jugador y del objeto a 0
+ * game_create_from_file Primero se comprueba si se crea o no el juego y si se ejecuta correctamente la funcion game_management_load_spaces y establece la posición del jugador y del objeto a 0
  *
  * @date  18-02-2021
  * @author Profesores PProg
@@ -128,6 +128,31 @@ void game_print_data(Game* game);
  * @return la función space_get_space con la posición position del juego
  */
 Space* game_get_space(Game* game, Id id);
+/**
+ * @brief Identifica un espacio del juego
+ *
+ * game_get_space_id_at Comprueba si el segundo parametro es menor a 0 o mayor o igual al espacio máximo, en el caso de que se cumpla una de estas dos cosas la función retorna -1
+ *
+ * @date 18-02-2021
+ * @author Profesores PProg
+ *
+ * @param game el juego del que se va a identificar el espacio
+ * @param position la posición del espacio
+ * @return la función space_get_id con la posición position del juego
+ */
+Id game_get_space_id_at(Game *game, int position);
+/**
+ * @brief Obtiene el total de espacios dentro del juego
+ *
+ * game_get_total_spaces obtiene cuantos espacios hay en el juego
+ *
+ * @date  02-05-2021
+ * @author Alberto Vicente
+ *
+ * @param game el juego del que se va a sacar el numero de espacios
+ * @return el numero de espacios
+ */
+int game_get_total_spaces(Game *game);
 /**
  * @brief Identifica el dado
  *
@@ -295,6 +320,31 @@ STATUS game_add_link(Game *game, Link *link);
  * @return Se devuelve el link encontrado NULL si no se encuentra nada.
  */
 Link *game_get_link(Game *game, Id id);
+/**
+ * @brief Obtiene el total de links dentro del juego
+ *
+ * game_get_total_links obtiene cuantos links hay en el juego
+ *
+ * @date  02-05-2021
+ * @author Alberto Vicente
+ *
+ * @param game el juego del que se va a sacar el numero de links
+ * @return el numero de links
+ */
+int game_get_total_links(Game *game);
+/**
+ * @brief Identifica un enlace del juego
+ *
+ * game_get_link_id_at Comprueba si el segundo parametro es menor a 0 o mayor o igual al enlace máximo, en el caso de que se cumpla una de estas dos cosas la función retorna -1
+ *
+ * @date 02-05-2021
+ * @author Alberto Vicente
+ *
+ * @param game el juego del que se va a identificar el enlace
+ * @param position la posición del enlace
+ * @return la función link_get_id con la posición position del juego
+ */
+Id game_get_link_id_at(Game *game, int position);
 /**
  * @brief devuelve un objeto dado su id
  *

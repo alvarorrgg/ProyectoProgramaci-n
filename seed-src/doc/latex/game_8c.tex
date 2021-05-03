@@ -9,7 +9,7 @@ Implementa la interfaz del juego y todas las devoluciones de llamada asociadas p
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}game\+\_\+reader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game\+\_\+management.\+h\char`\"{}}\newline
 Include dependency graph for game.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -66,8 +66,6 @@ void \mbox{\hyperlink{game_8c_a0d129f4633cdfeae4332360ba00c0c6d}{game\+\_\+callb
 \begin{DoxyCompactList}\small\item\em Acción del jugador. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{game_8c_a3f840da3cd6ce1b3273dd5b83719503d}{game\+\_\+callback\+\_\+turnoff}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
 \begin{DoxyCompactList}\small\item\em Acción del jugador. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{game_8c_ad2dfd865e2bd2c545a15d33f4d1cf3ae}{game\+\_\+get\+\_\+space\+\_\+id\+\_\+at}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, int position)
-\begin{DoxyCompactList}\small\item\em Identifica un espacio del juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$ \mbox{\hyperlink{game_8c_a057a83fa209fb1cca41eec8ab4e5776b}{game\+\_\+init}} ()
 \begin{DoxyCompactList}\small\item\em Inicializa el juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{game_8c_abed482f7a6cbbb66d095510973074388}{game\+\_\+create}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
@@ -86,8 +84,16 @@ void \mbox{\hyperlink{game_8c_a3f840da3cd6ce1b3273dd5b83719503d}{game\+\_\+callb
 \begin{DoxyCompactList}\small\item\em Añade un nuevo link al juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{game_8c_a1064ec927b8c33cf55982b73845db7d3}{game\+\_\+get\+\_\+link}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em Obtiene el link del id determinado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_a34739d57a415329920d9a611c26afb40}{game\+\_\+get\+\_\+total\+\_\+links}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Obtiene el total de links dentro del juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{game_8c_ad6787676d849c33f1fc0602e79950110}{game\+\_\+get\+\_\+link\+\_\+id\+\_\+at}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, int position)
+\begin{DoxyCompactList}\small\item\em Identifica un enlace del juego. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{game_8c_ad2dfd865e2bd2c545a15d33f4d1cf3ae}{game\+\_\+get\+\_\+space\+\_\+id\+\_\+at}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, int position)
+\begin{DoxyCompactList}\small\item\em Identifica un espacio del juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{space_8h_a67533ffc2b70463baecc38fb0629bbfc}{Space}} $\ast$ \mbox{\hyperlink{game_8c_a69d94da9d27b542d3ebdeb8b60f1f2dc}{game\+\_\+get\+\_\+space}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
 \begin{DoxyCompactList}\small\item\em Identifica un espacio del juego. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_a1ff73f03817912f06c3cb3e68dfba427}{game\+\_\+get\+\_\+total\+\_\+spaces}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Obtiene el total de espacios dentro del juego. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{die_8h_a892f0b0bf81d69a1f7a14ea238e36dd3}{Die}} $\ast$ \mbox{\hyperlink{game_8c_a5753a09313b092a52c0cea742c40f3cf}{game\+\_\+get\+\_\+die}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
 \begin{DoxyCompactList}\small\item\em Identifica el dado. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$ \mbox{\hyperlink{game_8c_af46efd507d797aec6da90d08aa592e32}{game\+\_\+get\+\_\+player}} (\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$game)
@@ -132,7 +138,7 @@ const char $\ast$ \mbox{\hyperlink{game_8c_aaa58a379e2decab27af682c0c1054a5f}{ga
 Implementa la interfaz del juego y todas las devoluciones de llamada asociadas para cada comando. 
 
 \begin{DoxyAuthor}{Author}
-Álvaro Rodríguez, Gonzalo Martín y Profesores\+P\+Prog 
+Álvaro Rodríguez, Gonzalo Martín y Profesores\+P\+Prog, Alberto Vicente, Alexandru Marius Platon 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
 1.\+0 
@@ -657,7 +663,7 @@ OK para saber que se ha ejecutado la función correctamente
 
 Crea el juego en un fichero. 
 
-game\+\_\+create\+\_\+from\+\_\+file Primero se comprueba si se crea o no el juego y si se ejecuta correctamente la funcion game\+\_\+reader\+\_\+load\+\_\+spaces y establece la posición del jugador y del objeto a 0
+game\+\_\+create\+\_\+from\+\_\+file Primero se comprueba si se crea o no el juego y si se ejecuta correctamente la funcion game\+\_\+management\+\_\+load\+\_\+spaces y establece la posición del jugador y del objeto a 0
 
 \begin{DoxyDate}{Date}
 18-\/02-\/2021 
@@ -865,6 +871,34 @@ game\+\_\+get\+\_\+link busca el link de id determinado
 \begin{DoxyReturn}{Returns}
 Se devuelve el link encontrado N\+U\+LL si no se encuentra nada. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_ad6787676d849c33f1fc0602e79950110}\label{game_8c_ad6787676d849c33f1fc0602e79950110}} 
+\index{game.c@{game.c}!game\_get\_link\_id\_at@{game\_get\_link\_id\_at}}
+\index{game\_get\_link\_id\_at@{game\_get\_link\_id\_at}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_get\_link\_id\_at()}{game\_get\_link\_id\_at()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} game\+\_\+get\+\_\+link\+\_\+id\+\_\+at (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Identifica un enlace del juego. 
+
+game\+\_\+get\+\_\+link\+\_\+id\+\_\+at Comprueba si el segundo parametro es menor a 0 o mayor o igual al enlace máximo, en el caso de que se cumpla una de estas dos cosas la función retorna -\/1
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a identificar el enlace \\
+\hline
+{\em position} & la posición del enlace \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la función link\+\_\+get\+\_\+id con la posición position del juego 
+\end{DoxyReturn}
 \mbox{\Hypertarget{game_8c_a10298c790c9a9ca50b7090ef7e2029b7}\label{game_8c_a10298c790c9a9ca50b7090ef7e2029b7}} 
 \index{game.c@{game.c}!game\_get\_object@{game\_get\_object}}
 \index{game\_get\_object@{game\_get\_object}!game.c@{game.c}}
@@ -1039,7 +1073,7 @@ la función space\+\_\+get\+\_\+space con la posición position del juego
 
 Identifica un espacio del juego. 
 
-Funciones privadas game\+\_\+get\+\_\+space\+\_\+id\+\_\+at Comprueba si el segundo parametro es menor a 0 o mayor o igual al espacio máximo, en el caso de que se cumpla una de estas dos cosas la función retorna -\/1
+game\+\_\+get\+\_\+space\+\_\+id\+\_\+at Comprueba si el segundo parametro es menor a 0 o mayor o igual al espacio máximo, en el caso de que se cumpla una de estas dos cosas la función retorna -\/1
 
 \begin{DoxyDate}{Date}
 18-\/02-\/2021 
@@ -1056,6 +1090,32 @@ Profesores P\+Prog
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 la función space\+\_\+get\+\_\+id con la posición position del juego 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_a34739d57a415329920d9a611c26afb40}\label{game_8c_a34739d57a415329920d9a611c26afb40}} 
+\index{game.c@{game.c}!game\_get\_total\_links@{game\_get\_total\_links}}
+\index{game\_get\_total\_links@{game\_get\_total\_links}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_get\_total\_links()}{game\_get\_total\_links()}}
+{\footnotesize\ttfamily int game\+\_\+get\+\_\+total\+\_\+links (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Obtiene el total de links dentro del juego. 
+
+game\+\_\+get\+\_\+total\+\_\+links obtiene cuantos links hay en el juego
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a sacar el numero de links \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el numero de links 
 \end{DoxyReturn}
 \mbox{\Hypertarget{game_8c_a7b7096dba6df39271160bdf387d9049f}\label{game_8c_a7b7096dba6df39271160bdf387d9049f}} 
 \index{game.c@{game.c}!game\_get\_total\_objects@{game\_get\_total\_objects}}
@@ -1082,6 +1142,32 @@ game\+\_\+get\+\_\+total\+\_\+objects obtiene cuantos objetos hay en el juego
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 el numero de objetos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_a1ff73f03817912f06c3cb3e68dfba427}\label{game_8c_a1ff73f03817912f06c3cb3e68dfba427}} 
+\index{game.c@{game.c}!game\_get\_total\_spaces@{game\_get\_total\_spaces}}
+\index{game\_get\_total\_spaces@{game\_get\_total\_spaces}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_get\_total\_spaces()}{game\_get\_total\_spaces()}}
+{\footnotesize\ttfamily int game\+\_\+get\+\_\+total\+\_\+spaces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game_8h_a57156d39c530aec3fba3a9dad8c2dc6a}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Obtiene el total de espacios dentro del juego. 
+
+game\+\_\+get\+\_\+total\+\_\+spaces obtiene cuantos espacios hay en el juego
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em game} & el juego del que se va a sacar el numero de espacios \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el numero de espacios 
 \end{DoxyReturn}
 \mbox{\Hypertarget{game_8c_a830f6d56febb15af02c31d17ea19ebfc}\label{game_8c_a830f6d56febb15af02c31d17ea19ebfc}} 
 \index{game.c@{game.c}!game\_id\_object\_exists@{game\_id\_object\_exists}}

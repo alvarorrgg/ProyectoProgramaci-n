@@ -1,9 +1,9 @@
 #makefile de juego OCA
 target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test docs tests
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
-OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o dialogue.o
+OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_management.o object.o player.o set.o die.o inventory.o link.o dialogue.o
 TEST = set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o
-OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_reader.o object.o player.o set.o die.o inventory.o link.o dialogue.o)
+OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_management.o object.o player.o set.o die.o inventory.o link.o dialogue.o)
 SET_TESTDIR = $(addprefix obj/,set_test.o set.o)
 DIE_TESTDIR = $(addprefix obj/,die_test.o die.o)
 INVENTORY_TESTDIR = $(addprefix obj/, inventory_test.o inventory.o set.o)
@@ -30,7 +30,7 @@ command.o: command.c command.h types.h
 	@echo "Creando $@"
 	$(CC) -c  $(FLAGS) $<
 
-game.o: game.c game.h player.h types.h object.h command.h space.h die.h game_reader.h dialogue.h
+game.o: game.c game.h player.h types.h object.h command.h space.h die.h game_management.h dialogue.h
 	@echo "######################"
 	@echo "Creando $@"	
 	$(CC)  -c $(FLAGS) $<
@@ -55,7 +55,7 @@ space.o: space.c set.h types.h space.h
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
-game_reader.o: game_reader.c game_reader.h game.h player.h object.h command.h space.h die.h types.h
+game_management.o: game_management.c game_management.h game.h player.h object.h command.h space.h die.h types.h
 	@echo "######################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<

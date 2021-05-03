@@ -3,7 +3,7 @@
  * 
  * 
  * @file game.c
- * @author Álvaro Rodríguez, Gonzalo Martín y ProfesoresPProg
+ * @author Álvaro Rodríguez, Gonzalo Martín y ProfesoresPProg, Alberto Vicente, Alexandru Marius Platon
  * @version 1.0 
  * @date 13-01-2015 
  * @copyright GNU Public License
@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "game.h"
-#include "game_reader.h"
+#include "game_management.h"
 
 #define N_CALLBACK 11 /*!<Numero maximo de llamadas a comandos*/
 
@@ -243,23 +243,6 @@ static callback_fn game_callback_fn_list[N_CALLBACK] = {
 
 };
 
-/**
-   Funciones privadas
-*/
-
-/**
- * @brief Identifica un espacio del juego
- *
- * game_get_space_id_at Comprueba si el segundo parametro es menor a 0 o mayor o igual al espacio máximo, en el caso de que se cumpla una de estas dos cosas la función retorna -1
- *
- * @date 18-02-2021
- * @author Profesores PProg
- *
- * @param game el juego del que se va a identificar el espacio
- * @param position la posición del espacio
- * @return la función space_get_id con la posición position del juego
- */
-Id game_get_space_id_at(Game *game, int position);
 
 /*Implementación de las funciones de Game*/
 
@@ -303,10 +286,10 @@ STATUS game_create_from_file(Game *game, char *filename)
   if(!game || !filename) return ERROR;
  
   if (game_create(game) == ERROR) return ERROR;
-  if (game_reader_load_spaces(game, filename) == ERROR) return ERROR; /*Se leen los espacios del fichero data.dat*/
-  if (game_reader_load_objects(game, filename) == ERROR) return ERROR;   /*Se leen los objetos del fichero data.dat*/
-  if (game_reader_load_players(game, filename) == ERROR) return ERROR;   /*Se leen los jugadores del fichero data.dat*/
-  if (game_reader_load_links(game, filename) == ERROR) return ERROR;   /*Se leen los links del fichero data.dat*/
+  if (game_management_load_spaces(game, filename) == ERROR) return ERROR; /*Se leen los espacios del fichero data.dat*/
+  if (game_management_load_objects(game, filename) == ERROR) return ERROR;   /*Se leen los objetos del fichero data.dat*/
+  if (game_management_load_players(game, filename) == ERROR) return ERROR;   /*Se leen los jugadores del fichero data.dat*/
+  if (game_management_load_links(game, filename) == ERROR) return ERROR;   /*Se leen los links del fichero data.dat*/
 
 
   return OK;
@@ -393,6 +376,24 @@ Link *game_get_link(Game *game, Id id)
   return NULL;
 }
 
+int game_get_total_links(Game *game){
+  int i = 0;
+
+  if (!game) return -1;
+
+  while ((i < MAX_LINKS) && (game->link[i] != NULL)) i++;
+
+  return i;
+}
+
+Id game_get_link_id_at(Game *game, int position)
+{
+
+  if (!game || position < 0 || position >= MAX_LINKS) return NO_ID;
+
+  return link_get_id(game->link[position]);
+}
+
 Id game_get_space_id_at(Game *game, int position)
 {
 
@@ -414,6 +415,17 @@ Space *game_get_space(Game *game, Id id)
 
   return NULL;
 }
+
+int game_get_total_spaces(Game *game){
+  int i = 0;
+
+  if (!game) return -1;
+
+  while ((i < MAX_SPACES) && (game->spaces[i] != NULL)) i++;
+
+  return i;
+}
+
 Die* game_get_die(Game* game){
   if(!game) return ERROR;
   return game->die;
@@ -1189,7 +1201,7 @@ void game_callback_down(Game *game)
 void game_callback_turnon(Game *game){
 
   char objeto[WORD_SIZE];
-  int  ob_index, i=0;
+  int  ob_index;
   Id obid;
   
   if(!game){
@@ -1240,7 +1252,7 @@ void game_callback_turnon(Game *game){
 void game_callback_turnoff(Game *game){
 
   char objeto[WORD_SIZE];
-  int  ob_index ,i=0;
+  int  ob_index;
   Id obid;
   if(!game){
     command_set_status(game->command, ERROR);
@@ -1285,7 +1297,6 @@ void game_callback_turnoff(Game *game){
 }
 BOOL game_player_hasIluminated_object(Game *g, Id id){
 
-  int i;
   if(!g)return FALSE;
 
   if(player_has_object(g->player, id)==FALSE)return FALSE;

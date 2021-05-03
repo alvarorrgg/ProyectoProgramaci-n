@@ -74,6 +74,13 @@ Id player_get_id(Player* player) {
   
   return player->id;
 }
+
+int player_get_inventory_max_capacity (Player *player){
+    if (!player) return -1;
+
+    return inventory_get_max_objects(player->inventory);
+}
+
 STATUS player_set_inventory_max_capacity(Player *player, int max_objects){
   if(!player || max_objects<0) return ERROR;
   return inventory_set_max_objects(player->inventory,max_objects);
@@ -142,5 +149,4 @@ STATUS player_print(FILE *pf,Player* player) {
 
   return OK;
 }
-
 

@@ -2,7 +2,7 @@
  * @brief Archivo cabecera de player.c en el se encuentra definidas los datos y funciones de player.c
  * 
  * @file player.h
- * @author Álvaro Rodríguez
+ * @author Álvaro Rodríguez, Alberto Vicente
  * @version 1.0 
  * @date 22-02-2021 
  * @copyright GNU Public License
@@ -139,6 +139,21 @@ STATUS player_remove_object(Player* player, Id value);
  * @return STATUS OK para saber que se ha ejecutado la función correctamente
  */
 STATUS player_set_location(Player* player, Id id);
+
+/**
+ * @brief obtiene la maxima capacidad del inventario
+ *
+ * player_get_inventory_max_capacity consigue la capacidad del inventario
+ * 
+ * @date 02-05-2021
+ * @author Alberto Vicente
+ *
+ * @param player el jugador del juego
+ * @param max_objects nueva capacidad del inventario
+ * @return STATUS OK para saber que se ha ejecutado la función correctamente
+ */
+int player_get_inventory_max_capacity (Player *player);
+
 /**
  * @brief establece la nueva capacidad del inventario
  *
@@ -203,6 +218,4 @@ Inventory *player_get_inventory(Player* player);
  * @return TRUE o FALSE segun si tiene el objeto o no
  */
 BOOL player_has_object(Player* player,Id id);
-
-
 #endif
