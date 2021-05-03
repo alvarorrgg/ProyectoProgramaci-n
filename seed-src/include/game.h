@@ -453,9 +453,8 @@ const char* game_get_last_descripcion(Game* game);
  * @author Alexandru Marius Platon
  *
  * @param game el juego donde se establece el objeto
- * @param id id del objeto
  * @return TRUE si el jugador tiene un objeto iluminado, FALSE en caso contrario
  */
-BOOL game_player_hasIluminated_object(Game *g, Id id);
+BOOL game_player_hasIluminated_object(Game *g);
 
 #endif

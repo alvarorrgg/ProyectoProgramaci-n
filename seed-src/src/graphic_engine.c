@@ -304,7 +304,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
         strcpy(id_to1, "      ");
       }
       sprintf(id2, "%ld", link_get_id(link2));
-      if(space_get_ilumination(space_act)==TRUE || game_player_hasIluminated_object(game, 1)==TRUE){
+      if(space_get_ilumination(space_act)==TRUE || game_player_hasIluminated_object(game)==TRUE){
         if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id2, "  ");
       sprintf(str, "           %s+-------------------+%s", id1, id2);
@@ -325,7 +325,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
 
       }
       
-     else if(space_get_ilumination(space_act)==FALSE && game_player_hasIluminated_object(game, 1)==FALSE){
+     else if(space_get_ilumination(space_act)==FALSE && game_player_hasIluminated_object(game)==FALSE){
         if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id2, "  ");
       sprintf(str, "             +-------------------+");

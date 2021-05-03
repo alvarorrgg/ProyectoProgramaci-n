@@ -1201,7 +1201,7 @@ void game_callback_down(Game *game)
 void game_callback_turnon(Game *game){
 
   char objeto[WORD_SIZE];
-  int  ob_index;
+  int ob_index;
   Id obid;
   
   if(!game){
@@ -1217,8 +1217,9 @@ void game_callback_turnon(Game *game){
 
   }
   
-  else{
+  else if(ob_index==MAX_OBJECTS){
     command_set_status(game->command, ERROR);
+    
     return;
 
   }
@@ -1268,8 +1269,9 @@ void game_callback_turnoff(Game *game){
   }
   
   
-  else{
+  else if(ob_index==MAX_OBJECTS){
     command_set_status(game->command, ERROR);
+    
     return;
 
   }
@@ -1295,17 +1297,20 @@ void game_callback_turnoff(Game *game){
   return;
 
 }
-BOOL game_player_hasIluminated_object(Game *g, Id id){
+BOOL game_player_hasIluminated_object(Game *g){
 
+  int i;
   if(!g)return FALSE;
 
-  if(player_has_object(g->player, id)==FALSE)return FALSE;
+  for(i=0;g->objects[i]!=NULL;i++){
+  if(player_has_object(g->player, object_get_id(g->objects[i]))==TRUE){
 
- 
+    if(object_get_turnedon(game_get_object(g, i))==TRUE)return TRUE;
 
-  if(object_get_turnedon(game_get_object_by_id(g, id))==TRUE)return TRUE;
-  
-  
+
+  }
+  }
+
   
   
 
