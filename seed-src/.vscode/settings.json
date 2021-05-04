@@ -3,6 +3,7 @@
         "stdlib.h": "c",
         "object.h": "c",
         "string.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "game_management.h": "c"
     }
 }

@@ -2,7 +2,7 @@
  * @brief Implementa el intérprete de comandos, leer comandos, conversión y almacenamiento de estos.
  * 
  * @file command.c
- * @author Álvaro Rodríguez, Profesores PPRog
+ * @author Álvaro Rodríguez, Profesores PPRog, Alberto Vicente
  * @version 2.0 
  * @date 01-04-2021
  * @copyright GNU Public License
@@ -31,7 +31,9 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"i" , "Inspect"},	/** !< i <=> inspect*/
     {"ton" , "Turnon"},	/** !< ton <=> turnon*/
     {"toff" , "Turnoff"},	/** !< toff<=> turnoff*/
-    {"op", "open"},
+    {"op", "Open"}, /** !< op <=> open*/
+    {"sv" , "Save"},	/** !< sv <=> save*/
+    {"ld" , "Load"},	/** !< ld <=> load*/
     
     };
 

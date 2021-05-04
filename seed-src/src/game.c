@@ -15,7 +15,7 @@
 #include "game.h"
 #include "game_management.h"
 
-#define N_CALLBACK 10 /*!<Numero maximo de llamadas a comandos*/
+#define N_CALLBACK 12 /*!<Numero maximo de llamadas a comandos*/
 
 /**
  * @brief Define los elementos del juego
@@ -237,6 +237,31 @@ void game_callback_turnoff(Game *game);
  * @param game el parametro sobre el que opera el comando con su respectiva accion
  */
 void game_callback_open(Game *game);
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_save guarda la partida
+ *
+ * @date 03-05-2021
+ * @author Alberto Vicente
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ * @param filename el nombre del fichero donde se guarda la partida
+ */
+void game_callback_save(Game *game);
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_load acarga una partida
+ *
+ * @date 03-05-2021
+ * @author Alberto Vicente	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ * @param filename el nombre del fichero del que se carga la partida
+ */
+void game_callback_load(Game *game);
+
 
 
 /**
@@ -253,6 +278,8 @@ static callback_fn game_callback_fn_list[N_CALLBACK] = {
     game_callback_turnon, /*TURNON=7*/
     game_callback_turnoff, /*TURNOFF=8*/
     game_callback_open, /*OPEN=9*/
+    game_callback_save, /*SAVE=10*/
+    game_callback_load, /*LOAD=11*/
 
 };
 
@@ -300,8 +327,8 @@ STATUS game_create_from_file(Game *game, char *filename)
  
   if (game_create(game) == ERROR) return ERROR;
   if (game_management_load_spaces(game, filename) == ERROR) return ERROR; /*Se leen los espacios del fichero data.dat*/
-  if (game_management_load_objects(game, filename) == ERROR) return ERROR;   /*Se leen los objetos del fichero data.dat*/
   if (game_management_load_players(game, filename) == ERROR) return ERROR;   /*Se leen los jugadores del fichero data.dat*/
+  if (game_management_load_objects(game, filename) == ERROR) return ERROR;   /*Se leen los objetos del fichero data.dat*/
   if (game_management_load_links(game, filename) == ERROR) return ERROR;   /*Se leen los links del fichero data.dat*/
 
 
@@ -528,6 +555,7 @@ Id game_get_object_location(Game *game, Id id)
     if (space_has_object_id(game->spaces[k], id)) return space_get_id(game->spaces[k]); /*Se detecta la posición del objeto y se devuelve como return*/
     k++;
   }
+  if(player_has_object(game->player,id)) return 2;
   return NO_ID;
 }
 
@@ -867,7 +895,6 @@ void game_callback_take(Game *game)
 
     while (game->spaces[k] != NULL)/*Se busca el espacio*/
     {
-        
       if (space_get_id(game->spaces[k]) == game_get_player_location(game))/*Se comprueba que el jugador este en el espacio*/
       {
       if (!space_has_object_id(game->spaces[k], id)){/*Se comprueba que el objeto este en el espacio*/
@@ -1371,4 +1398,46 @@ void game_callback_open(Game *game){
   }
 }
 
+
+void game_callback_save(Game *game){
+
+  char filename[WORD_SIZE];
+
+  if (!game){
+    command_set_status(game->command,ERROR);
+    return;
+  }
+
+  strcpy(filename,command_get_arg(game->command));
+
+  if (game_management_save(game,filename)==ERROR){
+    command_set_status(game->command,ERROR);
+    return;
+  }
+
+  command_set_status(game->command,OK);
+
+  return;
+}
+
+void game_callback_load(Game *game){
+
+  char filename[WORD_SIZE];
+
+  if (!game){
+    command_set_status(game->command,ERROR);
+    return;
+  }
+
+  strcpy(filename,command_get_arg(game->command));
+
+  if (game_management_load(game,filename)==ERROR){
+    command_set_status(game->command,ERROR);
+    return;
+  }
+
+  command_set_status(game->command,OK);
+
+  return;
+}
 
