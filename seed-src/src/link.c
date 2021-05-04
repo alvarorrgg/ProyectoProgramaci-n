@@ -127,6 +127,7 @@ STATUS link_set_type(Link *l, TYPES type){
     return OK;
 }
 
+
 STATUS link_print(FILE *pf, Link *l){
     if(!l || !pf)return ERROR;
 

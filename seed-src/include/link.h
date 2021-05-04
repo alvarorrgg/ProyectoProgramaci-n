@@ -172,7 +172,7 @@ STATUS link_set_id_to(Link *l, Id to);
 /**
  * @brief esatblece el tipo de un enlace
  *
- * inventory_destroy esatblece el tipo de un enlace
+ * link_set_type esatblece el tipo de un enlace
  * 
  * @date 30-03-2021
  * @author Alberto Vicente García

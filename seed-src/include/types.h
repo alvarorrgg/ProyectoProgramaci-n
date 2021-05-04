@@ -46,7 +46,7 @@ typedef enum {
  * Da valores numéricos siguiendo un orden a las variables de la estructura
  */
 typedef enum {
-  N, S, E, W	/* !< N = 0 , S = 1 , E = 2 , W = 3*/
+  X, N, S, E, W, U, D	/* !< X = 0 , N = 1 , S = 2 , E = 3, W = 4, U = 5 D = 6*/
 } DIRECTION;
 
 /**

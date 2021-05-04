@@ -16,7 +16,7 @@
 #include "link.h"
 #include "dialogue.h"
 
-#define MAX_CHARS1 19 /*!<Numero maximo de caracteres que se pueden escribir en cada linea del espacio*/
+#define MAX_CHARS1 44 /*!<Numero maximo de caracteres que se pueden escribir en cada linea del espacio*/
 #define MAX_CHARS2 3  /*!<Numero maximo de caracteres que van a tener los links*/
 #define MAX_CHARS3 7  /*!<Numero maximo de caracteres que van a tener los links + las flechas*/
 
@@ -46,8 +46,8 @@ Graphic_engine *graphic_engine_create()
   if (!ge)
     return NULL;
 
-  ge->map = screen_area_init(1, 1, 48, 35);       /*mapa de la oca*/
-  ge->descript = screen_area_init(50, 1, 29, 35); /*parte donde se pintan las jugadas y tal*/
+  ge->map = screen_area_init(1, 1, 118, 35);       /*mapa de la oca*/
+  ge->descript = screen_area_init(120, 1, 29, 35); /*parte donde se pintan las jugadas y tal*/
   ge->banner = screen_area_init(28, 37, 23, 1);   /*"The game of the Goose"*/
   ge->help = screen_area_init(1, 38, 78, 2);      /*The----left or l*/
   ge->feedback = screen_area_init(1, 41, 78, 3);  /*comandos*/
@@ -75,9 +75,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   int i = 0;
   int sum = 0;
   int num_objects = 0;
-  Id id_act = NO_ID, id_back = NO_ID, id_next = NO_ID, obj_loc = NO_ID;
+  Id id_act = NO_ID, obj_loc = NO_ID;
   Id *id_objetos;
-  Space *space_act = NULL, *space_back = NULL, *space_next = NULL;
+  Space *space_act = NULL;
   char **gdesc;
   char obj[MAX_OBJECTS][MAX_CHARS1];
   char str[MAX_CHARS];
@@ -93,72 +93,21 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   num_objects = game_get_total_objects(game);
   /* Pintar en el área del mapa */
   screen_area_clear(ge->map);
-  sprintf(str, "      ");
+  sprintf(str, "#####################################################################################################################");
   screen_area_puts(ge->map, str);
-  sprintf(str, "      ");
+  sprintf(str, "######################################################################################################################");
   screen_area_puts(ge->map, str);
-  sprintf(str, "      ");
+  sprintf(str, "######################################################################################################################");
   screen_area_puts(ge->map, str);
-  sprintf(str, "      ");
+  sprintf(str, " ");
   screen_area_puts(ge->map, str);
-  sprintf(str, "      ");
-  screen_area_puts(ge->map, str);
-  sprintf(str, "      ");
-  screen_area_puts(ge->map, str);
-  sprintf(str, "      ");
+  sprintf(str, " ");
   screen_area_puts(ge->map, str);
 
   if ((id_act = game_get_player_location(game)) != NO_ID)
   {
     space_act = game_get_space(game, id_act);
-    id_back = link_get_id_to(space_get_north(space_act));
-    space_back = game_get_space(game, id_back);
-    id_next = link_get_id_to(space_get_south(space_act));
-    space_next = game_get_space(game, id_next);
-    for (i = 0; i < num_objects + 1; i++)
-    {
-      if (space_has_object_id(space_back, i))
-        strcpy(obj[i], object_get_name(game_get_object(game, i - 1)));
-      else
-        strcpy(obj[i], "");
-    }
-    for (i = 0; i < num_objects + 1; i++)
-    {
-      sum = sum + strlen(obj[i]);
-      if (strlen(obj[i]) != 0)
-        sum = sum + 1;
-    }
-    if (sum > MAX_CHARS1)
-    {
-      for (i = 0; i < num_objects + 1; i++)
-      {
-        strcpy(espacios_back, obj[i]);
-        if (strlen(espacios_back) != 0)
-          break;
-      }
-
-      strcat(espacios_back, "...");
-      while (strlen(espacios_back) < MAX_CHARS1)
-        strcat(espacios_back, " ");
-    }
-    else
-    {
-      for (i = 0; i < num_objects + 1; i++)
-      {
-        strcat(espacios_back, obj[i]);
-        if (strlen(obj[i]) != 0)
-          strcat(espacios_back, " ");
-      }
-    }
-    while (strlen(espacios_back) < MAX_CHARS1)
-      strcat(espacios_back, " ");
-    if (id_back != NO_ID)
-    {
-
-      gdesc = space_get_gdesc(space_back);
-      link1 = space_get_west(space_back);
-      sprintf(id_to1, " %ld", link_get_id_to(link1));
-      if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
+       /*   if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id_to1, "      ");
       else
         strcat(id_to1, " <--");
@@ -179,65 +128,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
         strcat(id_to2, id_to1);
         strcpy(id_to1, "      ");
       }
-      sprintf(id2, "%ld", link_get_id(link2));
-      if(space_get_ilumination(space_back)==TRUE){
-        if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
-        strcpy(id2, "  ");
-
-      sprintf(str, "           %s|                 %2d|%s", id1, (int)id_back, id2);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "       %s|    %s        |%s", id_to1, gdesc[0], id_to2);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |    %s        |", gdesc[1]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |    %s        |", gdesc[2]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |%s|", espacios_back);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             +-------------------+");
-      screen_area_puts(ge->map, str);
-      link2 = space_get_north(space_act);
-      sprintf(id2, "%ld", link_get_id(link2));
-      if(link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE){
-        sprintf(str, "                      ^");
-      }
-      else{
-      sprintf(str, "                      ^%s", id2);
-      }
-      screen_area_puts(ge->map, str);
-
-
-      }
-      
-     else if(space_get_ilumination(space_back)==FALSE){
-        if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
-        strcpy(id2, "  ");
-
-      sprintf(str, "             |                   |  ");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |  ");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             +-------------------+");
-      screen_area_puts(ge->map, str);
-      link2 = space_get_north(space_act);
-      sprintf(id2, "%ld", link_get_id(link2));
-      if(link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE){
-        sprintf(str, "                      ^");
-      }
-      else{
-      sprintf(str, "                      ^%s", id2);
-      }
-      screen_area_puts(ge->map, str);
-
-
-      }
-    }
+      sprintf(id2, "%ld", link_get_id(link2));*/
     sum = 0;
     for (i = 0; i < num_objects + 1; i++)
     {
@@ -281,11 +172,11 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     {
       gdesc = space_get_gdesc(space_act);
       link1 = space_get_west(space_act);
-      sprintf(id_to1, " %ld", link_get_id_to(link1));
+      strcpy(id_to1, " <----");
       if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id_to1, "      ");
       else
-        strcat(id_to1, " <--");
+        
       sprintf(id1, "%ld", link_get_id(link1));
       if (strcmp(id1, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id1, "  ");
@@ -299,27 +190,61 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       else
       {
         sprintf(id_to1, "%ld", link_get_id_to(link2));
-        strcpy(id_to2, "--> ");
-        strcat(id_to2, id_to1);
+        strcpy(id_to2, "----> ");
+
         strcpy(id_to1, "      ");
       }
       sprintf(id2, "%ld", link_get_id(link2));
       if(space_get_ilumination(space_act)==TRUE || game_player_hasIluminated_object(game)==TRUE){
         if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id2, "  ");
-      sprintf(str, "           %s+-------------------+%s", id1, id2);
+      sprintf(str, "###########################       +-------------------------------------------+         ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "       %s|        UwU      %2d|%s", id_to1, (int)id_act, id_to2);
+
+        sprintf(str, "###########################       |                   UwU                      |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |    %s        |", gdesc[0]);
+       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |    %s        |", gdesc[1]);
+      sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |    %s        |", gdesc[2]);
+      sprintf(str, "###########################       |                                            |        ##############################"); 
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |%s|", espacios_act);
+      sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             +-------------------+");
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str,"########################### %s|                                            |%s  ##############################", id_to1, id_to2);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                  %s                   |        ##############################", gdesc[0]);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                  %s                   |        ##############################", gdesc[1]);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                  %s                   |        ##############################", gdesc[2]);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      
+      sprintf(str, "###########################       |%s|        ##############################", espacios_act);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       +--------------------------------------------+        ##############################");
       screen_area_puts(ge->map, str);
 
 
@@ -345,123 +270,21 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
      
 
       }
+  sprintf(str, " ");
+  screen_area_puts(ge->map, str);
+  sprintf(str, " ");
+  screen_area_puts(ge->map, str);
+  sprintf(str, "######################################################################################################################");
+  screen_area_puts(ge->map, str);
+  sprintf(str, "######################################################################################################################");
+  screen_area_puts(ge->map, str);
+  sprintf(str, "######################################################################################################################");
+  screen_area_puts(ge->map, str);
+   sprintf(str, "######################################################################################################################");
+  screen_area_puts(ge->map, str);
+   sprintf(str, "######################################################################################################################");
+  screen_area_puts(ge->map, str);
       
-    }
-    sum = 0;
-    for (i = 0; i < num_objects + 1; i++)
-    {
-      if (space_has_object_id(space_next, i))
-        strcpy(obj[i], object_get_name(game_get_object(game, i - 1)));
-      else
-        strcpy(obj[i], "");
-    }
-    for (i = 0; i < num_objects + 1; i++)
-    {
-      sum = sum + strlen(obj[i]);
-      if (strlen(obj[i]) != 0)
-        sum = sum + 1;
-    }
-    if (sum > MAX_CHARS1)
-    {
-      for (i = 0; i < num_objects + 1; i++)
-      {
-        strcpy(espacios_next, obj[i]);
-        if (strlen(espacios_next) != 0)
-          break;
-      }
-
-      strcat(espacios_next, "...");
-      while (strlen(espacios_next) < MAX_CHARS1)
-        strcat(espacios_next, " ");
-    }
-    else
-    {
-      for (i = 0; i < num_objects + 1; i++)
-      {
-        strcat(espacios_next, obj[i]);
-        if (strlen(obj[i]) != 0)
-          strcat(espacios_next, " ");
-      }
-    }
-    while (strlen(espacios_next) < MAX_CHARS1)
-      strcat(espacios_next, " ");
-    if (id_next != NO_ID)
-    {
-      gdesc = space_get_gdesc(space_next);
-      link1 = space_get_west(space_next);
-      sprintf(id_to1, " %ld", link_get_id_to(link1));
-      if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
-        strcpy(id_to1, "      ");
-      else
-        strcat(id_to1, " <--");
-      sprintf(id1, "%ld", link_get_id(link1));
-      if (strcmp(id1, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
-        strcpy(id1, "  ");
-
-      link2 = space_get_east(space_next);
-
-      sprintf(id_to2, "%ld", link_get_id_to(link2));
-      if (strcmp(id_to2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
-        strcpy(id_to2, "      ");
-
-      else
-      {
-        sprintf(id_to1, "%ld", link_get_id_to(link2));
-        strcpy(id_to2, "--> ");
-        strcat(id_to2, id_to1);
-        strcpy(id_to1, "      ");
-      }
-      link2 = space_get_south(space_act);
-      sprintf(id2, "%ld", link_get_id(link2));
-      if(link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE){
-        sprintf(str, "                      v");
-      }
-      else{
-          sprintf(str, "                      v %s", id2);
-      }
-      screen_area_puts(ge->map, str);
-
-      link2 = space_get_east(space_next);
-      sprintf(id2, "%ld", link_get_id(link2));
-     
-      if(space_get_ilumination(space_next)==TRUE){
-         if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
-        strcpy(id2, "  ");
-      sprintf(str, "           %s+-------------------+%s", id1, id2);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "       %s|                 %2d|%s", id_to1, (int)id_next, id_to2);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |    %s        |", gdesc[0]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |    %s        |", gdesc[1]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |    %s        |", gdesc[2]);
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |%s|", espacios_next);
-      screen_area_puts(ge->map, str);
-
-
-      }
-      
-     else if(space_get_ilumination(space_next)==FALSE){
-        if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
-        strcpy(id2, "  ");
-      sprintf(str, "             +-------------------+");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |  ");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |  ");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
-      screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
-      screen_area_puts(ge->map, str);
-      
-
-
-      }
     }
   }
 
