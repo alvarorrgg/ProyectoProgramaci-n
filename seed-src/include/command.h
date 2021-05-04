@@ -13,7 +13,8 @@
 
 #define N_CMDT 2 /*!<Tipos de representación de los comandos*/
 #define N_CMD 11 /*!<Numero de comandos*/
-
+#define CMD_LENGHT 30 /*!<Numero maximo de letras de cada cmando*/
+#define N_INFOS 2
 #include "types.h"
 /**
  * @brief Estructura command
@@ -47,19 +48,31 @@ typedef enum enum_Command {
   MOVE,   /*!< MOVE = 5*/
   INSPECT,  /*!< INSPECT = 6*/
   TURNON, /*!< TURNON = 7*/
-  TURNOFF /*!< TURNOFF = 8*/
+  TURNOFF, /*!< TURNOFF = 8*/
+  OPEN_LINK   /*!< OPEN = 9 */
   } T_Command;	
 /**
  * @brief obtiene la entrada del usuario.
  *
- * command_get_user_input sirve para saber que comando a introducido el usuario
+ * command_get_user_command sirve para saber que comando a introducido el usuario
  *
  * @date 13-01-2020
  * @author Profesores PPROG
  *
  * @return T_Command, el comando introducido por el usuario.
  */
-T_Command command_get_user_input();
+T_Command command_get_user_command();
+/**
+ * @brief obtiene la entrada del usuario.
+ *
+ * command_get_user_info sirve para saber la parte del medio del comando
+ *
+ * @date 03-05-2021
+ * @author Profesores PPROG
+ *
+ * @return char, el comando introducido por el usuario.
+ */
+char** command_get_user_info();
 
 /**
  * @brief inicializa la estructura de datos command.

@@ -15,7 +15,7 @@
 #include "game.h"
 #include "game_management.h"
 
-#define N_CALLBACK 11 /*!<Numero maximo de llamadas a comandos*/
+#define N_CALLBACK 10 /*!<Numero maximo de llamadas a comandos*/
 
 /**
  * @brief Define los elementos del juego
@@ -184,7 +184,7 @@ void game_callback_inspect(Game *game);
 /**
  * @brief Acción del jugador
  *
- * game_callback_move saltos del jugador hacia las posiciones especificadas
+ * game_callback_up saltos del jugador hacia las posiciones especificadas
  *
  * @date 08-04-2021
  * @author Alexandru Marius Platon	
@@ -195,7 +195,7 @@ void game_callback_up(Game *game);
 /**
  * @brief Acción del jugador
  *
- * game_callback_move saltos del jugador hacia las posiciones especificadas
+ * game_callback_down saltos del jugador hacia las posiciones especificadas
  *
  * @date 08-04-2021
  * @author Alexandru Marius Platon	
@@ -206,7 +206,7 @@ void game_callback_down(Game *game);
 /**
  * @brief Acción del jugador
  *
- * game_callback_move enciende un objeto
+ * game_callback_turnon enciende un objeto
  *
  * @date 02-05-2021
  * @author Alexandru Marius Platon	
@@ -217,7 +217,7 @@ void game_callback_turnon(Game *game);
 /**
  * @brief Acción del jugador
  *
- * game_callback_move apaga un objeto
+ * game_callback_turnoff apaga un objeto
  *
  * @date 02-05-2021
  * @author Alexandru Marius Platon	
@@ -225,6 +225,18 @@ void game_callback_turnon(Game *game);
  * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
  */
 void game_callback_turnoff(Game *game);
+
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_open abre un link
+ *
+ * @date 03-05-2021
+ * @author Álvaro Rodríguez Rodrigo	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva accion
+ */
+void game_callback_open(Game *game);
 
 
 /**
@@ -240,6 +252,7 @@ static callback_fn game_callback_fn_list[N_CALLBACK] = {
     game_callback_inspect, /*INSPECT=6*/
     game_callback_turnon, /*TURNON=7*/
     game_callback_turnoff, /*TURNOFF=8*/
+    game_callback_open, /*OPEN=9*/
 
 };
 
@@ -537,22 +550,27 @@ BOOL game_id_object_exists(Game *game, Id id)
   return FALSE;
 }
 
-STATUS game_update(Game *game, T_Command cmd)
+STATUS game_update(Game *game, T_Command cmd, char* arg, char *obj)
 {
-  char arg[WORD_SIZE];
-  int j=0;
 
   if(!game) return ERROR;
 
   command_set_cmd(game->command,cmd);
-
-  fgets(arg, WORD_SIZE, stdin);
-  for (j = 0; arg[j + 1] != (char)0; j++) arg[j] = arg[j + 1]; 
-  
-  j--;
-  arg[j] =(char)0;
+  if(arg!=NULL && obj!=NULL){
+  command_set_arg(game->command,arg);
+  command_set_obj(game->command,obj);
+  }
+  else if(arg !=NULL && obj==NULL){
+      obj[0]='\0';
+      command_set_obj(game->command,obj);
+  }
+  else{
+  arg[0]='\0';
+  obj[0]='\0';
+  command_set_obj(game->command,obj);
   command_set_arg(game->command,arg);
 
+  }
  (*game_callback_fn_list[cmd])(game);
   if(dialogue_change_interaction(game->dialogue,game->command,game->player)==ERROR) return ERROR;
   return OK;
@@ -820,7 +838,6 @@ void game_callback_left(Game *game)
 
 void game_callback_take(Game *game)
 {
-
   char objeto[WORD_SIZE];
   int k = 0, i = 0;
   Id id=NO_ID;
@@ -863,12 +880,6 @@ void game_callback_take(Game *game)
         if(object_get_dependency(game->objects[i])==-1 || player_has_object(game->player,object_get_dependency(game->objects[i]))){
           player_add_object(game->player,id);
           space_remove_object(game->spaces[k], id);
-          printf("%i",link_get_type(game_get_link(game,object_get_link_open(game->objects[i]))));
-          printf("%li",link_get_id(game_get_link(game,object_get_link_open(game->objects[i]))));
-          printf("%li",object_get_link_open(game->objects[i]));
-          if(object_get_link_open(game->objects[i])!=-1){
-            link_set_type(game->link[object_get_link_open(game->objects[i])-1],OPEN);
-          }
             command_set_status(game->command, OK);
             return;
           }
@@ -1224,10 +1235,6 @@ void game_callback_turnon(Game *game){
 
   }
   }
-  
-  
-  
-  
   if(player_has_object(game->player, obid)==FALSE) { /*Se verifica que el jugador tenga el objeto*/
     command_set_status(game->command, ERROR);
     return;
@@ -1276,10 +1283,6 @@ void game_callback_turnoff(Game *game){
 
   }
   }
-  
-  
-  
-  
   if(player_has_object(game->player, obid)==FALSE) { /*Se verifica que el jugador tenga el objeto*/
     command_set_status(game->command, ERROR);
     return;
@@ -1297,6 +1300,7 @@ void game_callback_turnoff(Game *game){
   return;
 
 }
+
 BOOL game_player_hasIluminated_object(Game *g){
 
   int i;
@@ -1310,14 +1314,61 @@ BOOL game_player_hasIluminated_object(Game *g){
 
   }
   }
-
-  
-  
-
   return FALSE;
-
-
 }
 
+void game_callback_open(Game *game){
+
+
+  int i=0,j=0;
+  Id idObj=-1;
+  char objeto[WORD_SIZE],link[WORD_SIZE];
+    if(!game){
+    command_set_status(game->command,ERROR);
+    return;
+  }
+  strcpy(objeto,command_get_obj(game->command));
+  strcpy(link,command_get_arg(game->command));
+    while (game->objects[i] != NULL)
+  {
+    if (strcmp(object_get_name(game->objects[i]), objeto) == 0) /*Se buscan los objetos que tengan el mismo nombre que el señalado*/
+    {
+      idObj = object_get_id(game->objects[i]);/*Se consigue el id del objeto*/
+      break;
+    }
+    i++;
+    }
+
+  if(idObj==-1 || player_has_object(game->player,idObj)==FALSE){
+    command_set_status(game->command,ERROR);
+    return;
+  }
+
+
+  while (game->link[j] != NULL)
+  {
+     printf("Hola");
+    if (strcmp(link_get_name(game->link[j]), link) == 0) /*Se buscan los links que tengan el mismo nombre que el señalado*/
+    {
+     
+      break;
+    }
+    j++;
+    }
+  if(link_get_type(game->link[j])==OPEN){
+    printf("2");
+    command_set_status(game->command,ERROR);
+    return;
+  }
+  if(object_get_link_open(game->objects[i])==link_get_id(game->link[j])){
+    link_set_type(game->link[j],OPEN);
+    command_set_status(game->command,OK);
+    return;
+  }
+  else{
+    command_set_status(game->command,ERROR);
+    return;
+  }
+}
 
 

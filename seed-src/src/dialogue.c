@@ -98,7 +98,7 @@ STATUS dialogue_change_interaction(Dialogue *d, Command *c, Player *p){
             return OK;
         }
         if(d->num_tries==1){
-            sprintf(str,"Deja de intentarlo, no estas cerca del objeto %s",command_get_arg(c));
+            sprintf(str,"Deja de intentarlo, no estas cerca del objeto");
             dialogue_set_interaction(d,str);
             dialogue_set_last_command(d,command_get_cmd(c));
             return OK;

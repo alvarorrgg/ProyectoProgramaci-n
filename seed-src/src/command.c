@@ -13,8 +13,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include "command.h"
+#include "game.h"
 
-#define CMD_LENGHT 30 /*!<Numero maximo de letras de cada cmando*/
+
 
 /**
  @brief tipo de comandos
@@ -115,8 +116,9 @@ char* command_get_obj(Command *command){
   return command->obj;
 }
 
-T_Command command_get_user_input()
+T_Command command_get_user_command()
 {
+
   T_Command cmd = NO_CMD;
   char input[CMD_LENGHT] = "";
   int i = UNKNOWN - NO_CMD + 1;
@@ -130,5 +132,39 @@ T_Command command_get_user_input()
      
     }
   }
+  
   return cmd; /*Devuelve el comando, NO_COMMAND si no encuentra ningun comando*/
 }
+
+char** command_get_user_info(){
+  char **info=NULL;
+  char aux[WORD_SIZE];
+  char *tok=NULL;
+  int j=0;
+  info=(char**) malloc( N_INFOS*sizeof(char*));
+  info[0]=(char*) malloc( WORD_SIZE*sizeof(char));
+  info[1]=(char*) malloc( WORD_SIZE*sizeof(char));
+  
+  if(fgets(aux, WORD_SIZE, stdin)!=NULL){
+  for (j = 0; aux[j + 1] != (char)0; j++) aux[j] = aux[j + 1]; 
+  j--;
+  aux[j] =(char)0;
+  tok=strtok(aux," ");
+  strcpy(info[0],tok);
+  tok=strtok(NULL," ");
+  tok=strtok(NULL," ");
+  if(tok!=NULL){
+  strcpy(info[1],tok);
+  return info;
+  }
+  else{
+    info[1][0]='\0';
+    return info;
+  }
+  }
+  info[0][0]='\0';
+  info[1][0]='\0';
+  return info;
+}
+
+

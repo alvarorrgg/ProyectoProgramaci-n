@@ -15,6 +15,8 @@
 #include "command.h"
 #include "game.h"
 
+
+
 /**
  *
  * @brief función que inicializa el juego
@@ -134,12 +136,19 @@ int game_loop_init(Game *game, Graphic_engine **gengine, char *file_name)
 void game_loop_run(Game *game, Graphic_engine *gengine, FILE *f)
 { /*Aqui es donde se desarrolla todo el juego*/
   T_Command command = NO_CMD;
+  char **info=NULL;
   extern char *cmd_to_str[N_CMD][N_CMDT]; /*Incluyo esta variable desde command para poder incluir los comandos en el file*/
+
   while ((command != EXIT) && !game_is_over(game))
   { /*Mientras que el comando sea distinto de EXIT o no se cumpla game_is_over, se pintará la pantalla cada vez que se ejecute game_update*/
+
     graphic_engine_paint_game(gengine, game);
-    command = command_get_user_input();
-    game_update(game, command);
+    command = command_get_user_command();
+    info = command_get_user_info();
+    game_update(game, command, info[0], info[1]);
+    free(info[0]);
+    free(info[1]);
+    free(info);
     if (f != NULL)
     { /*Necesario para no escribir en un fichero vacio*/
       if (command_get_cmd(game_get_command(game)) != -1)

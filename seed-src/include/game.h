@@ -90,7 +90,7 @@ STATUS game_create_from_file(Game* game, char* filename);
  * @param cmd comando introducido
  * @return OK para saber que se ha ejecutado la función correctamente
  */
-STATUS game_update(Game* game, T_Command cmd);
+STATUS game_update(Game* game, T_Command cmd, char *arg, char *obj);
 /**
  * @brief Termina el juego
  *
