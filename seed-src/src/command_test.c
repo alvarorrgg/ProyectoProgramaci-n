@@ -72,7 +72,14 @@ int main(int argc, char **argv)
 
     if (all || test == 19)test1_command_get_arg();
     if (all || test == 20)test2_command_get_arg();
-    if (all || test == 21)test1_command_get_user_input();
+
+    if (all || test == 21)test1_command_set_obj();
+    if (all || test == 22)test2_command_set_obj();
+    if (all || test == 23)test3_command_set_obj();
+
+    if (all || test == 24)test1_command_get_obj();
+    if (all || test == 25)test2_command_get_obj();
+    if (all || test == 26)test1_command_get_user_input();
     
 
     PRINT_PASSED_PERCENTAGE;
@@ -219,8 +226,6 @@ void test2_command_set_arg()
 void test3_command_set_arg()
 {
     Command *new_command = NULL;
-    
-    
     PRINT_TEST_RESULT(command_set_arg(new_command, "argumento_de_prueba")==ERROR);
 }
 void test1_command_get_arg()
@@ -237,6 +242,46 @@ void test2_command_get_arg()
     PRINT_TEST_RESULT(command_get_arg(new_command) == NULL);
     
 }
+
+
+void test1_command_set_obj()
+{
+    Command *new_command = NULL;
+    new_command = command_init();
+    command_set_obj(new_command, "north");
+    PRINT_TEST_RESULT(strcmp(command_get_obj(new_command), "north")==0);
+    command_destroy(new_command);
+}
+void test2_command_set_obj()
+{
+    Command *new_command = NULL;
+    new_command = command_init();
+    command_set_obj(new_command, "argumento_de_prueba");
+    PRINT_TEST_RESULT(strcmp(command_get_obj(new_command), "argumento_de_prueba")==0);
+    command_destroy(new_command);
+}
+void test3_command_set_obj()
+{
+    Command *new_command = NULL;
+    PRINT_TEST_RESULT(command_set_obj(new_command, "argumento_de_prueba")==ERROR);
+}
+void test1_command_get_obj()
+{
+    Command *new_command = NULL;
+    new_command = command_init();
+
+    PRINT_TEST_RESULT(strlen(command_get_obj(new_command))==0);
+    command_destroy(new_command);
+}
+void test2_command_get_obj()
+{
+    Command *new_command = NULL;
+    PRINT_TEST_RESULT(command_get_obj(new_command) == NULL);
+    
+}
+
+
+
 void test1_command_get_user_input()
 {
     T_Command aux;

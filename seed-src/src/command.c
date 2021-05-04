@@ -30,6 +30,7 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"i" , "Inspect"},	/** !< i <=> inspect*/
     {"ton" , "Turnon"},	/** !< ton <=> turnon*/
     {"toff" , "Turnoff"},	/** !< toff<=> turnoff*/
+    {"op", "open"},
     
     };
 
@@ -43,6 +44,7 @@ struct _Command {
   T_Command cmd;             /*!< Parte principal del comando*/
   char arg[CMD_LENGHT];     /*!<Segunda parte del comando*/
   STATUS st;                /*!< Status del comando ERROR o OK segun si el comando se ha ejecutado bien o no*/
+  char obj[CMD_LENGHT];     /*!< Necesario para el comando open*/
 };
 
 
@@ -55,6 +57,7 @@ Command* command_init(){
   new_command->cmd = NO_CMD;
   new_command->st = ERROR;
   new_command->arg[0] = (char)0;
+  new_command->obj[0] = (char)0;
 
   return new_command;
 }
@@ -99,6 +102,17 @@ STATUS command_set_arg(Command *command,char *arg){
 char* command_get_arg(Command *command){
   if(!command) return NULL;
   return command->arg;
+}
+
+STATUS command_set_obj(Command *command,char *obj){
+  if(!command || !obj) return ERROR;
+  strcpy(command->obj, obj);
+  return OK;
+}
+
+char* command_get_obj(Command *command){
+  if(!command) return NULL;
+  return command->obj;
 }
 
 T_Command command_get_user_input()

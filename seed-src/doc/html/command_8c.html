@@ -134,6 +134,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aaf952301625a0fbdefceb2a5a9dcc35d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#aaf952301625a0fbdefceb2a5a9dcc35d">command_get_arg</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command)</td></tr>
 <tr class="memdesc:aaf952301625a0fbdefceb2a5a9dcc35d"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtiene el cuerpo del comando  <a href="command_8c.html#aaf952301625a0fbdefceb2a5a9dcc35d">More...</a><br /></td></tr>
 <tr class="separator:aaf952301625a0fbdefceb2a5a9dcc35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d915c27b4993a59bbd0c12a3b66ca3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a32c27cc471df37f4fc818d65de0a56c4">STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a02d915c27b4993a59bbd0c12a3b66ca3">command_set_obj</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command, char *obj)</td></tr>
+<tr class="memdesc:a02d915c27b4993a59bbd0c12a3b66ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">cambia la parte del objeto del comando  <a href="command_8c.html#a02d915c27b4993a59bbd0c12a3b66ca3">More...</a><br /></td></tr>
+<tr class="separator:a02d915c27b4993a59bbd0c12a3b66ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35129fa96055693454ad4a477858d7fd"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a35129fa96055693454ad4a477858d7fd">command_get_obj</a> (<a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *command)</td></tr>
+<tr class="memdesc:a35129fa96055693454ad4a477858d7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtiene el objeto del comando  <a href="command_8c.html#a35129fa96055693454ad4a477858d7fd">More...</a><br /></td></tr>
+<tr class="separator:a35129fa96055693454ad4a477858d7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad92506157db30fe6e1941d62752291"><td class="memItemLeft" align="right" valign="top"><a class="el" href="command_8h.html#ab1f9bf350cc390d2bd227a2d6596cefb">T_Command</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8c.html#a7ad92506157db30fe6e1941d62752291">command_get_user_input</a> ()</td></tr>
 <tr class="memdesc:a7ad92506157db30fe6e1941d62752291"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtiene la entrada del usuario.  <a href="command_8c.html#a7ad92506157db30fe6e1941d62752291">More...</a><br /></td></tr>
 <tr class="separator:a7ad92506157db30fe6e1941d62752291"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,7 +229,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>T_Command, la instrucción que sigue al comando </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>char, la instrucción que sigue al comando </dd></dl>
 
 </div>
 </div>
@@ -254,6 +260,36 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T_Command, el ultimo comando. </dd></dl>
+
+</div>
+</div>
+<a id="a35129fa96055693454ad4a477858d7fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35129fa96055693454ad4a477858d7fd">&#9670;&nbsp;</a></span>command_get_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* command_get_obj </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>obtiene el objeto del comando </p>
+<p>command_get_obj sirve para saber que instruccion sigue al comando</p>
+<dl class="section date"><dt>Date</dt><dd>03-05-2021 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Álvaro Rodríguez</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>estructura de datos command</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>char, la instrucción que sigue al comando </dd></dl>
 
 </div>
 </div>
@@ -415,6 +451,47 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a02d915c27b4993a59bbd0c12a3b66ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02d915c27b4993a59bbd0c12a3b66ca3">&#9670;&nbsp;</a></span>command_set_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="types_8h.html#a32c27cc471df37f4fc818d65de0a56c4">STATUS</a> command_set_obj </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="command_8h.html#a7d2935971c252377cb0fc1c8545dc2bc">Command</a> *&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>cambia la parte del objeto del comando </p>
+<p>command_set_obj sirve para cambiar la parte del objeto del comando</p>
+<dl class="section date"><dt>Date</dt><dd>03-05-2021 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Álvaro Rodríguez</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>estructura de datos command </td></tr>
+    <tr><td class="paramname">obj</td><td>donde se almacena el comando</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>STATUS OK o ERROR segun si se ha hecho todo correctamente. </dd></dl>
+
+</div>
+</div>
 <a id="a48d50c18c0003c3e2768f04552ed1ae3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a48d50c18c0003c3e2768f04552ed1ae3">&#9670;&nbsp;</a></span>command_set_status()</h2>
 
@@ -479,6 +556,7 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="stringliteral">&quot;i&quot;</span> , <span class="stringliteral">&quot;Inspect&quot;</span>},  </div>
 <div class="line">    {<span class="stringliteral">&quot;ton&quot;</span> , <span class="stringliteral">&quot;Turnon&quot;</span>}, </div>
 <div class="line">    {<span class="stringliteral">&quot;toff&quot;</span> , <span class="stringliteral">&quot;Turnoff&quot;</span>},   </div>
+<div class="line">    {<span class="stringliteral">&quot;op&quot;</span>, <span class="stringliteral">&quot;open&quot;</span>},</div>
 <div class="line">    </div>
 <div class="line">    }</div>
 </div><!-- fragment -->

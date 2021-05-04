@@ -10,7 +10,8 @@ Implementa el intérprete de comandos, leer comandos, conversión y almacenamien
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}command.\+h\char`\"{}}\newline
-Include dependency graph for command.\+c\+:\nopagebreak
+Include dependency graph for command.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -46,6 +47,10 @@ struct \mbox{\hyperlink{struct__Command}{\+\_\+\+Command}}
 \begin{DoxyCompactList}\small\item\em cambia el cuerpo del comando \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{command_8c_aaf952301625a0fbdefceb2a5a9dcc35d}{command\+\_\+get\+\_\+arg}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$command)
 \begin{DoxyCompactList}\small\item\em obtiene el cuerpo del comando \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{command_8c_a02d915c27b4993a59bbd0c12a3b66ca3}{command\+\_\+set\+\_\+obj}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$command, char $\ast$obj)
+\begin{DoxyCompactList}\small\item\em cambia la parte del objeto del comando \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{command_8c_a35129fa96055693454ad4a477858d7fd}{command\+\_\+get\+\_\+obj}} (\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$command)
+\begin{DoxyCompactList}\small\item\em obtiene el objeto del comando \end{DoxyCompactList}\item 
 \mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}} \mbox{\hyperlink{command_8c_a7ad92506157db30fe6e1941d62752291}{command\+\_\+get\+\_\+user\+\_\+input}} ()
 \begin{DoxyCompactList}\small\item\em obtiene la entrada del usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
@@ -132,7 +137,7 @@ command\+\_\+get\+\_\+arg sirve para saber que instruccion sigue al comando
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-T\+\_\+\+Command, la instrucción que sigue al comando 
+char, la instrucción que sigue al comando 
 \end{DoxyReturn}
 \mbox{\Hypertarget{command_8c_a60f2bc2c91741261bc1c1419300aa3c6}\label{command_8c_a60f2bc2c91741261bc1c1419300aa3c6}} 
 \index{command.c@{command.c}!command\_get\_cmd@{command\_get\_cmd}}
@@ -159,6 +164,32 @@ command\+\_\+get\+\_\+cmd sirve para saber que comando a introducido el usuario
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 T\+\_\+\+Command, el ultimo comando. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{command_8c_a35129fa96055693454ad4a477858d7fd}\label{command_8c_a35129fa96055693454ad4a477858d7fd}} 
+\index{command.c@{command.c}!command\_get\_obj@{command\_get\_obj}}
+\index{command\_get\_obj@{command\_get\_obj}!command.c@{command.c}}
+\doxysubsubsection{\texorpdfstring{command\_get\_obj()}{command\_get\_obj()}}
+{\footnotesize\ttfamily char$\ast$ command\+\_\+get\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$}]{command }\end{DoxyParamCaption})}
+
+
+
+obtiene el objeto del comando 
+
+command\+\_\+get\+\_\+obj sirve para saber que instruccion sigue al comando
+
+\begin{DoxyDate}{Date}
+03-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & estructura de datos command\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char, la instrucción que sigue al comando 
 \end{DoxyReturn}
 \mbox{\Hypertarget{command_8c_a9015b5e881174e87f15109bcd71696f6}\label{command_8c_a9015b5e881174e87f15109bcd71696f6}} 
 \index{command.c@{command.c}!command\_get\_status@{command\_get\_status}}
@@ -284,6 +315,34 @@ command\+\_\+set\+\_\+cmd sirve para cambiar el comando.
 \begin{DoxyReturn}{Returns}
 S\+T\+A\+T\+US OK o E\+R\+R\+OR segun si se ha hecho todo correctamente. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{command_8c_a02d915c27b4993a59bbd0c12a3b66ca3}\label{command_8c_a02d915c27b4993a59bbd0c12a3b66ca3}} 
+\index{command.c@{command.c}!command\_set\_obj@{command\_set\_obj}}
+\index{command\_set\_obj@{command\_set\_obj}!command.c@{command.c}}
+\doxysubsubsection{\texorpdfstring{command\_set\_obj()}{command\_set\_obj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} command\+\_\+set\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$}]{command,  }\item[{char $\ast$}]{obj }\end{DoxyParamCaption})}
+
+
+
+cambia la parte del objeto del comando 
+
+command\+\_\+set\+\_\+obj sirve para cambiar la parte del objeto del comando
+
+\begin{DoxyDate}{Date}
+03-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & estructura de datos command \\
+\hline
+{\em obj} & donde se almacena el comando\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+T\+A\+T\+US OK o E\+R\+R\+OR segun si se ha hecho todo correctamente. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{command_8c_a48d50c18c0003c3e2768f04552ed1ae3}\label{command_8c_a48d50c18c0003c3e2768f04552ed1ae3}} 
 \index{command.c@{command.c}!command\_set\_status@{command\_set\_status}}
 \index{command\_set\_status@{command\_set\_status}!command.c@{command.c}}
@@ -334,6 +393,7 @@ S\+T\+A\+T\+US OK o E\+R\+R\+OR segun si se ha hecho todo correctamente.
 \DoxyCodeLine{    \{\textcolor{stringliteral}{"i"} , \textcolor{stringliteral}{"Inspect"}\},  }
 \DoxyCodeLine{    \{\textcolor{stringliteral}{"ton"} , \textcolor{stringliteral}{"Turnon"}\}, }
 \DoxyCodeLine{    \{\textcolor{stringliteral}{"toff"} , \textcolor{stringliteral}{"Turnoff"}\},   }
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"op"}, \textcolor{stringliteral}{"open"}\},}
 \DoxyCodeLine{    }
 \DoxyCodeLine{    \}}
 

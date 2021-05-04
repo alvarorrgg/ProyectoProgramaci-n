@@ -147,6 +147,16 @@ Functions</h2></td></tr>
 <tr class="separator:a8558d0f1870a267a213bf04a8bfcd770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a629a83626e425b7ccd43364a494599cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command__test_8c.html#a629a83626e425b7ccd43364a494599cd">test2_command_get_arg</a> ()</td></tr>
 <tr class="separator:a629a83626e425b7ccd43364a494599cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e688699618bf5315109bff122df83ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command__test_8c.html#a7e688699618bf5315109bff122df83ff">test1_command_set_obj</a> ()</td></tr>
+<tr class="separator:a7e688699618bf5315109bff122df83ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d4cc678d18ff7dc5b6db5efe591dd76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command__test_8c.html#a1d4cc678d18ff7dc5b6db5efe591dd76">test2_command_set_obj</a> ()</td></tr>
+<tr class="separator:a1d4cc678d18ff7dc5b6db5efe591dd76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd6a568c8ed93b7451d4ab0fa8ccb5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command__test_8c.html#abfd6a568c8ed93b7451d4ab0fa8ccb5d">test3_command_set_obj</a> ()</td></tr>
+<tr class="separator:abfd6a568c8ed93b7451d4ab0fa8ccb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadf3253367d2987d8aee88c1ab233288"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command__test_8c.html#aadf3253367d2987d8aee88c1ab233288">test1_command_get_obj</a> ()</td></tr>
+<tr class="separator:aadf3253367d2987d8aee88c1ab233288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511e75b38aa6ada8e257a63358811f16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command__test_8c.html#a511e75b38aa6ada8e257a63358811f16">test2_command_get_obj</a> ()</td></tr>
+<tr class="separator:a511e75b38aa6ada8e257a63358811f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932afa8fb63c9b8ba551d030886ce491"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="command__test_8c.html#a932afa8fb63c9b8ba551d030886ce491">test1_command_get_user_input</a> ()</td></tr>
 <tr class="separator:a932afa8fb63c9b8ba551d030886ce491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -264,6 +274,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aadf3253367d2987d8aee88c1ab233288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadf3253367d2987d8aee88c1ab233288">&#9670;&nbsp;</a></span>test1_command_get_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test1_command_get_obj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="test"><dt><b><a class="el" href="test.html#_test000024">Test:</a></b></dt><dd>Función de prueba para command_get_obj </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>Comprueba que la longitud del obj de un comando inicializado es 0 </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Output==0 </dd></dl>
+
+</div>
+</div>
 <a id="a89d7f6e10f0868ef740586b731c5c657"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89d7f6e10f0868ef740586b731c5c657">&#9670;&nbsp;</a></span>test1_command_get_status()</h2>
 
@@ -298,7 +328,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000021">Test:</a></b></dt><dd>Función de prueba para command_get_user_input </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000026">Test:</a></b></dt><dd>Función de prueba para command_get_user_input </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Comprueba que el input del usuario se ha obtenido correctamente </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output==aux </dd></dl>
 
@@ -361,6 +391,26 @@ Functions</h2></td></tr>
 <dl class="test"><dt><b><a class="el" href="test.html#_test000010">Test:</a></b></dt><dd>Función de prueba para command_set_cmd </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Comprueba que el comando ha sido establecido correctamente </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output==OK </dd></dl>
+
+</div>
+</div>
+<a id="a7e688699618bf5315109bff122df83ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e688699618bf5315109bff122df83ff">&#9670;&nbsp;</a></span>test1_command_set_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test1_command_set_obj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="test"><dt><b><a class="el" href="test.html#_test000021">Test:</a></b></dt><dd>Función de prueba para command_set_obj </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>Comprueba que el obj se ha esatblecido correctamente </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Output==0 </dd></dl>
 
 </div>
 </div>
@@ -444,6 +494,26 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a511e75b38aa6ada8e257a63358811f16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511e75b38aa6ada8e257a63358811f16">&#9670;&nbsp;</a></span>test2_command_get_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test2_command_get_obj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="test"><dt><b><a class="el" href="test.html#_test000025">Test:</a></b></dt><dd>Función de prueba para command_get_obj </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>Comprueba que el obj de un comando no inicializado es NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Output==NULL </dd></dl>
+
+</div>
+</div>
 <a id="a8503e20ea2e558e5df167723d01554b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8503e20ea2e558e5df167723d01554b2">&#9670;&nbsp;</a></span>test2_command_get_status()</h2>
 
@@ -521,6 +591,26 @@ Functions</h2></td></tr>
 <dl class="test"><dt><b><a class="el" href="test.html#_test000011">Test:</a></b></dt><dd>Función de prueba para command_set_cmd </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Comprueba que no se puede establecer un cmd a un comando no inicializado </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output==ERROR </dd></dl>
+
+</div>
+</div>
+<a id="a1d4cc678d18ff7dc5b6db5efe591dd76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d4cc678d18ff7dc5b6db5efe591dd76">&#9670;&nbsp;</a></span>test2_command_set_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test2_command_set_obj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="test"><dt><b><a class="el" href="test.html#_test000022">Test:</a></b></dt><dd>Función de prueba para command_set_obj </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>Comprueba que el obj se ha esatblecido correctamente </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Output==0 </dd></dl>
 
 </div>
 </div>
@@ -621,6 +711,26 @@ Functions</h2></td></tr>
 <dl class="test"><dt><b><a class="el" href="test.html#_test000012">Test:</a></b></dt><dd>Función de prueba para command_set_cmd </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Comprueba que el cmd ha sido esatblecido correctamnte </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Output==OK </dd></dl>
+
+</div>
+</div>
+<a id="abfd6a568c8ed93b7451d4ab0fa8ccb5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd6a568c8ed93b7451d4ab0fa8ccb5d">&#9670;&nbsp;</a></span>test3_command_set_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test3_command_set_obj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="test"><dt><b><a class="el" href="test.html#_test000023">Test:</a></b></dt><dd>Función de prueba parar command_set_obj </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>Comprueba que obj no puede ser esatblecido para un comando sin inicializar </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Output==ERROR </dd></dl>
 
 </div>
 </div>

@@ -138,6 +138,37 @@ void test1_command_get_arg();
 void test2_command_get_arg();
 
 /**
+ * @test Función de prueba para command_set_obj
+ * @pre Comprueba que el obj se ha esatblecido correctamente
+ * @post Output==0
+ */
+void test1_command_set_obj();
+/**
+ * @test Función de prueba para command_set_obj
+ * @pre Comprueba que el obj se ha esatblecido correctamente
+ * @post Output==0
+ */
+void test2_command_set_obj();
+/**
+ * @test Función de prueba parar command_set_obj
+ * @pre Comprueba que obj no puede ser esatblecido para un comando sin inicializar
+ * @post Output==ERROR
+ */
+void test3_command_set_obj();
+/**
+ * @test Función de prueba para command_get_obj
+ * @pre Comprueba que la longitud del obj de un comando inicializado es 0
+ * @post Output==0
+ */
+void test1_command_get_obj();
+/**
+ * @test Función de prueba para command_get_obj
+ * @pre Comprueba que el obj de un comando no inicializado es NULL
+ * @post Output==NULL
+ */
+void test2_command_get_obj();
+
+/**
  * @test Función de prueba para command_get_user_input
  * @pre Comprueba que el input del usuario se ha obtenido correctamente
  * @post Output==aux

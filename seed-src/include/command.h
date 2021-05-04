@@ -12,7 +12,7 @@
 #define COMMAND_H
 
 #define N_CMDT 2 /*!<Tipos de representación de los comandos*/
-#define N_CMD 10 /*!<Numero de comandos*/
+#define N_CMD 11 /*!<Numero de comandos*/
 
 #include "types.h"
 /**
@@ -163,7 +163,34 @@ STATUS command_set_arg(Command *command,char *arg);
  *
  * @param  command estructura de datos command 
  *
- * @return T_Command, la instrucción que sigue al comando
+ * @return char, la instrucción que sigue al comando
  */
 char* command_get_arg(Command *command);
+/**
+ * @brief cambia la parte del objeto del comando
+ *
+ * command_set_obj sirve para cambiar la parte del objeto del comando
+ *
+ * @date 03-05-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param  command estructura de datos command
+ * @param  obj donde se almacena el comando
+ *
+ * @return STATUS OK o ERROR segun si se ha hecho todo correctamente.
+ */
+STATUS command_set_obj(Command *command,char *obj);
+/**
+ * @brief obtiene el objeto del comando
+ *
+ * command_get_obj sirve para saber que instruccion sigue al comando
+ *
+ * @date 03-05-2021
+ * @author Álvaro Rodríguez
+ *
+ * @param  command estructura de datos command 
+ *
+ * @return char, la instrucción que sigue al comando
+ */
+char* command_get_obj(Command *command);
 #endif
