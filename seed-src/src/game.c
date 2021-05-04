@@ -308,7 +308,7 @@ STATUS game_create(Game *game)
   
   for (i = 0; i < MAX_OBJECTS; i++)  game->objects[i] = NULL; /*Se inicializan todos los objetos con un valor NULL*/
   
-   for (i = 0; i < MAX_LINKS; i++) game->link[i] = NULL; /*Se inicializan todos los links con un valor NULL*/
+  for (i = 0; i < MAX_LINKS; i++) game->link[i] = NULL; /*Se inicializan todos los links con un valor NULL*/
   
   game->die = die_create(1);
   if(!game->die) return ERROR;
@@ -555,7 +555,7 @@ Id game_get_object_location(Game *game, Id id)
     if (space_has_object_id(game->spaces[k], id)) return space_get_id(game->spaces[k]); /*Se detecta la posición del objeto y se devuelve como return*/
     k++;
   }
-  if(player_has_object(game->player,id)) return 2;
+  if(player_has_object(game->player,id)) return NO_ID;
   return NO_ID;
 }
 

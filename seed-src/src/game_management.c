@@ -433,7 +433,7 @@ STATUS game_management_save(Game * game, char * filename){
   for (i=0;i<game_get_total_objects(game);i++){
     o=game_get_object(game,i);
     if(player_has_object(game_get_player(game),object_get_id(o))){
-      fprintf(f,"#i:%ld|%s|%ld|%s|%d|%ld|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),game_get_object_location(game,object_get_id(o)),object_get_description(o),object_get_movement(o),object_get_dependency(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
+      fprintf(f,"#i:%ld|%s|1|%s|%d|%ld|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),object_get_description(o),object_get_movement(o),object_get_dependency(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
     }
     else
       fprintf(f,"#o:%ld|%s|%ld|%s|%d|%ld|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),game_get_object_location(game,object_get_id(o)),object_get_description(o),object_get_movement(o),object_get_dependency(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
@@ -442,14 +442,11 @@ STATUS game_management_save(Game * game, char * filename){
   p=game_get_player(game);
   fprintf(f,"#p:%ld|%s|%ld|%d|\n",player_get_id(p),player_get_name(p),player_get_location(p),player_get_inventory_max_capacity(p));
 
-  for(i=0;i<game_get_total_links(game)-1;i++){
+  for(i=0;i<game_get_total_links(game);i++){
     id=game_get_link_id_at(game,i);
     l=game_get_link(game,id);
     fprintf(f,"#l:%ld|%s|%ld|%ld|%d|\n",link_get_id(l),link_get_name(l),link_get_id_from(l),link_get_id_to(l),link_get_type(l));
   }
-    id=game_get_link_id_at(game,i);
-    l=game_get_link(game,id);
-    fprintf(f,"#l:%ld|%s|%ld|%ld|%d|",link_get_id(l),link_get_name(l),link_get_id_from(l),link_get_id_to(l),link_get_type(l));
 /*
   fprintf(f,"%s",game_get_last_descripcion(game));
 */

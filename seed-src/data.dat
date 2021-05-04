@@ -28,11 +28,11 @@
 #s:28|Casilla 28|27|-1|28|-1|29|-1|1|/-----\|\-----/|/-----\|LLegaste a la casilla especial3|uwu|
 #s:29|Casilla 29|28|-1|29|-1|-1|-1|1|       |<o)_// | \_#/  |LLegaste a la casilla especial4|uwu|
 #s:30|Casilla 30|29|-1|30|-1|-1|-1|1|       |<o)_// | \_#/  |LLegaste a la casilla especial5|wasdlerasecreta|
-#i:1|Torch|1|Token Torch|1|-1|1|1|0|
+#o:1|Torch|1|Token Torch|1|-1|1|1|0|
 #o:2|Azul|1|Token Azul|1|-1|2|0|0|
 #o:3|Lighter|1|Token Verde|1|-1|-1|1|0|
 #o:4|Negro|1|Token Negro|1|-1|-1|0|0|
-#i:5|Ambar|1|Token Ambar|1|-1|25|0|0|
+#o:5|Ambar|1|Token Ambar|1|-1|25|0|0|
 #o:6|LLave|1|Token Llave|1|-1|-1|0|0|
 #o:7|Gris|1|Token Gris|1|-1|-1|0|0|
 #o:8|Silla|1|Token Silla|1|-1|-1|0|0|
@@ -41,7 +41,7 @@
 #o:11|Hoja|1|Token Hoja|1|-1|-1|0|0|
 #o:12|Dinero|1|Token Dinero|1|-1|-1|0|0|
 #p:1|ply1|1|15|
-#l:1|Lnk1|1|2|1|
+#l:1|Lnk1|1|2|0|
 #l:2|Lnk 2|2|3|0|
 #l:3|Lnk 3|3|4|0|
 #l:4|Lnk 4|4|5|0|
