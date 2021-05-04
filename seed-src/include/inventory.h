@@ -20,7 +20,7 @@
  */
 typedef struct _Inventory Inventory;
 
-#define MAX_OBJECTS 15 /*!<Numero maximo de objetos que puede llevar el jugador*/
+#define MAX_OBJECTS 40 /*!<Numero maximo de objetos que puede llevar el jugador*/
 
 /**
  * @brief crea el inventario del jugador

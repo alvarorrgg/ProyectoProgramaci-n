@@ -34,7 +34,8 @@ char *cmd_to_str[N_CMD][N_CMDT] = {
     {"op", "Open"}, /** !< op <=> open*/
     {"sv" , "Save"},	/** !< sv <=> save*/
     {"ld" , "Load"},	/** !< ld <=> load*/
-    
+    {"bd" , "Build"},	/** !< bd <=> build*/
+    {"u" , "Use"},	/** !< u <=> use*/
     };
 
 /**

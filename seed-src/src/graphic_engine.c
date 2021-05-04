@@ -130,14 +130,23 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       }
       sprintf(id2, "%ld", link_get_id(link2));*/
     sum = 0;
-    for (i = 0; i < num_objects + 1; i++)
+    printf("%i",num_objects);
+    for (i = 1; i <= num_objects + 1; i++)
     {
-      if (space_has_object_id(space_act, i))
-        strcpy(obj[i], object_get_name(game_get_object(game, i - 1)));
+      if (space_has_object_id(space_act, i)){
+        printf("cont\n%i\n",i);
+       if(player_has_object(game_get_player(game),object_get_dependency(game_get_object_by_id(game,i))) || object_get_dependency(game_get_object_by_id(game,i))==-1) {
+         printf("dep\n%li\n",object_get_dependency(game_get_object_by_id(game,i)));
+        strcpy(obj[i], object_get_name(game_get_object(game, i-1)));
+       }
+       else{
+         strcpy(obj[i], "");
+       }
+    }
       else
         strcpy(obj[i], "");
     }
-    for (i = 0; i < num_objects + 1; i++)
+    for (i = 1; i <= num_objects + 1; i++)
     {
       sum = sum + strlen(obj[i]);
       if (strlen(obj[i]) != 0)
@@ -145,7 +154,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     }
     if (sum > MAX_CHARS1)
     {
-      for (i = 0; i < num_objects + 1; i++)
+      for (i = 1; i <= num_objects + 1; i++)
       {
         strcpy(espacios_act, obj[i]);
         if (strlen(espacios_act) != 0)
@@ -158,7 +167,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     }
     else
     {
-      for (i = 0; i < num_objects + 1; i++)
+      for (i = 1; i <= num_objects + 1; i++)
       {
         strcat(espacios_act, obj[i]);
         if (strlen(obj[i]) != 0)
@@ -251,23 +260,53 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       }
       
      else if(space_get_ilumination(space_act)==FALSE && game_player_hasIluminated_object(game)==FALSE){
-        if (strcmp(id2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
-        strcpy(id2, "  ");
-      sprintf(str, "             +-------------------+");
+      sprintf(str, "###########################        +-------------------------------------------+        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |  ");
+      sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |  ");
+       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
+      sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
+      sprintf(str, "###########################       |                                            |        ##############################"); 
       screen_area_puts(ge->map, str);
-      sprintf(str, "             |                   |");
+      sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "             +-------------------+");
+      sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-     
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str,"###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       +--------------------------------------------+        ##############################");
+      screen_area_puts(ge->map, str);
 
       }
   sprintf(str, " ");

@@ -229,6 +229,19 @@ Command* game_get_command(Game* game);
  */
 Dialogue *game_get_dialogue(Game *game);
 /**
+ * @brief Obtiene el objeto a traves de su nombre
+ *
+ * game_get_object_from name Obtiene el objeto a traves de su nombre
+ *
+ * @date  05-04-2021
+ * @author Álvaro Rodríguez 
+ *
+ * @param game el juego del que se va a sacar el objeto
+ * @param name el nombre del objeto
+ * @return el objeto 
+ */
+Object* game_get_object_from_name(Game *game, char *name);
+/**
  * @brief Obtiene el total de objetos dentro del juego
  *
  * game_get_total_objects obtiene cuantos objetos hay en el juego

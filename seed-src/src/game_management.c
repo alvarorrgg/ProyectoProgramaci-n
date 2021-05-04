@@ -187,11 +187,6 @@ STATUS game_management_load_objects(Game *game, char *filename)
         object_set_link_open(object, link_open);
         object_set_iluminate(object, ilum);
         object_set_turnedon(object, turnOn);
-        if (strlen(name) > 7)
-        { /*Comprueba si el nombre del objeto se pasa del límite*/
-          printf("El nombre de un objeto no puede tener mas de 7 caracteres");
-          return ERROR;
-        }
         while ((i < MAX_OBJECTS) && (game_get_object(game, i) != NULL))
           i++;
         for (j = 0; j < i; j++)

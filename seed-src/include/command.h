@@ -12,7 +12,7 @@
 #define COMMAND_H
 
 #define N_CMDT 2 /*!<Tipos de representación de los comandos*/
-#define N_CMD 13 /*!<Numero de comandos*/
+#define N_CMD 15 /*!<Numero de comandos*/
 #define CMD_LENGHT 30 /*!<Numero maximo de letras de cada cmando*/
 #define N_INFOS 2
 #include "types.h"
@@ -51,7 +51,9 @@ typedef enum enum_Command {
   TURNOFF, /*!< TURNOFF = 8*/
   OPEN_LINK, /*!< OPEN = 9 */
   SAVE, /*!< SAVE = 10 */
-  LOAD /*!< LOAD = 11 */
+  LOAD, /*!< LOAD = 11 */
+  BUILD, /*!< BUILD = 12 */
+  USE /*!< USE = 13 */
   } T_Command;	
 /**
  * @brief obtiene la entrada del usuario.

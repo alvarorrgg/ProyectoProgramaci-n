@@ -15,7 +15,7 @@
 #include "game.h"
 #include "game_management.h"
 
-#define N_CALLBACK 12 /*!<Numero maximo de llamadas a comandos*/
+#define N_CALLBACK 14 /*!<Numero maximo de llamadas a comandos*/
 
 /**
  * @brief Define los elementos del juego
@@ -262,6 +262,32 @@ void game_callback_save(Game *game);
  */
 void game_callback_load(Game *game);
 
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_build combina objetos para crear otros
+ *
+ * @date 03-05-2021
+ * @author Álvaro Rodríguez	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ * @param filename el nombre del fichero del que se carga la partida
+ */
+void game_callback_build(Game *game);
+
+/**
+ * @brief Acción del jugador
+ *
+ * game_callback_use sirve para hacer cosas
+ *
+ * @date 03-05-2021
+ * @author Álvaro Rodríguez	
+ *
+ * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
+ * @param filename el nombre del fichero del que se carga la partida
+ */
+void game_callback_use(Game *game);
+
 
 
 /**
@@ -280,6 +306,8 @@ static callback_fn game_callback_fn_list[N_CALLBACK] = {
     game_callback_open, /*OPEN=9*/
     game_callback_save, /*SAVE=10*/
     game_callback_load, /*LOAD=11*/
+    game_callback_build, /*Build=11*/
+    game_callback_use, /*Use=12*/
 
 };
 
@@ -306,7 +334,7 @@ STATUS game_create(Game *game)
 
   for (i = 0; i < MAX_SPACES; i++) game->spaces[i] = NULL; /*Se inicializan todos los espacios con un valor NULL*/
   
-  for (i = 0; i < MAX_OBJECTS; i++)  game->objects[i] = NULL; /*Se inicializan todos los objetos con un valor NULL*/
+  for (i = 0; i < MAX_OBJECTS; i++)  game->objects[i] = NULL;/*Se inicializan todos los objetos con un valor NULL*/
   
   for (i = 0; i < MAX_LINKS; i++) game->link[i] = NULL; /*Se inicializan todos los links con un valor NULL*/
   
@@ -375,6 +403,7 @@ STATUS game_add_object(Game *game, Object *object)
   if (!game || !object) return ERROR;
 
   while ((i < MAX_OBJECTS) && (game->objects[i] != NULL)) i++;
+  
 
   game->objects[i] = object;
   return OK;
@@ -455,7 +484,14 @@ Space *game_get_space(Game *game, Id id)
 
   return NULL;
 }
-
+Object* game_get_object_from_name(Game *game, char *name){
+  int i=0;
+  if(!game || !name) return NULL;
+  for(i=0;i<MAX_OBJECTS;i++){
+    if(strcmp(object_get_name(game->objects[i]),name)==0) return game->objects[i];
+  }
+  return NULL;
+}
 int game_get_total_spaces(Game *game){
   int i = 0;
 
@@ -980,8 +1016,7 @@ void game_callback_drop(Game *game)
         player_remove_object(game->player,id);
         ids=game_get_dependency(game,id,ids,k);
         while(ids[0]!=NO_ID){
-          printf("Hollaaa");
-          dependency=ids[0];
+           dependency=ids[0];
            ids=game_get_dependency(game,dependency,ids,k);
         }
 
@@ -1384,12 +1419,17 @@ void game_callback_open(Game *game){
     j++;
     }
   if(link_get_type(game->link[j])==OPEN){
-    printf("2");
     command_set_status(game->command,ERROR);
     return;
   }
   if(object_get_link_open(game->objects[i])==link_get_id(game->link[j])){
     link_set_type(game->link[j],OPEN);
+    player_remove_object(game_get_player(game),object_get_id(game->objects[i]));
+    game_set_object_location(game, object_get_id(game->objects[i]), 99);
+    if(strcmp(object_get_name(game->objects[i]),"C4")==0){
+      player_remove_object(game_get_player(game),object_get_id(game->objects[1]));
+      game_set_object_location(game, object_get_id(game->objects[1]), 99);
+    }
     command_set_status(game->command,OK);
     return;
   }
@@ -1442,3 +1482,107 @@ void game_callback_load(Game *game){
   return;
 }
 
+
+void game_callback_build(Game *game){
+
+  
+
+  if (!game){
+    command_set_status(game->command,ERROR);
+    return;
+  }
+  if(strcmp(command_get_arg(game_get_command(game)),"Torch")==0 || strcmp(command_get_arg(game_get_command(game)),"torch")==0){
+    if(player_has_object(game_get_player(game),object_get_id(game->objects[1])) && player_has_object(game_get_player(game),object_get_id(game->objects[2])) && player_has_object(game_get_player(game),object_get_id(game->objects[3]))){
+        object_set_description(game->objects[1],"Torch token");
+        object_set_iluminate(game->objects[1],TRUE);
+        object_set_name(game->objects[1],"Torch");
+        player_remove_object(game_get_player(game),object_get_id(game->objects[2]));
+        player_remove_object(game_get_player(game),object_get_id(game->objects[3]));
+        game_set_object_location(game, object_get_id(game->objects[2]), 99);
+        game_set_object_location(game, object_get_id(game->objects[3]), 99);
+        command_set_status(game_get_command(game),OK);
+        return;
+        
+    }
+  }
+ else if(strcmp(command_get_arg(game_get_command(game)),"C4")==0){
+      if(player_has_object(game_get_player(game),object_get_id(game->objects[8])) && player_has_object(game_get_player(game),object_get_id(game->objects[9])) && player_has_object(game_get_player(game),object_get_id(game->objects[10]))){
+        object_set_description(game->objects[8],"C4 token");
+        object_set_iluminate(game->objects[8],FALSE);
+        object_set_name(game->objects[8],"C4");
+        object_set_link_open(game->objects[8],6);
+        player_remove_object(game_get_player(game),object_get_id(game->objects[9]));
+        player_remove_object(game_get_player(game),object_get_id(game->objects[10]));
+        game_set_object_location(game, object_get_id(game->objects[9]), 99);
+        game_set_object_location(game, object_get_id(game->objects[10]), 99);
+        command_set_status(game_get_command(game),OK);
+        return;
+        
+    }
+
+
+  }
+  else if(strcmp(command_get_arg(game_get_command(game)),"Pico")==0 || strcmp(command_get_arg(game_get_command(game)),"pico")==0){
+    if(player_has_object(game_get_player(game),object_get_id(game->objects[13])) && player_has_object(game_get_player(game),object_get_id(game->objects[14])) && player_has_object(game_get_player(game),object_get_id(game->objects[15])) && player_has_object(game_get_player(game),object_get_id(game->objects[16]))){
+        object_set_description(game->objects[13],"Pico token");
+        object_set_iluminate(game->objects[13],TRUE);
+        object_set_name(game->objects[13],"Pico");
+        object_set_link_open(game->objects[13],9);
+        player_remove_object(game_get_player(game),object_get_id(game->objects[14]));
+        player_remove_object(game_get_player(game),object_get_id(game->objects[15]));
+        player_remove_object(game_get_player(game),object_get_id(game->objects[16]));
+        game_set_object_location(game, object_get_id(game->objects[14]), 99);
+        game_set_object_location(game, object_get_id(game->objects[15]), 99);
+        game_set_object_location(game, object_get_id(game->objects[16]), 99);
+        command_set_status(game_get_command(game),OK);
+        return;
+        
+    }
+  }
+ else  if(strcmp(command_get_arg(game_get_command(game)),"Escalera")==0 || strcmp(command_get_arg(game_get_command(game)),"escalera")==0){
+     if(player_has_object(game_get_player(game),object_get_id(game->objects[17])) && player_has_object(game_get_player(game),object_get_id(game->objects[18])) ){
+        object_set_description(game->objects[17],"Escalera token");
+        object_set_iluminate(game->objects[17],TRUE);
+        object_set_name(game->objects[17],"Escalera");
+        object_set_link_open(game->objects[17],11);
+        player_remove_object(game_get_player(game),object_get_id(game->objects[18]));
+        game_set_object_location(game, object_get_id(game->objects[18]), 99);
+        command_set_status(game_get_command(game),OK);
+        return;
+        
+    }
+  }
+    command_set_status(game_get_command(game),ERROR);
+    return;
+}
+
+void game_callback_use(Game *game){
+  if (!game){
+    command_set_status(game->command,ERROR);
+    return;
+  }
+  if(player_get_location(game->player)==9 && player_has_object(game->player,object_get_id(game->objects[4]))){
+    link_set_type(game->link[2],OPEN);
+    command_set_status(game_get_command(game),OK);
+    return;
+  }
+  if(player_get_location(game->player)==18 && player_has_object(game->player,object_get_id(game->objects[6]))){
+    link_set_type(game->link[6],OPEN);
+    player_remove_object(game_get_player(game),object_get_id(game->objects[6]));
+    game_set_object_location(game, object_get_id(game->objects[6]), 99);
+    command_set_status(game_get_command(game),OK);
+    return;
+  }
+  if(player_get_location(game->player)==45 && strcmp(command_get_arg(game_get_command(game)),"345")==0){
+    link_set_type(game->link[9],OPEN);
+    command_set_status(game_get_command(game),OK);
+    return;
+  }
+if(player_get_location(game->player)==65 && strcmp(command_get_arg(game_get_command(game)),"12")==0){
+    object_set_dependency(game->objects[19],-1);
+    command_set_status(game_get_command(game),OK);
+    return;
+  }
+  command_set_status(game_get_command(game),ERROR);
+    return;
+}

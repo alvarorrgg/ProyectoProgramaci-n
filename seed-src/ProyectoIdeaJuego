@@ -6,7 +6,7 @@ Primer piso
                         ***********
                                     |
                                     |
-                        Espacio 3   |   
+                        Espacio 8   |   
                                     |
                                     |
                         ***********
@@ -16,7 +16,7 @@ Primer piso
 ***********          ***********
             |       |           |
             |       |           |
-Espacio 1   |East   |Espacio 2  |   Up Link(Espacio 5)
+Espacio 1   |East   |Espacio 9  |   Up Link(Espacio 5)
             |       |           |   
             |       |           |
 ***********          *********** 
@@ -26,7 +26,7 @@ Espacio 1   |East   |Espacio 2  |   Up Link(Espacio 5)
                         ***********
                                     |
                                     |
-                        Espacio 4   |  
+                        Espacio 10   |  
                                     |
                                     |
                         ***********
@@ -36,7 +36,7 @@ Segundo piso
 ***********          ***********
             |       |           |
             |       |           |
-Espacio 6   |East   |Espacio 7  |   
+Espacio 18   |East   |Espacio 26  |   
             |       |           |   
             |       |           |
 ***********          *********** 
@@ -45,7 +45,7 @@ North
 ***********          ***********
             |       |           |
             |       |           |
-Espacio 5   |East   |Espacio 8  |   Up Link(Espacio 7)
+Espacio 19   |East   |Espacio 27  |   Up Link(Espacio 7)
             |       |           |   
             |       |           |
 ***********          *********** 
@@ -56,7 +56,7 @@ Tercer piso
 ***********          ***********     ***********         ***********
             |       |           |   |           |       |           | 
             |       |           |   |           |       |           | 
-Espacio 9   | East  |Espacio 10 |Up |Espacio 11 |Up     |Espacio 12 | Down (tobogan hasta la salida)
+Espacio 37   | East  |Espacio 45 |Up |Espacio 55 |Up     |Espacio 65 | Down (tobogan hasta la salida)
             |       |           |   |           |       |           | 
             |       |           |   |           |       |           | 
 ***********          ***********     ***********         *********** 
@@ -101,6 +101,7 @@ Espacio 8:
     como un palo que esta en el suelo bastante largo que te permite desplazar el techo usando :
     open techo with palo 
     Se abré el link hacia arriba y puede subir.(Espacio9)
+    
 Espacio 9:
     En el espacio 9 simplemente habrá un trozo de piedra, una especie de trozo de madera, una lijadora y una cortadora de piedras.
     Una vez obtenga todos los objetos, se le dará la posiblidad de construir un pico.
