@@ -286,11 +286,11 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       }
       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str, "###########################       |                  %s                   |        ##############################", gdesc[0]);
+      sprintf(str, "###########################       |%s|        ##############################", gdesc[0]);
       screen_area_puts(ge->map, str);
-      sprintf(str, "###########################       |                  %s                   |        ##############################", gdesc[1]);
+      sprintf(str, "###########################       |%s|        ##############################", gdesc[1]);
       screen_area_puts(ge->map, str);
-      sprintf(str, "###########################       |                  %s                   |        ##############################", gdesc[2]);
+      sprintf(str, "###########################       |%s|        ##############################", gdesc[2]);
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);

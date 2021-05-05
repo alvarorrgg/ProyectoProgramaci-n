@@ -34,15 +34,15 @@ STATUS game_management_load_spaces(Game *game, char *filename)
   if (!gdesc)
     return ERROR;
 
-  gdesc[0] = (char *)malloc(9 * sizeof(char));
+  gdesc[0] = (char *)malloc(46 * sizeof(char));
   if (!gdesc[0])
     return ERROR;
 
-  gdesc[1] = (char *)malloc(9 * sizeof(char));
+  gdesc[1] = (char *)malloc(46 * sizeof(char));
   if (!gdesc[1])
     return ERROR;
 
-  gdesc[2] = (char *)malloc(9 * sizeof(char));
+  gdesc[2] = (char *)malloc(46* sizeof(char));
   if (!gdesc[2])
     return ERROR;
 

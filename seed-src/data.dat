@@ -1,11 +1,11 @@
-#p:1|Uwu|1|40|
-#s:1|Casilla 1|-1|-1|1|-1|-1|-1|1|       |       |       |Estas en la casilla 1|Primera casilla de la oca. Es donde empieza el jugador el juego|
-#s:9|Casilla 2|1|-1|2|-1|-1|-1|1|       |       |       |Estas en la casilla 2|Segunda casilla de la oca. Sería la segunda casilla en la que estará el jugador| |
-#s:8|Casilla 3|2|-1|3|-1|-1|-1|0|       |       |       |Estas en la casilla 3|ubecubdcd|
-#s:10|Casilla 4|3|-1|4|-1|-1|-1|1|       |       |       |Estas en la casilla 4|bcdcdcdcd|
-#s:19|Casilla 5|4|9|5|-1|-1|-1|1|       |<o)_// | \_#/  |De oca a oca y tiro porque me toca|icduciec|
-#s:18|Casilla 6|5|-1|6|-1|-1|-1|1|       |       |       |Estas en la casilla 6|ieufcekifc|
-#s:26|Casilla 7|6|-1|7|-1|-1|-1|1|       |       |       |Estas en la casilla 7|777777777|
+#p:1|UwU|26|40|
+#s:1|Casilla 1|-1|-1|1|-1|-1|-1|1|/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/|/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|Estas encadenado en tu celda|Tienes a tu alcance un alambre|
+#s:9|Casilla 2|1|-1|2|-1|-1|-1|1|-------------- .*..*..*..*..*. ----------***|-------------- .*..*..*..*..*. ----------***|-------------- .*..*..*..*..*. ----------***|Estas en la casilla 2|Segunda casilla de la oca. Sería la segunda casilla en la que estará el jugador| 
+#s:8|Casilla 3|2|-1|3|-1|-1|-1|0|                                            |                                            |                                            |Estas en la casilla 3|ubecubdcd|
+#s:10|Casilla 4|3|-1|4|-1|-1|-1|1| /-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\ | >                                        < | \-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/ |Estas en la casilla 4|baldosa|
+#s:19|Casilla 5|4|9|5|-1|-1|-1|1|                                            |                                            |                                            |De oca a oca y tiro porque me toca|icduciec|
+#s:18|Casilla 6|5|-1|6|-1|-1|-1|1|       /------------^^^-------------\       |\____________/                \____________/|                /_________\                 |Estas en la casilla 6|ieufcekifc|
+#s:26|Casilla 7|6|-1|7|-1|-1|-1|1|*_**_**_**_**_ ----------*** CO2 NH4 H2O2 Zn|*_**_**_**_**_ ----------*** H2O NH3 KnMnO4 |*_**_**_**_**_ ----------*** H2SO4 NH2 FCl  |Estas en la casilla 7|777777777|
 #s:27|Casilla 8|7|16|8|-1|-1|-1|0|  ___  | /   \ |/ / \ \|De puente a puente y tiro porque me llava la corriente|88888888888|
 #s:37|Casilla 9|8|13|9|5|-1|-1|1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|999999|
 #s:45|Casilla 10|-1|-1|10|-1|-1|-1|1|       |       |       |Estas en la casilla10|10101010|
@@ -46,4 +46,3 @@
 #l:10|Escaner|45|55|1|
 #l:11|Hueco|55|65|1|
 #l:12|Compuerta|65|90|1|
-
