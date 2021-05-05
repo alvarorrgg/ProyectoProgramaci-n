@@ -1,0 +1,53 @@
+ Take (t) Alambre: OK
+ Open (op) Cadena: OK
+ Move (m): OK
+ Take (t) Palo: OK
+ Take (t) Algodon: OK
+ Take (t) Cerilla: OK
+ Move (m): OK
+ Build (bd) Torch: OK
+ Turnon (ton) Torch: OK
+ Take (t) Libro: OK
+ Move (m): OK
+ Use (u) Palanca: OK
+ Move (m): OK
+ Take (t) Baldosa: OK
+ Take (t) LLave: OK
+ Move (m): OK
+ Open (op) Puerta: OK
+ Move (m) up: OK
+ Move (m): OK
+ Use (u) Baldosa: OK
+ Move (m): OK
+ Take (t) Polvora: OK
+ Take (t) Mecha: OK
+ Take (t) Quimicos: OK
+ Build (bd) C4: OK
+ Move (m): OK
+ Move (m): OK
+ Open (op) Pared: OK
+ Move (m): OK
+ Take (t) Gafas: OK
+ Turnon (ton) Gafas: OK
+ Take (t) Baston: OK
+ Open (op) Techo: OK
+ Move (m) up: OK
+ Take (t) Piedra: OK
+ Take (t) Madera: OK
+ Take (t) Lijadora: OK
+ Take (t) Cortadora: OK
+ Build (bd) Pico: OK
+ Open (op) Muro: OK
+ Move (m): OK
+ Use (u) 345: OK
+ Move (m) up: OK
+ Take (t) Madera: OK
+ Take (t) Cuerda: OK
+ Build (bd) Escalera: OK
+ Open (op) Hueco: OK
+ Move (m) up: OK
+ Use (u) 12: OK
+ Take (t) Mando: OK
+ Open (op) Compuerta: OK
+ Move (m): OK
+ Exit (e): OK

@@ -48,9 +48,9 @@ Graphic_engine *graphic_engine_create()
 
   ge->map = screen_area_init(1, 1, 118, 35);       /*mapa de la oca*/
   ge->descript = screen_area_init(120, 1, 29, 35); /*parte donde se pintan las jugadas y tal*/
-  ge->banner = screen_area_init(28, 37, 23, 1);   /*"The game of the Goose"*/
-  ge->help = screen_area_init(1, 38, 78, 2);      /*The----left or l*/
-  ge->feedback = screen_area_init(1, 41, 78, 3);  /*comandos*/
+  ge->banner = screen_area_init(63, 37, 18, 1);   /*"The game of the Goose"*/
+  ge->help = screen_area_init(1, 38, 147, 2);      /*The----left or l*/
+  ge->feedback = screen_area_init(1, 41, 147, 3);  /*comandos*/
 
   return ge;
 }
@@ -75,7 +75,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   int i = 0;
   int sum = 0;
   int num_objects = 0;
-  Id id_act = NO_ID, obj_loc = NO_ID;
+  Id id_act = NO_ID;
   Id *id_objetos;
   Space *space_act = NULL;
   char **gdesc;
@@ -92,43 +92,37 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   memset(espacios_next, 0, MAX_CHARS1);
   num_objects = game_get_total_objects(game);
   /* Pintar en el área del mapa */
-  screen_area_clear(ge->map);
-  sprintf(str, "#####################################################################################################################");
-  screen_area_puts(ge->map, str);
-  sprintf(str, "######################################################################################################################");
-  screen_area_puts(ge->map, str);
-  sprintf(str, "######################################################################################################################");
-  screen_area_puts(ge->map, str);
-  sprintf(str, " ");
-  screen_area_puts(ge->map, str);
-  sprintf(str, " ");
-  screen_area_puts(ge->map, str);
 
   if ((id_act = game_get_player_location(game)) != NO_ID)
   {
     space_act = game_get_space(game, id_act);
-       /*   if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
-        strcpy(id_to1, "      ");
-      else
-        strcat(id_to1, " <--");
-      sprintf(id1, "%ld", link_get_id(link1));
-      if (strcmp(id1, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
-        strcpy(id1, "  ");
 
-      link2 = space_get_east(space_back);
-
-      sprintf(id_to2, "%ld", link_get_id_to(link2));
-      if (strcmp(id_to2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
-        strcpy(id_to2, "      ");
-
-      else
-      {
-        sprintf(id_to1, "%ld", link_get_id_to(link2));
-        strcpy(id_to2, "--> ");
-        strcat(id_to2, id_to1);
-        strcpy(id_to1, "      ");
+      screen_area_clear(ge->map);
+      sprintf(str, "#####################################################################################################################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "######################################################################################################################");
+  link1 = space_get_north(space_act);
+      if(link1!=NULL && link_get_type(game_get_link(game,link_get_id(link1)))==OPEN){
+          sprintf(str, "                                                       ^");
+          screen_area_puts(ge->map, str);
+          sprintf(str, "                                                       |");
+          screen_area_puts(ge->map, str);
+          sprintf(str, "                                                       |");
+          screen_area_puts(ge->map, str);
+          printf("\nHoliwi\n");
       }
-      sprintf(id2, "%ld", link_get_id(link2));*/
+      else{
+          sprintf(str, " ");
+          screen_area_puts(ge->map, str);
+          sprintf(str, " ");
+          screen_area_puts(ge->map, str);
+          sprintf(str, " ");
+          screen_area_puts(ge->map, str);
+          printf("\nHoliwi2\n");
+
+      }
+      link1=NULL;
+
     sum = 0;
     printf("%i",num_objects);
     for (i = 1; i <= num_objects + 1; i++)
@@ -177,38 +171,28 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     while (strlen(espacios_act) < MAX_CHARS1)
       strcat(espacios_act, " ");
 
+
+
+
     if (id_act != NO_ID)
     {
       gdesc = space_get_gdesc(space_act);
       link1 = space_get_west(space_act);
-      if(link1!=NULL){
       strcpy(id_to1, " <----");
       if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id_to1, "      ");
-      
       else
         
       sprintf(id1, "%ld", link_get_id(link1));
       if (strcmp(id1, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id1, "  ");
-      }
-      else{
-        strcpy(id_to1, "      ");
-        strcpy(id1, "  ");
-      }
+
       link2 = space_get_east(space_act);
-      if(link2!=NULL){
+
       sprintf(id_to2, "%ld", link_get_id_to(link2));
       if (strcmp(id_to2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id_to2, "      ");
-        else
-      {
-        sprintf(id_to1, "%ld", link_get_id_to(link2));
-        strcpy(id_to2, "----> ");
 
-        strcpy(id_to1, "      ");
-      }
-      }
       else
       {
         sprintf(id_to1, "%ld", link_get_id_to(link2));
@@ -236,6 +220,56 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       |                                            |        ##############################");
+
+
+        link1 = space_get_up(space_act);
+        link2 = space_get_down(space_act);
+      if(link1!=NULL && link_get_type(game_get_link(game,link_get_id(link1)))==OPEN && link2!=NULL && link_get_type(game_get_link(game,link_get_id(link2)))==OPEN){
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |      _-##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |    _-  ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str,"###########################       |                                            |  _-    ##############################", id_to1, id_to2);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################     _-|                                            |_-      ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################   _-  |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str,"########################### _-    |                                            |        ##############################", id_to1, id_to2);
+      screen_area_puts(ge->map, str);
+      }
+      else if(link1!=NULL && link_get_type(game_get_link(game,link_get_id(link1)))==OPEN){
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |      _-##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |    _-  ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str,"###########################       |                                            |  _-    ##############################", id_to1, id_to2);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "########################### %s|                                            |_-      ##############################",id_to1);
+          screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      }
+      else if(link2!=NULL && link_get_type(game_get_link(game,link_get_id(link2)))==OPEN){
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################       |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################     _-|                                            |%s  ##############################",id_to2);
+      screen_area_puts(ge->map, str);
+      sprintf(str, "###########################   _-  |                                            |        ##############################");
+      screen_area_puts(ge->map, str);
+      sprintf(str,"########################### _-    |                                            |        ##############################", id_to1, id_to2);
+      screen_area_puts(ge->map, str);
+      }
+      else{
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
@@ -247,6 +281,9 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
+
+
+      }
       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       |                  %s                   |        ##############################", gdesc[0]);
@@ -263,7 +300,6 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      
       sprintf(str, "###########################       |%s|        ##############################", espacios_act);
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       +--------------------------------------------+        ##############################");
@@ -320,14 +356,27 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       +--------------------------------------------+        ##############################");
       screen_area_puts(ge->map, str);
+      }
+   link1 = space_get_south(space_act);
+      if(link1!=NULL && link_get_type(game_get_link(game,link_get_id(link1)))==OPEN){
+          sprintf(str, "                                                       |");
+          screen_area_puts(ge->map, str);
+          sprintf(str, "                                                       |");
+          screen_area_puts(ge->map, str);
+          sprintf(str, "                                                       v");
+          screen_area_puts(ge->map, str);
+          printf("\nHoliwi\n");
+      }
+      else{
+          sprintf(str, " ");
+          screen_area_puts(ge->map, str);
+          sprintf(str, " ");
+          screen_area_puts(ge->map, str);
+          sprintf(str, " ");
+          screen_area_puts(ge->map, str);
+          printf("\nHoliwi2\n");
 
       }
-  sprintf(str, " ");
-  screen_area_puts(ge->map, str);
-  sprintf(str, " ");
-  screen_area_puts(ge->map, str);
-  sprintf(str, "######################################################################################################################");
-  screen_area_puts(ge->map, str);
   sprintf(str, "######################################################################################################################");
   screen_area_puts(ge->map, str);
   sprintf(str, "######################################################################################################################");
@@ -344,14 +393,6 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   screen_area_clear(ge->descript);
   sprintf(str, "  Object locations: ");
   /*Comprobamos que el objeto no esta en el player y en caso de no estarlo mostramos donde se encuentra*/
-  for (i = 0; i < MAX_OBJECTS - 1; i++)
-  {
-    if ((obj_loc = game_get_object_location(game, i)) != NO_ID)
-    {
-      sprintf(str, "  %s: %d", object_get_name(game_get_object(game, i - 1)), (int)obj_loc);
-      screen_area_puts(ge->descript, str);
-    }
-  }
   sprintf(str, " ");
   screen_area_puts(ge->descript, str);
   sprintf(str, " ");
@@ -399,13 +440,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     screen_area_puts(ge->descript, str);
   }
   /* Pinta en el área del banner */
-  screen_area_puts(ge->banner, " The game of the Goose ");
+  screen_area_puts(ge->banner, " Scape the Tower ");
 
   /* Pinta en el área de ayuda */
   screen_area_clear(ge->help);
   sprintf(str, " The commands you can use are:");
   screen_area_puts(ge->help, str);
-  sprintf(str, "next or n, back or b, exit or e, take or t, drop or d,roll or rl,left or l,right or r,move or m, inspect or i, turnon or ton, turnoff or toff"); /*Se escriben los comandos posibles*/
+  sprintf(str, " exit or e, take or t, drop or d,roll or rl,move or m, inspect or i, turnon or ton, turnoff or toff, open or op, save or sv, load or ld, use or u, build or bd"); /*Se escriben los comandos posibles*/
   screen_area_puts(ge->help, str);
 
   /* Pinta en el área de comentarios */
