@@ -1531,7 +1531,7 @@ void game_callback_build(Game *game){
         player_remove_object(game_get_player(game),object_get_id(game->objects[14]));
         player_remove_object(game_get_player(game),object_get_id(game->objects[15]));
         player_remove_object(game_get_player(game),object_get_id(game->objects[16]));
-        game_set_object_location(game, object_get_id(game->objects[14]), 99);
+        game_set_object_location(game, object_get_id(game->objects[14]), 55);
         game_set_object_location(game, object_get_id(game->objects[15]), 99);
         game_set_object_location(game, object_get_id(game->objects[16]), 99);
         command_set_status(game_get_command(game),OK);
@@ -1540,13 +1540,13 @@ void game_callback_build(Game *game){
     }
   }
  else  if(strcmp(command_get_arg(game_get_command(game)),"Escalera")==0 || strcmp(command_get_arg(game_get_command(game)),"escalera")==0){
-     if(player_has_object(game_get_player(game),object_get_id(game->objects[17])) && player_has_object(game_get_player(game),object_get_id(game->objects[18])) ){
-        object_set_description(game->objects[17],"Escalera token");
-        object_set_iluminate(game->objects[17],TRUE);
-        object_set_name(game->objects[17],"Escalera");
-        object_set_link_open(game->objects[17],11);
-        player_remove_object(game_get_player(game),object_get_id(game->objects[18]));
-        game_set_object_location(game, object_get_id(game->objects[18]), 99);
+     if(player_has_object(game_get_player(game),object_get_id(game->objects[14])) && player_has_object(game_get_player(game),object_get_id(game->objects[17])) ){
+        object_set_description(game->objects[14],"Escalera token");
+        object_set_iluminate(game->objects[14],TRUE);
+        object_set_name(game->objects[14],"Escalera");
+        object_set_link_open(game->objects[14],11);
+        player_remove_object(game_get_player(game),object_get_id(game->objects[17]));
+        game_set_object_location(game, object_get_id(game->objects[17]), 99);
         command_set_status(game_get_command(game),OK);
         return;
         

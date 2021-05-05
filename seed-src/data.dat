@@ -30,9 +30,9 @@
 #o:15|Madera|37|Token Verde|1|-1|-1|1|0|
 #o:16|Lijadora|37|Token Negro|1|-1|-1|0|0|
 #o:17|Cortadora|37|Token Ambar|1|-1|-1|0|0|
-#o:18|Maderax2|55|Token Silla|1|-1|-1|0|0|
-#o:19|Cuerda|55|Token Piedra|1|-1|-1|0|0|
-#o:20|Mando|55|Token Hoja|1|100|-1|0|0|
+#o:18|Cuerda|55|Token Piedra|1|-1|-1|0|0|
+#o:19|CajaFuerte|65|Token Hoja|1|-1|0|0|0|
+#o:20|Mando|65|Token Hoja|1|100|12|0|0|
 #o:21|Balanza|18|Token Balanza|0|-1|-1|0|0|
 #l:1|Cadena|1|9|1|
 #l:2|Lnk1|8|9|0|

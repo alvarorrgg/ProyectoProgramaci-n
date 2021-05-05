@@ -181,21 +181,34 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     {
       gdesc = space_get_gdesc(space_act);
       link1 = space_get_west(space_act);
+      if(link1!=NULL){
       strcpy(id_to1, " <----");
       if (strcmp(id_to1, " -1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id_to1, "      ");
+      
       else
         
       sprintf(id1, "%ld", link_get_id(link1));
       if (strcmp(id1, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link1)))==CLOSE)
         strcpy(id1, "  ");
-
+      }
+      else{
+        strcpy(id_to1, "      ");
+        strcpy(id1, "  ");
+      }
       link2 = space_get_east(space_act);
-
+      if(link2!=NULL){
       sprintf(id_to2, "%ld", link_get_id_to(link2));
       if (strcmp(id_to2, "-1") == 0 || link_get_type(game_get_link(game,link_get_id(link2)))==CLOSE)
         strcpy(id_to2, "      ");
+        else
+      {
+        sprintf(id_to1, "%ld", link_get_id_to(link2));
+        strcpy(id_to2, "----> ");
 
+        strcpy(id_to1, "      ");
+      }
+      }
       else
       {
         sprintf(id_to1, "%ld", link_get_id_to(link2));

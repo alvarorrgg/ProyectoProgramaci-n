@@ -14,7 +14,7 @@ LINK_TESTDIR = $(addprefix obj/, link_test.o link.o)
 COMMAND_TESTDIR = $(addprefix obj/, command_test.o command.o)
 CC = gcc
 
-vpath %.c src:include
+vpath %.c src
 vpath %.h include
 vpath %.o obj
  

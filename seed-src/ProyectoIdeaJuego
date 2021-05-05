@@ -70,13 +70,13 @@ En los objetos a coger, se encuentra un alambre. Usará ese alambre para abrir l
 Obtiene el alambre y tiene que llamar a la función:
     Open cadena with alambre
     
-Espacio 2:
+Espacio 9:
 Una vez abierto se podrá mover a la siguiente habitacion con un move East
 Entre la habitación hay tres objetos, un palo, algodón, y unas cerillas.
 El palo tendrá de dependencia, el alambre, el alambre, el algodón y el algodón las cerillas.
     Una vez se tengan las tres,  se "iluminará" el espacio dejando ver una puerta (South Link)
 
-Espacio 3:
+Espacio 8:
 Se encuentra en el espacio tres, dentro de este espacio se encuentra un estante con libros,
  
 Aqui el jugador tendrá que suponer que tiene que hacer un take libro para continuar,
