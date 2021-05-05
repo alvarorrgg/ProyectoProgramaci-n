@@ -289,4 +289,39 @@ void test2_space_set_ilumination();
 void test3_space_set_ilumination();
 void test1_space_get_ilumination();
 void test2_space_get_ilumination();
+
+/**
+ * @test Función de prueba para space_set_detailed_descripcion
+ * @pre Un space nulo .
+ * @post Output==ERROR
+ */
+void test1_space_set_detailed_description();
+
+/**
+ * @test Función de prueba para space_set_detailed_descripcion
+ * @pre Una descripción nula.
+ * @post Output==ERROR
+ */
+void test2_space_set_detailed_description();
+
+/**
+ * @test Función de prueba para space_set_detailed_descripcion
+ * @pre Inputs correctos.
+ * @post Output==OK
+ */
+void test3_space_set_detailed_description();
+
+/**
+ * @test Función de prueba para space_get_detailed_descripcion
+ * @pre Espacio nulo
+ * @post Output==ERROR
+ */
+void test1_space_get_detailed_description();
+
+/**
+ * @test Función de prueba para space_get_detailed_descripcion
+ * @pre Inputs corerctos
+ * @post Output=="Ejemplo descripcion detallada"
+ */
+void test2_space_get_detailed_description();
 #endif

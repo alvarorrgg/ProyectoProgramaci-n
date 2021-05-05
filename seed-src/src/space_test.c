@@ -92,6 +92,13 @@ int main(int argc, char** argv) {
   if (all || test == 46) test3_space_set_ilumination();
   if (all || test == 47) test1_space_get_ilumination();
   if (all || test == 48) test2_space_get_ilumination();
+  if (all || test == 49) test1_space_set_detailed_description();
+  if (all || test == 50) test2_space_set_detailed_description();
+  if (all || test == 51) test3_space_set_detailed_description();
+  if (all || test == 52) test1_space_get_detailed_description();
+  if (all || test == 53) test2_space_get_detailed_description();
+
+
 
   
 
@@ -509,6 +516,46 @@ void test2_space_get_ilumination(){
   space_set_ilumination (space , 1);
 
   PRINT_TEST_RESULT(space_get_ilumination (space)== 1);
+  space_destroy (space);
+}
+
+void test1_space_set_detailed_description(){
+  Space *space = NULL;
+
+  PRINT_TEST_RESULT(space_set_detailed_description (space , "Ejemplo descripcion") == ERROR);
+
+}
+
+
+void test2_space_set_detailed_description(){
+  Space *space = space_create(05);
+
+  char *descr = NULL;
+
+  PRINT_TEST_RESULT(space_set_detailed_description (space , descr) == ERROR);
+  space_destroy (space);
+}
+
+
+void test3_space_set_detailed_description(){
+  Space *space = space_create(05);
+
+  PRINT_TEST_RESULT(space_set_detailed_description (space , "Ejemplo descripcion detallada") == OK);
+  space_destroy (space);
+}
+
+void test1_space_get_detailed_description(){
+  Space *space = NULL;
+
+  PRINT_TEST_RESULT(space_get_detailed_description (space) == NULL);
+}
+
+
+void test2_space_get_detailed_description(){
+  Space *space = space_create (05);
+  space_set_detailed_description (space , "Ejemplo de descripcion");
+
+  PRINT_TEST_RESULT(strcmp ( space_get_detailed_description (space) ,"Ejemplo de descripcion")  == 0);
   space_destroy (space);
 }
 
