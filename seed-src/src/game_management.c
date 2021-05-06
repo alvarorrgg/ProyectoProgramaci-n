@@ -405,70 +405,128 @@ STATUS game_management_load_links(Game *game, char *filename)
 STATUS game_management_save(Game * game, char * filename){
 
   FILE *f;
-  Space *s;
   Object *o;
   Player *p;
   Link *l;
   int i;
   Id id, loc;
-  char **gdesc;
 
   if (!game || filename==NULL) return ERROR;
 
   f=fopen(filename,"w");
   if(f==NULL) return ERROR;
 
-  for (i=0;i<game_get_total_spaces(game);i++){
-    id=game_get_space_id_at(game,i);
-    s=game_get_space(game,id);
-    fprintf(f,"#s:%ld|%d|\n",id,space_get_ilumination(s));
-  }
+  p=game_get_player(game);
+  fprintf(f,"#p:%ld|%ld|\n",player_get_id(p),player_get_location(p));
 
   for (i=0;i<game_get_total_objects(game);i++){
     o=game_get_object(game,i);
     if(player_has_object(game_get_player(game),object_get_id(o))){
       loc=game_get_object_location(game,object_get_id(o));
       if (loc<1){
-        loc=-loc;
+        loc=player_get_location(p);
       }
-      fprintf(f,"#i:%ld|%ld|%d|%d|\n",object_get_id(o),loc,object_get_iluminate(o),object_get_turnedon(o));
+      fprintf(f,"#i:%ld|%s|%ld|%s|%d|%d|%d|\n",object_get_id(o),object_get_name(o),loc,object_get_description(o),object_get_turnedon(o),object_get_iluminate(o),object_get_turnedon(o));
     }
     else
-      fprintf(f,"#o:%ld|%s|%ld|%s|%d|%ld|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),game_get_object_location(game,object_get_id(o)),object_get_description(o),object_get_movement(o),object_get_dependency(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
+      fprintf(f,"#o:%ld|%s|%ld|%s|%d|%d|%d|\n",object_get_id(o),object_get_name(o),game_get_object_location(game,object_get_id(o)),object_get_description(o),object_get_turnedon(o),object_get_iluminate(o),object_get_turnedon(o));
   }
-
-  p=game_get_player(game);
-  fprintf(f,"#p:%ld|%s|%ld|%d|\n",player_get_id(p),player_get_name(p),player_get_location(p),player_get_inventory_max_capacity(p));
 
   for(i=0;i<game_get_total_links(game);i++){
     id=game_get_link_id_at(game,i);
     l=game_get_link(game,id);
-    fprintf(f,"#l:%ld|%s|%ld|%ld|%d|\n",link_get_id(l),link_get_name(l),link_get_id_from(l),link_get_id_to(l),link_get_type(l));
+    fprintf(f,"#l:%ld|%d|\n",link_get_id(l),link_get_type(l));
   }
-/*
-  fprintf(f,"%s",game_get_last_descripcion(game));
-*/
+
   fclose(f);
 
   return OK;
 }
 
 STATUS game_management_load(Game * game, char * filename){
-/*
-  FILE *f;
-  char *l_description=NULL;
-*/
-  if(!game || !filename) return ERROR;
 
-  if(game_destroy(game)==ERROR) return ERROR;
-  if(game_create_from_file(game,filename)==ERROR) return ERROR;
-/*
-  f=fopen(filename,"r");
+  FILE *file = NULL;
+  char line[WORD_SIZE] = "";
+  char name[WORD_SIZE] = "";
+  char descr[LEN_DES] = "";
+  char aux[WORD_SIZE] = "";
+  char *toks = NULL;
+  Id id = NO_ID, player_pos = NO_ID, pos_obj = NO_ID, link_open = NO_ID;
+  BOOL ilum = FALSE;
+  BOOL turnOn = FALSE;
+  Object *object;
+  TYPES gate = CLOSE;
+  
 
-  fscanf(f,"%s",l_description);
 
-  game_set_last_description(game,l_description);
+  if (!game || !filename)
+    return ERROR;
 
-  fclose(f);*/
+  file = fopen(filename, "r");
+  if (file == NULL)
+    return ERROR;
+
+  while (fgets(line, WORD_SIZE, file))
+  {
+    strcpy(aux,line);
+    if (strncmp("#p:", line, 3) == 0)
+    {
+      toks = strtok(line + 3, "|");
+      id = atol(toks);
+      toks = strtok(NULL, "|");
+      player_pos = atol(toks);
+
+      if (player_pos != NO_ID)
+      {
+        if (player_pos == 0)
+          player_pos = 1;
+
+        player_set_location(game_get_player(game), player_pos);
+      }
+    }
+
+    if (strncmp("#o:", line, 3) == 0 || strncmp("#i:", line, 3) == 0)
+    {
+      toks = strtok(line + 3, "|");
+      id = atol(toks);
+      toks = strtok(NULL, "|");
+      strcpy(name, toks);
+      toks = strtok(NULL, "|");
+      pos_obj = atol(toks);
+      toks = strtok(NULL, "|");
+      strcpy(descr, toks);
+      toks = strtok(NULL, "|");
+      link_open = atol(toks);
+      toks = strtok(NULL, "|");
+      ilum = atol(toks);
+      toks = strtok(NULL, "|");
+      turnOn = atol(toks);
+
+      object=game_get_object_by_id(game,id);
+      object_set_description(object, descr);
+      object_set_name(object, name);
+      object_set_link_open(object, link_open);
+      object_set_iluminate(object, ilum);
+      object_set_turnedon(object, turnOn);
+      
+
+      if (strncmp("#i:", aux, 3) == 0)
+        player_add_object(game_get_player(game),object_get_id(object));
+
+      else
+        game_set_object_location(game, id, pos_obj);
+      }
+
+      if (strncmp("#l:", line, 3) == 0)
+      {
+        toks = strtok(line + 3, "|");
+        id = atol(toks);
+        toks = strtok(NULL, "|");
+        gate = atol(toks);
+      
+        link_set_type(game_get_link(game,id), gate);
+      }
+    }
+
   return OK;
 }
