@@ -1,39 +1,39 @@
-#p:1|UwU|26|40|
-#s:1|Casilla 1|-1|-1|1|-1|-1|-1|1|/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/|/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|Estas encadenado en tu celda|Tienes a tu alcance un alambre|
-#s:9|Casilla 2|1|-1|2|-1|-1|-1|1|-------------- .*..*..*..*..*. ----------***|-------------- .*..*..*..*..*. ----------***|-------------- .*..*..*..*..*. ----------***|Estas en la casilla 2|Segunda casilla de la oca. Sería la segunda casilla en la que estará el jugador| 
-#s:8|Casilla 3|2|-1|3|-1|-1|-1|0|                                            |                                            |                                            |Estas en la casilla 3|ubecubdcd|
-#s:10|Casilla 4|3|-1|4|-1|-1|-1|1| /-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\ | >                                        < | \-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/ |Estas en la casilla 4|baldosa|
-#s:19|Casilla 5|4|9|5|-1|-1|-1|1|                                            |                                            |                                            |De oca a oca y tiro porque me toca|icduciec|
-#s:18|Casilla 6|5|-1|6|-1|-1|-1|1|       /------------^^^-------------\       |\____________/                \____________/|                /_________\                 |Estas en la casilla 6|ieufcekifc|
-#s:26|Casilla 7|6|-1|7|-1|-1|-1|1|*_**_**_**_**_ ----------*** CO2 NH4 H2O2 Zn|*_**_**_**_**_ ----------*** H2O NH3 KnMnO4 |*_**_**_**_**_ ----------*** H2SO4 NH2 FCl  |Estas en la casilla 7|777777777|
-#s:27|Casilla 8|7|16|8|-1|-1|-1|0|  ___  | /   \ |/ / \ \|De puente a puente y tiro porque me llava la corriente|88888888888|
-#s:37|Casilla 9|8|13|9|5|-1|-1|1|       |<o)_// | \_#/  |De oca a oca y tiro porque   me toca|999999|
-#s:45|Casilla 10|-1|-1|10|-1|-1|-1|1|       |       |       |Estas en la casilla10|10101010|
-#s:55|Casilla 11|10|-1|11|-1|-1|-1|1|       |       |       |Estas en la casilla 11|11-11-11-11|
-#s:65|Casilla 12|11|-1|12|-1|-1|-1|1|       |       |       |Estas en la casilla 12|12-12-12|
-#s:90|Casilla 12|11|-1|12|-1|-1|-1|1|       |       |       |Estas en la casilla 12|12-12-12|
-#s:99|Casilla 99|-1|-1|-1|-1|-1|-1|1|       |       |       |Estas en la casilla 12|12-12-12|
-#o:1|Alambre|1|Token Torch|1|-1|1|1|0|
-#o:2|Palo|9|Token Azul|1|-1|-1|0|0|
-#o:3|Algodon|9|Token Verde|1|-1|-1|1|0|
-#o:4|Cerilla|9|Token Negro|1|-1|-1|0|0|
-#o:5|Libro|8|Token Ambar|1|-1|-1|0|0|
-#o:6|Palanca|9|Token Ambar|0|5|-1|0|0|
-#o:7|Baldosa|10|Token Llave|1|-1|-1|0|0|
-#o:8|LLave|10|Token Gris|1|7|4|0|0|
-#o:9|Polvora|26|Token Silla|1|-1|-1|0|0|
-#o:10|Mecha|26|Token Piedra|1|-1|-1|0|0|
-#o:11|Quimicos|26|Token Lapiz|1|-1|-1|0|0|
-#o:12|Gafas|27|Token Dinero|1|-1|-1|1|0|
-#o:13|Baston|27|Token Torch|1|-1|8|-1|0|
-#o:14|Piedra|37|Token Azul|1|-1|-1|0|0|
-#o:15|Madera|37|Token Verde|1|-1|-1|1|0|
-#o:16|Lijadora|37|Token Negro|1|-1|-1|0|0|
-#o:17|Cortadora|37|Token Ambar|1|-1|-1|0|0|
-#o:18|Cuerda|55|Token Piedra|1|-1|-1|0|0|
-#o:19|CajaFuerte|65|Token Hoja|1|-1|0|0|0|
-#o:20|Mando|65|Token Hoja|1|100|12|0|0|
-#o:21|Balanza|18|Token Balanza|0|-1|-1|0|0|
+#p:1|UwU|1|40|
+#s:1|Carcel|-1|-1|1|-1|-1|-1|1|/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/|/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|Estas encadenado en tu celda|Tienes a tu alcance un alambre|
+#s:9|Habitacion 1|1|-1|2|-1|-1|-1|1|-------------- .*..*..*..*..*. ----------***|-------------- .*..*..*..*..*. ----------***|-------------- .*..*..*..*..*. ----------***|Con estos materiales puedo construir algo|Veamos a ver si puedo hacer una antorcha| 
+#s:8|Habitacion|2|-1|3|-1|-1|-1|0|                                            |                                            |                                            |Un libro, para que servirá|No parece haber nada mas en esta habitacion|
+#s:10|Habitacion 4|3|-1|4|-1|-1|-1|1| /-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\ | >                                        < | \-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/ |Una baldosa, me pregunto por que esta suelta.|A lo mejor me sirve para algo|
+#s:19|Habitacion 5|4|9|5|-1|-1|-1|1|                                            |                                            |                                            |No parece haber muchas cosas aqui|La pared de enfrente parece hueca|
+#s:18|Balanza|5|-1|6|-1|-1|-1|1|       /------------^^^-------------\       |\____________/                \____________/|                /_________\                 |Aqui solo hay una balanza desnivelada|Desnivelada huh, con que podré nivelarla|
+#s:26|Explosivos|6|-1|7|-1|-1|-1|1|*_**_**_**_**_ ----------*** CO2 NH4 H2O2 Zn|*_**_**_**_**_ ----------*** H2O NH3 KnMnO4 |*_**_**_**_**_ ----------*** H2SO4 NH2 FCl  |Quimicos, polvora y mecha, esto me suena a bomba|Siendo refinados creo que deberia construir un C4|
+#s:27|HabitacionOscura|7|16|8|-1|-1|-1|0|  ___  | /   \ |/ / \ \|La explosión me ha dejado sin luz|Con estas gafas puedo ver mejor|
+#s:37|Constructor|8|13|9|5|-1|-1|1|       |<o)_// | \_#/  |Parece que este cuarto no tiene salidas|Con estos materiales podria construir algo para romper el muro|
+#s:45|Escaner|-1|-1|10|-1|-1|-1|1|       |       |       |Una puerta con una contraseña|Pista: Triangulo, Cuadrado, Pentagono|
+#s:55|Hueco|10|-1|11|-1|-1|-1|1|       |       |       |Parece que hay un hueco encima mio|Con madera y cuerda algo podremos construir|
+#s:65|Caja Fuerte|11|-1|12|-1|-1|-1|1|       |       |       |Hay una caja fuerte donde puedes escribir|En la etiqueta pone: Cuantas casillas has recorrido hasta ahora?|
+#s:90|Victoria|11|-1|12|-1|-1|-1|1|       |       |       |Has ganado|Escapastes de la prision|
+#s:99|Basura|-1|-1|-1|-1|-1|-1|1|       |       |       |Esta es la casilla Basura|Si estas aqui es porque has hecho trampas|
+#o:1|Alambre|1|Con esto podré abrir la cadena|1|-1|1|1|0|
+#o:2|Palo|9|Me servirá para algo|1|-1|-1|0|0|
+#o:3|Algodon|9|Me servirá para algo|1|-1|-1|1|0|
+#o:4|Cerilla|9|Me servira para algo|1|-1|-1|0|0|
+#o:5|Libro|8|Parece que activa algun mecanismo|1|-1|-1|0|0|
+#o:6|Palanca|9|No lo puedo recoger probaré a usarlo|0|5|-1|0|0|
+#o:7|Baldosa|10|Parece que oculta algo debajo|1|-1|-1|0|0|
+#o:8|LLave|10|Servirá para abrir una puerta|1|7|4|0|0|
+#o:9|Polvora|26|Material de bomba|1|-1|-1|0|0|
+#o:10|Mecha|26|Material de bomba|1|-1|-1|0|0|
+#o:11|Quimicos|26|Material de bomba|1|-1|-1|0|0|
+#o:12|Gafas|27|Para ver en la noche|1|-1|-1|1|0|
+#o:13|Baston|27|Puedo abrir el hueco del techo|1|-1|8|-1|0|
+#o:14|Piedra|37|Para construir un pico|1|-1|-1|0|0|
+#o:15|Madera|37|Para construir un pico|1|-1|-1|1|0|
+#o:16|Lijadora|37|Para construir un pico|1|-1|-1|0|0|
+#o:17|Cortadora|37|Para construir un pico|1|-1|-1|0|0|
+#o:18|Cuerda|55|Para construir una escalera|1|-1|-1|0|0|
+#o:19|CajaFuerte|65|Dentro seguro que hay algo|1|-1|0|0|0|
+#o:20|Mando|65|Podré abrir la compuerta|1|100|12|0|0|
+#o:21|Balanza|18|Habrá que nivelarla con algo|0|-1|-1|0|0|
 #l:1|Cadena|1|9|1|
 #l:2|Lnk1|8|9|0|
 #l:3|Palanca|9|10|1|

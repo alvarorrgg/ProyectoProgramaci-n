@@ -1491,11 +1491,11 @@ void game_callback_build(Game *game){
     command_set_status(game->command,ERROR);
     return;
   }
-  if(strcmp(command_get_arg(game_get_command(game)),"Torch")==0 || strcmp(command_get_arg(game_get_command(game)),"torch")==0){
+  if(strcmp(command_get_arg(game_get_command(game)),"Antorcha")==0 || strcmp(command_get_arg(game_get_command(game)),"antorcha")==0){
     if(player_has_object(game_get_player(game),object_get_id(game->objects[1])) && player_has_object(game_get_player(game),object_get_id(game->objects[2])) && player_has_object(game_get_player(game),object_get_id(game->objects[3]))){
-        object_set_description(game->objects[1],"Torch token");
+        object_set_description(game->objects[1],"Ya puedo iluminar las salas");
         object_set_iluminate(game->objects[1],TRUE);
-        object_set_name(game->objects[1],"Torch");
+        object_set_name(game->objects[1],"Antorcha");
         player_remove_object(game_get_player(game),object_get_id(game->objects[2]));
         player_remove_object(game_get_player(game),object_get_id(game->objects[3]));
         game_set_object_location(game, object_get_id(game->objects[2]), 99);
@@ -1507,7 +1507,7 @@ void game_callback_build(Game *game){
   }
  else if(strcmp(command_get_arg(game_get_command(game)),"C4")==0){
       if(player_has_object(game_get_player(game),object_get_id(game->objects[8])) && player_has_object(game_get_player(game),object_get_id(game->objects[9])) && player_has_object(game_get_player(game),object_get_id(game->objects[10]))){
-        object_set_description(game->objects[8],"C4 token");
+        object_set_description(game->objects[8],"Un explosivo C4");
         object_set_iluminate(game->objects[8],FALSE);
         object_set_name(game->objects[8],"C4");
         object_set_link_open(game->objects[8],6);
@@ -1524,7 +1524,7 @@ void game_callback_build(Game *game){
   }
   else if(strcmp(command_get_arg(game_get_command(game)),"Pico")==0 || strcmp(command_get_arg(game_get_command(game)),"pico")==0){
     if(player_has_object(game_get_player(game),object_get_id(game->objects[13])) && player_has_object(game_get_player(game),object_get_id(game->objects[14])) && player_has_object(game_get_player(game),object_get_id(game->objects[15])) && player_has_object(game_get_player(game),object_get_id(game->objects[16]))){
-        object_set_description(game->objects[13],"Pico token");
+        object_set_description(game->objects[13],"Pico para romper paredes");
         object_set_iluminate(game->objects[13],TRUE);
         object_set_name(game->objects[13],"Pico");
         object_set_link_open(game->objects[13],9);
@@ -1541,7 +1541,7 @@ void game_callback_build(Game *game){
   }
  else  if(strcmp(command_get_arg(game_get_command(game)),"Escalera")==0 || strcmp(command_get_arg(game_get_command(game)),"escalera")==0){
      if(player_has_object(game_get_player(game),object_get_id(game->objects[14])) && player_has_object(game_get_player(game),object_get_id(game->objects[17])) ){
-        object_set_description(game->objects[14],"Escalera token");
+        object_set_description(game->objects[14],"Escalera para subir a sitios");
         object_set_iluminate(game->objects[14],TRUE);
         object_set_name(game->objects[14],"Escalera");
         object_set_link_open(game->objects[14],11);

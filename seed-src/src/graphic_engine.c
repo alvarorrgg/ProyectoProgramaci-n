@@ -230,13 +230,13 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       |                                            |    _-  ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str,"###########################       |                                            |  _-    ##############################", id_to1, id_to2);
+      sprintf(str,"###########################       |                                            |  _-    ##############################");
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################     _-|                                            |_-      ##############################");
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################   _-  |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str,"########################### _-    |                                            |        ##############################", id_to1, id_to2);
+      sprintf(str,"########################### _-    |                                            |        ##############################");
       screen_area_puts(ge->map, str);
       }
       else if(link1!=NULL && link_get_type(game_get_link(game,link_get_id(link1)))==OPEN){
@@ -245,7 +245,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################       |                                            |    _-  ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str,"###########################       |                                            |  _-    ##############################", id_to1, id_to2);
+      sprintf(str,"###########################       |                                            |  _-    ##############################");
       screen_area_puts(ge->map, str);
       sprintf(str, "########################### %s|                                            |_-      ##############################",id_to1);
           screen_area_puts(ge->map, str);
@@ -266,7 +266,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->map, str);
       sprintf(str, "###########################   _-  |                                            |        ##############################");
       screen_area_puts(ge->map, str);
-      sprintf(str,"########################### _-    |                                            |        ##############################", id_to1, id_to2);
+      sprintf(str,"########################### _-    |                                            |        ##############################");
       screen_area_puts(ge->map, str);
       }
       else{
