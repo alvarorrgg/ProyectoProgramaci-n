@@ -410,7 +410,7 @@ STATUS game_management_save(Game * game, char * filename){
   Player *p;
   Link *l;
   int i;
-  Id id;
+  Id id, loc;
   char **gdesc;
 
   if (!game || filename==NULL) return ERROR;
@@ -421,14 +421,17 @@ STATUS game_management_save(Game * game, char * filename){
   for (i=0;i<game_get_total_spaces(game);i++){
     id=game_get_space_id_at(game,i);
     s=game_get_space(game,id);
-    gdesc=space_get_gdesc(s);
-    fprintf(f,"#s:%ld|%s|%ld|%ld|%ld|%ld|%ld|%ld|%d|%s|%s|%s|%s|%s|\n",id,space_get_name(s),link_get_id_to(space_get_north(s)),link_get_id_to(space_get_east(s)),link_get_id_to(space_get_south(s)),link_get_id_to(space_get_west(s)),link_get_id_to(space_get_up(s)),link_get_id_to(space_get_down(s)),space_get_ilumination(s),gdesc[0],gdesc[1],gdesc[2],space_get_description(s),space_get_detailed_description(s));
+    fprintf(f,"#s:%ld|%d|\n",id,space_get_ilumination(s));
   }
 
   for (i=0;i<game_get_total_objects(game);i++){
     o=game_get_object(game,i);
     if(player_has_object(game_get_player(game),object_get_id(o))){
-      fprintf(f,"#i:%ld|%s|1|%s|%d|%ld|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),object_get_description(o),object_get_movement(o),object_get_dependency(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
+      loc=game_get_object_location(game,object_get_id(o));
+      if (loc<1){
+        loc=-loc;
+      }
+      fprintf(f,"#i:%ld|%ld|%d|%d|\n",object_get_id(o),loc,object_get_iluminate(o),object_get_turnedon(o));
     }
     else
       fprintf(f,"#o:%ld|%s|%ld|%s|%d|%ld|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),game_get_object_location(game,object_get_id(o)),object_get_description(o),object_get_movement(o),object_get_dependency(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
