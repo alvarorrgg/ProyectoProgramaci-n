@@ -944,7 +944,8 @@ void game_callback_take(Game *game)
         if(object_get_dependency(game->objects[i])==-1 || player_has_object(game->player,object_get_dependency(game->objects[i]))){
           player_add_object(game->player,id);
           space_remove_object(game->spaces[k], id);
-            command_set_status(game->command, OK);
+          strcpy (game->last_descripcion , " ");
+          command_set_status(game->command, OK);
             return;
           }
           else{
@@ -960,6 +961,7 @@ void game_callback_take(Game *game)
     }
     k++;
   }
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command, OK);
   return ;
 
@@ -1024,6 +1026,7 @@ void game_callback_drop(Game *game)
     }
     k++;
   }
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command, OK);
   free(ids);
   return;
@@ -1045,6 +1048,7 @@ void game_callback_roll(Game *game)
   }
   
   die_roll(game->die);/*Se hace la tirada*/
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command, OK);
     return;
 }
@@ -1216,6 +1220,7 @@ void game_callback_up(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
+        strcpy (game->last_descripcion , " ");
         command_set_status(game->command, OK);
         return ;
       }
@@ -1225,6 +1230,7 @@ void game_callback_up(Game *game)
       }
     }
   }
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command, OK);
   return;
 }
@@ -1260,6 +1266,7 @@ void game_callback_down(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
+        strcpy (game->last_descripcion , " ");
         command_set_status(game->command, OK);
         return ;
       }
@@ -1269,6 +1276,7 @@ void game_callback_down(Game *game)
       }
     }
   }
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command, OK);
   return;
 }
@@ -1315,7 +1323,7 @@ void game_callback_turnon(Game *game){
   object_set_turnedon(game_get_object(game, ob_index), TRUE);
 
 
- 
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command, OK);
   return ;
 
@@ -1358,7 +1366,7 @@ void game_callback_turnoff(Game *game){
   
   object_set_turnedon(game_get_object(game, ob_index), FALSE);
  
- 
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command, OK);
   return;
 
@@ -1430,6 +1438,7 @@ void game_callback_open(Game *game){
       player_remove_object(game_get_player(game),object_get_id(game->objects[1]));
       game_set_object_location(game, object_get_id(game->objects[1]), 99);
     }
+    strcpy (game->last_descripcion , " ");
     command_set_status(game->command,OK);
     return;
   }
@@ -1456,6 +1465,7 @@ void game_callback_save(Game *game){
     return;
   }
 
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command,OK);
 
   return;
@@ -1477,6 +1487,7 @@ void game_callback_load(Game *game){
     return;
   }
 
+  strcpy (game->last_descripcion , " ");
   command_set_status(game->command,OK);
 
   return;
@@ -1500,6 +1511,7 @@ void game_callback_build(Game *game){
         player_remove_object(game_get_player(game),object_get_id(game->objects[3]));
         game_set_object_location(game, object_get_id(game->objects[2]), 99);
         game_set_object_location(game, object_get_id(game->objects[3]), 99);
+        strcpy (game->last_descripcion , " ");
         command_set_status(game_get_command(game),OK);
         return;
         
@@ -1515,6 +1527,7 @@ void game_callback_build(Game *game){
         player_remove_object(game_get_player(game),object_get_id(game->objects[10]));
         game_set_object_location(game, object_get_id(game->objects[9]), 99);
         game_set_object_location(game, object_get_id(game->objects[10]), 99);
+        strcpy (game->last_descripcion , " ");
         command_set_status(game_get_command(game),OK);
         return;
         
@@ -1534,6 +1547,7 @@ void game_callback_build(Game *game){
         game_set_object_location(game, object_get_id(game->objects[14]), 55);
         game_set_object_location(game, object_get_id(game->objects[15]), 99);
         game_set_object_location(game, object_get_id(game->objects[16]), 99);
+        strcpy (game->last_descripcion , " ");
         command_set_status(game_get_command(game),OK);
         return;
         
@@ -1547,6 +1561,7 @@ void game_callback_build(Game *game){
         object_set_link_open(game->objects[14],11);
         player_remove_object(game_get_player(game),object_get_id(game->objects[17]));
         game_set_object_location(game, object_get_id(game->objects[17]), 99);
+        strcpy (game->last_descripcion , " ");
         command_set_status(game_get_command(game),OK);
         return;
         
@@ -1563,6 +1578,7 @@ void game_callback_use(Game *game){
   }
   if(player_get_location(game->player)==9 && player_has_object(game->player,object_get_id(game->objects[4]))){
     link_set_type(game->link[2],OPEN);
+    strcpy (game->last_descripcion , " ");
     command_set_status(game_get_command(game),OK);
     return;
   }
@@ -1570,16 +1586,19 @@ void game_callback_use(Game *game){
     link_set_type(game->link[6],OPEN);
     player_remove_object(game_get_player(game),object_get_id(game->objects[6]));
     game_set_object_location(game, object_get_id(game->objects[6]), 99);
+    strcpy (game->last_descripcion , " ");
     command_set_status(game_get_command(game),OK);
     return;
   }
   if(player_get_location(game->player)==45 && strcmp(command_get_arg(game_get_command(game)),"345")==0){
     link_set_type(game->link[9],OPEN);
+    strcpy (game->last_descripcion , " ");
     command_set_status(game_get_command(game),OK);
     return;
   }
 if(player_get_location(game->player)==65 && strcmp(command_get_arg(game_get_command(game)),"12")==0){
     object_set_dependency(game->objects[19],-1);
+    strcpy (game->last_descripcion , " ");
     command_set_status(game_get_command(game),OK);
     return;
   }
