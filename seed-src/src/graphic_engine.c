@@ -85,7 +85,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   T_Command last_cmd = UNKNOWN;
   Link *link1 = NULL;
   Link *link2 = NULL;
-  char id1[MAX_CHARS2], id2[MAX_CHARS2], id_to1[MAX_CHARS3], id_to2[MAX_CHARS3];
+  char id1[MAX_CHARS2]="-1", id2[MAX_CHARS2], id_to1[MAX_CHARS3], id_to2[MAX_CHARS3];
   extern char *cmd_to_str[N_CMD][N_CMDT]; /*Variable traida del modulo command para el tratado de comandos*/
   memset(espacios_back, 0, MAX_CHARS1);
   memset(espacios_act, 0, MAX_CHARS1);
@@ -456,7 +456,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   {
      if (command_get_status(game_get_command(game)) != 1)
     {
-      if(strlen(command_get_arg(game_get_command(game)))==1){
+      if(command_get_arg(game_get_command(game))==NULL){
       sprintf(str, " %s (%s): ERROR", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
     }
       else{
@@ -465,7 +465,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       }
     }
     else{
-      if(strlen(command_get_arg(game_get_command(game)))==1){
+      if(command_get_arg(game_get_command(game))==NULL){
       sprintf(str, " %s (%s): OK", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
 
     }

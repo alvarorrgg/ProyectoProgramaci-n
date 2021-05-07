@@ -527,6 +527,7 @@ STATUS game_management_load(Game * game, char * filename){
         link_set_type(game_get_link(game,id), gate);
       }
     }
+    fclose(file);
 
   return OK;
 }
