@@ -740,7 +740,9 @@ void game_callback_next(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        if(space_get_ilumination (game_get_space(game,current_id)) == TRUE || game_player_hasIluminated_object(game) == TRUE){  
+          strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        }
         command_set_status(game->command, OK);
         return ;
       }
@@ -789,7 +791,9 @@ void game_callback_back(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        if(space_get_ilumination (game_get_space(game,current_id)) == TRUE || game_player_hasIluminated_object(game) == TRUE){  
+          strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        }
         command_set_status(game->command, OK);
         return ;
       }
@@ -837,9 +841,10 @@ void game_callback_right(Game *game)
       printf("%li",current_id);
       if (current_id != NO_ID)
       {
-        game_set_player_location(game, current_id);
-        
-        strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        game_set_player_location(game, current_id);        
+        if(space_get_ilumination (game_get_space(game,current_id)) == TRUE || game_player_hasIluminated_object(game) == TRUE){  
+          strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        }
         command_set_status(game->command, OK);
         return ;
       }
@@ -887,7 +892,9 @@ void game_callback_left(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        if(space_get_ilumination (game_get_space(game,current_id)) == TRUE || game_player_hasIluminated_object(game) == TRUE){  
+          strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        }
         command_set_status(game->command, OK);
         return ;
       }
@@ -1220,7 +1227,9 @@ void game_callback_up(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        if(space_get_ilumination (game_get_space(game,current_id)) == TRUE || game_player_hasIluminated_object(game) == TRUE){  
+          strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        }
         command_set_status(game->command, OK);
         return ;
       }
@@ -1266,7 +1275,9 @@ void game_callback_down(Game *game)
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);
-        strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        if(space_get_ilumination (game_get_space(game,current_id)) == TRUE || game_player_hasIluminated_object(game) == TRUE){  
+          strcpy (game->last_descripcion , space_get_description (game_get_space(game,current_id)));
+        }
         command_set_status(game->command, OK);
         return ;
       }
