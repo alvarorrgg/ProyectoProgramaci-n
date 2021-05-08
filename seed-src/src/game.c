@@ -246,7 +246,6 @@ void game_callback_open(Game *game);
  * @author Alberto Vicente
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
- * @param filename el nombre del fichero donde se guarda la partida
  */
 void game_callback_save(Game *game);
 /**
@@ -258,7 +257,6 @@ void game_callback_save(Game *game);
  * @author Alberto Vicente	
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
- * @param filename el nombre del fichero del que se carga la partida
  */
 void game_callback_load(Game *game);
 
@@ -271,7 +269,6 @@ void game_callback_load(Game *game);
  * @author Álvaro Rodríguez	
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
- * @param filename el nombre del fichero del que se carga la partida
  */
 void game_callback_build(Game *game);
 
@@ -284,7 +281,6 @@ void game_callback_build(Game *game);
  * @author Álvaro Rodríguez	
  *
  * @param game el parametro sobre el que opera el comando con su respectiva acciÃ³n
- * @param filename el nombre del fichero del que se carga la partida
  */
 void game_callback_use(Game *game);
 

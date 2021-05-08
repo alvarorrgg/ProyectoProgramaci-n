@@ -88,6 +88,8 @@ STATUS game_create_from_file(Game* game, char* filename);
  *
  * @param game el juego que se actualiza
  * @param cmd comando introducido
+ * @param arg argumento del comando
+ * @param obj nombre del objeto
  * @return OK para saber que se ha ejecutado la función correctamente
  */
 STATUS game_update(Game* game, T_Command cmd, char *arg, char *obj);
@@ -465,7 +467,7 @@ const char* game_get_last_descripcion(Game* game);
  * @date 02-05-2021
  * @author Alexandru Marius Platon
  *
- * @param game el juego donde se establece el objeto
+ * @param g el juego donde se establece el objeto
  * @return TRUE si el jugador tiene un objeto iluminado, FALSE en caso contrario
  */
 BOOL game_player_hasIluminated_object(Game *g);

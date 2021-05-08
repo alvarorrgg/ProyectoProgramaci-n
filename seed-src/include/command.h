@@ -14,7 +14,7 @@
 #define N_CMDT 2 /*!<Tipos de representación de los comandos*/
 #define N_CMD 15 /*!<Numero de comandos*/
 #define CMD_LENGHT 30 /*!<Numero maximo de letras de cada cmando*/
-#define N_INFOS 2
+#define N_INFOS 2 /*!<Numero de informacion*/
 #include "types.h"
 /**
  * @brief Estructura command

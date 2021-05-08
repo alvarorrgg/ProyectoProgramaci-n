@@ -284,10 +284,36 @@ void test1_space_get_description();
  */
 void test2_space_get_description();
 
+/**
+ * @test Función de prueba para space_set_ilumination
+ * @pre Space==NULL
+ * @post Output==ERROR
+ */
 void test1_space_set_ilumination();
+/**
+ * @test Función de prueba para space_set_ilumination
+ * @pre BOOL==-1
+ * @post Output==ERROR
+ */
 void test2_space_set_ilumination();
+/**
+ * @test Función de prueba para space_set_ilumination
+ * @pre Inputs correctos
+ * @post Output==OK
+ */
 void test3_space_set_ilumination();
+/**
+ * @test Función de prueba para space_get_ilumination
+ * @pre Space==NULL
+ * @post Output==FALSE
+ */
 void test1_space_get_ilumination();
+
+/**
+ * @test Función de prueba para space_get_ilumination
+ * @pre Inputs correctos
+ * @post Output==1
+ */
 void test2_space_get_ilumination();
 
 /**

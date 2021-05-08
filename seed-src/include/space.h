@@ -14,7 +14,7 @@
 #include "types.h"
 #include "link.h"
 
-#define LEN_DETAIL_DESCR 200 /*Longitud maxima de la descripcion detallada*/
+#define LEN_DETAIL_DESCR 200 /*!<Longitud maxima de la descripcion detallada*/
 
 /**
  * @brief Define un espacio

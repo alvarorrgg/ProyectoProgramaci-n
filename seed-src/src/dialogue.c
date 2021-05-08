@@ -9,14 +9,19 @@
  */
 #include "dialogue.h"
 
+/**
+ * @brief Define la estructura del Dialogo
+ * 
+ * Estructura de Dialogo
+ */
 
 struct _Dialogue
 {
-    int num_tries;
-    char interaction[MAX_INTERACTION][MAX_CHARS_DIALOGUE];
-    int num_dialogues;
-    int choose_dialogue;
-    T_Command last_command;
+    int num_tries; /*!< Numero de intentos */
+    char interaction[MAX_INTERACTION][MAX_CHARS_DIALOGUE]; /*!< Interacciones del dialogo */
+    int num_dialogues; /*!< Numero de dialogos */
+    int choose_dialogue; /*!< Numero de elecciones del dialogo */
+    T_Command last_command; /*!< Tipo de dato command */
 };
 
 Dialogue* dialogue_new(){
@@ -85,11 +90,35 @@ char* dialogue_get_interaction(Dialogue *d,int index){
     if(!d) return NULL;
     return d->interaction[index];
 }
+/**
+ * @brief obtiene el ultimo comando para el dialogo
+ *
+ * dialogue_get_last_command obtiene el ultimo comando para el dialogo
+ * 
+ * @date 02-05-2021
+ * @author Ãlvaro Rodri­guez
+ *
+ * @param d Puntero a estructura Dialogue
+
+ * @return el comando si todo ha salido bien. NO_CMD en caso contrario
+ */
 T_Command dialogue_get_last_command(Dialogue *d){
     if(!d) return NO_CMD;
     return d->last_command;
 }
 
+/**
+ * @brief establece el ultimo comando para el dialogo
+ *
+ * dialogue_set_last_command establece el ultimo comando para el dialogo
+ * 
+ * @date 02-05-2021
+ * @author ÃƒÂlvaro RodrÃƒÂ­guez
+ *
+ * @param d Puntero a estructura Dialogue
+ * @param cmd comando recibido
+ * @return OK si todo ha salido bien, ERROR si ha habido algun ERROR
+ */
 STATUS dialogue_set_last_command(Dialogue *d, T_Command cmd){
     if( d==NULL || cmd == NO_CMD) return ERROR;
      d->last_command=cmd;

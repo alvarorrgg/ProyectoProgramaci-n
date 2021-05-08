@@ -14,8 +14,8 @@
 #include "space.h"
 #include "set.h"
 
-#define NUMBEROFCHARS 3
-#define MAX_CHARS 46
+#define NUMBEROFCHARS 3 /*!< Numero de chars */
+#define MAX_CHARS 46 /*!< Maximo de chars */
 
 /**
  * @brief Define un espacio

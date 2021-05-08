@@ -68,6 +68,18 @@ STATUS game_management_load_players(Game* game, char* filename);
  * @return devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. 
  */
 STATUS game_management_load_links(Game* game, char* filename);
+
+/**
+ * @brief Carga el dialogo
+ *
+ * game_management_load_dialogue Carga el dialogo
+ *
+ * @date 02-05-2021 
+ * @author Álvaro Rodríguez
+ *
+ * @param game  un puntero de tipo Game que es una estructura definida en "game.h" 
+ * @return devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. 
+ */
 STATUS game_management_load_dialogue(Game * game);
 
 /**

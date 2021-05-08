@@ -149,8 +149,7 @@ STATUS player_set_location(Player* player, Id id);
  * @author Alberto Vicente
  *
  * @param player el jugador del juego
- * @param max_objects nueva capacidad del inventario
- * @return STATUS OK para saber que se ha ejecutado la función correctamente
+ * @return la capacidad si todo funciona correctamente, -1 si hubo algun error
  */
 int player_get_inventory_max_capacity (Player *player);
 
