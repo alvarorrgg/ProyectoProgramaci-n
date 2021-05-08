@@ -47,10 +47,10 @@ Graphic_engine *graphic_engine_create()
     return NULL;
 
   ge->map = screen_area_init(1, 1, 118, 35);       /*mapa de la oca*/
-  ge->descript = screen_area_init(120, 1, 29, 35); /*parte donde se pintan las jugadas y tal*/
-  ge->banner = screen_area_init(63, 37, 18, 1);   /*"The game of the Goose"*/
-  ge->help = screen_area_init(1, 38, 147, 2);      /*The----left or l*/
-  ge->feedback = screen_area_init(1, 41, 147, 3);  /*comandos*/
+  ge->descript = screen_area_init(120, 1, 54, 35); /*parte donde se pintan las jugadas y tal*/
+  ge->banner = screen_area_init(88, 37, 18, 1);   /*"Scape the Tower"*/
+  ge->help = screen_area_init(1, 38, 172, 2);      /*The----left or l*/
+  ge->feedback = screen_area_init(1, 41, 172, 3);  /*comandos*/
 
   return ge;
 }
@@ -399,11 +399,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   screen_area_puts(ge->descript, str);
 
   /*Mostramos el ultimo roll del dado 0 en el primer caso*/
-  if ((int)die_get_last_roll(game_get_die(game)) == -1)
-    sprintf(str, "Last roll of dice: 0");
-  else
-    sprintf(str, "Last roll of dice: %d", (int)die_get_last_roll(game_get_die(game)));
-  screen_area_puts(ge->descript, str);
+
 
   sprintf(str, " ");
   screen_area_puts(ge->descript, str);
@@ -420,7 +416,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     id_objetos = inventory_get_inventory(player_get_inventory(game_get_player(game)));
     for (i = 0; i < inventory_get_number_of_objects(player_get_inventory(game_get_player(game))); i++)
     {
-      sprintf(str, "                                   %i:%s", i + 1, object_get_name(game_get_object(game, id_objetos[i] - 1)));
+      sprintf(str, "       %i:%s", i + 1, object_get_name(game_get_object(game, id_objetos[i] - 1)));
       screen_area_puts(ge->descript, str);
     }
   }
@@ -430,11 +426,59 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   {
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    if(space_get_ilumination(game_get_space(game,id_act))==TRUE){
+    screen_area_puts(ge->descript, str);
+    sprintf(str, "Inspect description: ");
+    screen_area_puts(ge->descript, str);
     sprintf(str, "%s", game_get_last_descripcion(game));
     screen_area_puts(ge->descript, str);
+    }
+    else{
+      screen_area_puts(ge->descript, str);
+      sprintf(str, " ");
+      screen_area_puts(ge->descript, str);
+      sprintf(str, "");
+      screen_area_puts(ge->descript, str);
+    }
   }
   if(dialogue_get_num_tries(game_get_dialogue(game))!=-1){
+
     sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, " ");
+    screen_area_puts(ge->descript, str);
+    sprintf(str, "The god of the tower said: ");
     screen_area_puts(ge->descript, str);
     sprintf(str, "%s", dialogue_get_interaction(game_get_dialogue(game),dialogue_get_choose_dialogue(game_get_dialogue(game))));
     screen_area_puts(ge->descript, str);

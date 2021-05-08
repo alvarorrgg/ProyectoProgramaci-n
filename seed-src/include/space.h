@@ -428,9 +428,9 @@ STATUS space_set_detailed_description(Space* space , char* descr);
  * @author Alberto Vicente
  *
  * @param s recibe un puntero a la estructura de datos espacio
- * @param bool recibe el tipo booleano que se quiere implementar en space
+ * @param boole recibe el tipo booleano que se quiere implementar en space
  * @return OK o ERROR segun si se ha cambiado la iluminación o no.
  */
-STATUS space_set_ilumination(Space *s, BOOL bool);
+STATUS space_set_ilumination(Space *s, BOOL boole);
 
 #endif

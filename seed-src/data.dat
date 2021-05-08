@@ -13,7 +13,7 @@
 #s:65|Caja Fuerte|11|-1|12|-1|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Hay una caja fuerte donde puedes escribir|En la etiqueta pone: Cuantas casillas has recorrido hasta ahora?|
 #s:90|Victoria|11|-1|12|-1|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Has ganado|Escapastes de la prision|
 #s:99|Basura|-1|-1|-1|-1|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Esta es la casilla Basura|Si estas aqui es porque has hecho trampas|
-#o:1|Alambre|1|Con esto podré abrir la cadena|1|-1|1|1|0|
+#o:1|Alambre|1|Con esto podre abrir la cadena|1|-1|1|1|0|
 #o:2|Palo|9|Me servirá para algo|1|-1|-1|0|0|
 #o:3|Algodon|9|Me servirá para algo|1|-1|-1|1|0|
 #o:4|Cerilla|9|Me servira para algo|1|-1|-1|0|0|

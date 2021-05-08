@@ -16,7 +16,7 @@
 #pragma GCC diagnostic ignored "-Wpedantic"
 
 #define ROWS 45 /*!<Numero maximo de filas*/
-#define COLUMNS 150 /*!<Numero maximo de columnas*/
+#define COLUMNS 175 /*!<Numero maximo de columnas*/
 #define TOTAL_DATA (ROWS * COLUMNS) + 1 /*!<Area de la pantalla*/
 
 #define BG_CHAR '~' /*!<Caracter para crear la visualizacion de la pantalla*/

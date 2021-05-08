@@ -307,10 +307,10 @@ BOOL space_get_ilumination(Space *s){
   return s->ilumination;
 }
 
-STATUS space_set_ilumination(Space *s, BOOL bool){
-  if(!s || (bool!=0 && bool!=1)) return ERROR;
+STATUS space_set_ilumination(Space *s, BOOL boole){
+  if(!s || (boole!=0 && boole!=1)) return ERROR;
 
-  s->ilumination=bool;
+  s->ilumination=boole;
 
   return OK;
 }

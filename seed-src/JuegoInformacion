@@ -56,13 +56,15 @@ Tercer piso
 ***********          ***********     ***********         ***********
             |       |           |   |           |       |           | 
             |       |           |   |           |       |           | 
-Espacio 37   | East  |Espacio 45 |Up |Espacio 55 |Up     |Espacio 65 | Down (tobogan hasta la salida)
+Espacio 37   | East  |Espacio 45 |Up |Espacio 55 |Up     |Espacio 65 | East (tobogan hasta la salida)
             |       |           |   |           |       |           | 
             |       |           |   |           |       |           | 
 ***********          ***********     ***********         *********** 
 
 
 Lore:
+Te encuentras en una carcel de maxima seguridad pero la carcel se ha quedado vacia por razones que desconoces, tu objetivo es salir de la carcel.
+
 
 Espacio 1:
 Parece que te encuentras encadenado y no puedes hacer nada, todas las acciones que intentas no funcionan. O no todas.
@@ -83,31 +85,31 @@ Aqui el jugador tendrá que suponer que tiene que hacer un take libro para conti
 Una vez haga el take book, "sonará" un estruendo haciendo parecer que se ha abierto algo. Se habrá abierto el Link South
 Vuelve al Espacio 2 y se mueve al Espacio 4
 
-Espacio 4:
+Espacio 10:
      En este espacio habrá una baldosa suelta, el jugador tendrá que hacer take Baldosa para poder continuar, debajo de la baldosa habrá una llave, 
      recibe la llave y tendrá que volver a el espacio 2 donde hará un open puerta with llave y se abrirá una escalerá hacia arriba.
      Con un move up continuará hacía el espacio 5.
 
-Espacio 5 y Espacio 6:
+Espacio 19 y Espacio 18:
     En este caso, tanto el espacio 5 como el 6 estarán abiertos ya de por sí, en el espacio 5 no habrá aparentemente nada pero en el espacio 6 habrá una balanza en donde se deberá dejar caer la baldosa
     que se ha cogido antes para que se habrá el camino hacia el espacio 7
 
-Espacio 7:
+Espacio 26:
     En este espacio se podrán obtener los materiales suficientes como para construir un C4 para poder explotar la pared del espacio 5 y asi poder llegar al espacio 8
     Materiales.
 
-Espacio 8:
+Espacio 27:
     La explosión habrá dejado sin luz el sitio pero que casualidad que justo hay unas gafas de visión noctura en una mesa que nos permitiran ver cosas que antes no se veían 
     como un palo que esta en el suelo bastante largo que te permite desplazar el techo usando :
     open techo with palo 
     Se abré el link hacia arriba y puede subir.(Espacio9)
     
-Espacio 9:
+Espacio 37:
     En el espacio 9 simplemente habrá un trozo de piedra, una especie de trozo de madera, una lijadora y una cortadora de piedras.
     Una vez obtenga todos los objetos, se le dará la posiblidad de construir un pico.
     Este pico lo utilizará para romper la pared que tiene delante lo que le llevará a la siguiente sale (Espacio 10)
 
-Espacio 10:
+Espacio 45:
     En este espacio todo lo que hay es una puerta metalica con un cartel y un teclado en ella, Tambíen encontraremos algo más de madera.
     La idea es que en el cartel pone triangulo, cuadrado, pentagono
     y para abrir la puerta tiene que poner
@@ -117,13 +119,13 @@ Espacio 10:
     que son los lados de los poligonos respectivamente
     Se abrirá el link Up hasta el espacio 11
 
-Espacio 11:
+Espacio 55:
 
     En este espacio se encontrara solo un trozo de cuerda. En el espacio habrá un agujero muy grande arriba 
     Básicamente una vez que recoja la cuerda podrá hacer una escalera con la madera y el pico de antes y subir hasta el agujero lo que le llevará
     al espacio 12.
 
-Espacio 12:
+Espacio 65:
     Por último y muy parecido a en el espacio 10,
     Habrá una caja fuerte, la cual tendra una pegatina que pone: 
     ¿cuantos espacios diferentes has recorrido hasta ahora?
@@ -135,79 +137,29 @@ Espacio 12:
     Se abrirá una puerta lo que le llevará a la salida y habrá ganado el juego.
 
 
+Espacio 90:
+    Casilla final del juego
+    Has ganado
 
-Descripciones de cada espacio(con y sin inspect):
-Espacio 1:
-    Sin:
-        Parece que te encuentras encadenado y sin poder moverte, te encuentras en un ambiente sucio y oscuro.
-    Con:
-        Si apuras la vista, puedes ver la silueta de una puerta.
+Espacio 99:
+    Casilla basura del juego.
+    
 
-Espacio 2:
-    Sin:
-         Otro cuarto igual... estoy harto de esta humedad.
-    Con:
-        Parece que con este soplo de luz ahora veo que hay dos puertas, una de ellas esta abierta, vamos  a ver.
-
-Espacio 3:
-    Sin: 
-        Este cuarto sería aun más feo de no ser por la estantería.
-    Con:
-        Qué ha sido ese ruido, iré a investigar.
-
-Espacio 4:
-    Sin:
-        Parece que las baldosas se encuentran un poco sueltas.
-    Con:
-        Una llave aqui?, que hace esto aqui...  a no ser...
-
-Espacio 5:
-    Sin:
-        Parece que hay una puerta abierta a mi lado.
-    Con:
-        Parece que la pared de enfrente esta un poco hueca, me pregunto por que.
-
-Espacio 6:
-    Sin:
-        No puedo ver nada más que la balanza de encima de la mesa.
-    Con: 
-        A lo mejor tengo que colocar algo encima de ella.
-
-Espacio 7:
-    Sin:
-        Por aqui veo un cuarto un poco feo, pero hay muchos materiales útiles.
-    Con: 
-        Menos mal que soy ingeniero quimico y puedo construir bombas con poca cosa.
-
-Espacio 8:
-    Sin:
-        La explosión me ha apagado la antorcha, aunque algo puedo ver.
-    Con:
-        Parece que con estas gafas se pueden ver varios objetos más
-Espacio 9:
-    Sin:
-        Solo veo algunas herramientas y materiales en este cuarto tan lugubre.
-    Con:
-        Parece que al final ese cursillo de minero que hice valdrá sus frutos.
-
-Espacio 10:
-    Sin:
-        Puedo ver una especie de puerta con un cartel encima.
-    Con:
-        Parece que el cartel dice: "triangulo, cuadrado, pentagono".
-
-Espacio 11:
-    Sin: 
-        Este cuarto es una porquería solo veo un agujero muy alto y un trozo de cuerda.
-    Con:
-        Espera un momento, cuerda, madera, y herramientas...
-
-Espacio 12:
-    Sin:
-        Parece que aqui solo hay una caja fuerte. o tiene algo escrito?
-    Con: 
-        En el cartel pone "cuantos cuartos has visitado hasta ahora?"
-
+Información de cada espacio.
+#s:1|Carcel|-1|-1|1|-1|-1|-1|1|/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/|/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\|Estas encadenado en tu celda|Tienes a tu alcance un alambre|
+#s:9|Habitacion 1|1|-1|2|-1|-1|-1|1|-------------- .*..*..*..*..*. ----------***|-------------- .*..*..*..*..*. ----------***|-------------- .*..*..*..*..*. ----------***|Con estos materiales puedo construir algo|Veamos a ver si puedo hacer una antorcha| 
+#s:8|Habitacion|2|-1|3|-1|-1|-1|0|     **    **                              *|     **    **                              *|     **    **                              *|Un libro, para que servirá|No parece haber nada mas en esta habitacion|
+#s:10|Habitacion 4|3|-1|4|-1|-1|-1|1| /-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\ | >                                        < | \-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/\-/ |Una baldosa, me pregunto por que esta suelta.|A lo mejor me sirve para algo|
+#s:19|Habitacion 5|4|9|5|-1|-1|-1|1|     **    **                              *|                                            |                                            |No parece haber muchas cosas aqui|La pared de enfrente parece hueca|
+#s:18|Balanza|5|-1|6|-1|-1|-1|1|       /------------^^^-------------\       |\____________/                \____________/|                /_________\                 |Aqui solo hay una balanza desnivelada|Desnivelada huh, con que podré nivelarla|
+#s:26|Explosivos|6|-1|7|-1|-1|-1|1|*_**_**_**_**_ ----------*** CO2 NH4 H2O2 Zn|*_**_**_**_**_ ----------*** H2O NH3 KnMnO4 |*_**_**_**_**_ ----------*** H2SO4 NH2 FCl  |Quimicos, polvora y mecha, esto me suena a bomba|Siendo refinados creo que deberia construir un C4|
+#s:27|HabitacionOscura|7|16|8|-1|-1|-1|0|     **    **                              *|     **    **                              *|     **    **                              *|La explosión me ha dejado sin luz|Con estas gafas puedo ver mejor|
+#s:37|Constructor|8|13|9|5|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Parece que este cuarto no tiene salidas|Con estos materiales podria construir algo para romper el muro|
+#s:45|Escaner|-1|-1|10|-1|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Una puerta con una contraseña|Pista: Triangulo, Cuadrado, Pentagono|
+#s:55|Hueco|10|-1|11|-1|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Parece que hay un hueco encima mio|Con madera y cuerda algo podremos construir|
+#s:65|Caja Fuerte|11|-1|12|-1|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Hay una caja fuerte donde puedes escribir|En la etiqueta pone: Cuantas casillas has recorrido hasta ahora?|
+#s:90|Victoria|11|-1|12|-1|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Has ganado|Escapastes de la prision|
+#s:99|Basura|-1|-1|-1|-1|-1|-1|1|     **    **                              *|     **    **                              *|     **    **                              *|Esta es la casilla Basura|Si estas aqui es porque has hecho trampas|
 
 Objetos y sus dependencias:
 1: Alambre
@@ -215,87 +167,115 @@ Objetos y sus dependencias:
 2: Palo
     No depende.
 3: Algodón
-    Depende de Palo
+    No depende
 4: Cerillas
-    Depende de Algodon
-5: Libro
+    No depende
+5:Antorcha
+    Solo funciona si se tienen los tres últimos objetos
+6: Libro
+   No depende de nada
+7:Palanca
+    Estatica, no se puede mover, depende de Libro
+8: Baldosa
     No depende de nada
-6: Baldosa
+9: LLave
+    Depende de Baldosa
+10:Balanza
     No depende de nada
-7: LLave
-    No depende de nada.
-8:Polvora
+11:Polvora
     No depende de nada
-9:Mecha 
+12:Mecha 
     No depende de nada
-10: Químicos
+13: Químicos
     No depende de nada
-11: C-4
+14: C-4
     Solo funciona si se tienen los tres últimos objetos
     No depende de nada
-11: Gafas
+15: Gafas
     No depende de nada
-12: Baston
+16: Baston
     No depende de nada
-13: Piedra
+17: Piedra
     No depende de nada
-14: Madera
+18: Madera
     No depende de nada
-15: Lijadora
+19: Lijadora
     No depende de nada
-16: Cortadora
+20: Cortadora
     No depende de nada
-17:Pico
+21:Pico
     Solo funciona si se tienen los cuatro últimos objetos
     No depende de nada
-18: 345
-    No depende de nada.
-19: Maderax2
+22: Cuerda
     No depende de nada
-20: Cuerda
-    No depende de nada
-21: Escalera
+23: Escalera
     Solo funciona si se tiene cortadora, madera, cuerda
     No depende de nada
-22: Mando
+24: Mando
     No depende de nada
-23: 12
-    No depende de nada.
 
+Aunque aqui hay mas objetos que en el data.dat es por que aqui estan definidos objetos que en el data.dat se crean usando el comando build.
 
 Iluminación.
     Espacio 1:
-        Se ilumina una vez se obtiene el Alambre
-
-    Espacio 2:
-        Se ilumina una vez se obtienen las cerillas.
-
-    Espacio 3:
-        Se ilumina una vez se obtiene el libro.
-
-    Espacio 4:
-        Se ilumina una vez se obtiene la llave
-    
-    Espacio 5:
         Siempre iluminado
 
-    Espacio 6:
-        Siempre iluminado
-    
-    Espacio 7:
-        Se ilumina una vez se obtienen quimicos
-    
-    Espacio 8:
-        Se ilumina una vez se obtienen las gafas
-    
     Espacio 9:
-        Se ilumina una vez se obtiene el pico
+        Siempre iluminado
 
-    Espacio 10: 
+    Espacio 8:
+        Se ilumina con la antorcha
+
+    Espacio 10:
         Siempre iluminado
     
-    Espacio 11:
-        Se ilumina una vez se obtiene la cuerda
+    Espacio 19:
+        Siempre iluminado
+
+    Espacio 18:
+        Siempre iluminado
     
-    Espacio 12
+    Espacio 26:
+        Siempre iluminado
+    
+    Espacio 27:
+        Se ilumina con las gafas
+    
+    Espacio 37:
+        Siempre iluminado
+
+    Espacio 45: 
+        Siempre iluminado
+    
+    Espacio 55:
+        Siempre iluminado
+    
+    Espacio 65:
         Siempre iluminado.
+
+Links info y mas:
+#l:1|Cadena|1|9|1| Se abre con alambre (open Cadena with Alambre)
+#l:2|Lnk1|8|9|0|    abierto
+#l:3|Palanca|9|10|1| Se abre con el comando use (use Palanca).
+#l:4|Puerta|9|19|1| Se abre con la llave (open Puerta with LLave)
+#l:5|Lnk2|18|19|0|  abierto
+#l:6|Pared|19|27|1| Se abre con el C4 (open Pared with C4)
+#l:7|Balanza|18|26|1| Se abre con el comando use (use Baldosa)
+#l:8|Techo|27|37|1| Se abre con el Baston (Open Techo with Baston)
+#l:9|Muro|37|45|1| Se abre con el Pico (Open Muro with Pico)
+#l:10|Escaner|45|55|1| Se abre con el comando use (use 345) (lados de los poligonos)
+#l:11|Hueco|55|65|1| Se abre con la escalera (open Hueco with Escalera)
+#l:12|Compuerta|65|90|1| se abre con el mando despues de abrir la caja fuerte usando use (use 12)(open Compuerta with Mando)
+
+
+Comando use y build:
+
+El comando use se utiliza para hacer acciones como dejar cosas (no solo el drop sino cuando es para interactuar) y para contestar a preguntas o acertijos 
+Para interactuar simplemente pones use y el comando que sigue.
+por ejemplo use cerradura.
+
+build:
+Este comando funcina una vez tienes todos los objetos en el inventario para crear el nuevo objeto.
+Para crear pones:
+build o bd y el nombre del objeto a crear
+ej : bd explosivos.
