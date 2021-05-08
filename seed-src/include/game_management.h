@@ -68,6 +68,7 @@ STATUS game_management_load_players(Game* game, char* filename);
  * @return devuelve un tipo de dato STATUS que es o bien ERROR o bien OK segun si hay o no algun fallo en la ejecución. 
  */
 STATUS game_management_load_links(Game* game, char* filename);
+STATUS game_management_load_dialogue(Game * game);
 
 /**
  * @brief Guardar partida

@@ -358,6 +358,7 @@ STATUS game_create_from_file(Game *game, char *filename)
   if (game_management_load_players(game, filename) == ERROR) return ERROR;   /*Se leen los jugadores del fichero data.dat*/
   if (game_management_load_objects(game, filename) == ERROR) return ERROR;   /*Se leen los objetos del fichero data.dat*/
   if (game_management_load_links(game, filename) == ERROR) return ERROR;   /*Se leen los links del fichero data.dat*/
+  if (game_management_load_dialogue(game) == ERROR) return ERROR;   /*Se leen los links del fichero data.dat*/
 
 
   return OK;
@@ -1470,7 +1471,11 @@ void game_callback_save(Game *game){
   }
 
   strcpy(filename,command_get_arg(game->command));
+  if(strlen(filename)==0){
+    command_set_status(game->command,ERROR);
+    return;
 
+  }
   if (game_management_save(game,filename)==ERROR){
     command_set_status(game->command,ERROR);
     return;
@@ -1493,6 +1498,11 @@ void game_callback_load(Game *game){
 
   strcpy(filename,command_get_arg(game->command));
 
+   if(strlen(filename)==0){
+    command_set_status(game->command,ERROR);
+    return;
+
+  }
   if (game_management_load(game,filename)==ERROR){
     command_set_status(game->command,ERROR);
     return;

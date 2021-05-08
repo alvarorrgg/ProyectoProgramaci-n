@@ -1,5 +1,5 @@
 #makefile de juego OCA
-target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test  tests
+target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test tests docs
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_management.o object.o player.o set.o die.o inventory.o link.o dialogue.o
 TEST = set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o

@@ -436,7 +436,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   if(dialogue_get_num_tries(game_get_dialogue(game))!=-1){
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);
-    sprintf(str, "%s", dialogue_get_interaction(game_get_dialogue(game)));
+    sprintf(str, "%s", dialogue_get_interaction(game_get_dialogue(game),dialogue_get_choose_dialogue(game_get_dialogue(game))));
     screen_area_puts(ge->descript, str);
   }
   /* Pinta en el área del banner */
@@ -456,7 +456,11 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
   {
      if (command_get_status(game_get_command(game)) != 1)
     {
-      if(command_get_arg(game_get_command(game))==NULL){
+      if(command_get_cmd(game_get_command(game))==OPEN_LINK){
+        sprintf(str, " %s (%s) %s with %s: ERROR", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS], command_get_arg(game_get_command(game)),command_get_obj(game_get_command(game)));
+      }
+
+      else if(command_get_arg(game_get_command(game))==NULL){
       sprintf(str, " %s (%s): ERROR", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
     }
       else{
@@ -465,7 +469,10 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       }
     }
     else{
-      if(command_get_arg(game_get_command(game))==NULL){
+      if(command_get_cmd(game_get_command(game))==OPEN_LINK){
+        sprintf(str, " %s (%s) %s with %s: OK", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS], command_get_arg(game_get_command(game)),command_get_obj(game_get_command(game)));
+      }
+      else if(command_get_arg(game_get_command(game))==NULL){
       sprintf(str, " %s (%s): OK", cmd_to_str[last_cmd - NO_CMD][CMDL], cmd_to_str[last_cmd - NO_CMD][CMDS]);
 
     }
@@ -476,6 +483,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       
     
     }
+    str[strcspn(str, "\n")] = 0;
     screen_area_puts(ge->feedback, str);
   }
   /* Volcarlo en la terminal */

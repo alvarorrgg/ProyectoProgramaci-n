@@ -14,6 +14,9 @@
 #include "space.h"
 #include "set.h"
 
+#define NUMBEROFCHARS 3
+#define MAX_CHARS 46
+
 /**
  * @brief Define un espacio
  * 
@@ -53,10 +56,10 @@ Space* space_create(Id id) {
   new_space->west = NULL; 
   new_space->up = NULL; 
   new_space->down = NULL; 
-  new_space->gdesc = (char **)malloc(3*sizeof(char *)); 
-  new_space->gdesc[0] = (char *)malloc(46*sizeof(char)); 
-  new_space->gdesc[1] = (char *)malloc(46*sizeof(char));
-  new_space->gdesc[2] = (char *)malloc(46*sizeof(char));
+  new_space->gdesc = (char **)malloc(NUMBEROFCHARS*sizeof(char *)); 
+  new_space->gdesc[0] = (char *)malloc(MAX_CHARS*sizeof(char)); 
+  new_space->gdesc[1] = (char *)malloc(MAX_CHARS*sizeof(char));
+  new_space->gdesc[2] = (char *)malloc(MAX_CHARS*sizeof(char));
   new_space->ilumination = FALSE;
   if(!new_space->gdesc || !new_space->gdesc[0] || !new_space->gdesc[1] || !new_space->gdesc[2]) return NULL;
 

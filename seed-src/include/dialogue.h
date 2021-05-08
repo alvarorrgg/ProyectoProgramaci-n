@@ -11,6 +11,7 @@
 #define DIALOGUE_H
 
 #define MAX_INTERACTION 100
+#define MAX_CHARS_DIALOGUE 100
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,8 +27,14 @@ STATUS dialogue_destroy(Dialogue* d);
 STATUS dialogue_set_num_tries(Dialogue *d,int new_tries);
 int dialogue_get_num_tries(Dialogue *d);
 
+STATUS dialogue_set_num_dialogues(Dialogue *d,int new_dialogues);
+int dialogue_get_num_dialogues(Dialogue *d);
+
+STATUS dialogue_set_choose_dialogue(Dialogue *d,int choose_dialogue);
+int dialogue_get_choose_dialogue(Dialogue *d);
+
 STATUS dialogue_set_interaction(Dialogue *d,char *new_interaction);
-char* dialogue_get_interaction(Dialogue *d);
+char* dialogue_get_interaction(Dialogue *d,int index);
 
 STATUS dialogue_change_interaction(Dialogue *d, Command *c, Player *p);
 

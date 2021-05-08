@@ -28,7 +28,8 @@ typedef long Id;
  * Da valores numéricos siguiendo un orden a las variables de la estructura
  */
 typedef enum {
-  FALSE, TRUE	/* !< FALSE = 0 , TRUE = 1*/
+  FALSE, /* !< FALSE = 0 */
+  TRUE	 /* !< TRUE = 1 */
 } BOOL;
 
 /**
@@ -37,7 +38,8 @@ typedef enum {
  * Da valores numéricos siguiendo un orden a las variables de la estructura
  */
 typedef enum {
-  ERROR, OK	/* !< ERROR = 0 , OK = 1*/
+  ERROR, /* !< ERROR = 0*/
+  OK	 /* !< OK = 1*/
 } STATUS;
 
 /**
@@ -46,16 +48,23 @@ typedef enum {
  * Da valores numéricos siguiendo un orden a las variables de la estructura
  */
 typedef enum {
-  X, N, S, E, W, U, D	/* !< X = 0 , N = 1 , S = 2 , E = 3, W = 4, U = 5 D = 6*/
+  X,	/* !< X = 0 */
+  N,	/* !< N = 1 */
+  S,	/* !< S = 2 */
+  E,	/* !< E = 3 */
+  W,	/* !< W = 4 */
+  U,	/* !< U = 5 */
+  D	 /* !< D = 6 */	
 } DIRECTION;
 
 /**
  * @brief Opciones para TYPES
  *
- * Da valores numéricos siguiendo un orden a las variables de la estructura
+ * Sirve para los links si estan o bien abiertos o bien cerrados
  */
 typedef enum {
-  OPEN=0,CLOSE /* !< OPEN=0,CLOSE=1*/
+  OPEN=0,	/* !< OPEN=0*/
+  CLOSE 	/* !< CLOSE=1*/
 } TYPES;
 
 #endif

@@ -402,6 +402,31 @@ STATUS game_management_load_links(Game *game, char *filename)
   return OK;
 }
 
+STATUS game_management_load_dialogue(Game * game){
+
+  FILE *file = NULL;
+  char line[WORD_SIZE] = "";
+  
+
+
+  if (!game)
+    return ERROR;
+
+  file = fopen("dialogue.dat", "r");
+  if (file == NULL)
+    return ERROR;
+
+  while (fgets(line, WORD_SIZE, file))
+  {
+    line[strcspn(line, "\n")] = 0;
+    dialogue_set_interaction(game_get_dialogue(game),line);
+
+  }
+    fclose(file);
+
+  return OK;
+}
+
 STATUS game_management_save(Game * game, char * filename){
 
   FILE *f;
