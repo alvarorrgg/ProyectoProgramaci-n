@@ -1138,7 +1138,7 @@ char name[WORD_SIZE];
     for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL ; i++){
       space_id = space_get_id (game->spaces[i]);
       if (current_id == space_id){
-        if(space_get_ilumination(game->spaces[i]) == TRUE){   
+        if(space_get_ilumination(game->spaces[i]) == TRUE|| game_player_hasIluminated_object(game)){   
           strcpy (game->last_descripcion , space_get_detailed_description (game->spaces[i]));
           command_set_status(game->command, OK);
           return;
@@ -1426,7 +1426,7 @@ void game_callback_open(Game *game){
 
   while (game->link[j] != NULL)
   {
-     printf("Hola");
+     
     if (strcmp(link_get_name(game->link[j]), link) == 0) /*Se buscan los links que tengan el mismo nombre que el señalado*/
     {
      

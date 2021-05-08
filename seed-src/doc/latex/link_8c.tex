@@ -1,0 +1,421 @@
+\hypertarget{link_8c}{}\doxysection{src/link.c File Reference}
+\label{link_8c}\index{src/link.c@{src/link.c}}
+
+
+Define los enlaces entre espacios.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}link.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+Include dependency graph for link.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{link_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Link}{\+\_\+\+Link}}
+\begin{DoxyCompactList}\small\item\em Define la estructura de los enlaces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$ \mbox{\hyperlink{link_8c_a8090d7f529cfd6a2fc5df3dd379fe514}{link\+\_\+create}} (\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em crea los enlaces entre los espacios \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{link_8c_af21dcdcf1b0f3311206470439c18bd7f}{link\+\_\+destroy}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em destruye un enlace entre esapcios \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_ab1f9ab65f3b10bcf29c95cefdefc95a2}{link\+\_\+get\+\_\+id}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em obtiene la id de un enlace \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{link_8c_aff5c98e6957d08fda0710783a4fa1dba}{link\+\_\+get\+\_\+name}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em obtiene el nombre de un enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_a452a74a8e910e8fa5604c60f18d150a0}{link\+\_\+get\+\_\+id\+\_\+from}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em obtiene la id del espacio del cual empieza el enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} \mbox{\hyperlink{link_8c_aa926a8203c9649014f547b23c520dac3}{link\+\_\+get\+\_\+id\+\_\+to}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em obtiene la id del espacio en el cual termina el enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_aacb79576e5cf053ee9c93cb9d665e32b}{T\+Y\+P\+ES}} \mbox{\hyperlink{link_8c_a38953490fea00a0c509c6d102b2f6b7e}{link\+\_\+get\+\_\+type}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em obtiene la clase del enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{link_8c_a3deb6493dfa97b5944d1f87125dad44f}{link\+\_\+set\+\_\+id}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} id)
+\begin{DoxyCompactList}\small\item\em esatblece la id de un enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{link_8c_ae3d998c5966226b44162967adf356ac9}{link\+\_\+set\+\_\+name}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l, char $\ast$name)
+\begin{DoxyCompactList}\small\item\em esatblece el nombre de un enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{link_8c_a2a203056e8aedcdeb939e70132cb351d}{link\+\_\+set\+\_\+id\+\_\+from}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} from)
+\begin{DoxyCompactList}\small\item\em esatblece la id en la cual comienza el enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{link_8c_abce5baa1d57b4dfa71f43d895884c41a}{link\+\_\+set\+\_\+id\+\_\+to}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l, \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} to)
+\begin{DoxyCompactList}\small\item\em esatblece la id en la cual termina el enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{link_8c_a03af05333597bc5eb92412de56bd201f}{link\+\_\+set\+\_\+type}} (\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l, \mbox{\hyperlink{types_8h_aacb79576e5cf053ee9c93cb9d665e32b}{T\+Y\+P\+ES}} type)
+\begin{DoxyCompactList}\small\item\em esatblece el tipo de un enlace \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{link_8c_a51631da68fef9c9e9a9f606fec93d21b}{link\+\_\+print}} (F\+I\+LE $\ast$pf, \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em imprime en un fichero la información sobre un enlace \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Define los enlaces entre espacios. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Vicente 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{link_8c_a8090d7f529cfd6a2fc5df3dd379fe514}\label{link_8c_a8090d7f529cfd6a2fc5df3dd379fe514}} 
+\index{link.c@{link.c}!link\_create@{link\_create}}
+\index{link\_create@{link\_create}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_create()}{link\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}}$\ast$ link\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+crea los enlaces entre los espacios 
+
+inventory\+\_\+create crea las conexiones que hay entre los espacios
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & la id del enlace que se va a crear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero a la estructura Link si todo ha ido bien, N\+U\+LL en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_af21dcdcf1b0f3311206470439c18bd7f}\label{link_8c_af21dcdcf1b0f3311206470439c18bd7f}} 
+\index{link.c@{link.c}!link\_destroy@{link\_destroy}}
+\index{link\_destroy@{link\_destroy}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_destroy()}{link\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} link\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+destruye un enlace entre esapcios 
+
+inventory\+\_\+destroy destruye el enlace especificado
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_ab1f9ab65f3b10bcf29c95cefdefc95a2}\label{link_8c_ab1f9ab65f3b10bcf29c95cefdefc95a2}} 
+\index{link.c@{link.c}!link\_get\_id@{link\_get\_id}}
+\index{link\_get\_id@{link\_get\_id}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_id()}{link\_get\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+obtiene la id de un enlace 
+
+inventory\+\_\+destroy obtiene la id de un enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La id del enlace si todo ha ido bien, N\+O\+\_\+\+ID en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_a452a74a8e910e8fa5604c60f18d150a0}\label{link_8c_a452a74a8e910e8fa5604c60f18d150a0}} 
+\index{link.c@{link.c}!link\_get\_id\_from@{link\_get\_id\_from}}
+\index{link\_get\_id\_from@{link\_get\_id\_from}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_id\_from()}{link\_get\_id\_from()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+id\+\_\+from (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+obtiene la id del espacio del cual empieza el enlace 
+
+inventory\+\_\+destroy obtiene la id del espacio del cual empieza el enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La id del espacio si todo ha ido bien, N\+O\+\_\+\+ID en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_aa926a8203c9649014f547b23c520dac3}\label{link_8c_aa926a8203c9649014f547b23c520dac3}} 
+\index{link.c@{link.c}!link\_get\_id\_to@{link\_get\_id\_to}}
+\index{link\_get\_id\_to@{link\_get\_id\_to}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_id\_to()}{link\_get\_id\_to()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}} link\+\_\+get\+\_\+id\+\_\+to (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+obtiene la id del espacio en el cual termina el enlace 
+
+inventory\+\_\+destroy obtiene la id del espacio en el cual termina el enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La id del espacio si todo ha ido bien, N\+O\+\_\+\+ID en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_aff5c98e6957d08fda0710783a4fa1dba}\label{link_8c_aff5c98e6957d08fda0710783a4fa1dba}} 
+\index{link.c@{link.c}!link\_get\_name@{link\_get\_name}}
+\index{link\_get\_name@{link\_get\_name}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_name()}{link\_get\_name()}}
+{\footnotesize\ttfamily char$\ast$ link\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+obtiene el nombre de un enlace 
+
+inventory\+\_\+destroy obtiene el nombre de un enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El nombre del enlace si todo ha ido bien, N\+U\+LL en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_a38953490fea00a0c509c6d102b2f6b7e}\label{link_8c_a38953490fea00a0c509c6d102b2f6b7e}} 
+\index{link.c@{link.c}!link\_get\_type@{link\_get\_type}}
+\index{link\_get\_type@{link\_get\_type}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_get\_type()}{link\_get\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aacb79576e5cf053ee9c93cb9d665e32b}{T\+Y\+P\+ES}} link\+\_\+get\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+obtiene la clase del enlace 
+
+inventory\+\_\+destroy obtiene la clase del enlace (abierto o cerrado)
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El tipo de enlace si todo ha ido bien, C\+L\+O\+SE en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_a51631da68fef9c9e9a9f606fec93d21b}\label{link_8c_a51631da68fef9c9e9a9f606fec93d21b}} 
+\index{link.c@{link.c}!link\_print@{link\_print}}
+\index{link\_print@{link\_print}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_print()}{link\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} link\+\_\+print (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{pf,  }\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+imprime en un fichero la información sobre un enlace 
+
+inventory\+\_\+destroy imprime en un fichero la información sobre un enlace \begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+{\em pf} & nombre del fichero en el que será impreso \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_a3deb6493dfa97b5944d1f87125dad44f}\label{link_8c_a3deb6493dfa97b5944d1f87125dad44f}} 
+\index{link.c@{link.c}!link\_set\_id@{link\_set\_id}}
+\index{link\_set\_id@{link\_set\_id}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_id()}{link\_set\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} link\+\_\+set\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{id }\end{DoxyParamCaption})}
+
+
+
+esatblece la id de un enlace 
+
+inventory\+\_\+destroy esatblece la id de un enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+{\em id} & id que va a ser establecida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_a2a203056e8aedcdeb939e70132cb351d}\label{link_8c_a2a203056e8aedcdeb939e70132cb351d}} 
+\index{link.c@{link.c}!link\_set\_id\_from@{link\_set\_id\_from}}
+\index{link\_set\_id\_from@{link\_set\_id\_from}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_id\_from()}{link\_set\_id\_from()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} link\+\_\+set\+\_\+id\+\_\+from (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{from }\end{DoxyParamCaption})}
+
+
+
+esatblece la id en la cual comienza el enlace 
+
+inventory\+\_\+destroy esatblece la id en la cual comienza el enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+{\em from} & id en la cual será establecido el comienzao del enlace \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_abce5baa1d57b4dfa71f43d895884c41a}\label{link_8c_abce5baa1d57b4dfa71f43d895884c41a}} 
+\index{link.c@{link.c}!link\_set\_id\_to@{link\_set\_id\_to}}
+\index{link\_set\_id\_to@{link\_set\_id\_to}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_id\_to()}{link\_set\_id\_to()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} link\+\_\+set\+\_\+id\+\_\+to (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{types_8h_a845e604fb28f7e3d97549da3448149d3}{Id}}}]{to }\end{DoxyParamCaption})}
+
+
+
+esatblece la id en la cual termina el enlace 
+
+inventory\+\_\+destroy esatblece la id en la cual termina el enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+{\em to} & id en la cual será establecido el fin del enlace \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_ae3d998c5966226b44162967adf356ac9}\label{link_8c_ae3d998c5966226b44162967adf356ac9}} 
+\index{link.c@{link.c}!link\_set\_name@{link\_set\_name}}
+\index{link\_set\_name@{link\_set\_name}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_name()}{link\_set\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} link\+\_\+set\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+esatblece el nombre de un enlace 
+
+inventory\+\_\+destroy esatblece el nombre de un enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+{\em name} & nombre que va a ser estalecido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{link_8c_a03af05333597bc5eb92412de56bd201f}\label{link_8c_a03af05333597bc5eb92412de56bd201f}} 
+\index{link.c@{link.c}!link\_set\_type@{link\_set\_type}}
+\index{link\_set\_type@{link\_set\_type}!link.c@{link.c}}
+\doxysubsubsection{\texorpdfstring{link\_set\_type()}{link\_set\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} link\+\_\+set\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{link_8h_ae3b299941e67be6971bfd64a25505eff}{Link}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{types_8h_aacb79576e5cf053ee9c93cb9d665e32b}{T\+Y\+P\+ES}}}]{type }\end{DoxyParamCaption})}
+
+
+
+esatblece el tipo de un enlace 
+
+link\+\_\+set\+\_\+type esatblece el tipo de un enlace
+
+\begin{DoxyDate}{Date}
+30-\/03-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Alberto Vicente García
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & puntero a la estructura Link \\
+\hline
+{\em type} & tipo del enlace \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR en caso contrario 
+\end{DoxyReturn}

@@ -1,0 +1,418 @@
+\hypertarget{dialogue_8c}{}\doxysection{src/dialogue.c File Reference}
+\label{dialogue_8c}\index{src/dialogue.c@{src/dialogue.c}}
+
+
+Ejecuta una interacción entre el usuario y el juego.  
+
+
+{\ttfamily \#include \char`\"{}dialogue.\+h\char`\"{}}\newline
+Include dependency graph for dialogue.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dialogue_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__Dialogue}{\+\_\+\+Dialogue}}
+\begin{DoxyCompactList}\small\item\em Define la estructura del Dialogo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$ \mbox{\hyperlink{dialogue_8c_a6bbb222bd36ff3f9f553763ea2b29aca}{dialogue\+\_\+new}} ()
+\begin{DoxyCompactList}\small\item\em crea un dialogo \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8c_a1eff6cd1b20ce1694e41790ceb46c75d}{dialogue\+\_\+destroy}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em destruye un dialogo \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8c_a8f0936f1152fccdd4e82c38c6746f099}{dialogue\+\_\+set\+\_\+num\+\_\+tries}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, int new\+\_\+tries)
+\begin{DoxyCompactList}\small\item\em establece el numero de intentos \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogue_8c_ad2ee4942cb27b9d4db0258c0dfa1b0a3}{dialogue\+\_\+get\+\_\+num\+\_\+tries}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em consigue el numero de intentos \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8c_af7bb3900848fc29b8bab5ca36cfe12a1}{dialogue\+\_\+set\+\_\+num\+\_\+dialogues}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, int new\+\_\+dialogues)
+\begin{DoxyCompactList}\small\item\em establece el numero de dialogos \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogue_8c_a9e498ced3a350abb0976d69b613ccaca}{dialogue\+\_\+get\+\_\+num\+\_\+dialogues}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em consigue el numero de dialogos \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8c_a30e64061673b7d03518622ba7ea3b012}{dialogue\+\_\+set\+\_\+choose\+\_\+dialogue}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, int choose\+\_\+dialogue)
+\begin{DoxyCompactList}\small\item\em establece el dialogo elegido \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogue_8c_aeb7bb5723defca5d6a803dfb8b4cefa9}{dialogue\+\_\+get\+\_\+choose\+\_\+dialogue}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em consigue el dialogo elegido \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8c_abba23460bf1aaa1e86f7384b64934234}{dialogue\+\_\+set\+\_\+interaction}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, char $\ast$new\+\_\+interaction)
+\begin{DoxyCompactList}\small\item\em establece una nueva interaccion \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{dialogue_8c_acd009bd7357f1675d4eb935dfe76333b}{dialogue\+\_\+get\+\_\+interaction}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, int index)
+\begin{DoxyCompactList}\small\item\em consigue la interaccion buscada \end{DoxyCompactList}\item 
+\mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}} \mbox{\hyperlink{dialogue_8c_ac21a3431dcc530dd2186e29384d8bb64}{dialogue\+\_\+get\+\_\+last\+\_\+command}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em obtiene el ultimo comando para el dialogo \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8c_a0377c8b49019ec88c33e866bc8b1193a}{dialogue\+\_\+set\+\_\+last\+\_\+command}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, \mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}} cmd)
+\begin{DoxyCompactList}\small\item\em establece el ultimo comando para el dialogo \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8c_a8b23125fb890a60853d8c48663bab34d}{dialogue\+\_\+change\+\_\+interaction}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, \mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$c, \mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em cambia una interaccion \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ejecuta una interacción entre el usuario y el juego. 
+
+\begin{DoxyAuthor}{Author}
+Álvaro Rodríguez 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+22-\/04-\/2021 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU Public License 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{dialogue_8c_a8b23125fb890a60853d8c48663bab34d}\label{dialogue_8c_a8b23125fb890a60853d8c48663bab34d}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_change\_interaction@{dialogue\_change\_interaction}}
+\index{dialogue\_change\_interaction@{dialogue\_change\_interaction}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_change\_interaction()}{dialogue\_change\_interaction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} dialogue\+\_\+change\+\_\+interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d,  }\item[{\mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$}]{c,  }\item[{\mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+cambia una interaccion 
+
+diaolgue\+\_\+change\+\_\+interaction cambiua una interaccion
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+{\em c} & Puntero a estructura Command \\
+\hline
+{\em p} & Puntero a estructura Player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_a1eff6cd1b20ce1694e41790ceb46c75d}\label{dialogue_8c_a1eff6cd1b20ce1694e41790ceb46c75d}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_destroy@{dialogue\_destroy}}
+\index{dialogue\_destroy@{dialogue\_destroy}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_destroy()}{dialogue\_destroy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} dialogue\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+destruye un dialogo 
+
+diaolgue\+\_\+destroy destruye un dialogo
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_aeb7bb5723defca5d6a803dfb8b4cefa9}\label{dialogue_8c_aeb7bb5723defca5d6a803dfb8b4cefa9}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_get\_choose\_dialogue@{dialogue\_get\_choose\_dialogue}}
+\index{dialogue\_get\_choose\_dialogue@{dialogue\_get\_choose\_dialogue}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_get\_choose\_dialogue()}{dialogue\_get\_choose\_dialogue()}}
+{\footnotesize\ttfamily int dialogue\+\_\+get\+\_\+choose\+\_\+dialogue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+consigue el dialogo elegido 
+
+ialogue\+\_\+get\+\_\+choose\+\_\+dialogue consigue el dialogo elegido
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El numero del dialogo si todo ha ido bien, -\/1 si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_acd009bd7357f1675d4eb935dfe76333b}\label{dialogue_8c_acd009bd7357f1675d4eb935dfe76333b}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_get\_interaction@{dialogue\_get\_interaction}}
+\index{dialogue\_get\_interaction@{dialogue\_get\_interaction}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_get\_interaction()}{dialogue\_get\_interaction()}}
+{\footnotesize\ttfamily char$\ast$ dialogue\+\_\+get\+\_\+interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+consigue la interaccion buscada 
+
+diaolgue\+\_\+get\+\_\+interaction consigue la interaccion buscada
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+{\em index} & indice del dialogo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la interaccion buscada si todo ha ido bien, N\+U\+LL si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_ac21a3431dcc530dd2186e29384d8bb64}\label{dialogue_8c_ac21a3431dcc530dd2186e29384d8bb64}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_get\_last\_command@{dialogue\_get\_last\_command}}
+\index{dialogue\_get\_last\_command@{dialogue\_get\_last\_command}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_get\_last\_command()}{dialogue\_get\_last\_command()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}} dialogue\+\_\+get\+\_\+last\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+obtiene el ultimo comando para el dialogo 
+
+dialogue\+\_\+get\+\_\+last\+\_\+command obtiene el ultimo comando para el dialogo
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Ãlvaro Rodri­guez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el comando si todo ha salido bien. N\+O\+\_\+\+C\+MD en caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_a9e498ced3a350abb0976d69b613ccaca}\label{dialogue_8c_a9e498ced3a350abb0976d69b613ccaca}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_get\_num\_dialogues@{dialogue\_get\_num\_dialogues}}
+\index{dialogue\_get\_num\_dialogues@{dialogue\_get\_num\_dialogues}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_get\_num\_dialogues()}{dialogue\_get\_num\_dialogues()}}
+{\footnotesize\ttfamily int dialogue\+\_\+get\+\_\+num\+\_\+dialogues (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+consigue el numero de dialogos 
+
+dialogue\+\_\+get\+\_\+num\+\_\+dialogues consigue el numero de dialogos
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El numero de dialogos si todo ha ido bien, -\/1 si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_ad2ee4942cb27b9d4db0258c0dfa1b0a3}\label{dialogue_8c_ad2ee4942cb27b9d4db0258c0dfa1b0a3}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_get\_num\_tries@{dialogue\_get\_num\_tries}}
+\index{dialogue\_get\_num\_tries@{dialogue\_get\_num\_tries}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_get\_num\_tries()}{dialogue\_get\_num\_tries()}}
+{\footnotesize\ttfamily int dialogue\+\_\+get\+\_\+num\+\_\+tries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+consigue el numero de intentos 
+
+diaolgue\+\_\+set\+\_\+num\+\_\+tries consigue el numero de intentos
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El numero de intentos si todo ha ido bien, -\/1 si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_a6bbb222bd36ff3f9f553763ea2b29aca}\label{dialogue_8c_a6bbb222bd36ff3f9f553763ea2b29aca}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_new@{dialogue\_new}}
+\index{dialogue\_new@{dialogue\_new}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_new()}{dialogue\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}}$\ast$ dialogue\+\_\+new (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+crea un dialogo 
+
+diaolgue\+\_\+create crea un dialogo
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+El dialogo nuevo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_a30e64061673b7d03518622ba7ea3b012}\label{dialogue_8c_a30e64061673b7d03518622ba7ea3b012}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_set\_choose\_dialogue@{dialogue\_set\_choose\_dialogue}}
+\index{dialogue\_set\_choose\_dialogue@{dialogue\_set\_choose\_dialogue}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_set\_choose\_dialogue()}{dialogue\_set\_choose\_dialogue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} dialogue\+\_\+set\+\_\+choose\+\_\+dialogue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d,  }\item[{int}]{choose\+\_\+dialogue }\end{DoxyParamCaption})}
+
+
+
+establece el dialogo elegido 
+
+dialogue\+\_\+set\+\_\+choose\+\_\+dialogue establece el dialogo elegido
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+{\em choose\+\_\+dialogue} & numero de dialogo elegido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_abba23460bf1aaa1e86f7384b64934234}\label{dialogue_8c_abba23460bf1aaa1e86f7384b64934234}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_set\_interaction@{dialogue\_set\_interaction}}
+\index{dialogue\_set\_interaction@{dialogue\_set\_interaction}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_set\_interaction()}{dialogue\_set\_interaction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} dialogue\+\_\+set\+\_\+interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d,  }\item[{char $\ast$}]{new\+\_\+interaction }\end{DoxyParamCaption})}
+
+
+
+establece una nueva interaccion 
+
+diaolgue\+\_\+set\+\_\+interaction establece una nueva interaccion
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+{\em new\+\_\+interaction} & nueva interaccion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_a0377c8b49019ec88c33e866bc8b1193a}\label{dialogue_8c_a0377c8b49019ec88c33e866bc8b1193a}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_set\_last\_command@{dialogue\_set\_last\_command}}
+\index{dialogue\_set\_last\_command@{dialogue\_set\_last\_command}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_set\_last\_command()}{dialogue\_set\_last\_command()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} dialogue\+\_\+set\+\_\+last\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d,  }\item[{\mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}}}]{cmd }\end{DoxyParamCaption})}
+
+
+
+establece el ultimo comando para el dialogo 
+
+dialogue\+\_\+set\+\_\+last\+\_\+command establece el ultimo comando para el dialogo
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+ÃƒÂlvaro RodrÃƒÂ­guez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+{\em cmd} & comando recibido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha salido bien, E\+R\+R\+OR si ha habido algun E\+R\+R\+OR 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_af7bb3900848fc29b8bab5ca36cfe12a1}\label{dialogue_8c_af7bb3900848fc29b8bab5ca36cfe12a1}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_set\_num\_dialogues@{dialogue\_set\_num\_dialogues}}
+\index{dialogue\_set\_num\_dialogues@{dialogue\_set\_num\_dialogues}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_set\_num\_dialogues()}{dialogue\_set\_num\_dialogues()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} dialogue\+\_\+set\+\_\+num\+\_\+dialogues (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d,  }\item[{int}]{new\+\_\+dialogues }\end{DoxyParamCaption})}
+
+
+
+establece el numero de dialogos 
+
+dialogue\+\_\+set\+\_\+num\+\_\+dialogues establece el numero de dialogos
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+{\em new\+\_\+dialogues} & numero de dialogos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8c_a8f0936f1152fccdd4e82c38c6746f099}\label{dialogue_8c_a8f0936f1152fccdd4e82c38c6746f099}} 
+\index{dialogue.c@{dialogue.c}!dialogue\_set\_num\_tries@{dialogue\_set\_num\_tries}}
+\index{dialogue\_set\_num\_tries@{dialogue\_set\_num\_tries}!dialogue.c@{dialogue.c}}
+\doxysubsubsection{\texorpdfstring{dialogue\_set\_num\_tries()}{dialogue\_set\_num\_tries()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} dialogue\+\_\+set\+\_\+num\+\_\+tries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d,  }\item[{int}]{new\+\_\+tries }\end{DoxyParamCaption})}
+
+
+
+establece el numero de intentos 
+
+diaolgue\+\_\+set\+\_\+num\+\_\+tries establece el numero de intentos
+
+\begin{DoxyAuthor}{Author}
+Alvaro Rodriguez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+02-\/05-\/2021
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+{\em new\+\_\+tries} & numero de intentos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha ido bien, E\+R\+R\+OR si algo ha fallado 
+\end{DoxyReturn}
