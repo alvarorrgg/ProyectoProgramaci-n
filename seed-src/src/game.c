@@ -1551,7 +1551,7 @@ void game_callback_build(Game *game){
   }
   else if(strcmp(command_get_arg(game_get_command(game)),"Pico")==0 || strcmp(command_get_arg(game_get_command(game)),"pico")==0){
     if(player_has_object(game_get_player(game),object_get_id(game->objects[13])) && player_has_object(game_get_player(game),object_get_id(game->objects[14])) && player_has_object(game_get_player(game),object_get_id(game->objects[15])) && player_has_object(game_get_player(game),object_get_id(game->objects[16]))){
-        object_set_description(game->objects[13],"Pico para romper paredes");
+        object_set_description(game->objects[13],"Pico para romper muros");
         object_set_iluminate(game->objects[13],TRUE);
         object_set_name(game->objects[13],"Pico");
         object_set_link_open(game->objects[13],9);
