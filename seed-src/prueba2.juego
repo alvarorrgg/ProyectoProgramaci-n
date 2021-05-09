@@ -1,0 +1,78 @@
+take Alambre
+take Palo
+take Cerilla
+take Algodon
+take Libro
+take Palanca
+take Baldosa
+take LLave
+take Polvora
+take Mecha
+take Quimicos
+take Gafas
+take Baston
+take Piedra
+take Madera
+take Lijadora
+take Cortadora
+take Cuerda
+take CajaFuerte
+take Mando
+take Balanza
+open Cadena with Alambre
+open Lnk1 with Alambre
+open Palanca with Alambre
+open Palanca with Alambre
+open Puerta with Alambre
+open Lnk2 with Alambre
+open Pared with Alambre
+open Balanza with Alambre
+open Techo with Alambre
+open Muro with Alambre
+open Escaner with Alambre
+open Hueco with Alambre
+open Compuerta with Alambre
+move east
+move west
+move north
+move south
+use Palanca
+use Baldosa
+use 345
+use 12
+use Pico
+use Escalera
+ton Antorcha
+ton Gafas
+toff Antorcha
+toff Gafas
+inspect Alambre
+inspect Palo
+inspect Cerilla
+inspect Algodon
+inspect Libro
+inspect Palanca
+inspect Baldosa
+inspect LLave
+inspect Polvora
+inspect Mecha
+inspect Quimicos
+inspect Gafas
+inspect Baston
+inspect Piedra
+inspect Madera
+inspect Lijadora
+inspect Cortadora
+inspect Cuerda
+inspect CajaFuerte
+inspect Mando
+inspect Balanza
+inspect space
+bd Escalera
+bd Pico
+bd C4
+bd Antorcha
+save ficheroprueba.dat
+load ficheroprueba.dat
+roll
+exit

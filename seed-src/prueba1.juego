@@ -1,0 +1,97 @@
+move e
+move e
+move e
+take Alambre
+take Alambre
+take
+drop
+drop Alambre
+take Alambre
+open link with Alambre
+open Alambre
+open Cadena with Alambre
+m n
+m s
+m e
+t Palo
+t Palo
+t Palo
+bd Antorcha
+t Algodon
+bd Antorcha
+use Antorcha
+t Cerilla
+open Antorcha
+use Antorcha
+bd Antorcha
+m n
+ton Antorcha
+take Libro
+m south
+open Palanca
+use Palanca
+m e
+m s
+take LLave
+take LLave
+drop Libro
+take Baldosa
+take LLave
+m s
+m n
+open LLave
+use LLave
+use Palanca
+open LLave with Palanca
+open Puerta with LLave
+ Move n
+ m s
+ m s
+ Use  Baldosa
+ Move e
+ bd C4
+ Take Polvora
+ bd C4
+ Take Mecha
+ bd C4
+ Take Quimicos
+ Build C4
+ Move w
+ Move s
+ Open Pared with C4
+ Open Pared with C4
+ Open Pared with C4
+ Open Pared with C4
+ Move e
+ Take Gafas
+ Turnon Gafas
+ toff Gafas
+ ton Gafas
+ ton Gafas
+ ton Gafas
+ Take Baston
+ Open Techo with Baston
+ Take Piedra
+ Build Pico
+ Take Madera
+ Build Pico
+ Take Lijadora
+ Build Pico
+ Take Cortadora
+ Build Pico
+ Open Muro with Pico
+ Build Pico
+ Move e
+ Use 123
+ take 345
+ open Puerta with 345
+ move 345
+ Use 345
+ Take Madera
+ Take Cuerda
+ Build Escalera
+ Open Hueco with Escalera
+ Use 12
+ Take Mando
+ Open Compuerta with Mando
+exit

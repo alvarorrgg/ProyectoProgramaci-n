@@ -451,10 +451,10 @@ STATUS game_management_save(Game * game, char * filename){
       if (loc<1){
         loc=player_get_location(p);
       }
-      fprintf(f,"#i:%ld|%s|%ld|%s|%d|%d|%d|\n",object_get_id(o),object_get_name(o),loc,object_get_description(o),object_get_turnedon(o),object_get_iluminate(o),object_get_turnedon(o));
+      fprintf(f,"#i:%ld|%s|%ld|%s|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),loc,object_get_description(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
     }
     else
-      fprintf(f,"#o:%ld|%s|%ld|%s|%d|%d|%d|\n",object_get_id(o),object_get_name(o),game_get_object_location(game,object_get_id(o)),object_get_description(o),object_get_turnedon(o),object_get_iluminate(o),object_get_turnedon(o));
+      fprintf(f,"#o:%ld|%s|%ld|%s|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),game_get_object_location(game,object_get_id(o)),object_get_description(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
   }
 
   for(i=0;i<game_get_total_links(game);i++){
