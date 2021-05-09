@@ -443,10 +443,10 @@ STATUS game_management_save(Game * game, char * filename){
   for (i=0;i<game_get_total_objects(game);i++){
     o=game_get_object(game,i);
     if(player_has_object(game_get_player(game),object_get_id(o))){
-      loc=game_get_object_location(game,object_get_id(o));
+      loc=game_get_object_location(game,object_get_id(o));/*
       if (loc<1){
         loc=player_get_location(p);
-      }
+      }*/
       fprintf(f,"#i:%ld|%s|%ld|%s|%ld|%d|%d|\n",object_get_id(o),object_get_name(o),loc,object_get_description(o),object_get_link_open(o),object_get_iluminate(o),object_get_turnedon(o));
     }
     else
@@ -530,12 +530,16 @@ STATUS game_management_load(Game * game, char * filename){
       object_set_iluminate(object, ilum);
       object_set_turnedon(object, turnOn);
       
+      
+        if (strncmp("#i:", aux, 3) == 0){
+          player_add_object(game_get_player(game),object_get_id(object));
+          space_remove_object(game_get_space(game,pos_obj),id);
+      }
 
-      if (strncmp("#i:", aux, 3) == 0)
-        player_add_object(game_get_player(game),object_get_id(object));
-
-      else
-        game_set_object_location(game, id, pos_obj);
+        else{
+          space_remove_object(game_get_space(game,pos_obj),id);
+          space_set_objects(game_get_space(game,pos_obj),id);
+        }
       }
 
       if (strncmp("#l:", line, 3) == 0)

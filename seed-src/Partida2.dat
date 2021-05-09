@@ -1,0 +1,34 @@
+#p:1|10|
+#o:1|Alambre|99|Con esto podre abrir la cadena|1|1|0|
+#i:2|Antorcha|-1|Ya puedo iluminar las salas|-1|1|1|
+#o:3|Algodon|99|Me servira para algo|-1|1|0|
+#o:4|Cerilla|99|Me servira para algo|-1|0|0|
+#i:5|Libro|-1|Parece que activa algun mecanismo|-1|0|0|
+#o:6|Palanca|9|No lo puedo recoger probare a usarlo|-1|0|0|
+#o:7|Baldosa|10|Parece que oculta algo debajo|-1|0|0|
+#o:8|LLave|10|Servira para abrir una puerta|4|0|0|
+#o:9|Polvora|26|Material de bomba|-1|0|0|
+#o:10|Mecha|26|Material de bomba|-1|0|0|
+#o:11|Quimicos|26|Material de bomba|-1|0|0|
+#o:12|Gafas|27|Para ver en la noche|-1|1|0|
+#o:13|Baston|27|Puedo abrir el techo|8|-1|0|
+#o:14|Piedra|37|Para construir un pico|-1|0|0|
+#o:15|Madera|37|Para construir un pico|-1|1|0|
+#o:16|Lijadora|37|Para construir un pico|-1|0|0|
+#o:17|Cortadora|37|Para construir un pico|-1|0|0|
+#o:18|Cuerda|55|Para construir una escalera|-1|0|0|
+#o:19|CajaFuerte|65|Dentro seguro que hay algo|0|0|0|
+#o:20|Mando|65|Podre abrir la compuerta|12|0|0|
+#o:21|Balanza|18|Habra que nivelarla con algo|-1|0|0|
+#l:1|0|
+#l:2|0|
+#l:3|0|
+#l:4|1|
+#l:5|0|
+#l:6|1|
+#l:7|1|
+#l:8|1|
+#l:9|1|
+#l:10|1|
+#l:11|1|
+#l:12|1|

@@ -94,7 +94,7 @@ void test1_dialogue_create(){
 void test2_dialogue_create(){
    Dialogue *d = dialogue_new();
 
-    PRINT_TEST_RESULT(dialogue_get_num_tries (d) == -1);
+    PRINT_TEST_RESULT(dialogue_get_num_tries (d) == -2);
     dialogue_destroy (d);
    
 } 
@@ -256,6 +256,7 @@ void test2_dialogue_get_interaction(){
     dialogue_set_interaction (d , "Ejemplo interacion");
 
     PRINT_TEST_RESULT(dialogue_get_interaction (d , 0) != NULL);
+    dialogue_destroy(d);
 }
 
 
