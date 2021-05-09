@@ -1,11 +1,11 @@
 #p:1|10|
 #o:1|Alambre|99|Con esto podre abrir la cadena|1|1|0|
-#i:2|Antorcha|10|Ya puedo iluminar las salas|-1|1|1|
+#i:2|Antorcha|-1|Ya puedo iluminar las salas|-1|1|1|
 #o:3|Algodon|99|Me servira para algo|-1|1|0|
 #o:4|Cerilla|99|Me servira para algo|-1|0|0|
-#i:5|Libro|10|Parece que activa algun mecanismo|-1|0|0|
+#i:5|Libro|-1|Parece que activa algun mecanismo|-1|0|0|
 #o:6|Palanca|9|No lo puedo recoger probare a usarlo|-1|0|0|
-#i:7|Baldosa|10|Parece que oculta algo debajo|-1|0|0|
+#i:7|Baldosa|-1|Parece que oculta algo debajo|-1|0|0|
 #o:8|LLave|99|Servira para abrir una puerta|4|0|0|
 #o:9|Polvora|26|Material de bomba|-1|0|0|
 #o:10|Mecha|26|Material de bomba|-1|0|0|

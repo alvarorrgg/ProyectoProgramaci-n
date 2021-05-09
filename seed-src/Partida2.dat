@@ -5,8 +5,8 @@
 #o:4|Cerilla|99|Me servira para algo|-1|0|0|
 #i:5|Libro|-1|Parece que activa algun mecanismo|-1|0|0|
 #o:6|Palanca|9|No lo puedo recoger probare a usarlo|-1|0|0|
-#o:7|Baldosa|10|Parece que oculta algo debajo|-1|0|0|
-#o:8|LLave|10|Servira para abrir una puerta|4|0|0|
+#i:7|Baldosa|-1|Parece que oculta algo debajo|-1|0|0|
+#o:8|LLave|99|Servira para abrir una puerta|4|0|0|
 #o:9|Polvora|26|Material de bomba|-1|0|0|
 #o:10|Mecha|26|Material de bomba|-1|0|0|
 #o:11|Quimicos|26|Material de bomba|-1|0|0|
@@ -23,7 +23,7 @@
 #l:1|0|
 #l:2|0|
 #l:3|0|
-#l:4|1|
+#l:4|0|
 #l:5|0|
 #l:6|1|
 #l:7|1|

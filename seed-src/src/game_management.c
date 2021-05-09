@@ -472,7 +472,7 @@ STATUS game_management_load(Game * game, char * filename){
   char descr[LEN_DES] = "";
   char aux[WORD_SIZE] = "";
   char *toks = NULL;
-  Id id = NO_ID, player_pos = NO_ID, pos_obj = NO_ID, link_open = NO_ID;
+  Id id = NO_ID, player_pos = NO_ID, pos_obj = NO_ID, link_open = NO_ID, pos_objAUX=NO_ID;
   BOOL ilum = FALSE;
   BOOL turnOn = FALSE;
   Object *object;
@@ -529,15 +529,19 @@ STATUS game_management_load(Game * game, char * filename){
       object_set_link_open(object, link_open);
       object_set_iluminate(object, ilum);
       object_set_turnedon(object, turnOn);
-      
+      pos_objAUX=game_get_object_location(game,id);
       
         if (strncmp("#i:", aux, 3) == 0){
+          printf("%s",object_get_name(object));
+          if(pos_objAUX!=-1){
+          space_remove_object(game_get_space(game,pos_objAUX),id);
+          }
           player_add_object(game_get_player(game),object_get_id(object));
-          space_remove_object(game_get_space(game,pos_obj),id);
+
       }
 
         else{
-          space_remove_object(game_get_space(game,pos_obj),id);
+          space_remove_object(game_get_space(game,pos_objAUX),id);
           space_set_objects(game_get_space(game,pos_obj),id);
         }
       }
