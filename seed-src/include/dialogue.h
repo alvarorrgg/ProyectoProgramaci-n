@@ -150,6 +150,32 @@ STATUS dialogue_set_interaction(Dialogue *d,char *new_interaction);
  */
 char* dialogue_get_interaction(Dialogue *d,int index);
 /**
+ * @brief establece el ultimo comando para el dialogo
+ *
+ * dialogue_set_last_command establece el ultimo comando para el dialogo
+ * 
+ * @date 02-05-2021
+ * @author ÃƒÂlvaro RodrÃƒÂ­guez
+ *
+ * @param d Puntero a estructura Dialogue
+ * @param cmd comando recibido
+ * @return OK si todo ha salido bien, ERROR si ha habido algun ERROR
+ */
+STATUS dialogue_set_last_command(Dialogue *d, T_Command cmd);
+/**
+ * @brief obtiene el ultimo comando para el dialogo
+ *
+ * dialogue_get_last_command obtiene el ultimo comando para el dialogo
+ * 
+ * @date 02-05-2021
+ * @author Ãlvaro Rodri­guez
+ *
+ * @param d Puntero a estructura Dialogue
+
+ * @return el comando si todo ha salido bien. NO_CMD en caso contrario
+ */
+T_Command dialogue_get_last_command(Dialogue *d);
+/**
  * @brief cambia una interaccion
  * 
  * diaolgue_change_interaction cambiua una interaccion

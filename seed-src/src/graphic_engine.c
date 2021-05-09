@@ -109,7 +109,6 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
           screen_area_puts(ge->map, str);
           sprintf(str, "                                                       |");
           screen_area_puts(ge->map, str);
-          printf("\nHoliwi\n");
       }
       else{
           sprintf(str, " ");
@@ -118,19 +117,15 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
           screen_area_puts(ge->map, str);
           sprintf(str, " ");
           screen_area_puts(ge->map, str);
-          printf("\nHoliwi2\n");
 
       }
       link1=NULL;
 
     sum = 0;
-    printf("%i",num_objects);
     for (i = 1; i <= num_objects + 1; i++)
     {
       if (space_has_object_id(space_act, i)){
-        printf("cont\n%i\n",i);
        if(player_has_object(game_get_player(game),object_get_dependency(game_get_object_by_id(game,i))) || object_get_dependency(game_get_object_by_id(game,i))==-1) {
-         printf("dep\n%li\n",object_get_dependency(game_get_object_by_id(game,i)));
         strcpy(obj[i], object_get_name(game_get_object(game, i-1)));
        }
        else{
@@ -365,7 +360,6 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
           screen_area_puts(ge->map, str);
           sprintf(str, "                                                       v");
           screen_area_puts(ge->map, str);
-          printf("\nHoliwi\n");
       }
       else{
           sprintf(str, " ");
@@ -374,7 +368,6 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
           screen_area_puts(ge->map, str);
           sprintf(str, " ");
           screen_area_puts(ge->map, str);
-          printf("\nHoliwi2\n");
 
       }
   sprintf(str, "######################################################################################################################");
@@ -439,7 +432,7 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);
     sprintf(str, " ");
-    if(space_get_ilumination(game_get_space(game,id_act))==TRUE){
+    if(space_get_ilumination(game_get_space(game,id_act))==TRUE || game_player_hasIluminated_object(game)==TRUE){
     screen_area_puts(ge->descript, str);
     sprintf(str, "Inspect description: ");
     screen_area_puts(ge->descript, str);
@@ -450,11 +443,11 @@ void graphic_engine_paint_game(Graphic_engine *ge, Game *game)
       screen_area_puts(ge->descript, str);
       sprintf(str, " ");
       screen_area_puts(ge->descript, str);
-      sprintf(str, "");
+      sprintf(str, " ");
       screen_area_puts(ge->descript, str);
     }
   }
-  if(dialogue_get_num_tries(game_get_dialogue(game))!=-1){
+  if(dialogue_get_num_tries(game_get_dialogue(game))!=-2){
 
     sprintf(str, " ");
     screen_area_puts(ge->descript, str);

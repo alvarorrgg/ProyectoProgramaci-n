@@ -12,7 +12,7 @@ SPACE_TESTDIR = $(addprefix obj/, space_test.o space.o set.o link.o)
 OBJECT_TESTDIR = $(addprefix obj/, object_test.o object.o)
 LINK_TESTDIR = $(addprefix obj/, link_test.o link.o)
 COMMAND_TESTDIR = $(addprefix obj/, command_test.o command.o)
-DIALOGUE_TESTDIR = $(addprefix obj/, dialogue_test.o dialogue.o player.o command.o)
+DIALOGUE_TESTDIR = $(addprefix obj/, dialogue_test.o dialogue.o player.o command.o inventory.o set.o)
 CC = gcc
 
 vpath %.c src
@@ -176,12 +176,12 @@ command_test.o: command_test.c command_test.h command.h test.h
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
-dialogue_test: dialogue_test.o dialogue.o player.o command.o
+dialogue_test: dialogue_test.o dialogue.o inventory.o player.o command.o set.o
 	@echo "#####################"
 	@echo "Creando $@"
 	$(CC) -o  $@ $(DIALOGUE_TESTDIR)	
 
-dialogue_test.o: dialogue_test.c dialogue_test.h dialogue.h test.h player.h command.h
+dialogue_test.o: dialogue_test.c dialogue_test.h dialogue.h test.h player.h command.h inventory.h set.h
 	@echo "#####################"
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<

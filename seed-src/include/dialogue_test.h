@@ -15,6 +15,7 @@
 #include "dialogue.h"
 #include "types.h"
 
+
 /**
  * @test Función de prueba para dialogue_new
  * @pre  

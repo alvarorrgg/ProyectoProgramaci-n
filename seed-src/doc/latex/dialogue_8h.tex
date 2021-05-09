@@ -60,6 +60,10 @@ int \mbox{\hyperlink{dialogue_8h_aeb7bb5723defca5d6a803dfb8b4cefa9}{dialogue\+\_
 \begin{DoxyCompactList}\small\item\em establece una nueva interaccion \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{dialogue_8h_acd009bd7357f1675d4eb935dfe76333b}{dialogue\+\_\+get\+\_\+interaction}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, int index)
 \begin{DoxyCompactList}\small\item\em consigue la interaccion buscada \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8h_a0377c8b49019ec88c33e866bc8b1193a}{dialogue\+\_\+set\+\_\+last\+\_\+command}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, \mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}} cmd)
+\begin{DoxyCompactList}\small\item\em establece el ultimo comando para el dialogo \end{DoxyCompactList}\item 
+\mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}} \mbox{\hyperlink{dialogue_8h_ac21a3431dcc530dd2186e29384d8bb64}{dialogue\+\_\+get\+\_\+last\+\_\+command}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d)
+\begin{DoxyCompactList}\small\item\em obtiene el ultimo comando para el dialogo \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} \mbox{\hyperlink{dialogue_8h_a8b23125fb890a60853d8c48663bab34d}{dialogue\+\_\+change\+\_\+interaction}} (\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$d, \mbox{\hyperlink{command_8h_a7d2935971c252377cb0fc1c8545dc2bc}{Command}} $\ast$c, \mbox{\hyperlink{player_8h_af30e2030635a69690f85e48bc6ef202f}{Player}} $\ast$p)
 \begin{DoxyCompactList}\small\item\em cambia una interaccion \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -220,6 +224,32 @@ Alvaro Rodriguez
 \begin{DoxyReturn}{Returns}
 la interaccion buscada si todo ha ido bien, N\+U\+LL si algo ha fallado 
 \end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8h_ac21a3431dcc530dd2186e29384d8bb64}\label{dialogue_8h_ac21a3431dcc530dd2186e29384d8bb64}} 
+\index{dialogue.h@{dialogue.h}!dialogue\_get\_last\_command@{dialogue\_get\_last\_command}}
+\index{dialogue\_get\_last\_command@{dialogue\_get\_last\_command}!dialogue.h@{dialogue.h}}
+\doxysubsubsection{\texorpdfstring{dialogue\_get\_last\_command()}{dialogue\_get\_last\_command()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}} dialogue\+\_\+get\+\_\+last\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+
+
+obtiene el ultimo comando para el dialogo 
+
+dialogue\+\_\+get\+\_\+last\+\_\+command obtiene el ultimo comando para el dialogo
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Ãlvaro Rodri­guez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el comando si todo ha salido bien. N\+O\+\_\+\+C\+MD en caso contrario 
+\end{DoxyReturn}
 \mbox{\Hypertarget{dialogue_8h_a9e498ced3a350abb0976d69b613ccaca}\label{dialogue_8h_a9e498ced3a350abb0976d69b613ccaca}} 
 \index{dialogue.h@{dialogue.h}!dialogue\_get\_num\_dialogues@{dialogue\_get\_num\_dialogues}}
 \index{dialogue\_get\_num\_dialogues@{dialogue\_get\_num\_dialogues}!dialogue.h@{dialogue.h}}
@@ -348,6 +378,34 @@ Alvaro Rodriguez
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 OK si todo ha ido bien, E\+R\+R\+OR si algo ha fallado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogue_8h_a0377c8b49019ec88c33e866bc8b1193a}\label{dialogue_8h_a0377c8b49019ec88c33e866bc8b1193a}} 
+\index{dialogue.h@{dialogue.h}!dialogue\_set\_last\_command@{dialogue\_set\_last\_command}}
+\index{dialogue\_set\_last\_command@{dialogue\_set\_last\_command}!dialogue.h@{dialogue.h}}
+\doxysubsubsection{\texorpdfstring{dialogue\_set\_last\_command()}{dialogue\_set\_last\_command()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\+T\+A\+T\+US}} dialogue\+\_\+set\+\_\+last\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dialogue_8h_ad25e8d75177dc0ecfaaf97610765d318}{Dialogue}} $\ast$}]{d,  }\item[{\mbox{\hyperlink{command_8h_ab1f9bf350cc390d2bd227a2d6596cefb}{T\+\_\+\+Command}}}]{cmd }\end{DoxyParamCaption})}
+
+
+
+establece el ultimo comando para el dialogo 
+
+dialogue\+\_\+set\+\_\+last\+\_\+command establece el ultimo comando para el dialogo
+
+\begin{DoxyDate}{Date}
+02-\/05-\/2021 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+ÃƒÂlvaro RodrÃƒÂ­guez
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Puntero a estructura Dialogue \\
+\hline
+{\em cmd} & comando recibido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK si todo ha salido bien, E\+R\+R\+OR si ha habido algun E\+R\+R\+OR 
 \end{DoxyReturn}
 \mbox{\Hypertarget{dialogue_8h_af7bb3900848fc29b8bab5ca36cfe12a1}\label{dialogue_8h_af7bb3900848fc29b8bab5ca36cfe12a1}} 
 \index{dialogue.h@{dialogue.h}!dialogue\_set\_num\_dialogues@{dialogue\_set\_num\_dialogues}}

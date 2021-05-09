@@ -325,25 +325,21 @@ STATUS game_management_load_links(Game *game, char *filename)
         if (id_space1 + 1 == id_space2)
         {
           flag = 1;
-          printf("Flag 1\n");
         }
 
         else if (id_space1 + 8 == id_space2)
         {
           flag = 2;
-          printf("Flag 2\n");
         }
 
         else if (id_space1+10 == id_space2)
         {
           flag = 4;
-          printf("Flag 4\n");
         }
 
         else
         {
           flag = 3;
-          printf("Flag 3\n");
         }
       }
       else

@@ -29,7 +29,7 @@ Dialogue* dialogue_new(){
   int i = 0;
   new_dialogue=(Dialogue *) malloc(sizeof(Dialogue));
   if(!new_dialogue) return NULL;
-  new_dialogue->num_tries=-1;
+  new_dialogue->num_tries=-2;
   for(i=0;i<MAX_INTERACTION;i++){
     new_dialogue->interaction[i][0]='\0';
   }
@@ -90,41 +90,22 @@ char* dialogue_get_interaction(Dialogue *d,int index){
     if(!d) return NULL;
     return d->interaction[index];
 }
-/**
- * @brief obtiene el ultimo comando para el dialogo
- *
- * dialogue_get_last_command obtiene el ultimo comando para el dialogo
- * 
- * @date 02-05-2021
- * @author Ãlvaro Rodri­guez
- *
- * @param d Puntero a estructura Dialogue
 
- * @return el comando si todo ha salido bien. NO_CMD en caso contrario
- */
 T_Command dialogue_get_last_command(Dialogue *d){
     if(!d) return NO_CMD;
     return d->last_command;
 }
 
-/**
- * @brief establece el ultimo comando para el dialogo
- *
- * dialogue_set_last_command establece el ultimo comando para el dialogo
- * 
- * @date 02-05-2021
- * @author ÃƒÂlvaro RodrÃƒÂ­guez
- *
- * @param d Puntero a estructura Dialogue
- * @param cmd comando recibido
- * @return OK si todo ha salido bien, ERROR si ha habido algun ERROR
- */
 STATUS dialogue_set_last_command(Dialogue *d, T_Command cmd){
     if( d==NULL || cmd == NO_CMD) return ERROR;
      d->last_command=cmd;
     return OK;
 }
-
+/*Funcionamiento de esta funcion: 
+Esta es la funcion principal del modulo dialogue, en esta funcion es donde se lee el ultimo comando utilizado y se decide que mostrar en funcion de este comando.
+Para empezar se hace unas pequeñas condiciones para estipular si en caso de error, si el jugador ha usado el comado varias veces,
+Una vez se tiene esto en cuenta simplemente se busca el ultimo comando utilizado y se adapta la respuesta en funcion de este comando.
+Se pueden ver varios numeros "que parecen" aleatorios por toda la funcion, estos son los numeros que ocupa cada comando en la estructura de datos.*/
 STATUS dialogue_change_interaction(Dialogue *d, Command *c, Player *p){
     if(!d || !c) return ERROR;
     if(command_get_cmd(c)==UNKNOWN){
@@ -139,12 +120,12 @@ STATUS dialogue_change_interaction(Dialogue *d, Command *c, Player *p){
         d->num_tries++;
         }
     }
+    else if(command_get_status(c)==ERROR){
+        d->num_tries=0;
+    }
     else{
         d->num_tries=0;
     }
-
-
-    
     if(command_get_cmd(c)==TAKE){
         if(command_get_status(c)==OK){
             dialogue_set_choose_dialogue(d,0);

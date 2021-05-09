@@ -83,7 +83,7 @@ int/**
 }
 
 void test1_dialogue_create(){
-   Dialogue *d = dialogue_new;
+   Dialogue *d = dialogue_new();
    dialogue_set_num_tries (d , 5);
 
     PRINT_TEST_RESULT(d != NULL);
@@ -92,7 +92,7 @@ void test1_dialogue_create(){
 } 
 
 void test2_dialogue_create(){
-   Dialogue *d = dialogue_new;
+   Dialogue *d = dialogue_new();
 
     PRINT_TEST_RESULT(dialogue_get_num_tries (d) == -1);
     dialogue_destroy (d);
@@ -239,9 +239,8 @@ void test2_dialogue_set_interaction(){
 
 void test3_dialogue_set_interaction(){
     Dialogue *d = dialogue_new();
-    char *ejemplo = NULL;
+    char ejemplo[30] = "";
     strcpy (ejemplo , "Ejemplo de interaccion");
-
     PRINT_TEST_RESULT(dialogue_set_interaction (d , ejemplo) == OK);
     dialogue_destroy (d);
 }

@@ -421,7 +421,6 @@ STATUS game_add_link(Game *game, Link *link)
 
   while ((i < MAX_LINKS) && (game->link[i] != NULL)) i++;
 
-  printf("El link con numero:%i tiene la puerta:%i",i,link_get_type(link));
   game->link[i] = link;
   return OK;
 }
@@ -835,7 +834,6 @@ void game_callback_right(Game *game)
         return;
       }
       current_id = link_get_id_to(space_get_west(game->spaces[i]));  /*consigue el enlaze del espacio por la derecha*/
-      printf("%li",current_id);
       if (current_id != NO_ID)
       {
         game_set_player_location(game, current_id);        
@@ -884,7 +882,7 @@ void game_callback_left(Game *game)
         return;
       }
       current_id = link_get_id_to(space_get_east(game->spaces[i]));  /*consigue el enlaze del espacio por la izquierda*/
-      printf("%li",current_id);
+
 
       if (current_id != NO_ID)
       {
@@ -1110,7 +1108,6 @@ void game_callback_move(Game *game)
   
   else {
 
-    printf("La direccion no es valida.\n");
     command_set_status(game->command, ERROR);
 
     return;
@@ -1126,7 +1123,7 @@ char name[WORD_SIZE];
   Id current_id = game_get_player_location (game);
   Id space_id;
   Id object_id;
-
+  
   if(!game || current_id == NO_ID){
     command_set_status(game->command, ERROR);
     return;
