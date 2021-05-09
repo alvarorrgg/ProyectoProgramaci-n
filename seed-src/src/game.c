@@ -1138,7 +1138,7 @@ char name[WORD_SIZE];
     for (i = 0; i < MAX_SPACES && game->spaces[i] != NULL ; i++){
       space_id = space_get_id (game->spaces[i]);
       if (current_id == space_id){
-        if(space_get_ilumination(game->spaces[i]) == TRUE|| game_player_hasIluminated_object(game)){   
+        if(space_get_ilumination(game->spaces[i]) == TRUE || game_player_hasIluminated_object(game) == TRUE){   
           strcpy (game->last_descripcion , space_get_detailed_description (game->spaces[i]));
           command_set_status(game->command, OK);
           return;

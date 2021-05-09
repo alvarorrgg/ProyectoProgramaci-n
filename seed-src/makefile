@@ -1,8 +1,8 @@
 #makefile de juego OCA
-target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test tests docs
+target = ocaEXE  set_test die_test inventory_test player_test space_test object_test link_test command_test dialogue_test tests docs
 FLAGS=-ansi -pedantic -g -Wall -DDEBUG -I src -I include -o obj/$@
 OBJ = command.o game.o game_loop.o graphic_engine.o screen.o space.o game_management.o object.o player.o set.o die.o inventory.o link.o dialogue.o
-TEST = set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o
+TEST = set_test.o set.o die_test.o die.o inventory_test.o inventory.o player_test.o player.o space_test.o space.o object_test.o object.o link_test.o link.o command_test.o command.o dialogue_test.o dialogue.o
 OCAEXEDIR = $(addprefix obj/,command.o game.o game_loop.o graphic_engine.o screen.o space.o game_management.o object.o player.o set.o die.o inventory.o link.o dialogue.o)
 SET_TESTDIR = $(addprefix obj/,set_test.o set.o)
 DIE_TESTDIR = $(addprefix obj/,die_test.o die.o)
@@ -12,6 +12,7 @@ SPACE_TESTDIR = $(addprefix obj/, space_test.o space.o set.o link.o)
 OBJECT_TESTDIR = $(addprefix obj/, object_test.o object.o)
 LINK_TESTDIR = $(addprefix obj/, link_test.o link.o)
 COMMAND_TESTDIR = $(addprefix obj/, command_test.o command.o)
+DIALOGUE_TESTDIR = $(addprefix obj/, dialogue_test.o dialogue.o player.o command.o)
 CC = gcc
 
 vpath %.c src
@@ -175,10 +176,20 @@ command_test.o: command_test.c command_test.h command.h test.h
 	@echo "Creando $@"
 	$(CC) -c $(FLAGS) $<
 
+dialogue_test: dialogue_test.o dialogue.o player.o command.o
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -o  $@ $(DIALOGUE_TESTDIR)	
+
+dialogue_test.o: dialogue_test.c dialogue_test.h dialogue.h test.h player.h command.h
+	@echo "#####################"
+	@echo "Creando $@"
+	$(CC) -c $(FLAGS) $<
+
 docs: $(OBJ)
 	@doxygen ./Doxyfile
 	
-tests: set_test space_test die_test inventory_test player_test link_test command_test object_test
+tests: set_test space_test die_test inventory_test player_test link_test command_test object_test dialogue_test
 
 .PHONY: clean cleanDocs cleanGame cleanTests cleanObjs run runv runl runj 
 
